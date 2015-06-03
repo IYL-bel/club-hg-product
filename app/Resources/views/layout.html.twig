@@ -2,11 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Test Task</title>
+        <meta id="viewport" name="viewport" content="width=device-width">
+        <title>HG - Лучший эксперт чистоты</title>
+        <meta name='yandex-verification' content='5475c665e716aa8b' />
+
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+            <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/fonts/fonts.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/mainStyles.css') }}"/>
+            <!--[if gte IE 9]>
+            <style type="text/css">
+                .gradient {
+                    filter: none;
+                }
+            </style>
+            <![endif]-->
+        {% endblock %}
+
+
+        {% block javascripts %}
+        {% endblock %}
+
     </head>
 
     <body>
+
+
+
+
         {% block content %}
         {% endblock content %}
+
+
+
+
+
+
+        {% block footer %}
+            {% include '::footer.html.twig' %}
+        {% endblock footer %}
+
     </body>
 </html>
+
+
+
