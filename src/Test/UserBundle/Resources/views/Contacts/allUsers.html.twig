@@ -1,0 +1,27 @@
+{% extends '::layout.html.twig' %}
+
+
+{% block content %}
+
+    All Users
+    <div>
+        <a href="{{ path('_home') }}">Home</a>
+    </div>
+
+
+    <table>
+        <tr>
+            <th>User Name</th>
+            <th>User Gender</th>
+            <th>User Email</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.gender.getGenderString() |trans }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock content %}

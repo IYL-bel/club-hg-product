@@ -1,0 +1,7 @@
+message_send_email:
+    path:     /send-email/
+    defaults: { _controller: TestMessageBundle:Messages:sendEmail }
+
+message_congratulations_birthday:
+    path:     /congratulations-birthday/
+    defaults: { _controller: TestMessageBundle:Messages:congratulationsBirthday }

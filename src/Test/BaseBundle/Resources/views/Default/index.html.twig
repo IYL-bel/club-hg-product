@@ -1,0 +1,11 @@
+{% extends '::layout.html.twig' %}
+
+
+{% block content %}
+
+    Home Page
+    <div>
+        <a href="{{ path('user_all') }}">all users</a> | <a href="{{ path('message_send_email') }}">send message</a>
+    </div>
+
+{% endblock content %}

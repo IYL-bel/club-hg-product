@@ -1,0 +1,3 @@
+user_all:
+    path:     /all/
+    defaults: { _controller: TestUserBundle:Contacts:allUsers }
