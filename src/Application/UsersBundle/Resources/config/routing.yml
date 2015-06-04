@@ -1,0 +1,3 @@
+application_users_profile_my:
+    path:     my-profile/
+    defaults: { _controller: ApplicationUsersBundle:Profile:my }
