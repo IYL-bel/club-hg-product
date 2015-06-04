@@ -1,8 +1,61 @@
 {% extends '::layout.html.twig' %}
 
 
-{% block content %}
+{% block front_slider %}
 
+<div class="front_slider_bkg"></div>
+<div class="front_slider">
+    <div class="front_slider_wrap">
+        <div class="front_slider_wrap_content">
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 50% <br/>для всех членов</strong>
+                    Клуба Экспертов Чистоты
+                </div>
+            </div>
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 70% <br/>для всех членов</strong>
+                    Клуба Тугой Шуфлятки
+                </div>
+            </div>
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 30% <br/>для всех членов</strong>
+                    Клуба Почасовой Муж
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pagi">
+            <a class="selected" href="#"><span>1</span></a>
+            <a href="#"><span>1</span></a>
+            <a href="#"><span>1</span></a>
+        </div>
+
+        <a href="#prev" class="arr prev"><i class="fa fa-angle-left"></i></a>
+        <a href="#next" class="arr next"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+</div><!--.front_slider-->
+
+{% endblock %}
+
+
+{% block content %}
 
 <div class="content_main">
 
@@ -232,4 +285,5 @@
     </div><!--.content_main__infoblock-->
 
 </div><!--.content_main-->
+
 {% endblock content %}

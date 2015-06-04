@@ -1,3 +1,11 @@
-#application_base_homepage:
-#    path:     /hello/{name}
-#    defaults: { _controller: ApplicationBaseBundle:Default:index }
+application_base_contests:
+    path:     contests/
+    defaults: { _controller: ApplicationBaseBundle:Default:contests }
+
+application_base_prizes:
+    path:     prizes/
+    defaults: { _controller: ApplicationBaseBundle:Default:prizes }
+
+application_base_catalog_products:
+    path:     catalog-products/
+    defaults: { _controller: ApplicationBaseBundle:Default:catalogProducts }

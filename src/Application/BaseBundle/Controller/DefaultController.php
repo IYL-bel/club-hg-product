@@ -21,9 +21,39 @@ class DefaultController extends Controller
     /**
      * @Template()
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return array
      */
     public function indexAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function contestsAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function prizesAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function catalogProductsAction()
     {
         return array();
     }

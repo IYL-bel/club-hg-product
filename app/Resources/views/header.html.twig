@@ -6,10 +6,10 @@
 
             <div class="header__items-top_menu">
                 <ul>
-                    <li><a href="#">Клуб</a></li>
-                    <li class="active"><a href="index_konkursi.html">Конкурсы</a></li>
-                    <li><a href="index_trophy.html">Призы</a></li>
-                    <li><a href="#">Каталог продукци</a></li>
+                    <li{% if app.request.attributes.get('_route') == '_home' %} class="active"{% endif %}><a href="{{ path('_home') }}">Клуб</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'application_base_contests' %} class="active"{% endif %}><a href="{{ path('application_base_contests') }}">Конкурсы</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'application_base_prizes' %} class="active"{% endif %}>><a href="{{ path('application_base_prizes') }}">Призы</a></li>
+                    <li{% if app.request.attributes.get('_route') == 'application_base_catalog_products' %} class="active"{% endif %}>><a href="{{ path('application_base_catalog_products') }}">Каталог продукци</a></li>
                 </ul>
             </div><!--.header__items-top_menu-->
 
