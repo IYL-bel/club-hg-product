@@ -1,0 +1,289 @@
+{% extends '::layout.html.twig' %}
+
+
+{% block front_slider %}
+
+<div class="front_slider_bkg"></div>
+<div class="front_slider">
+    <div class="front_slider_wrap">
+        <div class="front_slider_wrap_content">
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 50% <br/>для всех членов</strong>
+                    Клуба Экспертов Чистоты
+                </div>
+            </div>
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 70% <br/>для всех членов</strong>
+                    Клуба Тугой Шуфлятки
+                </div>
+            </div>
+
+            <div class="front_slider_wrap_content-item">
+                <div class="front_slider_wrap_content-item_img">
+                    <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
+                </div>
+                <div class="front_slider_wrap_content-item_txt">
+                    <strong>Скидки 30% <br/>для всех членов</strong>
+                    Клуба Почасовой Муж
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pagi">
+            <a class="selected" href="#"><span>1</span></a>
+            <a href="#"><span>1</span></a>
+            <a href="#"><span>1</span></a>
+        </div>
+
+        <a href="#prev" class="arr prev"><i class="fa fa-angle-left"></i></a>
+        <a href="#next" class="arr next"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+</div><!--.front_slider-->
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="content_main">
+
+    <div class="content_main__infoblock about">
+
+        <div class="content_main__infoblock-left left">
+            <h3 class="title">О клубе</h3>
+            <div class="content_main__infoblock-left_txt">
+                <p>Разведите средство в пропорции 1 часть средства к 4 или губки. Оставьте раствор действовать примерно 10 минут. Потрите цементные соединения, а затем промойте их теплой водой. Несколько раз промывайте губку в теплой воде, чтобы тщательно смыть средство.</p>
+            </div>
+        </div>
+
+        <div class="content_main__infoblock-right right">
+            <h3 class="title">Пригласи в клуб подруг</h3>
+            <div class="content_main__infoblock-right_txt">
+                <p>и получи +5 баллов  за каждую</p>
+            </div>
+            <div class="soc wight">
+                <a class="soc_ico fb" href="#"></a>
+                <a class="soc_ico vk" href="#"></a>
+                <a class="soc_ico ok" href="#"></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content_main__articles trophy">
+
+        <h3 class="title">Как использовать баллы?</h3>
+
+        <div class="content_main__articles-tile first">
+            <div class="content_main__articles-tile_img img_c">
+                <img src="{{ asset('images/not_optimize/trophy_00.jpg') }}" alt="Услуга"/>
+            </div>
+            <div class="content_main__articles-tile_header">
+                <a href="#" class="content_main__articles-tile_header_title white">Услуга</a>
+            </div>
+            <div class="content_main__articles-tile_footer">
+                <div class="content_main__articles-tile_footer_take">
+                    <a href="take_part">Участвовать в розыгрыше</a><span> / 200 баллов</span>
+                </div>
+                <div class="content_main__articles-tile_footer_buy">
+                    <a href="buy">Купить</a><span> / 1000 баллов</span>
+                </div>
+            </div>
+            <div class="blue_b bt"></div>
+            <div class="blue_b br"></div>
+            <div class="blue_b bb"></div>
+            <div class="blue_b bl"></div>
+        </div><!--.content_main__articles-tile-->
+
+        <div class="content_main__articles-tile">
+            <div class="content_main__articles-tile_img img_c">
+                <img src="{{ asset('images/not_optimize/trophy_01.jpg') }}" alt="Моющее средство для стекол «Чистюля»"/>
+            </div>
+            <div class="content_main__articles-tile_header">
+                <a href="#" class="content_main__articles-tile_header_title">Моющее средство для стекол «Чистюля»</a>
+            </div>
+            <div class="content_main__articles-tile_footer">
+                <div class="content_main__articles-tile_footer_take">
+                    <a href="take_part">Участвовать в розыгрыше</a><span> / 200 баллов</span>
+                </div>
+                <div class="content_main__articles-tile_footer_buy">
+                    <a href="buy">Купить</a><span> / 1000 баллов</span>
+                </div>
+            </div>
+            <div class="blue_b bt"></div>
+            <div class="blue_b br"></div>
+            <div class="blue_b bb"></div>
+            <div class="blue_b bl"></div>
+        </div><!--.content_main__articles-tile-->
+
+
+        <div class="content_main__articles-tile">
+            <div class="content_main__articles-tile_img img_c">
+                <img src="{{ asset('images/not_optimize/trophy_02.jpg') }}" alt="Моющее средство для стекол «Чистюля»"/>
+            </div>
+            <div class="content_main__articles-tile_header">
+                <a href="#" class="content_main__articles-tile_header_title">Моющее средство для стекол «Чистюля»</a>
+            </div>
+            <div class="content_main__articles-tile_footer">
+                <div class="content_main__articles-tile_footer_take">
+                    <a href="take_part">Участвовать в розыгрыше</a><span> / 200 баллов</span>
+                </div>
+                <div class="content_main__articles-tile_footer_buy">
+                    <a href="buy">Купить</a><span> / 1000 баллов</span>
+                </div>
+            </div>
+            <div class="blue_b bt"></div>
+            <div class="blue_b br"></div>
+            <div class="blue_b bb"></div>
+            <div class="blue_b bl"></div>
+        </div><!--.content_main__articles-tile-->
+
+
+        <div class="content_main__articles-tile">
+            <div class="content_main__articles-tile_img img_c">
+                <img src="{{ asset('images/not_optimize/trophy_02.jpg') }}" alt="Моющее средство для стекол «Чистюля»"/>
+            </div>
+            <div class="content_main__articles-tile_header">
+                <a href="#" class="content_main__articles-tile_header_title">Моющее средство для стекол «Чистюля»</a>
+            </div>
+            <div class="content_main__articles-tile_footer">
+                <div class="content_main__articles-tile_footer_take">
+                    <a href="take_part">Участвовать в розыгрыше</a><span> / 200 баллов</span>
+                </div>
+                <div class="content_main__articles-tile_footer_buy">
+                    <a href="buy">Купить</a><span> / 1000 баллов</span>
+                </div>
+            </div>
+            <div class="blue_b bt"></div>
+            <div class="blue_b br"></div>
+            <div class="blue_b bb"></div>
+            <div class="blue_b bl"></div>
+        </div><!--.content_main__articles-tile-->
+
+    </div><!--.content_main__articles-->
+
+    <div class="content_main__infoblock actual">
+
+        <div class="content_main__infoblock-left left">
+
+            <a class="look_actual" href="#">Текущие конкурсы</a>
+
+            <h3 class="title">8 марта с HG</h3>
+            <div class="content_main__infoblock-left_txt">
+                <p>Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!</p>
+                <a href="#">участвовать</a>
+            </div>
+
+        </div>
+
+        <div class="content_main__infoblock-right right">
+
+            <a class="look_actual" href="#">Ближайшие конкурсы</a>
+
+            <h3 class="title">Весенний субботник</h3>
+            <div class="content_main__infoblock-right_txt">
+                <p>Получите по 15 баллов за каждое фото теста продукции HG в вашем доме (фото до и после обязательны)</p>
+                <a href="#">участвовать</a>
+            </div>
+
+        </div>
+
+    </div><!--.content_main__infoblock-->
+
+    <div class="content_main__big_tips">
+
+        <div class="content_main__big_tips-item">
+            <div class="content_main__big_tips-item_left left">
+                <div class="img_c">
+                    <img src="{{ asset('images/not_optimize/hands.jpg') }}" />
+                    <a class="look_tip" href="#">Советы от клуба</a>
+                    <h4><a href="#">Как хозяйке сохранить красоту рук?</a></h4>
+                </div>
+
+            </div>
+
+            <div class="content_main__big_tips-item_right right">
+                <div class="content_main__big_tips-item_right_txt">
+                    <p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>
+                </div>
+            </div>
+        </div><!--.content_main__big_tips-item-->
+
+        <div class="content_main__big_tips-item white">
+            <div class="content_main__big_tips-item_left left">
+                <div class="img_c">
+                    <img src="{{ asset('images/not_optimize/hands2.jpg') }}" />
+                    <a class="look_tip" href="#">Советы от клуба</a>
+                    <h4><a href="#">Как хозяйке сохранить красоту рук?</a></h4>
+                </div>
+
+            </div>
+
+            <div class="content_main__big_tips-item_right right">
+                <div class="content_main__big_tips-item_right_txt">
+                    <p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>
+                </div>
+            </div>
+        </div><!--.content_main__big_tips-item-->
+
+    </div><!--.content_main__big_tips-->
+
+    <div class="content_main__infoblock more_score">
+
+        <h3 class="title">Как заработать больше баллов?</h3>
+
+        <div class="more_score_blocks">
+            <div class="item item_1">
+                                <span>
+                                    <br/>
+                                    <br/>
+                                    Ваши баллы</span>
+            </div>
+            <div class="item item_2"></div>
+            <div class="item item_3">
+                                <span>
+                                    +5
+                                    <br/>
+                                    <br/>
+                                    Пригласите подруг в клуб, используя <a href="#">социальные сети</a></span>
+            </div>
+            <div class="item item_4">
+                                <span>
+                                    +50
+                                    <br/>
+                                    <br/>
+                                    Поучаствуйте в <a href="#">Конкурсе на лучшее поздравление к 8 марта</a></span>
+            </div>
+            <div class="item item_5">
+                                <span>
+                                    +100
+                                    <br/>
+                                    <br/>
+                                    Загрузите в личный кабинет чеки от покупок средств HG</span>
+            </div>
+        </div>
+
+        <div class="more_score_progr">
+            <div class="more_score_progr_line">
+                <span>52 <i class="fa fa-angle-right"></i></span>
+            </div>
+            <span>250</span>
+        </div>
+
+    </div><!--.content_main__infoblock-->
+
+</div><!--.content_main-->
+
+{% endblock content %}
