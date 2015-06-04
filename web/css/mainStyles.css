@@ -622,7 +622,7 @@ header {
       height: 24px;
       border-radius: 3px;
       margin-left: 10px;
-      background: #28a5de url("../i/soc_ico.png") no-repeat 50% 0px; }
+      background: #28a5de url("../images/soc_ico.png") no-repeat 50% 0px; }
       /* line 731, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .footer-soc a.fb {
         background-position: 50% -135px; }
@@ -828,7 +828,7 @@ header {
       color: #FFFFFF; }
     /* line 1020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.about {
-      background: url("../i/inforblock_about.jpg") no-repeat 50% 0; }
+      background: url("../images/inforblock_about.jpg") no-repeat 50% 0; }
       /* line 1023, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.about .left {
         width: 40%; }
@@ -841,7 +841,7 @@ header {
           margin: 20px 0 0 -10px; }
     /* line 1038, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.actual {
-      background: url("../i/inforblock_actual.jpg") no-repeat 50% 0; }
+      background: url("../images/inforblock_actual.jpg") no-repeat 50% 0; }
       /* line 1040, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .title {
         padding: 10px 0; }
@@ -860,7 +860,7 @@ header {
         font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
     /* line 1065, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.more_score {
-      background: url("../i/inforblock_more_score.jpg") no-repeat 50% 0; }
+      background: url("../images/inforblock_more_score.jpg") no-repeat 50% 0; }
       /* line 1068, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.more_score .title {
         margin: 15px 0 20px;
@@ -1030,7 +1030,7 @@ header {
           padding: 4px 5px 4px 24px;
           border-radius: 3px;
           margin-left: 10px;
-          background: #28a5de url("../i/soc_ico.png") no-repeat 6px 0px; }
+          background: #28a5de url("../images/soc_ico.png") no-repeat 6px 0px; }
           /* line 1282, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__txt-soc a.fb {
             background-position: 6px -135px; }
@@ -1165,13 +1165,13 @@ header {
           background-position: 50% 50%; }
           /* line 1468, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_1 {
-            background-image: url("../i/medal_1.png"); }
+            background-image: url("../images/medal_1.png"); }
           /* line 1471, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_2 {
-            background-image: url("../i/medal_2.png"); }
+            background-image: url("../images/medal_2.png"); }
           /* line 1474, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_3 {
-            background-image: url("../i/medal_3.png"); }
+            background-image: url("../images/medal_3.png"); }
           /* line 1478, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span a {
             white-space: nowrap;
@@ -1312,7 +1312,7 @@ header {
         height: 135px;
         border-left: 1px solid #FFFFFF;
         margin-left: -1px;
-        background: #28a5de url("../i/cabinet_ico_w.png") no-repeat 50% 0;
+        background: #28a5de url("../images/cabinet_ico_w.png") no-repeat 50% 0;
         overflow: hidden; }
         /* line 1664, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__tabs li span {
@@ -1334,7 +1334,7 @@ header {
         /* line 1685, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__tabs li:hover, .content_main__articles.cabinet .cabinet_content__tabs li.active {
           background-color: #FFFFFF;
-          background-image: url("../i/cabinet_ico_b.png"); }
+          background-image: url("../images/cabinet_ico_b.png"); }
           /* line 1689, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__tabs li:hover span, .content_main__articles.cabinet .cabinet_content__tabs li.active span {
             color: #28a5de; }
@@ -1606,7 +1606,7 @@ header {
     position: absolute;
     width: 1920px;
     height: 100%;
-    background: #28a5de url("../i/front_bkg.jpg") no-repeat 50% 0;
+    background: #28a5de url("../images/front_bkg.jpg") no-repeat 50% 0;
     top: 0;
     left: 50%;
     margin-left: -960px; }
@@ -1682,7 +1682,7 @@ header {
             height: 24px;
             border-radius: 3px;
             margin-left: 10px;
-            background: #28a5de url("../i/soc_ico.png") no-repeat 50% 0px; }
+            background: #28a5de url("../images/soc_ico.png") no-repeat 50% 0px; }
             /* line 2216, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_front_sign_form_soc .soc_ico.fb {
               background-position: 50% -135px; }
@@ -1918,7 +1918,7 @@ header {
   height: 530px;
   width: 1920px;
   margin-left: -960px;
-  background: #8ed0eb url("../i/front_slider_bkg.jpg") no-repeat 50% 50%; }
+  background: #8ed0eb url("../images/front_slider_bkg.jpg") no-repeat 50% 50%; }
 
 /* line 2545, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .front_slider {
@@ -2016,7 +2016,7 @@ header {
     height: 24px;
     border-radius: 3px;
     margin-left: 10px;
-    background: #FFFFFF url("../i/soc_ico.png") no-repeat 50% 0px; }
+    background: #FFFFFF url("../images/soc_ico.png") no-repeat 50% 0px; }
     /* line 2673, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .soc_ico.fb {
       background-position: 50% -135px; }

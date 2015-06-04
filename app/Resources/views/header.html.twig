@@ -1,69 +1,73 @@
 <!--  header  -->
-<div class="header">
-    <div class="header__items">
-        <div class="header__items-top_menu">
-            <ul>
-                <li class="active"><a href="/">Клуб</a></li>
-                <li><a href="/contest">Конкурсы</a></li>
-                <li><a href="/prizes">Призы</a></li>
-                <li><a href="/catalog">Каталог продукци</a></li>
-            </ul>
-        </div><!--.header__items-top_menu-->
+<header>
+    <div class="header">
 
-        <div class="header__items-person">
+        <div class="header__items">
 
-            <div class="header__items-person_avatar">
-                <span class="img_c">
-                    <img src="{#{{ Auth::user()->photo }}#}http://cs305908.vk.me/v305908200/47f2/O0RdtFmsKSk.jpg"
-                         alt="{#{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}#}Артём Пугачёв"/>
-                </span>
-            </div>
+            <div class="header__items-top_menu">
+                <ul>
+                    <li><a href="#">Клуб</a></li>
+                    <li class="active"><a href="index_konkursi.html">Конкурсы</a></li>
+                    <li><a href="index_trophy.html">Призы</a></li>
+                    <li><a href="#">Каталог продукци</a></li>
+                </ul>
+            </div><!--.header__items-top_menu-->
 
-            <div class="header__items-person_desc">
-                <strong>
-                    <a href="/profile">{#{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}#}Иван Иванов</a>
-                    <span><i>{#{{ Auth::user()->scores }}#}300</i> баллов</span>
-                </strong>
-                <b class="coin"></b>
-            </div>
+            <div class="header__items-person">
 
-        </div><!--.header__items-person-->
-
-        <div class="header__items-scores">
-
-            <div class="header__items-scores_w">
-                <div class="header__items-scores_w-i">
-                    <strong>
-                        <span><i>+50</i> баллов</span>
-                        <a href="#">Весенний субботник</a>
-                    </strong>
+                <div class="header__items-person_avatar">
+                    <span class="img_c">
+                        <img src="{{ asset('images/not_optimize/avatar.jpg') }}" alt="Елена Кучеренко"/>
+                    </span>
                 </div>
-                <div class="header__items-scores_w-i">
+
+                <div class="header__items-person_desc">
                     <strong>
-                        <span><i>+200</i> баллов</span>
-                        <a href="#">Выходные на кухне</a>
+                        <a href="#">Елена Кучеренко</a>
+                        <span><i>150</i>баллов</span>
                     </strong>
+                    <b class="coin"></b>
                 </div>
-            </div><!--.header__items-person_scores_w-->
 
-            <a href="#prev" class="arr prev"><i class="fa fa-angle-left"></i></a>
-            <a href="#next" class="arr next"><i class="fa fa-angle-right"></i></a>
+            </div><!--.header__items-person-->
 
-        </div><!--.header__items-person_scores-->
+            <div class="header__items-scores">
 
-    </div><!--.header__items-->
+                <div class="header__items-scores_w">
+                    <div class="header__items-scores_w-i">
+                        <strong>
+                            <span><i>+50</i> баллов</span>
+                            <a href="#">Весенний субботник</a>
+                        </strong>
+                    </div>
+                    <div class="header__items-scores_w-i">
+                        <strong>
+                            <span><i>+200</i> баллов</span>
+                            <a href="#">Выходные на кухне</a>
+                        </strong>
+                    </div>
+                </div><!--.header__items-person_scores_w-->
 
-    <a class="logo" href="/">
-        <img src="{{ asset('/images/logo.png') }}"/>
-    </a>
+                <a href="#prev" class="arr prev"><i class="fa fa-angle-left"></i></a>
+                <a href="#next" class="arr next"><i class="fa fa-angle-right"></i></a>
 
-    <div class="header_scorebar" style="display: none;">
-        <div class="header_scorebar__line">
-            <span>0</span>
-            <div class="header_scorebar__line-progr">
-                <span>150</span>
+            </div><!--.header__items-person_scores-->
+
+        </div><!--.header__items-->
+
+        <a class="logo" href="{{ url('_home') }}">
+            <img src="{{ asset('/images/not_optimize/logo.png') }}"/>
+        </a>
+
+        <div class="header_scorebar">
+            <div class="header_scorebar__line">
+                <span>0</span>
+                <div class="header_scorebar__line-progr">
+                    <span>150</span>
+                </div>
+                <span>350</span>
             </div>
-            <span>350</span>
-        </div>
-    </div><!--.header_scorebar-->
-</div>
+        </div><!--.header_scorebar-->
+
+    </div><!--.header-->
+</header>

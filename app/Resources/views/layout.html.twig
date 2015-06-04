@@ -25,6 +25,11 @@
 
 
         {% block javascripts %}
+            <script src="js/lib/jquery-1.11.2.min.js"></script>
+            <script src="js/lib/jquery.carouFredSel-6.2.1-packed.js"></script>
+            <script src="js/lib/jquery.damnUploader.js"></script>
+            <script src="js/lib/jquery.blImageCenter.js"></script>
+            <script src="js/main.js"></script>
         {% endblock %}
 
     </head>
@@ -37,15 +42,10 @@
             {% endblock %}
 
 
-
-
-
-            {% block content %}
-            {% endblock content %}
-
-
-
-
+            <div class="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
 
 
             {% block footer %}

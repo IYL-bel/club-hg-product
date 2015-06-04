@@ -1,14 +1,14 @@
+_home:
+    pattern:  /
+    defaults: { _controller: ApplicationBaseBundle:Default:index }
+
 application_base:
     resource: "@ApplicationBaseBundle/Resources/config/routing.yml"
     prefix:   /
 
-_home:
-    pattern:  /
-    defaults: { _controller: TestBaseBundle:Default:index }
-
 test_base:
     resource: "@TestBaseBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /test
 
 test_user:
     resource: "@TestUserBundle/Resources/config/routing.yml"
@@ -17,7 +17,6 @@ test_user:
 test_message:
     resource: "@TestMessageBundle/Resources/config/routing.yml"
     prefix:   /message
-
 
 app:
     resource: @AppBundle/Controller/

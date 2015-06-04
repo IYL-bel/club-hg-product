@@ -10,6 +10,7 @@
 namespace Application\BaseBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Application\BaseBundle\Controller\DefaultController
