@@ -1,3 +1,7 @@
+application_base:
+    resource: "@ApplicationBaseBundle/Resources/config/routing.yml"
+    prefix:   /
+
 _home:
     pattern:  /
     defaults: { _controller: TestBaseBundle:Default:index }

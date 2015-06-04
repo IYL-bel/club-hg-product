@@ -29,23 +29,30 @@
 
     </head>
 
-    <body>
+    <body class="front_page">
+        <div class="viewport">
 
-
-
-
-        {% block content %}
-        {% endblock content %}
-
+            {% block header %}
+                {% include '::header.html.twig' %}
+            {% endblock %}
 
 
 
 
 
-        {% block footer %}
-            {% include '::footer.html.twig' %}
-        {% endblock footer %}
+            {% block content %}
+            {% endblock content %}
 
+
+
+
+
+
+            {% block footer %}
+                {% include '::footer.html.twig' %}
+            {% endblock footer %}
+
+        </div>
     </body>
 </html>
 

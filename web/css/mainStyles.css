@@ -96,25 +96,9 @@
   background-color: #28a5de;
   font-size: 18px;
   color: #FFFFFF;
-  padding: 12px 14px;
-  position: relative;
-  overflow: hidden; }
+  padding: 12px 14px; }
 
-/* line 182, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-.hiden_ibput {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  opacity: 0;
-  -ms-filter: 'alpha(opacity=0)';
-  font-size: 200px;
-  direction: ltr;
-  cursor: pointer;
-  display: block;
-  box-sizing: border-box; }
-
-/* line 196, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 180, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .grey_btn {
   background-color: #bcbec0;
   border: none;
@@ -123,62 +107,62 @@
   color: #FFFFFF;
   font-size: 14px; }
 
-/* line 207, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 191, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 label {
   cursor: pointer; }
 
-/* line 211, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 195, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 * {
   margin: 0;
   padding: 0; }
 
-/* line 217, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 201, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 a:hover {
   text-decoration: none; }
 
-/* line 222, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 206, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 body {
   background-color: #f2f3f3;
   font-family: Arial, Helvetica, sans-serif;
   color: #9a9a9a; }
-  /* line 227, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 211, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   body.show_pp_overflow {
     overflow: hidden; }
 
-/* line 232, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 216, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 h1 {
   margin: 0; }
 
-/* line 236, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 220, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .page_width, .viewport {
   min-width: 970px;
   max-width: 100%;
   padding: 0 5px; }
 
-/* line 242, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 226, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .viewport {
   position: relative;
   overflow: hidden;
   border-top: 1px solid transparent;
   margin-top: -1px; }
 
-/* line 252, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 236, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .header, .content, .footer {
   border-top: 1px solid transparent;
   width: 970px;
   margin: -1px auto 0; }
 
-/* line 258, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 242, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 header {
   position: relative;
   z-index: 2; }
 
-/* line 262, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 246, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .header {
   margin-top: 88px;
   height: 54px;
   position: relative; }
-  /* line 269, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 253, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .header_tips {
     display: none;
     position: fixed;
@@ -189,16 +173,16 @@ header {
     height: 100%;
     background-color: #222222;
     background-color: rgba(0, 0, 0, 0.65); }
-    /* line 280, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 264, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .tips .header_tips {
       display: block; }
-    /* line 284, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 268, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header_tips_wrap {
       width: 980px;
       height: 400px;
       margin: 0 auto;
       position: relative; }
-      /* line 291, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 275, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header_tips_wrap_item {
         display: none;
         position: absolute;
@@ -207,25 +191,25 @@ header {
         background-color: #FFFFFF;
         max-width: 270px;
         font-size: 14px; }
-        /* line 301, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 285, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.active {
           display: block; }
-        /* line 305, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 289, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.tip_1 {
           left: 130px; }
-        /* line 308, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 292, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.tip_2 {
           left: 170px; }
-        /* line 311, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 295, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.tip_3 {
           left: 290px; }
-        /* line 314, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 298, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.tip_4 {
           left: 440px; }
-        /* line 317, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 301, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.tip_5 {
           left: 640px; }
-        /* line 321, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 305, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item:before {
           content: "";
           display: block;
@@ -237,43 +221,43 @@ header {
           border-right: 18px solid #fff;
           border-bottom: 0px;
           border-left: 0px; }
-        /* line 335, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 319, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.left:before {
           left: 110px;
           -webkit-transform: rotate(26deg);
           -ms-transform: rotate(26deg);
           transform: rotate(26deg); }
-        /* line 342, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 326, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item.right:before {
           right: 110px;
           top: -84px;
           -webkit-transform: rotate(-38deg);
           -ms-transform: rotate(-38deg);
           transform: rotate(-38deg); }
-        /* line 354, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 338, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_tips_wrap_item a {
           position: absolute;
           top: 2px;
           right: 8px;
           color: #939598; }
-          /* line 359, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 343, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header_tips_wrap_item a i {
             font-size: 10px; }
-  /* line 367, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 351, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .header .logo {
     display: block;
     position: absolute;
     top: -57px;
     left: 20px;
     width: 168px; }
-    /* line 374, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 358, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .tips .header .logo {
       z-index: 111; }
-    /* line 379, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 363, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header .logo img {
       display: block;
       width: 100%; }
-  /* line 385, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 369, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .header_scorebar {
     width: 1030px;
     position: absolute;
@@ -281,14 +265,14 @@ header {
     left: 50%;
     margin-left: -523px;
     height: 5px; }
-    /* line 393, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 377, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header_scorebar__line {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%; }
-      /* line 401, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 385, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header_scorebar__line:before {
         content: "";
         display: block;
@@ -302,7 +286,7 @@ header {
         -ms-transform: matrix(1, 0, -0.3, 1, 0, 0);
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=$a, M12=$b, M21=$c, M22=$d, Dx=$tx, Dy=$ty)
         /* IE 5.5+ */ }
-      /* line 406, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 390, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header_scorebar__line span {
         position: absolute;
         color: #a7a9ac;
@@ -310,17 +294,17 @@ header {
         font-style: italic;
         top: 7px;
         right: 0; }
-        /* line 414, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 398, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_scorebar__line span:first-child {
           left: 0; }
-      /* line 420, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 404, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header_scorebar__line-progr {
         position: absolute;
         top: 0;
         left: 0;
         width: 50%;
         height: 100%; }
-        /* line 427, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 411, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_scorebar__line-progr:before {
           content: "";
           display: block;
@@ -334,20 +318,20 @@ header {
           -ms-transform: matrix(1, 0, -0.3, 1, 0, 0);
           filter: progid:DXImageTransform.Microsoft.Matrix(M11=$a, M12=$b, M21=$c, M22=$d, Dx=$tx, Dy=$ty)
           /* IE 5.5+ */ }
-        /* line 431, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 415, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header_scorebar__line-progr span {
           left: auto;
           right: 0;
           text-align: right; }
-  /* line 440, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 424, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .header__items {
     position: relative;
     width: 100%;
     height: 45px; }
-    /* line 445, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 429, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .tips .header__items {
       z-index: 110; }
-    /* line 449, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 433, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header__items:before {
       content: "";
       display: block;
@@ -364,37 +348,37 @@ header {
       width: 1030px;
       margin-left: -515px;
       left: 50%; }
-    /* line 458, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 442, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header__items-top_menu {
       position: absolute;
       overflow: hidden;
       top: 0;
       left: 180px;
       height: 100%; }
-      /* line 465, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 449, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-top_menu ul {
         overflow: hidden;
         padding: 0 10px;
         font-size: 0;
         letter-spacing: 0; }
-        /* line 470, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 454, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-top_menu ul li {
           list-style-type: none;
           display: inline-block;
           position: relative;
           margin-left: -1px; }
-          /* line 476, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 460, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-top_menu ul li a {
             display: inline-block;
             position: relative;
             padding: 17px 12px;
             font-size: 12px;
             color: #FFFFFF; }
-          /* line 486, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 470, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-top_menu ul li:hover a, .header__items-top_menu ul li.active a {
             color: #00a5e7;
             text-decoration: none; }
-          /* line 491, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 475, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-top_menu ul li:hover:before, .header__items-top_menu ul li.active:before {
             content: "";
             display: block;
@@ -410,7 +394,7 @@ header {
             /* IE 5.5+ */
             top: 0;
             left: 0; }
-    /* line 501, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 485, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header__items-person {
       overflow: hidden;
       height: 100%;
@@ -419,7 +403,7 @@ header {
       top: 0;
       right: 176px;
       padding: 0 14px; }
-      /* line 510, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 494, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-person:before {
         content: "";
         display: block;
@@ -437,10 +421,10 @@ header {
         left: 10px;
         width: 5px;
         z-index: 4; }
-        /* line 517, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 501, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .tips .header__items-person:before {
           background-color: #545454; }
-      /* line 524, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 508, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-person_avatar {
         overflow: hidden;
         float: left;
@@ -452,7 +436,7 @@ header {
         -ms-transform: matrix(1, 0, -0.3, 1, 0, 0);
         filter: progid:DXImageTransform.Microsoft.Matrix(M11=$a, M12=$b, M21=$c, M22=$d, Dx=$tx, Dy=$ty)
         /* IE 5.5+ */ }
-        /* line 532, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 516, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-person_avatar span {
           display: block;
           width: 100px;
@@ -464,12 +448,12 @@ header {
           -ms-transform: matrix(1, 0, 0.3, 1, 0, 0);
           filter: progid:DXImageTransform.Microsoft.Matrix(M11=$a, M12=$b, M21=$c, M22=$d, Dx=$tx, Dy=$ty)
           /* IE 5.5+ */ }
-          /* line 539, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 523, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-person_avatar span img {
             display: block;
             width: 100%;
             height: auto; }
-      /* line 548, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 532, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-person_desc {
         float: right;
         width: 150px;
@@ -477,20 +461,20 @@ header {
         color: #FFFFFF;
         font-size: 0;
         letter-spacing: 0; }
-        /* line 558, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 542, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-person_desc:before {
           content: "";
           display: inline-block;
           width: 0;
           height: 100%;
           vertical-align: middle; }
-        /* line 566, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 550, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-person_desc strong {
           font-size: 13px;
           display: inline-block;
           vertical-align: middle;
           width: 100%; }
-          /* line 572, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 556, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-person_desc strong:before {
             content: "";
             display: block;
@@ -507,20 +491,20 @@ header {
             top: 0;
             right: 8px;
             width: 5px; }
-          /* line 580, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 564, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-person_desc strong a {
             color: #FFFFFF;
             display: inline-block;
             width: 100%; }
-          /* line 587, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 571, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-person_desc strong span {
             font-weight: normal;
             display: inline-block;
             width: 100%; }
-            /* line 591, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 575, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .header__items-person_desc strong span i {
               font-style: normal; }
-        /* line 596, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 580, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-person_desc .coin {
           display: block;
           position: absolute;
@@ -530,7 +514,7 @@ header {
           width: 12px;
           height: 12px;
           border-radius: 50%; }
-    /* line 613, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 597, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .header__items-scores {
       position: absolute;
       top: 0;
@@ -539,98 +523,98 @@ header {
       width: 190px;
       color: #FFFFFF;
       font-size: 13px; }
-      /* line 624, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 608, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .nr .header__items-scores {
         width: 440px; }
-      /* line 630, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 614, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-scores_w {
         overflow: hidden;
         width: 170px;
         height: 100%;
         margin: 0 auto; }
-        /* line 636, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 620, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .nr .header__items-scores_w {
           width: 420px; }
-        /* line 640, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 624, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-scores_w-i {
           float: left;
           width: 170px;
           height: 45px;
           font-size: 0;
           letter-spacing: 0; }
-          /* line 648, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 632, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-scores_w-i:before {
             content: "";
             display: inline-block;
             width: 0;
             height: 100%;
             vertical-align: middle; }
-          /* line 656, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 640, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-scores_w-i strong {
             font-size: 13px;
             display: inline-block;
             vertical-align: middle;
             width: 100%; }
-            /* line 662, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 646, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .nr .header__items-scores_w-i strong {
               text-align: center; }
-            /* line 666, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 650, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .header__items-scores_w-i strong span {
               display: inline-block;
               padding-left: 5px;
               font-weight: normal; }
-              /* line 671, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 655, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .header__items-scores_w-i strong span i {
                 font-style: normal; }
-            /* line 675, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 659, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .header__items-scores_w-i strong a {
               display: inline-block;
               padding-left: 6px;
               color: #FFFFFF; }
-              /* line 680, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 664, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .nr .header__items-scores_w-i strong a {
                 position: relative;
                 padding-left: 18px; }
-                /* line 684, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+                /* line 668, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
                 .nr .header__items-scores_w-i strong a:before {
                   content: "/";
                   position: absolute;
                   left: 10px; }
-      /* line 698, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 682, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .header__items-scores .arr {
         color: #FFFFFF;
         text-decoration: none;
         position: absolute;
         top: 14px;
         font-size: 15px; }
-        /* line 705, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 689, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-scores .arr.prev {
           left: 0; }
-        /* line 708, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 692, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .header__items-scores .arr.next {
           right: 0; }
 
-/* line 717, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 701, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .footer {
   position: relative;
   border-top: 1px solid #bcbec0;
   margin-top: 40px;
   padding: 20px 0 50px; }
-  /* line 722, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 706, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .footer-info {
     font-size: 11px;
     color: #6d6e71; }
-    /* line 726, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 710, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .footer-info a {
       text-decoration: none;
       color: #6d6e71; }
-  /* line 732, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 716, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .footer-soc {
     position: absolute;
     right: 0;
     top: 20px;
     overflow: hidden; }
-    /* line 738, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 722, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .footer-soc a {
       display: block;
       float: left;
@@ -638,44 +622,44 @@ header {
       height: 24px;
       border-radius: 3px;
       margin-left: 10px;
-      background: #28a5de url("../images/soc_ico.png") no-repeat 50% 0px; }
-      /* line 747, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      background: #28a5de url("../i/soc_ico.png") no-repeat 50% 0px; }
+      /* line 731, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .footer-soc a.fb {
         background-position: 50% -135px; }
-      /* line 750, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 734, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .footer-soc a.vk {
         background-position: 50% 4px; }
-      /* line 753, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 737, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .footer-soc a.ok {
         background-position: 50% -67px; }
 
-/* line 760, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 744, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .content {
   position: relative; }
-  /* line 763, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 747, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .front_page .content {
     margin-top: 0px; }
-  /* line 767, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 751, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_header {
     padding-top: 36px;
     position: relative;
     overflow: hidden; }
-    /* line 772, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 756, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_header__title {
       font-weight: normal;
       font-size: 50px;
       color: #939598; }
-      /* line 781, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 765, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_header__title span {
         font-size: 25px; }
-        /* line 785, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 769, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__title span i {
           font-style: normal; }
-    /* line 793, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 777, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_header__breadcrumbs li {
       list-style-type: none;
       display: inline-block; }
-      /* line 798, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 782, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_header__breadcrumbs li span, .content_header__breadcrumbs li a {
         font-style: italic;
         display: inline-block;
@@ -683,29 +667,29 @@ header {
         font-size: 12px;
         padding: 0 2px 0 8px;
         position: relative; }
-        /* line 806, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 790, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__breadcrumbs li span:before, .content_header__breadcrumbs li a:before {
           content: "/";
           display: inline-block;
           position: absolute;
           top: 0px;
           left: 0px; }
-      /* line 817, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 801, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_header__breadcrumbs li:first-child span, .content_header__breadcrumbs li:first-child a {
         padding-left: 0; }
-        /* line 819, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 803, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__breadcrumbs li:first-child span:before, .content_header__breadcrumbs li:first-child a:before {
           content: ""; }
-    /* line 827, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 811, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_header__show {
       position: absolute;
       bottom: 0;
       right: 0; }
-      /* line 832, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 816, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_header__show li {
         list-style-type: none;
         display: inline-block; }
-        /* line 837, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 821, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__show li span, .content_header__show li a {
           font-style: italic;
           display: inline-block;
@@ -713,7 +697,7 @@ header {
           font-size: 12px;
           padding: 0 6px;
           position: relative; }
-        /* line 848, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 832, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__show li a:after {
           content: "/";
           font-style: normal;
@@ -722,16 +706,16 @@ header {
           position: absolute;
           top: -2px;
           right: -6px; }
-        /* line 862, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 846, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_header__show li:last-child a {
           padding-right: 0; }
-          /* line 865, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 849, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_header__show li:last-child a:after {
             content: ""; }
-  /* line 876, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 860, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__big_tips {
     margin-top: 40px; }
-    /* line 884, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 868, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__big_tips-item {
       float: left;
       width: 49%;
@@ -739,28 +723,28 @@ header {
       min-height: 320px;
       background-color: #FFFFFF;
       overflow: hidden; }
-      /* line 894, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 878, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item:nth-child(odd) {
         margin-left: 0; }
-      /* line 899, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 883, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item_left, .content_main__big_tips-item_right {
         min-height: 320px; }
-      /* line 903, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 887, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item_left {
         float: left;
         width: 60%; }
-        /* line 907, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 891, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_left .img_c {
           position: relative;
           width: 100%;
           min-height: 320px; }
-        /* line 915, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 899, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_left a.look_tip {
           position: absolute;
           top: 30px;
           left: 30px;
           color: #a7a9ac; }
-        /* line 922, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 906, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_left h4 {
           color: #008dd2;
           font-size: 24px;
@@ -768,22 +752,22 @@ header {
           left: 30px;
           bottom: 30px;
           width: 70%; }
-          /* line 931, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 915, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__big_tips-item_left h4 a {
             color: #008dd2; }
-      /* line 938, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 922, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item_right {
         float: right;
         width: 40%;
         position: relative; }
-        /* line 943, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 927, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_right_txt {
           padding: 70px 30px 0;
           font-size: 16px; }
-          /* line 949, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 933, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__big_tips-item_right_txt a {
             color: #008dd2; }
-        /* line 956, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 940, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_right:before, .content_main__big_tips-item_right:after {
           content: "";
           display: block;
@@ -792,24 +776,24 @@ header {
           height: 190px;
           top: 0;
           left: -18px; }
-        /* line 965, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 949, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_right:before {
           /* border-top: 18px solid red; */
           border-right: 18px solid #FFFFFF;
           border-bottom: 18px solid transparent
           /* border-left: 18px solid orange; */ }
-        /* line 973, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 957, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__big_tips-item_right:after {
           top: 208px;
           border-top: 18px solid transparent;
           border-right: 18px solid #FFFFFF; }
-      /* line 984, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 968, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item.white .look_tip {
         color: #FFFFFF; }
-      /* line 988, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 972, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item.white h4 a {
         color: #FFFFFF; }
-  /* line 996, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 980, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__infoblock {
     margin: 40px 0 0;
     padding: 5px 20px 5px 30px;
@@ -818,169 +802,169 @@ header {
     background-color: #168dd7;
     color: #FFFFFF;
     font-size: 14px; }
-    /* line 1005, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 989, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock .title {
       font-size: 35px;
       margin: 0;
       padding-bottom: 22px; }
-    /* line 1013, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 997, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock-left, .content_main__infoblock-right {
       width: 48%;
       padding: 25px 0; }
-      /* line 1017, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1001, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock-left_txt, .content_main__infoblock-right_txt {
         line-height: 20px; }
-    /* line 1022, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1006, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock-left {
       float: left; }
-    /* line 1025, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1009, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock-right {
       float: right;
       height: 185px;
       border-left: 1px solid #FFFFFF;
       margin-left: -1px; }
-    /* line 1032, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1016, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock a {
       color: #FFFFFF; }
-    /* line 1036, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.about {
-      background: url("../images/inforblock_about.jpg") no-repeat 50% 0; }
-      /* line 1039, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      background: url("../i/inforblock_about.jpg") no-repeat 50% 0; }
+      /* line 1023, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.about .left {
         width: 40%; }
-      /* line 1043, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1027, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.about .right {
         width: 24%;
         padding-left: 20px; }
-        /* line 1047, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1031, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.about .right .soc {
           margin: 20px 0 0 -10px; }
-    /* line 1054, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1038, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.actual {
-      background: url("../images/inforblock_actual.jpg") no-repeat 50% 0; }
-      /* line 1056, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      background: url("../i/inforblock_actual.jpg") no-repeat 50% 0; }
+      /* line 1040, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .title {
         padding: 10px 0; }
-      /* line 1060, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1044, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .left {
         width: 30%; }
-      /* line 1063, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1047, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .right {
         width: 37%;
         padding-left: 20px; }
-      /* line 1071, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1055, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .content_main__infoblock-left_txt p, .content_main__infoblock.actual .content_main__infoblock-right_txt p {
         padding: 10px 0; }
-      /* line 1075, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1059, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.actual .content_main__infoblock-left_txt a, .content_main__infoblock.actual .content_main__infoblock-right_txt a {
         font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
-    /* line 1081, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1065, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock.more_score {
-      background: url("../images/inforblock_more_score.jpg") no-repeat 50% 0; }
-      /* line 1084, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      background: url("../i/inforblock_more_score.jpg") no-repeat 50% 0; }
+      /* line 1068, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.more_score .title {
         margin: 15px 0 20px;
         padding-bottom: 0; }
-      /* line 1089, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1073, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.more_score .more_score_blocks {
         overflow: hidden; }
-        /* line 1092, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1076, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item {
           float: left;
           width: 180px;
           min-height: 150px;
           border-left: 1px solid #ffffff;
           margin-left: -1px; }
-          /* line 1099, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1083, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__infoblock.more_score .more_score_blocks .item:first-child {
             border: none; }
-          /* line 1103, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1087, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__infoblock.more_score .more_score_blocks .item span {
             display: block;
             padding: 0 20px;
             max-width: 110px; }
-        /* line 1112, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1096, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item_1 {
           text-align: right;
           width: 202px; }
-          /* line 1115, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1099, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__infoblock.more_score .more_score_blocks .item_1 span {
             max-width: 100%; }
-        /* line 1119, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1103, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item_2 {
           width: 30px; }
-        /* line 1122, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1106, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item_3 {
           width: 268px; }
-        /* line 1125, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1109, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item_4 {
           width: 182px; }
-        /* line 1128, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1112, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_blocks .item_5 {
           width: 180px; }
-      /* line 1133, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1117, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__infoblock.more_score .more_score_progr {
         margin-top: -26px;
         position: relative;
         border: 1px solid #ffffff; }
-        /* line 1138, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1122, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_progr span {
           position: absolute;
           display: inline-block;
           top: 10px;
           right: 0px; }
-        /* line 1145, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1129, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__infoblock.more_score .more_score_progr_line {
           position: relative;
           width: 200px;
           height: 8px;
           background-color: #ffffff; }
-          /* line 1151, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1135, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__infoblock.more_score .more_score_progr_line span {
             right: 6px; }
-            /* line 1153, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 1137, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__infoblock.more_score .more_score_progr_line span i {
               padding-left: 4px; }
-  /* line 1163, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 1147, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main .content_main__articles.trophy {
     margin-top: 20px; }
-    /* line 1166, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1150, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main .content_main__articles.trophy .title {
       font-size: 35px;
       color: #008dd2; }
-  /* line 1180, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 1164, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__articles-item {
     width: 610px;
     margin-top: 30px;
     padding: 40px 40px 60px;
     background-color: #FFFFFF; }
-    /* line 1188, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1172, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-item__title {
       position: relative;
       padding-bottom: 40px; }
-      /* line 1192, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1176, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__title .title {
         display: inline-block;
         font-weight: normal;
         font-size: 34px;
         color: #008dd2; }
-      /* line 1199, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1183, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__title span {
         font-size: 25px; }
-        /* line 1202, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1186, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__title span i {
           font-style: normal; }
-        /* line 1205, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1189, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__title span b {
           font-weight: normal; }
-      /* line 1210, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1194, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__title-avatar {
         position: absolute;
         width: 200px;
         padding-left: 90px;
         top: 0px;
         left: 100%; }
-        /* line 1217, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1201, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__title-avatar:before {
           content: "";
           display: block;
@@ -993,50 +977,50 @@ header {
           border-top-color: transparent;
           border-right: none;
           border-bottom-color: transparent; }
-        /* line 1231, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1215, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__title-avatar span {
           display: block;
           width: 55px;
           height: 55px;
           overflow: hidden;
           border-radius: 50%; }
-          /* line 1237, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1221, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__title-avatar span img {
             display: block;
             width: 100%;
             height: auto; }
-        /* line 1244, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1228, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__title-avatar strong {
           font-size: 13px;
           color: #706f6f;
           display: inline-block;
           padding: 12px 0 0 12px; }
-          /* line 1249, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1233, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__title-avatar strong i {
             display: inline-block;
             width: 100%;
             font-style: normal; }
-    /* line 1258, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1242, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-item__txt {
       position: relative;
       color: #9a9a9a;
       font-size: 14px; }
-      /* line 1263, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1247, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__txt p {
         padding-bottom: 20px; }
-      /* line 1267, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1251, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__txt-name {
         color: #008dd2; }
-        /* line 1272, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1256, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__txt-name span, .content_main__articles-item__txt-name i {
           font-style: normal; }
-      /* line 1279, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1263, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-item__txt-soc {
         position: absolute;
         right: 0;
         top: 101%;
         overflow: hidden; }
-        /* line 1285, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1269, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-item__txt-soc a {
           color: #ffffff;
           font-size: 14px;
@@ -1046,22 +1030,22 @@ header {
           padding: 4px 5px 4px 24px;
           border-radius: 3px;
           margin-left: 10px;
-          background: #28a5de url("../images/soc_ico.png") no-repeat 6px 0px; }
-          /* line 1298, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          background: #28a5de url("../i/soc_ico.png") no-repeat 6px 0px; }
+          /* line 1282, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__txt-soc a.fb {
             background-position: 6px -135px; }
-          /* line 1301, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1285, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__txt-soc a.vk {
             background-position: 6px 4px; }
-          /* line 1304, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1288, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-item__txt-soc a.ok {
             background-position: 6px -66px; }
-  /* line 1317, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 1301, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__articles-pagi {
     padding-top: 40px;
     width: 690px;
     text-align: center; }
-    /* line 1323, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1307, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-pagi a, .content_main__articles-pagi span {
       font-size: 14px;
       color: #000000;
@@ -1069,23 +1053,23 @@ header {
       vertical-align: middle;
       position: relative;
       padding: 3px 8px; }
-      /* line 1334, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1318, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-pagi a.prev i, .content_main__articles-pagi a.next i, .content_main__articles-pagi span.prev i, .content_main__articles-pagi span.next i {
         text-decoration: none;
         font-size: 20px;
         vertical-align: middle; }
-      /* line 1340, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1324, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-pagi a.prev span, .content_main__articles-pagi a.next span, .content_main__articles-pagi span.prev span, .content_main__articles-pagi span.next span {
         text-decoration: underline; }
-      /* line 1346, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1330, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-pagi a.prev:hover span, .content_main__articles-pagi a.next:hover span, .content_main__articles-pagi span.prev:hover span, .content_main__articles-pagi span.next:hover span {
         text-decoration: none; }
-    /* line 1358, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1342, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-pagi > span b {
       position: relative;
       font-weight: normal;
       color: #FFFFFF; }
-    /* line 1364, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1348, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-pagi > span:before {
       content: "";
       display: block;
@@ -1101,17 +1085,17 @@ header {
       /* IE 5.5+ */
       top: 0;
       left: 0; }
-    /* line 1372, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1356, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-pagi > span.prev, .content_main__articles-pagi > span.next {
       color: #9a9a9a; }
-      /* line 1375, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1359, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-pagi > span.prev span, .content_main__articles-pagi > span.next span {
         color: #9a9a9a;
         text-decoration: none; }
-      /* line 1381, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1365, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-pagi > span.prev:before, .content_main__articles-pagi > span.prev:after, .content_main__articles-pagi > span.next:before, .content_main__articles-pagi > span.next:after {
         display: none; }
-  /* line 1390, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 1374, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__articles-tile {
     width: 23.5%;
     margin-left: 2%;
@@ -1119,58 +1103,58 @@ header {
     height: 340px;
     float: left;
     position: relative; }
-    /* line 1404, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1388, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile.first {
       margin-left: 0; }
-    /* line 1408, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1392, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile_img {
       position: absolute;
       width: 100%;
       height: 90%;
       top: 0;
       left: 0; }
-      /* line 1415, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1399, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_img img {
         display: block;
         width: 100%;
         height: auto; }
-    /* line 1427, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1411, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile_header {
       position: absolute;
       left: 0;
       top: 0;
       width: 100%;
       padding-top: 16px; }
-      /* line 1434, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1418, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .winners .content_main__articles-tile_header {
         padding-top: 4px; }
-      /* line 1438, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1422, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_header_scores {
         font-size: 14px;
         color: #939598;
         padding-left: 20px; }
-      /* line 1446, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1430, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_header_title {
         font-weight: normal;
         font-size: 24px;
         padding-left: 20px;
         color: #008dd2; }
-        /* line 1453, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1437, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_header_title.white {
           color: #FFFFFF; }
-        /* line 1457, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1441, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .disalow .content_main__articles-tile_header_title {
           color: #6d6e71; }
-        /* line 1461, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1445, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .trophy .content_main__articles-tile_header_title {
           display: block;
           font-size: 17px; }
-      /* line 1469, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1453, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_header_medals {
         font-size: 0;
         letter-spacing: 0;
         margin-left: -12px; }
-        /* line 1474, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1458, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_header_medals span {
           display: inline-block;
           position: relative;
@@ -1179,16 +1163,16 @@ header {
           margin-right: -18px;
           background-repeat: no-repeat;
           background-position: 50% 50%; }
-          /* line 1484, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1468, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_1 {
-            background-image: url("../images/medal_1.png"); }
-          /* line 1487, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            background-image: url("../i/medal_1.png"); }
+          /* line 1471, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_2 {
-            background-image: url("../images/medal_2.png"); }
-          /* line 1490, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            background-image: url("../i/medal_2.png"); }
+          /* line 1474, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.m_3 {
-            background-image: url("../images/medal_3.png"); }
-          /* line 1494, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            background-image: url("../i/medal_3.png"); }
+          /* line 1478, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span a {
             white-space: nowrap;
             color: #008dd2;
@@ -1199,7 +1183,7 @@ header {
             position: absolute;
             left: 100%;
             top: 9px; }
-            /* line 1505, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 1489, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles-tile_header_medals span a:before {
               content: "";
               display: block;
@@ -1213,106 +1197,105 @@ header {
               border-top: 4px solid transparent;
               border-bottom: 4px solid transparent;
               border-left: none; }
-          /* line 1526, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1510, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles-tile_header_medals span.active a, .content_main__articles-tile_header_medals span:hover a {
             display: inline-block; }
-    /* line 1534, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1518, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile_footer {
       position: absolute;
       left: 0;
       bottom: 0;
       width: 100%;
       border-top: 1px solid #e0e0e0;
-      font-size: 12px;
-      min-height: 28px; }
-      /* line 1543, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      font-size: 12px; }
+      /* line 1526, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .winners .content_main__articles-tile_footer {
         text-align: left;
         background-color: #ffffff; }
-        /* line 1547, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1530, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .winners .content_main__articles-tile_footer a {
           font-size: 17px;
           display: block;
           padding: 0 20px; }
-      /* line 1556, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1539, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .trophy .content_main__articles-tile_footer {
         font-size: 10px;
         background-color: #FFFFFF;
         padding: 6px 0 8px; }
-      /* line 1562, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1545, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_footer_desc {
         color: #ffffff;
         padding-left: 20px; }
-      /* line 1567, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1550, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_footer_link {
         margin-top: 20px;
         padding: 8px 0;
         text-align: center;
         background-color: #ffffff; }
-        /* line 1573, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1556, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .winners .content_main__articles-tile_footer_link {
           background-color: transparent;
           margin-top: 0; }
-        /* line 1580, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1563, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_footer_link span {
           color: #bcbec0;
           vertical-align: middle;
           font-size: 14px; }
-        /* line 1585, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1568, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_footer_link i {
           font-style: normal;
           font-size: 18px;
           vertical-align: middle;
           display: inline-block;
           padding: 0 6px 0 4px; }
-        /* line 1594, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1577, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_footer_link a {
           color: #008dd2;
           vertical-align: middle; }
-      /* line 1601, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1584, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile_footer_buy, .content_main__articles-tile_footer_take {
         text-align: right;
         padding-right: 10px; }
-        /* line 1605, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1588, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_footer_buy a, .content_main__articles-tile_footer_take a {
           color: #008dd2; }
-    /* line 1611, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1594, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile .blue_b {
       display: none;
       position: absolute;
       background-color: #28a5de; }
-      /* line 1618, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1601, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.bl, .content_main__articles-tile .blue_b.br {
         width: 6px;
         height: 100%;
         top: 0; }
-      /* line 1623, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1606, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.bl {
         left: 0; }
-      /* line 1626, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1609, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.br {
         right: 0; }
-      /* line 1631, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1614, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.bt, .content_main__articles-tile .blue_b.bb {
         height: 6px;
         width: 100%;
         left: 0; }
-      /* line 1636, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1619, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.bt {
         top: 0; }
-      /* line 1639, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1622, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles-tile .blue_b.bb {
         bottom: 0; }
-    /* line 1645, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1628, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles-tile:hover .blue_b {
       display: block; }
-  /* line 1653, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 1636, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_main__articles.cabinet .cabinet_content {
     margin-top: 30px;
     padding: 180px 0 40px;
     position: relative;
     background-color: #FFFFFF; }
-    /* line 1660, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1643, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles.cabinet .cabinet_content__tabs {
       position: absolute;
       top: 0;
@@ -1320,7 +1303,7 @@ header {
       width: 100%;
       font-size: 0;
       letter-spacing: 0; }
-      /* line 1668, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1651, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs li {
         list-style-type: none;
         display: inline-block;
@@ -1329,9 +1312,9 @@ header {
         height: 135px;
         border-left: 1px solid #FFFFFF;
         margin-left: -1px;
-        background: #28a5de url("../images/cabinet_ico_w.png") no-repeat 50% 0;
+        background: #28a5de url("../i/cabinet_ico_w.png") no-repeat 50% 0;
         overflow: hidden; }
-        /* line 1681, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1664, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__tabs li span {
           cursor: pointer;
           position: absolute;
@@ -1344,53 +1327,53 @@ header {
           padding: 110px 0 14px;
           color: #FFFFFF;
           text-decoration: underline; }
-        /* line 1696, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1679, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__tabs li:first-child {
           border-left: none;
           margin-left: 0; }
-        /* line 1702, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1685, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__tabs li:hover, .content_main__articles.cabinet .cabinet_content__tabs li.active {
           background-color: #FFFFFF;
-          background-image: url("../images/cabinet_ico_b.png"); }
-          /* line 1706, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          background-image: url("../i/cabinet_ico_b.png"); }
+          /* line 1689, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__tabs li:hover span, .content_main__articles.cabinet .cabinet_content__tabs li.active span {
             color: #28a5de; }
-      /* line 1711, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1694, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .checks {
         background-position: 50% -113px; }
-      /* line 1714, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1697, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .contests {
         background-position: 50% -252px; }
-      /* line 1717, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1700, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .reviews {
         background-position: 50% -392px; }
-      /* line 1720, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1703, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .testing {
         background-position: 50% -538px; }
-      /* line 1723, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1706, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .invite {
         background-position: 50% -673px; }
-      /* line 1726, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1709, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .status {
         background-position: 50% -810px; }
-      /* line 1729, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1712, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .settings {
         background-position: 50% 26px; }
-    /* line 1734, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 1717, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles.cabinet .cabinet_content__item {
       display: none; }
-      /* line 1737, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1720, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.active {
         display: block; }
-      /* line 1741, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1724, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item-content {
         width: 640px;
         margin: 0 auto; }
-        /* line 1750, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1733, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item-content form .invite_wrap, .content_main__articles.cabinet .cabinet_content__item-content form .about_wrap, .content_main__articles.cabinet .cabinet_content__item-content form .pass_wrap {
           position: relative;
           padding-bottom: 60px; }
-        /* line 1763, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1746, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item-content form hr {
           display: block;
           height: 0px;
@@ -1398,7 +1381,7 @@ header {
           border-top: 1px solid #e0e0e0;
           margin: 10px 0;
           clear: both; }
-        /* line 1772, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1755, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item-content form h2 {
           margin: 0;
           padding-bottom: 14px;
@@ -1406,12 +1389,12 @@ header {
           font-size: 14px;
           color: #28a5de;
           text-transform: lowercase; }
-        /* line 1782, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1765, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item-content form .avatar_w {
           width: 160px;
           height: 180px;
           float: left; }
-          /* line 1787, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1770, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .avatar_w label {
             font-size: 13px;
             display: block;
@@ -1420,27 +1403,27 @@ header {
             text-align: center;
             text-decoration: underline;
             text-transform: lowercase; }
-          /* line 1797, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1780, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .avatar_w input {
             overflow: hidden;
             height: 0;
             width: 0; }
-        /* line 1804, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1787, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item-content form .form_row {
           width: 460px;
           padding-bottom: 16px;
           text-align: right; }
-          /* line 1810, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1793, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row label {
             display: inline-block;
             font-size: 14px;
             width: 100px;
             text-align: left;
             vertical-align: middle; }
-          /* line 1821, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1804, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row.textarea_row label {
             vertical-align: top; }
-          /* line 1828, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1811, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row textarea, .content_main__articles.cabinet .cabinet_content__item-content form .form_row input[type="password"], .content_main__articles.cabinet .cabinet_content__item-content form .form_row input[type="text"] {
             width: 320px;
             display: inline-block;
@@ -1448,51 +1431,51 @@ header {
             color: #6d6e71;
             font-size: 12px;
             border-color: #bcbec0; }
-          /* line 1839, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1822, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row textarea {
             height: 80px; }
-          /* line 1843, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1826, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row {
             text-align: right; }
-            /* line 1846, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 1829, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row input {
               position: absolute;
               bottom: 0;
               right: 0; }
-          /* line 1855, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1838, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item-content form .form_row.chek_row {
             text-align: right; }
-            /* line 1857, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 1840, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles.cabinet .cabinet_content__item-content form .form_row.chek_row .chek_row_wrap {
               display: inline-block;
               width: 342px;
               text-align: left; }
-              /* line 1862, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 1845, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .content_main__articles.cabinet .cabinet_content__item-content form .form_row.chek_row .chek_row_wrap input {
                 display: inline-block;
                 vertical-align: middle; }
-              /* line 1867, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 1850, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .content_main__articles.cabinet .cabinet_content__item-content form .form_row.chek_row .chek_row_wrap label {
                 display: inline-block;
                 padding-left: 2px;
                 width: 200px; }
-      /* line 1880, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1863, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.settings {
         padding-top: 50px; }
-        /* line 1883, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1866, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.settings .form_row {
           float: right; }
-      /* line 1890, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1873, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.status .status_medal {
         text-align: center; }
-        /* line 1893, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1876, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.status .status_medal i {
           font-style: normal;
           display: inline-block;
           width: 30px;
           height: 30px;
           border-radius: 50%; }
-      /* line 1903, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1886, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.status .status_title {
         text-align: center;
         margin: 0;
@@ -1500,79 +1483,79 @@ header {
         text-transform: uppercase;
         font-size: 30px;
         color: #28a5de; }
-      /* line 1913, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1896, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.status .status_txt {
         width: 400px;
         margin: 0 auto;
         font-size: 14px;
         line-height: 20px; }
-        /* line 1921, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1904, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.status .status_txt ul li {
           list-style-position: inside;
           list-style-type: none;
           display: block;
           padding-left: 8px; }
-          /* line 1927, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1910, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.status .status_txt ul li:before {
             content: "-";
             position: relative;
             left: -5px; }
-      /* line 1941, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1924, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.testing .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.invite .cabinet_content__item-content {
         width: 460px; }
-      /* line 1945, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1928, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.testing .form_row, .content_main__articles.cabinet .cabinet_content__item.invite .form_row {
         float: right; }
-      /* line 1953, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 1936, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content {
         width: 94%; }
-        /* line 1958, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 1941, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item {
           padding-bottom: 10px;
           overflow: hidden;
           font-size: 0;
           letter-spacing: 0; }
-          /* line 1966, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1949, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item .load_progress, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item .load_progress, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item .load_progress {
             display: inline-block;
             width: 92%; }
-          /* line 1971, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1954, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item.submit_row, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item.submit_row, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item.submit_row {
             padding: 40px 40px 0 0;
             text-align: right; }
-          /* line 1978, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1961, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item .popup_wrap_content, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item .popup_wrap_content, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item .popup_wrap_content {
             border: 1px solid #e0e0e0;
             padding: 30px 40px;
             margin: -15px 0px 0px 30px; }
-          /* line 1988, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1971, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
             font-size: 14px;
             display: inline-block;
             text-align: left;
             vertical-align: middle; }
-          /* line 1995, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1978, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num {
             text-align: right;
             padding-right: 20px; }
-          /* line 2000, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1983, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img {
             width: 74px;
             height: 64px;
             position: relative; }
-          /* line 2008, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 1991, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title {
             padding-left: 20px; }
-            /* line 2011, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 1994, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title a {
               display: inline-block;
               max-width: 250px;
               color: #9a9a9a; }
-          /* line 2017, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2000, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
             padding-left: 40px;
             max-width: 410px; }
-            /* line 2020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 2003, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b {
               display: inline-block;
               font-weight: normal;
@@ -1581,71 +1564,71 @@ header {
               background-color: #d1d3d4;
               vertical-align: middle;
               text-align: center; }
-              /* line 2030, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 2013, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_approved {
                 background-color: #28a5de; }
-              /* line 2033, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 2016, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_disallow {
                 background-color: #ff0601; }
-              /* line 2037, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+              /* line 2020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
               .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b i {
                 color: #FFFFFF;
                 font-size: 18px;
                 vertical-align: middle;
                 margin-top: 6px; }
-            /* line 2044, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 2027, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status span {
               display: inline-block;
               vertical-align: middle;
               padding-left: 20px; }
-      /* line 2061, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2044, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item {
         padding-bottom: 30px; }
-        /* line 2081, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2064, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name {
           width: 240px;
           max-width: inherit; }
-        /* line 2086, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2069, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title {
           width: 220px;
           max-width: inherit; }
-        /* line 2093, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2076, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status {
           width: 240px; }
-          /* line 2105, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2088, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status span {
             width: 178px; }
-      /* line 2114, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2097, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item .content_main__articles-pagi {
         width: 100%; }
-  /* line 2126, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2109, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_front_bkg {
     position: absolute;
     width: 1920px;
     height: 100%;
-    background: #28a5de url("../images/front_bkg.jpg") no-repeat 50% 0;
+    background: #28a5de url("../i/front_bkg.jpg") no-repeat 50% 0;
     top: 0;
     left: 50%;
     margin-left: -960px; }
-  /* line 2137, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2120, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .content_front {
     padding: 50px 0 50px 50%;
     min-height: 570px;
     position: relative; }
-    /* line 2142, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2125, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_front .front_title {
       font-size: 74px;
       line-height: 60px;
       color: #FFFFFF; }
-      /* line 2148, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2131, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_front .front_title strong {
         display: block; }
-    /* line 2154, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2137, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_front_sign {
       margin-top: 30px;
       position: relative;
       height: 370px; }
-      /* line 2159, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2142, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_front_sign_start {
         position: relative;
         margin-top: 30px;
@@ -1653,14 +1636,14 @@ header {
         padding: 14px 20px;
         background-color: #FFFFFF;
         font-size: 18px; }
-        /* line 2170, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2153, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_start a.sign {
           color: #939598; }
-        /* line 2173, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2156, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_start a.reg {
           color: #008dd2;
           text-decoration: none; }
-        /* line 2179, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2162, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_start_call {
           position: absolute;
           left: 20px;
@@ -1668,30 +1651,30 @@ header {
           color: #FFFFFF;
           font-size: 24px;
           font-weight: normal; }
-          /* line 2188, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2171, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_front_sign_start_call strong {
             font-weight: normal; }
-      /* line 2194, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2177, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_front_sign_form {
         position: relative;
         display: none; }
-        /* line 2200, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2183, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form form, .content_front_sign_form_soc {
           background: #FFFFFF;
           padding: 30px 30px;
           margin-top: 10px; }
-          /* line 2207, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2190, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_front_sign_form form .title, .content_front_sign_form_soc .title {
             display: block;
             padding-bottom: 20px;
             font-size: 18px; }
-        /* line 2217, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2200, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form_soc .title {
           color: #008dd2; }
-        /* line 2221, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2204, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form_soc .soc {
           overflow: hidden; }
-          /* line 2224, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2207, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_front_sign_form_soc .soc_ico {
             display: block;
             float: left;
@@ -1699,35 +1682,35 @@ header {
             height: 24px;
             border-radius: 3px;
             margin-left: 10px;
-            background: #28a5de url("../images/soc_ico.png") no-repeat 50% 0px; }
-            /* line 2233, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            background: #28a5de url("../i/soc_ico.png") no-repeat 50% 0px; }
+            /* line 2216, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_front_sign_form_soc .soc_ico.fb {
               background-position: 50% -135px; }
-            /* line 2236, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 2219, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_front_sign_form_soc .soc_ico.vk {
               background-position: 50% 4px; }
-            /* line 2239, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+            /* line 2222, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
             .content_front_sign_form_soc .soc_ico.ok {
               background-position: 50% -67px; }
-        /* line 2248, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2231, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form form .title {
           color: #bcbec0; }
-        /* line 2253, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2236, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form form input[type="text"], .content_front_sign_form form input[type="password"] {
           width: 220px;
           display: block;
           padding: 5px;
           margin-bottom: 10px;
           font-size: 12px; }
-        /* line 2262, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2245, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form form .grey_btn {
           margin-top: 10px; }
 
-/* line 2273, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2256, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .gallery {
   font-size: 0;
   letter-spacing: 0; }
-  /* line 2279, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2262, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .gallery-item {
     font-size: 14px;
     display: inline-block;
@@ -1735,20 +1718,20 @@ header {
     vertical-align: top;
     width: 49%;
     margin-left: 2%; }
-    /* line 2287, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2270, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .gallery-item:nth-child(odd) {
       margin-left: 0; }
-    /* line 2291, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2274, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .gallery-item_img_wrap {
       width: 100%;
       height: 180px; }
-    /* line 2299, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2282, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .gallery-item strong {
       display: block;
       padding: 10px 0;
       font-weight: normal; }
 
-/* line 2309, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2292, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .reviews_list-item, .popup {
   display: none;
   position: fixed;
@@ -1759,10 +1742,10 @@ header {
   height: 100%;
   background-color: #222222;
   background-color: rgba(0, 0, 0, 0.7); }
-  /* line 2320, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2303, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .show_pp_overflow .reviews_list-item, .show_pp_overflow .popup {
     display: block; }
-  /* line 2324, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2307, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .reviews_list-item_close, .popup_close {
     position: absolute;
     top: 0;
@@ -1770,7 +1753,7 @@ header {
     width: 100%;
     height: 100%;
     cursor: pointer; }
-  /* line 2334, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2317, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .reviews_list-item_wrap, .popup_wrap {
     width: 500px;
     padding: 40px 50px;
@@ -1782,61 +1765,60 @@ header {
     margin-left: -300px;
     background-color: #FFFFFF;
     max-height: 70%; }
-    /* line 2347, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2330, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .reviews_list-item_wrap_content, .popup_wrap_content {
       height: 100%; }
-      /* line 2352, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2335, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_title .title, .popup_wrap_content_title .title {
         color: #008dd2;
         font-size: 35px;
         display: inline-block; }
-        /* line 2358, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2341, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_title .title strong, .popup_wrap_content_title .title strong {
           font-weight: normal; }
-      /* line 2364, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2347, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_title span, .popup_wrap_content_title span {
         display: inline-block;
         color: #bcbec0;
         font-size: 25px; }
-        /* line 2370, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2353, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_title span i, .popup_wrap_content_title span i {
           font-style: normal; }
-      /* line 2377, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2360, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_txt, .popup_wrap_content_txt {
         font-size: 14px;
         padding: 10px 0 20px; }
-      /* line 2383, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2366, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_name, .popup_wrap_content_name {
         color: #008dd2;
         font-size: 14px;
         padding-bottom: 10px; }
-        /* line 2390, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2373, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_name span, .reviews_list-item_wrap_content_name i, .popup_wrap_content_name span, .popup_wrap_content_name i {
           font-style: normal; }
-      /* line 2396, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2379, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_form, .popup_wrap_content_form {
         position: relative;
         padding-right: 35px; }
-        /* line 2400, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2383, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_form form, .popup_wrap_content_form form {
           position: relative;
           padding-bottom: 80px; }
-        /* line 2405, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2388, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_form .product_name, .popup_wrap_content_form .product_name {
           width: 442px;
           display: inline-block;
           padding: 5px 10px;
           color: #6d6e71;
-          font-size: 14px;
+          font-size: 12px;
           margin-bottom: 10px; }
-        /* line 2415, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2398, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_form .form_txta, .popup_wrap_content_form .form_txta {
           display: block;
           width: 452px;
           padding: 10px 0px 10px 10px;
-          height: 160px;
-          font-size: 14px; }
-      /* line 2426, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          height: 160px; }
+      /* line 2408, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .input_file_btn, .popup_wrap_content .input_file_btn {
         display: block;
         position: absolute;
@@ -1846,38 +1828,38 @@ header {
         height: 30px;
         background-color: #28a5de;
         text-align: center; }
-        /* line 2436, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2418, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content .input_file_btn i, .popup_wrap_content .input_file_btn i {
           color: #FFFFFF;
           margin-top: 6px;
           font-size: 18px; }
-      /* line 2443, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2425, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .file_field_wrap, .popup_wrap_content .file_field_wrap {
         overflow: hidden;
         width: 0;
         height: 0; }
-      /* line 2449, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2431, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .blue_btn, .reviews_list-item_wrap_content .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row input, .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row .reviews_list-item_wrap_content input, .popup_wrap_content .blue_btn, .popup_wrap_content .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row input, .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row .popup_wrap_content input {
         position: absolute;
         bottom: 0;
         right: 0; }
-      /* line 2461, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2443, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .download_result .img-list li, .popup_wrap_content .download_result .img-list li {
         list-style-type: none;
         display: block;
         margin-top: 10px; }
-        /* line 2470, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2452, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content .download_result .img-list li .img_w, .popup_wrap_content .download_result .img-list li .img_w {
           width: 70px;
           height: 70px;
           overflow: hidden;
           float: left; }
-          /* line 2476, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2458, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .reviews_list-item_wrap_content .download_result .img-list li .img_w img, .popup_wrap_content .download_result .img-list li .img_w img {
             display: block;
             width: auto;
             height: 100%; }
-        /* line 2483, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2465, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content .download_result .img-list li textarea, .popup_wrap_content .download_result .img-list li textarea {
           display: block;
           float: right;
@@ -1886,24 +1868,24 @@ header {
           width: 370px;
           font-size: 14px; }
 
-/* line 2502, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2484, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .progress {
   position: relative; }
-  /* line 2505, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2487, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .progress_name {
     font-size: 10px; }
-  /* line 2509, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2491, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .progress_bar {
     height: 10px;
     border: 1px solid #e0e0e0;
     position: relative; }
-    /* line 2514, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2496, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .progress_bar_per {
       position: absolute;
       width: 10%;
       height: 100%;
       background-color: #008dd2; }
-  /* line 2522, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2504, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .progress .remove {
     text-decoration: none;
     color: #9a9a9a;
@@ -1913,7 +1895,7 @@ header {
     right: -20px;
     bottom: 1px; }
 
-/* line 2534, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2516, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .reviews_list-item {
   display: block;
   position: relative;
@@ -1923,11 +1905,11 @@ header {
   width: auto;
   height: auto;
   background-color: transparent; }
-  /* line 2544, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2526, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .reviews_list-item .popup_wrap_content {
     width: 500px; }
 
-/* line 2552, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2534, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .front_slider_bkg {
   position: absolute;
   top: 0;
@@ -1936,9 +1918,9 @@ header {
   height: 530px;
   width: 1920px;
   margin-left: -960px;
-  background: #8ed0eb url("../images/front_slider_bkg.jpg") no-repeat 50% 50%; }
+  background: #8ed0eb url("../i/front_slider_bkg.jpg") no-repeat 50% 50%; }
 
-/* line 2563, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2545, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .front_slider {
   height: 405px;
   overflow: hidden;
@@ -1946,34 +1928,34 @@ header {
   margin-top: -18px;
   position: relative;
   z-index: 3; }
-  /* line 2573, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2555, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .front_slider_wrap {
     width: 930px;
     height: 410px;
     margin: 0 auto 0;
     position: relative; }
-    /* line 2580, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2562, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .front_slider_wrap_content {
       width: 930px;
       height: 410px;
       margin: 0 auto 0;
       overflow: hidden; }
-      /* line 2586, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2568, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .front_slider_wrap_content-item {
         width: 930px;
         height: 410px;
         float: left;
         position: relative; }
-        /* line 2592, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2574, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .front_slider_wrap_content-item_img {
           position: absolute;
           top: 0;
           left: 150px; }
-          /* line 2597, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+          /* line 2579, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .front_slider_wrap_content-item_img img {
             width: auto;
             height: auto; }
-        /* line 2603, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2585, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .front_slider_wrap_content-item_txt {
           width: 390px;
           position: absolute;
@@ -1983,7 +1965,7 @@ header {
           font-size: 48px;
           line-height: 42px;
           color: #FFFFFF; }
-    /* line 2629, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2611, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .front_slider_wrap .pagi {
       display: block;
       text-align: center;
@@ -1992,7 +1974,7 @@ header {
       width: 400px;
       left: 50%;
       margin-left: -200px; }
-      /* line 2638, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2620, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .front_slider_wrap .pagi a {
         display: inline-block;
         width: 8px;
@@ -2000,13 +1982,13 @@ header {
         border-radius: 50%;
         background-color: #FFFFFF;
         margin: 0 7px; }
-        /* line 2646, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2628, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .front_slider_wrap .pagi a.selected {
           background-color: #a7a9ac; }
-        /* line 2650, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+        /* line 2632, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .front_slider_wrap .pagi a span {
           display: none; }
-    /* line 2657, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2639, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .front_slider_wrap .arr {
       position: absolute;
       font-size: 30px;
@@ -2015,18 +1997,18 @@ header {
       display: inline-block;
       padding: 20px;
       top: 32%; }
-      /* line 2667, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2649, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .front_slider_wrap .arr.prev {
         left: -40px;
         color: #28a5de; }
-      /* line 2671, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+      /* line 2653, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .front_slider_wrap .arr.next {
         right: -40px; }
 
-/* line 2679, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+/* line 2661, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .soc {
   overflow: hidden; }
-  /* line 2682, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2664, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .soc_ico {
     display: block;
     float: left;
@@ -2034,23 +2016,23 @@ header {
     height: 24px;
     border-radius: 3px;
     margin-left: 10px;
-    background: #FFFFFF url("../images/soc_ico.png") no-repeat 50% 0px; }
-    /* line 2691, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    background: #FFFFFF url("../i/soc_ico.png") no-repeat 50% 0px; }
+    /* line 2673, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .soc_ico.fb {
       background-position: 50% -135px; }
-    /* line 2694, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2676, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .soc_ico.vk {
       background-position: 50% 4px; }
-    /* line 2697, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+    /* line 2679, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .soc_ico.ok {
       background-position: 50% -67px; }
-  /* line 2703, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2685, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .soc.wight .fb {
     background-position: 50% -172px; }
-  /* line 2706, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2688, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .soc.wight .vk {
     background-position: 50% -32px; }
-  /* line 2709, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
+  /* line 2691, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .soc.wight .ok {
     background-position: 50% -103px; }
 /*# sourceMappingURL=mainStyles.css.map */
