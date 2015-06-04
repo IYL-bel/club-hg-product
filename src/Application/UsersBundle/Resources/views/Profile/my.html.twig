@@ -1,0 +1,482 @@
+{% extends '::layout.html.twig' %}
+
+
+{% block content %}
+
+
+<div class="content_header">
+
+    <h1 class="content_header__title">
+        Личный кабинет
+    </h1>
+
+    <ul class="content_header__breadcrumbs">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Клуб находчивых домохозяек</a></li>
+        <li><span>Личный кабинет</span></li>
+    </ul><!--.content_header__breadcrumbs-->
+
+</div><!--.content_header-->
+
+
+<div class="content_main">
+
+    <div class="content_main__articles cabinet">
+
+        <div class="cabinet_content">
+
+            <ul class="cabinet_content__tabs">
+                <li class="checks active"><span>Чеки</span></li>
+                <li class="contests"><span>Конкурсы</span></li>
+                <li class="reviews"><span>Отзывы</span></li>
+                <li class="testing"><span>Заявка <br/> на тестирование</span></li>
+                <li class="invite"><span>Пригласить друзей</span></li>
+                <li class="status"><span>Статус</span></li>
+                <li class="settings"><span>Личные настройки</span></li>
+            </ul>
+
+            <div class="cabinet_content__item checks active">
+                <div class="cabinet_content__item-content">
+                    <div class="reviews_list">
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">1.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Средство НG  для удаления известкового налета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_assay"></b>
+                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">2.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Универсальное чистящее средство для ванной и туалета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">3.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+
+                            <div class="reviews_list-item_num">4.</div>
+
+                            <div class="load_progress">
+                                <div class="progress">
+                                    <span class="progress_name">IMG_80256</span>
+                                    <div class="progress_bar">
+                                        <div class="progress_bar_per" style="width: 47%;"></div>
+                                    </div>
+                                    <a class="remove" href="#"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+
+
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item submit_row">
+                            <input class="blue_btn" type="submit" value="Загрузить">
+
+                        </div><!--.reviews_list-item-->
+
+                    </div><!--.reviews_list-->
+                </div>
+            </div>
+
+            <div class="cabinet_content__item contests">
+                <div class="cabinet_content__item-content">
+
+                    <div class="reviews_list">
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">1.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_name">
+                                <a href="#">Весенний субботник</a>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Средство НG  для удаления известкового налета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_assay"></b>
+                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">2.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_name">
+                                <a href="#">8 марта с HG</a>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Универсальное чистящее средство для ванной и туалета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">3.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_name">
+                                <a href="#">Весенний субботник</a>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+
+                    </div><!--.reviews_list-->
+
+                    <div class="content_main__articles-pagi">
+                        <span class="prev"><i class="fa fa-angle-left"></i><span>Назад</span></span>
+                        <a class="page" href="#">1</a>
+                        <span><b>2</b></span>
+                        <a class="page" href="#">3</a>
+                        <a class="page" href="#">4</a>
+                        <a class="page" href="#">5</a>
+                        <a class="next" href="#"><span>Вперед</span><i class="fa fa-angle-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="cabinet_content__item reviews">
+                <div class="cabinet_content__item-content">
+                    <div class="reviews_list">
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">1.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Средство НG  для удаления известкового налета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_assay"></b>
+                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">2.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Универсальное чистящее средство для ванной и туалета</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+                            <div class="reviews_list-item_num">3.</div>
+                            <div class="reviews_list-item_img img_c">
+                                <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
+                            </div>
+                            <div class="reviews_list-item_title">
+                                <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
+                            </div>
+                            <div class="reviews_list-item_status">
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>+100 очков</span>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                        <div class="reviews_list-item">
+
+                            <div class="reviews_list-item_num">4.</div>
+
+                            <div class="popup_wrap_content">
+                                <div class="popup_wrap_content_name">
+                                    Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
+                                </div>
+                                <div class="popup_wrap_content_form">
+                                    <form id="content_form" action="#">
+
+                                        <input class="product_name" id="product_name" type="text" placeholder="Название товара из каталога" />
+
+                                        <textarea class="form_txta" placeholder="Введите текст"></textarea>
+
+                                        <label for="file-field" class="input_file_btn"><i class="fa fa-camera"></i></label>
+
+                                        <div class="file_field_wrap">
+                                            <input type="file" id="file-field" multiple="true" />
+                                        </div>
+
+
+                                        <div class="download_result">
+
+                                            <ul id="img-list" class="img-list">
+
+                                                <li>
+                                                    <div class="img_w">
+                                                        <img src="{{ asset('images/not_optimize/gall_01.jpg') }}" alt=""/>
+                                                    </div>
+                                                    <textarea placeholder="Описание фото"></textarea>
+                                                </li>
+
+                                                <li>
+                                                    <div class="img_w">
+                                                        <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt=""/>
+                                                    </div>
+                                                    <textarea placeholder="Описание фото"></textarea>
+                                                </li>
+
+                                                <li>
+                                                    <div class="progress">
+                                                        <span class="progress_name">IMG_80256</span>
+                                                        <div class="progress_bar">
+                                                            <div class="progress_bar_per" style="width: 47%;"></div>
+                                                        </div>
+                                                        <a class="remove" href="#"><i class="fa fa-times"></i></a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="progress">
+                                                        <span class="progress_name">IMG_80267_ed</span>
+                                                        <div class="progress_bar">
+                                                            <div class="progress_bar_per" style="width: 78%;"></div>
+                                                        </div>
+                                                        <a class="remove" href="#"><i class="fa fa-times"></i></a>
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
+
+                                        </div>
+
+                                        <input class="blue_btn" id="send-btn" type="submit" value="Отправить"/>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div><!--.reviews_list-item-->
+
+                    </div><!--.reviews_list-->
+                </div>
+            </div>
+
+            <div class="cabinet_content__item testing">
+                <div class="cabinet_content__item-content">
+                    <form action="#">
+                        <div class="invite_wrap">
+
+                            <div class="form_row">
+                                <label for="testing_name">Имя</label>
+                                <input id="testing_name" type="text"/>
+                            </div>
+
+                            <div class="form_row">
+                                <label for="testing_email">E-mail</label>
+                                <input id="testing_email" type="text"/>
+                            </div>
+
+
+                            <div class="form_row">
+                                <label for="testing_good">Товар</label>
+                                <input id="testing_good" type="text"/>
+                            </div>
+
+                            <div class="form_row textarea_row">
+                                <label for="testing_txt">Телефон и адрес доставки</label>
+                                <textarea id="testing_txt"></textarea>
+                            </div>
+
+                            <div class="form_row chek_row">
+                                <div class="chek_row_wrap">
+                                    <input id="testing_deliv" checked type="checkbox"/>
+                                    <label for="testing_deliv">Получать новостную рассылку</label>
+                                </div>
+                            </div>
+
+                            <div class="form_row submit_row">
+                                <input type="submit" value="Заказать"/>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="cabinet_content__item invite">
+                <div class="cabinet_content__item-content">
+
+
+                    <form action="#">
+                        <div class="invite_wrap">
+                            <div class="form_row">
+                                <label for="inv_email">E-mail</label>
+                                <input id="inv_email" type="text"/>
+                            </div>
+
+                            <div class="form_row textarea_row">
+                                <label for="inv_text">Текст сообщения</label>
+                                <textarea id="inv_text"></textarea>
+                            </div>
+
+                            <div class="form_row submit_row">
+                                <input type="submit" value="Отправить приглашение"/>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+
+            <div class="cabinet_content__item status">
+                <div class="cabinet_content__item-content">
+
+                    <div class="status_medal">
+                        <i></i>
+                    </div>
+
+                    <div class="status_title">
+                        <span>СЕРЕБРО</span>
+                    </div>
+
+                    <div class="status_txt">
+
+                        <p>Серебряный статус позволяет вам</p>
+
+                        <ul>
+                            <li>Бесплатно тестировать средства HG раз в месяц</li>
+                            <li>Участвовать в обсуждениях</li>
+                            <li>Покупать товары HG в гиппермаркетах со скидкой 10%</li>
+                        </ul>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+            <div class="cabinet_content__item settings" >
+                <div class="cabinet_content__item-content">
+                    <form action="#">
+
+                        <div class="about_wrap">
+
+                            <h2>о себе</h2>
+
+                            <div class="avatar_w">
+                                <div class="img_w">
+                                    <img src="{{ asset('images/not_optimize/girl_01.jpg') }}" alt="name"/>
+                                </div>
+                                <label for="avatar_ch"></label>
+                                <input id="avatar_ch" type="file" value="изменить фото"/>
+                            </div>
+
+                            <div class="form_row">
+                                <label for="name">Имя</label>
+                                <input id="name" type="text"/>
+                            </div>
+                            <div class="form_row">
+                                <label for="lastname">Фамилия</label>
+                                <input id="lastname" type="text"/>
+                            </div>
+                            <div class="form_row">
+                                <label for="age">Возраст</label>
+                                <input id="age" type="text"/>
+                            </div>
+                            <div class="form_row">
+                                <label for="activities">Род занятий</label>
+                                <input id="activities" type="text"/>
+                            </div>
+
+                            <div class="form_row submit_row">
+                                <input type="submit" value="Сохранить"/>
+                            </div>
+
+                        </div>
+
+                        <hr/>
+
+                        <div class="pass_wrap">
+
+                            <h2>смена пароля</h2>
+
+                            <div class="form_row">
+                                <label for="oldpass">Старый пароль</label>
+                                <input id="oldpass" type="password"/>
+                            </div>
+                            <div class="form_row">
+                                <label for="newpass">Новый пароль</label>
+                                <input id="newpass" type="password"/>
+                            </div>
+                            <div class="form_row">
+                                <label for="renewpass">Новый пароль</label>
+                                <input id="renewpass" type="password"/>
+                            </div>
+
+                            <hr/>
+
+                            <div class="form_row submit_row">
+                                <input type="submit" value="Сохранить"/>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--.cabinet_content-->
+
+    </div><!--.content_main__articles-->
+
+</div><!--.content_main-->
+
+
+{% endblock content %}
