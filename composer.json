@@ -22,7 +22,11 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "beberlei/DoctrineExtensions": "*"
+        "beberlei/DoctrineExtensions": "*",
+        "doctrine/migrations": "1.0.*@dev",
+        "doctrine/doctrine-migrations-bundle": "1.0.*",
+
+        "jms/security-extra-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

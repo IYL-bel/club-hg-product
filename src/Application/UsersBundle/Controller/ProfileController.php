@@ -11,6 +11,8 @@ namespace Application\UsersBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use JMS\SecurityExtraBundle\Annotation\Secure;
+
 
 /**
  * Application\UsersBundle\Controller\ProfileController
