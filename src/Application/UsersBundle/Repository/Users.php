@@ -1,21 +1,21 @@
 <?php
 /**
- * Test task
+ * Club Hg-Product
  *
- * Gender repository
+ * Users repository
  *
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Test\UserBundle\Repository;
+namespace Application\UsersBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Test\UserBundle\Repository\GenderRepository
+ * Test\UserBundle\Repository\Users
  */
-class GenderRepository extends EntityRepository
+class Users extends EntityRepository
 {
 
 }

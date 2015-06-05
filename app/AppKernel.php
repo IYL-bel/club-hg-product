@@ -22,6 +22,12 @@ class AppKernel extends Kernel
             new Test\MessageBundle\TestMessageBundle(),
             new Application\BaseBundle\ApplicationBaseBundle(),
             new Application\UsersBundle\ApplicationUsersBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+
+            // additional bundles
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
