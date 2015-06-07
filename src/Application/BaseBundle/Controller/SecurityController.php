@@ -32,6 +32,10 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirect($this->generateUrl('_home'));
+        }
+
         return array();
     }
 
@@ -73,8 +77,14 @@ class SecurityController extends Controller
                 break;
 
             case 'ok':
-                $url = '';
-                $params = array();
+                $url = 'http://www.odnoklassniki.ru/oauth/authorize';
+                $redirectLink = $this->generateUrl('application_base_security_login_ok', array(), true);
+                $clientId = $this->container->getParameter('odnoklassniki_app_id'); // Client ID
+                $params = array(
+                    'client_id'     => $clientId,
+                    'redirect_uri'  => $redirectLink,
+                    'response_type' => 'code',
+                );
                 break;
 
             default:
@@ -239,7 +249,6 @@ class SecurityController extends Controller
 
                 $user->setVkId( $vkUser['uid'] );
                 $user->setTypeUser( UsersRepository::TYPE_USER_VK );
-                $user->setPhotoLink( $vkUser['photo_big'] );
                 $user->setUsername( 'vk_'. $vkUser['uid'] );
                 $user->setEmail( 'vk_'. $vkUser['uid'] );
                 $user->setEnabled(true);
@@ -249,6 +258,114 @@ class SecurityController extends Controller
             }
             $user->setFirstName( $vkUser['first_name'] );
             $user->setLastName( $vkUser['last_name'] );
+            $user->setPhotoLink( $vkUser['photo_big'] );
+
+            $userManager->updateUser($user);
+            if ($registration) {
+                $user->setUsername( $user->getSlug() );
+                $userManager->updateUser($user);
+            }
+            $this->authenticateUser($user);
+        }
+
+        $content = array(
+            'error' => $error,
+            'linkRedirect' => $this->generateUrl('_home'),
+        );
+
+        return $content;
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return array
+     */
+    public function loginOkAction(Request $request)
+    {
+        $okUser = array();
+        $result = false;
+        $error = true;
+
+        $code = $request->query->get('code');
+        if ($code) {
+
+            $container = $this->container;
+            $clientId = $container->getParameter('odnoklassniki_app_id');
+            $publicKey = $container->getParameter('odnoklassniki_public_key');
+            $clientSecret = $container->getParameter('odnoklassniki_app_secret');
+            $redirectUri = $this->generateUrl('application_base_security_login_ok', array(), true);
+            $params = array(
+                'client_id'     => $clientId,
+                'client_secret' => $clientSecret,
+                'code'          => $code,
+                'redirect_uri'  => $redirectUri,
+                'grant_type' => 'authorization_code',
+            );
+
+            $url = 'http://api.odnoklassniki.ru/oauth/token.do';
+
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($curl);
+            curl_close($curl);
+
+            $tokenInfo = json_decode($result, true);
+
+            if (isset($tokenInfo['access_token']) && isset($publicKey)) {
+
+                $sign = md5("application_key={$publicKey}format=jsonmethod=users.getCurrentUser" . md5("{$tokenInfo['access_token']}{$clientSecret}"));
+
+                $params = array(
+                    'method'          => 'users.getCurrentUser',
+                    'access_token'    => $tokenInfo['access_token'],
+                    'application_key' => $publicKey,
+                    'format'          => 'json',
+                    'sig'             => $sign
+                );
+
+                $userInfo = json_decode(file_get_contents('http://api.odnoklassniki.ru/fb.do' . '?' . urldecode(http_build_query($params))), true);
+
+                if (isset($userInfo['uid'])) {
+                    $okUser = $userInfo;
+                    $result = true;
+                    $error = false;
+                }
+            }
+        }
+
+        if ($result == true) {
+
+            /** @var $userManager \FOS\UserBundle\Model\UserManager */
+            $userManager = $this->container->get('fos_user.user_manager');
+            $user = $userManager->findUserBy(array('okId' => $okUser['uid']));
+
+            $registration = false;
+            if (!$user) {
+                $registration = true;
+                /** @var $user \Application\UsersBundle\Entity\Users */
+                $user = $userManager->createUser();
+
+                $user->setOkId( $okUser['uid'] );
+                $user->setTypeUser( UsersRepository::TYPE_USER_OK );
+                $user->setUsername( 'ok_'. $okUser['uid'] );
+                $user->setEmail( 'ok_'. $okUser['uid'] );
+                $user->setEnabled(true);
+                $user->setConfirmationToken(null);
+                $user->setPassword('not-password');
+                $user->setLink( 'http://ok.ru/profile/' . $okUser['uid'] );
+            }
+            $user->setFirstName( $okUser['first_name'] );
+            $user->setLastName( $okUser['last_name'] );
+
+            if ( isset($okUser['pic_2']) && $okUser['pic_2'] ) {
+                $user->setPhotoLink( $okUser['pic_2'] );
+            }
 
             $userManager->updateUser($user);
             if ($registration) {

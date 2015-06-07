@@ -17,3 +17,7 @@ application_base_security_login_fb:
 application_base_security_login_vk:
     path:     auth/login-vk/
     defaults: { _controller: ApplicationBaseBundle:Security:loginVk }
+
+application_base_security_login_ok:
+    path:     auth/login-ok/
+    defaults: { _controller: ApplicationBaseBundle:Security:loginOk }

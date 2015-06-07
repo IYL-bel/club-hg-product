@@ -24,3 +24,7 @@ parameters:
 
     vkontakte_app_id:      4948815
     vkontakte_app_secret:  X8AQNO9xbhkMIa4mnR4I
+
+    odnoklassniki_app_id:      1140024832
+    odnoklassniki_public_key:  CBAHGEPEEBABABABA
+    odnoklassniki_app_secret:  F6A503F64BF81B902608D7D0
