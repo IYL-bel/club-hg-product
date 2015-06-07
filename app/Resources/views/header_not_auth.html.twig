@@ -1,0 +1,32 @@
+<!--  header  -->
+<header>
+    <div class="header">
+
+        <div class="header__items">
+
+            {% include 'ApplicationBaseBundle::top_menu.html.twig' %}
+
+            <div class="header__items-person">
+            </div><!--.header__items-person-->
+
+            <div class="header__items-scores">
+            </div><!--.header__items-person_scores-->
+
+        </div><!--.header__items-->
+
+        <a class="logo" href="{{ url('_home') }}">
+            <img src="{{ asset('/images/not_optimize/logo.png') }}"/>
+        </a>
+
+        <div class="header_scorebar">
+            <div class="header_scorebar__line">
+                <span>0</span>
+                <div class="header_scorebar__line-progr" style="width: 0;">
+                    <span style="display: none;">150</span>
+                </div>
+                <span>350</span>
+            </div>
+        </div><!--.header_scorebar-->
+
+    </div><!--.header-->
+</header>

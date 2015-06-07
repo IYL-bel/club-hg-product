@@ -10,16 +10,22 @@
 namespace Application\UsersBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
+
+use Gedmo\Mapping\Annotation as Gedmo;
+
+
+
 
 
 /**
  * Application\UsersBundle\Entity\Users
  *
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="Test\UserBundle\Repository\Users")
+ * @ORM\Entity(repositoryClass="Application\UsersBundle\Repository\Users")
  * @ORM\HasLifecycleCallbacks
  */
-class Users
+class Users extends BaseUser
 {
 
     /**
@@ -34,7 +40,7 @@ class Users
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(name="type_user", type="integer", nullable=false)
      */
     protected $typeUser;
 
@@ -90,6 +96,7 @@ class Users
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
@@ -97,9 +104,19 @@ class Users
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="update_at", type="datetime")
      */
     protected $updateAt;
+
+    /**
+     * @var string
+     *
+     * @Gedmo\Translatable
+     * @Gedmo\Slug(fields={"firstName", "lastName"})
+     * @ORM\Column(type="string", length=128, unique=true)
+     */
+    protected $slug;
 
 
     /**
@@ -288,6 +305,24 @@ class Users
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+
+    /**
+     * @param string $slug
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
 }

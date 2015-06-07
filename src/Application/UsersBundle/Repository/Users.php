@@ -13,9 +13,13 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Test\UserBundle\Repository\Users
+ * Application\UsersBundle\Repository\Users
  */
 class Users extends EntityRepository
 {
+
+    const TYPE_USER_FB   = 1;
+    const TYPE_USER_VK   = 2;
+    const TYPE_USER_OK   = 3;
 
 }
