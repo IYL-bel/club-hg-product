@@ -1,27 +1,30 @@
 _home:
-    pattern:  /
+    path:     /
     defaults: { _controller: ApplicationBaseBundle:Default:index }
 
-application_users:
-    resource: "@ApplicationUsersBundle/Resources/config/routing.yml"
-    prefix:   /
+# Login
+application_base_security_login:
+    path:     /login
+    defaults: { _controller: ApplicationBaseBundle:Security:login }
+
+application_base_security_login_check:
+    path:     /login_check
+
+# Logout
+application_base_security_logout:
+    path:     /logout
 
 application_base:
     resource: "@ApplicationBaseBundle/Resources/config/routing.yml"
     prefix:   /
 
-test_base:
-    resource: "@TestBaseBundle/Resources/config/routing.yml"
-    prefix:   /test
+application_users:
+    resource: "@ApplicationUsersBundle/Resources/config/routing.yml"
+    prefix:   /
 
-test_user:
-    resource: "@TestUserBundle/Resources/config/routing.yml"
-    prefix:   /users
-
-test_message:
-    resource: "@TestMessageBundle/Resources/config/routing.yml"
-    prefix:   /message
+#fos_user_security:
+#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
 app:
-    resource: @AppBundle/Controller/
+    resource: "@AppBundle/Controller/"
     type:     annotation

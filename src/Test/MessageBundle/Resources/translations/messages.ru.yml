@@ -1,9 +1,0 @@
-message:
-    emails:
-        congratulations_birthday:
-            subject: Поздравляем с днём рождения
-            body:
-                dear: Уважаем%yj%
-                content: |
-                    Поздравляем вас с вашим очередным днём рождения.
-                    Успехов и удачи во всём!

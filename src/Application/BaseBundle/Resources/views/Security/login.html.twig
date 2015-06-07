@@ -1,0 +1,32 @@
+{% extends '::layout_login.html.twig' %}
+
+
+{% block content %}
+
+
+<div class="content_front_bkg"></div>
+
+<div class="content_front">
+    <h1 class="front_title">Клуб<strong>Экспертов Чистоты</strong></h1>
+
+    <div class="content_front_sign">
+
+        <div class="content_front_sign_form">
+            <div class="content_front_sign_form_soc">
+                <strong class="title">Войти через социальные сети</strong>
+                <div class="soc">
+
+                    {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'fb'} )) %}
+
+                    {#<a class="soc_ico fb" href="#"></a>#}
+                    <a class="soc_ico vk" href="#"></a>
+                    <a class="soc_ico ok" href="#"></a>
+                </div>
+            </div>
+        </div><!--.content_front_sign_form-->
+
+    </div><!--.content_front_sign-->
+
+</div>
+
+{% endblock content %}

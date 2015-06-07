@@ -9,3 +9,7 @@ application_base_prizes:
 application_base_catalog_products:
     path:     catalog-products/
     defaults: { _controller: ApplicationBaseBundle:Default:catalogProducts }
+
+application_base_security_login_fb:
+    path:     auth/login-fb/
+    defaults: { _controller: ApplicationBaseBundle:Security:loginFb }

@@ -12,6 +12,9 @@ namespace Application\BaseBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
+
 /**
  * Application\BaseBundle\Controller\DefaultController
  */
@@ -25,11 +28,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+
+
+
         return array();
     }
 
     /**
      * @Template()
+     * @Security("has_role('ROLE_USER')")
      *
      * @return array
      */
@@ -40,6 +47,7 @@ class DefaultController extends Controller
 
     /**
      * @Template()
+     * @Security("has_role('ROLE_USER')")
      *
      * @return array
      */
@@ -50,6 +58,7 @@ class DefaultController extends Controller
 
     /**
      * @Template()
+     * @Security("has_role('ROLE_USER')")
      *
      * @return array
      */

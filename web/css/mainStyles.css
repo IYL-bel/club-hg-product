@@ -1657,7 +1657,7 @@ header {
       /* line 2177, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_front_sign_form {
         position: relative;
-        display: none; }
+        /*display: none;*/ }
         /* line 2183, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_front_sign_form form, .content_front_sign_form_soc {
           background: #FFFFFF;
