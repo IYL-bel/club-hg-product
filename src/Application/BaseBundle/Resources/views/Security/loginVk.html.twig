@@ -1,0 +1,14 @@
+<div style="text-align: center;">
+
+    {% if error %}
+        Не удалось подключиться к Facebook
+    {% else %}
+        <script>
+            window.opener.location.href = '{{ linkRedirect }}';
+            setTimeout(function(){
+                window.close();
+            }, 1000);
+        </script>
+    {% endif %}
+
+</div>

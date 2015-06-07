@@ -28,8 +28,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-
-
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirect($this->generateUrl('application_base_security_login'));
+        }
 
         return array();
     }

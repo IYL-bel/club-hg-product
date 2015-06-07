@@ -13,3 +13,7 @@ application_base_catalog_products:
 application_base_security_login_fb:
     path:     auth/login-fb/
     defaults: { _controller: ApplicationBaseBundle:Security:loginFb }
+
+application_base_security_login_vk:
+    path:     auth/login-vk/
+    defaults: { _controller: ApplicationBaseBundle:Security:loginVk }
