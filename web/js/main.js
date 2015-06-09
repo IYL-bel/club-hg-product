@@ -62,14 +62,14 @@ jQuery(document).ready(function($){
 //                fx			: "crossfade",
                 items           : 1,
                 duration        : 1000,
-                timeoutDuration : 6000
+                timeoutDuration : 5000
 
             },
             swipe: {
                 onTouch: true,
                 onMouse: true
             },
-            auto       : false,
+            auto       : true,
             prev       : $('.prev',$caru),
             next       : $('.next',$caru)/*,
              pagination : {
@@ -99,14 +99,14 @@ jQuery(document).ready(function($){
 //                fx			: "crossfade",
                 items: 1,
                 duration: 1000,
-                timeoutDuration: 6000,
+                timeoutDuration: 7000,
                 onAfter : $highlight
             },
             swipe: {
                 onTouch: true,
                 onMouse: true
             },
-            auto: false,
+            auto: true,
             prev: $('.prev', $caru_front),
             next: $('.next', $caru_front),
             pagination: {

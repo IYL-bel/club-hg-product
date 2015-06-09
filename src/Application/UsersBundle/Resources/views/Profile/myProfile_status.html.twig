@@ -1,0 +1,40 @@
+<div style="margin: 0 28px 0 28px;">
+
+    {% for status in prof_statuses  %}
+
+        <div style="border: solid 1px #28a5de; margin-bottom: 18px; padding: 6px 0;">
+            <table width="100%">
+                <tr >
+                    <td>
+                        <div style="margin: 16px;">
+                            <div class="status_medal" style="padding-top: 5px;">
+                                {#<i></i>#}
+                                <div><img src="{{ asset('images/medal_'~status.name_medal~'.png') }}" alt=""></div>
+                            </div>
+                            <div class="status_title">
+                                <span>{{ status.title }}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding-left: 20px;">
+                            Нужно набрать 1000 балов
+                        </div>
+                    </td>
+                    <td>
+                        <div class="status_txt">
+                            <p>Данный статус позволяет вам:</p>
+                            <ul>
+                                {% for comment in status.comments %}
+                                    <li>{{ comment }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    {% endfor %}
+
+</div>

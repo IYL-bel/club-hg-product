@@ -371,32 +371,7 @@
             </div>
 
             <div class="cabinet_content__item status">
-                <div class="cabinet_content__item-content">
-
-                    <div class="status_medal">
-                        <i></i>
-                    </div>
-
-                    <div class="status_title">
-                        <span>СЕРЕБРО</span>
-                    </div>
-
-                    <div class="status_txt">
-
-                        <p>Серебряный статус позволяет вам</p>
-
-                        <ul>
-                            <li>Бесплатно тестировать средства HG раз в месяц</li>
-                            <li>Участвовать в обсуждениях</li>
-                            <li>Покупать товары HG в гиппермаркетах со скидкой 10%</li>
-                        </ul>
-
-                    </div>
-
-
-
-
-                </div>
+                {{ include('ApplicationUsersBundle:Profile:myProfile_status.html.twig') }}
             </div>
 
             <div class="cabinet_content__item settings" >

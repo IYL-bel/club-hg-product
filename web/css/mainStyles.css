@@ -27,6 +27,10 @@
   background: linear-gradient(135deg, #fbf9f9 0%, #aeacac 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbf9f9', endColorstr='#aeacac',GradientType=1 ); }
 
+.div bronze {
+    background-image: url("../images/medall_bronze.png");
+}
+
 /* line 90, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .top_slider_grad {
   background: #b5ebfd;
@@ -1479,7 +1483,7 @@ header {
       .content_main__articles.cabinet .cabinet_content__item.status .status_title {
         text-align: center;
         margin: 0;
-        padding: 20px 0;
+        padding: 16px 0 0;
         text-transform: uppercase;
         font-size: 30px;
         color: #28a5de; }
