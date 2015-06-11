@@ -38,6 +38,12 @@
                 </div>
             </div><!--.reviews_list-item-->
 
+        {% else %}
+
+            <div style="text-align: center;">
+                Вы не добавили ни одного чека. Сделайте это быстрее и заработайте больше баллов
+            </div>
+
         {% endfor %}
 
         <form novalidate id="add_check_file_form" method="post" action="{{ path('application_users_profile_add_check_file') }}" {{ form_enctype(form.add_check_file) }}>
