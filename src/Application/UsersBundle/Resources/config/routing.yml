@@ -1,3 +1,11 @@
 application_users_profile_my:
     path:     my-profile/
     defaults: { _controller: ApplicationUsersBundle:Profile:my }
+
+application_users_profile_add_check_file:
+    path:     profile/add-check-file/
+    defaults: { _controller: ApplicationUsersBundle:Profile:addCheckFile }
+
+application_users_profile_remove_check:
+    path:     profile/remove-check/{id}/
+    defaults: { _controller: ApplicationUsersBundle:Profile:removeCheck }

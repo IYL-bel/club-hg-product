@@ -1,0 +1,67 @@
+<div class="cabinet_content__item-content">
+    <div class="reviews_list">
+
+        {% for key, check in checks %}
+
+            <div class="reviews_list-item">
+                <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+                <div class="reviews_list-item_img img_c">
+                    <a href="{{ asset(check.getFilePathWeb()) }}" target="_blank">
+                        <img src="{{ asset(check.getFilePathWeb()) }}" alt="name"/>
+                    </a>
+                </div>
+                <div class="reviews_list-item_title">
+                    <span>{{ check.createdAt.format('d.m.Y') }}</span><br />
+                    {% if check.isStatusNew() %}
+                        <div style="color: red; margin-top: 3px;">
+                            <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_check', {'id': check.id}) }}" style="color: #bc8f8f; font-size: 16px;">удалить</a>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="reviews_list-item_status">
+
+                    {% if check.isStatusNew() %}
+                        <b class="status_assay"></b>
+                        <span>Чек проверяется. Нам потребуется до 24 часов</span>
+                    {% endif %}
+
+                    {% if check.isStatusConfirmed() %}
+                        <b class="status_approved"><i class="fa fa-check"></i></b>
+                        <span>+100 очков</span>
+                    {% endif %}
+
+                    {% if check.isStatusRejected() %}
+                        <b class="status_disallow"><i class="fa fa-times"></i></b>
+                        <span>{{ check.commentAdmin }}</span>
+                    {% endif %}
+
+                </div>
+            </div><!--.reviews_list-item-->
+
+        {% endfor %}
+
+        <form novalidate id="add_check_file_form" method="post" action="{{ path('application_users_profile_add_check_file') }}" {{ form_enctype(form.add_check_file) }}>
+
+            <div class="none">
+                {{ form_widget(form.add_check_file.file) }}
+            </div>
+
+            {{ form_rest(form.add_check_file) }}
+
+            <div>
+                <span id="error-add-check_file" class="error_message_big"></span>
+                <span id="error-valid-add-check_file" class="error_message"></span>
+            </div>
+
+            <div id="for_waiting"></div>
+
+
+            <div class="reviews_list-item submit_row">
+                <input id="load_file_check" class="blue_btn" type="button" value="{% if checks |length %}Добавить{% else %}Загрузить{% endif %}">
+            </div><!--.reviews_list-item-->
+
+        </form>
+
+
+    </div><!--.reviews_list-->
+</div>

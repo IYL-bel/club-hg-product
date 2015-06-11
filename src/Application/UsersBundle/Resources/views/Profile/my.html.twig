@@ -1,6 +1,12 @@
 {% extends '::layout.html.twig' %}
 
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/upload_files.js') }}"></script>
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -36,75 +42,7 @@
             </ul>
 
             <div class="cabinet_content__item checks active">
-                <div class="cabinet_content__item-content">
-                    <div class="reviews_list">
-
-                        <div class="reviews_list-item">
-                            <div class="reviews_list-item_num">1.</div>
-                            <div class="reviews_list-item_img img_c">
-                                <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
-                            </div>
-                            <div class="reviews_list-item_title">
-                                <a href="#">Средство НG  для удаления известкового налета</a>
-                            </div>
-                            <div class="reviews_list-item_status">
-                                <b class="status_assay"></b>
-                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
-                            </div>
-                        </div><!--.reviews_list-item-->
-
-                        <div class="reviews_list-item">
-                            <div class="reviews_list-item_num">2.</div>
-                            <div class="reviews_list-item_img img_c">
-                                <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
-                            </div>
-                            <div class="reviews_list-item_title">
-                                <a href="#">Универсальное чистящее средство для ванной и туалета</a>
-                            </div>
-                            <div class="reviews_list-item_status">
-                                <b class="status_approved"><i class="fa fa-check"></i></b>
-                                <span>+100 очков</span>
-                            </div>
-                        </div><!--.reviews_list-item-->
-
-                        <div class="reviews_list-item">
-                            <div class="reviews_list-item_num">3.</div>
-                            <div class="reviews_list-item_img img_c">
-                                <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
-                            </div>
-                            <div class="reviews_list-item_title">
-                                <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
-                            </div>
-                            <div class="reviews_list-item_status">
-                                <b class="status_disallow"><i class="fa fa-times"></i></b>
-                                <span>+100 очков</span>
-                            </div>
-                        </div><!--.reviews_list-item-->
-
-                        <div class="reviews_list-item">
-
-                            <div class="reviews_list-item_num">4.</div>
-
-                            <div class="load_progress">
-                                <div class="progress">
-                                    <span class="progress_name">IMG_80256</span>
-                                    <div class="progress_bar">
-                                        <div class="progress_bar_per" style="width: 47%;"></div>
-                                    </div>
-                                    <a class="remove" href="#"><i class="fa fa-times"></i></a>
-                                </div>
-                            </div>
-
-
-                        </div><!--.reviews_list-item-->
-
-                        <div class="reviews_list-item submit_row">
-                            <input class="blue_btn" type="submit" value="Загрузить">
-
-                        </div><!--.reviews_list-item-->
-
-                    </div><!--.reviews_list-->
-                </div>
+                {{ include('ApplicationUsersBundle:Profile:myProfile_checks.html.twig') }}
             </div>
 
             <div class="cabinet_content__item contests">

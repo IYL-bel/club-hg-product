@@ -9,13 +9,10 @@
  */
 namespace Application\UsersBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
-
 use Gedmo\Mapping\Annotation as Gedmo;
-
-
-
 
 
 /**
@@ -118,6 +115,22 @@ class Users extends BaseUser
      */
     protected $slug;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Checks", mappedBy="user", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $checks;
+
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->checks = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -323,6 +336,24 @@ class Users extends BaseUser
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $checks
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setChecks($checks)
+    {
+        $this->checks = $checks;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getChecks()
+    {
+        return $this->checks;
     }
 
 }
