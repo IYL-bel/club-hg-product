@@ -151,7 +151,10 @@ class SecurityController extends Controller
 
             /** @var $userManager \FOS\UserBundle\Model\UserManager */
             $userManager = $this->container->get('fos_user.user_manager');
-            $user = $userManager->findUserBy(array('fbId' => $fbUser['id']));
+            $user = $userManager->findUserBy(array(
+                'fbId' => $fbUser['id'],
+                'typeUser' => UsersRepository::TYPE_USER_FB
+            ));
 
             $registration = false;
             if (!$user) {
@@ -168,7 +171,7 @@ class SecurityController extends Controller
                 $user->setConfirmationToken(null);
                 $user->setPassword('not-password');
             }
-            //$user->addRole( 'ROLE_MEGA' );
+            //$user->addRole( 'ROLE_ADMIN' );
             $user->setFirstName( $fbUser['first_name'] );
             $user->setLastName( $fbUser['last_name'] );
             $user->setLink( $fbUser['link'] );
@@ -239,7 +242,10 @@ class SecurityController extends Controller
 
             /** @var $userManager \FOS\UserBundle\Model\UserManager */
             $userManager = $this->container->get('fos_user.user_manager');
-            $user = $userManager->findUserBy(array('vkId' => $vkUser['uid']));
+            $user = $userManager->findUserBy(array(
+                'vkId' => $vkUser['uid'],
+                'typeUser' => UsersRepository::TYPE_USER_VK
+            ));
 
             $registration = false;
             if (!$user) {
@@ -343,7 +349,10 @@ class SecurityController extends Controller
 
             /** @var $userManager \FOS\UserBundle\Model\UserManager */
             $userManager = $this->container->get('fos_user.user_manager');
-            $user = $userManager->findUserBy(array('okId' => $okUser['uid']));
+            $user = $userManager->findUserBy(array(
+                'okId' => $okUser['uid'],
+                'typeUser' => UsersRepository::TYPE_USER_OK
+            ));
 
             $registration = false;
             if (!$user) {

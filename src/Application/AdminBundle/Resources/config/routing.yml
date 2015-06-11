@@ -6,6 +6,10 @@ application_admin_templates:
     path:     /templates/
     defaults: { _controller: ApplicationAdminBundle:Templates:index }
 
+application_admin_templates_change_main_slider:
+    path:     /templates/changr-main-slider/
+    defaults: { _controller: ApplicationAdminBundle:Templates:changeMainSlider }
+
 application_admin_checks:
     path:     /checks/
     defaults: { _controller: ApplicationAdminBundle:Checks:index }
