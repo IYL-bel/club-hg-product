@@ -1,3 +1,15 @@
-application_admin_homepage:
-    path:     /hello/{name}
+application_admin_home:
+    path:     /
     defaults: { _controller: ApplicationAdminBundle:Default:index }
+
+application_admin_templates:
+    path:     /templates/
+    defaults: { _controller: ApplicationAdminBundle:Templates:index }
+
+application_admin_checks:
+    path:     /checks/
+    defaults: { _controller: ApplicationAdminBundle:Checks:index }
+
+application_admin_contests:
+    path:     /contests/
+    defaults: { _controller: ApplicationAdminBundle:Contests:index }

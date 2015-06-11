@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+.content .content_main__articles.cabinet .tabs-admin li {
+    background-color: #ffb612;
+}
+
+.content .content_main__articles.cabinet .tabs-admin li:hover, .content .content_main__articles.cabinet .tabs-admin li.active {
+    background-image: url("../images/cabinet_ico_or.png");
+}
+
+.content .content_main__articles.cabinet .tabs-admin li:hover span, .content .content_main__articles.cabinet .tabs-admin li.active span {
+    color: #ffb612;
+}
+
+.content .content_main__articles.cabinet .tabs-admin a {
+    padding-left: 1px;
+}
+
+.admin-content {
+    padding: 0 24px;
+}
+

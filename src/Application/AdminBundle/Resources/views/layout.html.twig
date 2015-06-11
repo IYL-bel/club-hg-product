@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta id="viewport" name="viewport" content="width=device-width">
+        <title>Админка Club HG-Product</title>
+        <meta name='yandex-verification' content='5475c665e716aa8b' />
+
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+            <link rel="stylesheet" href="{{ asset('css/all.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/fonts/fonts.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/mainStyles.css') }}"/>
+            <!--[if gte IE 9]>
+            <style type="text/css">
+                .gradient {
+                    filter: none;
+                }
+            </style>
+            <![endif]-->
+        {% endblock %}
+
+
+        {% block javascripts %}
+            <script src="{{ asset('js/lib/jquery-1.11.2.min.js') }}"></script>
+            <script src="{{ asset('js/lib/jquery.carouFredSel-6.2.1-packed.js') }}"></script>
+            <script src="{{ asset('js/lib/jquery.damnUploader.js') }}"></script>
+            <script src="{{ asset('js/lib/jquery.blImageCenter.js') }}"></script>
+            <script src="{{ asset('js/base.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
+
+    </head>
+
+    <body class="front_page">
+        <div class="viewport">
+
+            {% block header %}
+                {% include 'ApplicationAdminBundle::header.html.twig' %}
+            {% endblock %}
+
+
+            <div class="content">
+
+                <div class="content_header">
+                    <h1 class="content_header__title">Панель Администрирования</h1>
+                </div>
+
+                <div class="content_main">
+                    <div class="content_main__articles cabinet">
+                        <div class="cabinet_content">
+
+                            {% set nameController = app.request.get('_template').get('controller') %}
+                            <ul class="cabinet_content__tabs tabs-admin">
+                                <a href="{{ path('application_admin_templates') }}"><li class="template{% if nameController == 'Templates' %} active{% endif %}"><span>Шаблоны</span></li></a>
+                                <a href="{{ path('application_admin_checks') }}"><li class="checks{% if nameController == 'Checks' %} active{% endif %}"><span>Чеки</span></li></a>
+                                <a href="{{ path('application_admin_contests') }}"><li class="contests{% if nameController == 'Contests' %} active{% endif %}"><span>Конкурсы</span></li></a>
+                                {#<li class="reviews"><span>Отзывы</span></li>#}
+                                {#<li class="testing"><span>Заявка <br/> на тестирование</span></li>#}
+                                {#<li class="invite"><span>Пригласить друзей</span></li>#}
+                                {#<li class="status"><span>Статус</span></li>#}
+                                {#<li class="settings"><span>Личные настройки</span></li>#}
+                            </ul>
+
+                            <div class="admin-content">
+
+                                {% block content %}
+                                {% endblock content %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {% block footer %}
+                {% include '::footer.html.twig' %}
+            {% endblock footer %}
+
+        </div>
+    </body>
+</html>
+
+
+

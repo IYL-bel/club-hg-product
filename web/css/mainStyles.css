@@ -1363,6 +1363,8 @@ header {
       /* line 1712, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__tabs .settings {
         background-position: 50% 26px; }
+      .content_main__articles.cabinet .cabinet_content__tabs .template {
+        background-position: 50% -113px; }
     /* line 1717, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__articles.cabinet .cabinet_content__item {
       display: none; }

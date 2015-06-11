@@ -1,7 +1,3 @@
-application_admin:
-    resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
-    prefix:   /
-
 _home:
     path:     /
     defaults: { _controller: ApplicationBaseBundle:Default:index }
@@ -17,6 +13,10 @@ application_base_security_login_check:
 # Logout
 application_base_security_logout:
     path:     /logout
+
+application_admin:
+    resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
 
 application_base:
     resource: "@ApplicationBaseBundle/Resources/config/routing.yml"
