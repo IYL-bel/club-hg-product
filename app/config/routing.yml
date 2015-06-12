@@ -14,6 +14,7 @@ application_base_security_login_check:
 application_base_security_logout:
     path:     /logout
 
+
 application_admin:
     resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
@@ -25,6 +26,11 @@ application_base:
 application_users:
     resource: "@ApplicationUsersBundle/Resources/config/routing.yml"
     prefix:   /
+
+templates:
+    resource: "@TemplatesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 
 #fos_user_security:
 #    resource: "@FOSUserBundle/Resources/config/routing/security.xml"

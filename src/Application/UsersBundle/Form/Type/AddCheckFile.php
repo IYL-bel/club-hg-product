@@ -2,7 +2,7 @@
 /**
  * Club Hg-Product
  *
- * Checks repository
+ * Add Check File form
  *
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL

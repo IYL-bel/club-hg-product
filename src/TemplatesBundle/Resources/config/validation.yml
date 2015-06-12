@@ -1,0 +1,19 @@
+TemplatesBundle\Entity\MainSlider:
+    properties:
+        text:
+            - NotBlank: ~
+        textColor:
+            - NotBlank: {  message: property.option }
+        #link:
+        #    - NotBlank: { message: property.blank }
+        pictureFile:
+            - Image:
+                mimeTypes: 'image/png'
+                minWidth: 558
+                minWidthMessage: property.img_size.min_width_fix
+                maxWidth: 558
+                maxWidthMessage: property.img_size.max_width_fix
+                minHeight: 411
+                minHeightMessage: property.img_size.min_height_fix
+                maxHeight: 411
+                maxHeightMessage: property.img_size.max_height_fix

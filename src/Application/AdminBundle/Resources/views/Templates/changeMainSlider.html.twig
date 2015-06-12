@@ -1,4 +1,5 @@
 {% extends 'ApplicationAdminBundle::layout.html.twig' %}
+{% form_theme form 'ApplicationAdminBundle::form.html.twig' %}
 
 
 {% block content %}
@@ -6,6 +7,35 @@
 
 <h3>Редактирование основного слайдера</h3>
 
+<p style="margin-bottom: 12px;">Слайд № 1</p>
+
+<div style="width: 482px;">
+    {{ form_start(form) }}
+
+        {{ form_row(form.text) }}
+
+        <div class="form-row" style="width: 160px;">
+            <div class="form-label">
+                {{ form_label(form.textColor) }}
+            </div>
+            {{ form_errors(form.textColor) }}
+            {{ form_widget(form.textColor) }}
+        </div>
+
+        {{ form_row(form.link) }}
+
+        <div class="form-row" style="width: 310px;">
+            <div class="form-label">
+                {{ form_label(form.pictureFile) }}
+            </div>
+            {{ form_errors(form.pictureFile) }}
+            {{ form_widget(form.pictureFile) }}
+        </div>
+
+        <input type="submit" class="blue_btn" value="Сохранить"> <a class="link-cancel" href="{{ path('application_admin_templates') }}">Отмена</a>
+
+    {{ form_end(form) }}
+</div>
 
 
 {% endblock content %}

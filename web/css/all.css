@@ -5,13 +5,22 @@
     display: none;
 }
 
+span.errors-for-input {
+    color: #ff444b;
+    text-shadow: 0 0 1px #ffa8b1;
+    display: block;
+    font-size: 11px;
+    padding: 0 0 2px 5px;
+    background-color: rgba(255, 0, 0, 0.15);
+}
+
 span.error_message {
     color: #ff444b;
     text-shadow: 0 0 1px #ffa8b1;
     display: block;
     font-size: 11px;
     margin-bottom: 2px;
-    margin-left: 4px;
+    margin-left: 3px;
 }
 
 span.error_message_big {

@@ -1,0 +1,3 @@
+templates_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: TemplatesBundle:Default:index }

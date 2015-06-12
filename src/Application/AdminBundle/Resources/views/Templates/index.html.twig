@@ -5,7 +5,13 @@
 
 
 <h2>Главная страница</h2>
-<p>Основной слайдер <a href="{{ path('application_admin_templates_change_main_slider') }}">Изменить</a></p>
+
+<h4>Основной слайдер</h4>
+<ul class="list">
+    <li>Слайд 1 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 1}) }}" class="change">изменить</a></li>
+    <li>Слайд 2 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 2}) }}" class="change">изменить</a></li>
+    <li>Слайд 3 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 3}) }}" class="change">изменить</a></li>
+</ul>
 
 
 {% endblock content %}

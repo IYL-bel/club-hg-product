@@ -7,7 +7,7 @@ application_admin_templates:
     defaults: { _controller: ApplicationAdminBundle:Templates:index }
 
 application_admin_templates_change_main_slider:
-    path:     /templates/changr-main-slider/
+    path:     /templates/changr-main-slider/{id}/
     defaults: { _controller: ApplicationAdminBundle:Templates:changeMainSlider }
 
 application_admin_checks:
