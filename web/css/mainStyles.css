@@ -1547,7 +1547,8 @@ header {
           /* line 1983, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img {
             width: 74px;
-            height: 64px;
+            height: 60px;
+            margin-top: 4px;
             position: relative; }
           /* line 1991, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title {
@@ -1970,7 +1971,7 @@ header {
           padding-bottom: 120px;
           font-size: 48px;
           line-height: 42px;
-          color: #FFFFFF; }
+          /*color: #FFFFFF;*/ }
     /* line 2611, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .front_slider_wrap .pagi {
       display: block;

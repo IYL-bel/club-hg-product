@@ -5,10 +5,14 @@
 
             <div class="reviews_list-item">
                 <div class="reviews_list-item_num">{{ key + 1 }}.</div>
-                <div class="reviews_list-item_img img_c">
-                    <a href="{{ asset(check.getFilePathWeb()) }}" target="_blank">
-                        <img src="{{ asset(check.getFilePathWeb()) }}" alt="name"/>
-                    </a>
+                <div class="reviews_list-item_img">
+
+                    <div class="photo-logo-56">
+                        <a href="{{ asset(check.getFilePathWeb()) }}" class="photo" target="_blank">
+                            <img src="{{ asset(check.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                        </a>
+                    </div>
+
                 </div>
                 <div class="reviews_list-item_title">
                     <span>{{ check.createdAt.format('d.m.Y') }}</span><br />

@@ -26,7 +26,14 @@ class ChecksController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        $checksRepository = $em->getRepository('ApplicationUsersBundle:Checks');
+        $checks = $checksRepository->findAll();
+
+        return array(
+            'checks' => $checks,
+        );
     }
 
 }

@@ -5,6 +5,14 @@
     display: none;
 }
 
+.color-white {
+    color: #FFFFFF;
+}
+
+.color-black {
+    color: #000000;
+}
+
 span.errors-for-input {
     color: #ff444b;
     text-shadow: 0 0 1px #ffa8b1;
@@ -53,4 +61,38 @@ span.error_message_big {
     background-position-y: 0;
     width: 800px;
     height: 12px;
+}
+
+.photo-logo-56 .photo {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    vertical-align: middle;
+    /*border: 1px solid #dcdcdc;*/
+    padding: 2px;
+    display: table-cell;
+}
+
+.photo-logo-56 .photo-img {
+    max-width: 56px;
+    max-height: 56px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo-logo-100 .photo-img {
+    max-width: 100px;
+    max-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo-logo-100 .photo {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    /*border: 1px solid #dcdcdc;*/
+    padding: 2px;
+    display: table-cell;
 }

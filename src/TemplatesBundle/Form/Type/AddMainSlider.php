@@ -34,8 +34,8 @@ class AddMainSlider extends AbstractType
 
             ->add('textColor', 'choice', array(
                 'choices' => array(
-                    'black' => 'Белый',
-                    'white' => 'Черный'
+                    'black' => 'Черный',
+                    'white' => 'Белый'
                 ),
                 'required' => false,
                 'label' => 'Цвет текста',

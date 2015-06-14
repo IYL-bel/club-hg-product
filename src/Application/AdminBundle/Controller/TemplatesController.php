@@ -45,6 +45,11 @@ class TemplatesController extends Controller
      */
     public function changeMainSliderAction(Request $request, $id)
     {
+        // Check id number of slides
+        if ( !in_array($id, range(1, 3)) ) {
+            return $this->redirectToRoute('application_admin_templates');
+        }
+
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
         $mainSliderRepository = $em->getRepository('TemplatesBundle:MainSlider');
@@ -53,6 +58,7 @@ class TemplatesController extends Controller
         if (!$mainSlider) {
             $mainSlider = new MainSlider();
             $mainSlider->setNumSlide($id);
+            $mainSlider->setText( $this->getMainSliderDefault($id) );
         }
 
         $form = $this->createForm(new AddMainSlider(), $mainSlider);
@@ -66,10 +72,31 @@ class TemplatesController extends Controller
             return $this->redirectToRoute('application_admin_templates');
         }
 
+        $formView = $form->createView();
+
         return array(
             'id' => $id,
-            'form' => $form->createView(),
+            'form' => $formView,
         );
+    }
+
+    /**
+     * @param int $id
+     * @return null|string
+     */
+    public function getMainSliderDefault($id)
+    {
+        if ( !in_array($id, range(1, 3)) ) {
+            return null;
+        }
+
+        $slideText = array(
+            1 => '<strong>Скидки 50% <br/>для всех членов</strong>Клуба Экспертов Чистоты',
+            2 => '<strong>Скидки 70% <br/>для всех членов</strong>Клуба Тугой Шуфлятки',
+            3 => '<strong>Скидки 30% <br/>для всех членов</strong>Клуба Почасовой Муж',
+        );
+
+        return $slideText[$id];
     }
 
 }

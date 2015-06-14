@@ -43,14 +43,14 @@ class MainSlider
     /**
      * @var int
      *
-     * @ORM\Column(type="smallint", name="num_slide", nullable=true)
+     * @ORM\Column(type="smallint", name="num_slide", nullable=false)
      */
     protected $numSlide;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=64, nullable=true)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     protected $text;
 
@@ -192,7 +192,7 @@ class MainSlider
      *
      * @return null|string
      */
-    public function getFilePathWeb()
+    public function getPictureFilePathWeb()
     {
         return null === $this->picturePath ? null : $this->getUploadDir() . '/' . $this->picturePath;
     }
