@@ -8,6 +8,11 @@
     margin-bottom: 12px;
 }
 
+.content_main__articles.cabinet .admin-content .cabinet_content__item-content {
+    width: 900px;
+    margin: 0 auto;
+}
+
 .content .content_main__articles.cabinet .tabs-admin li {
     background-color: #ffb612;
 }

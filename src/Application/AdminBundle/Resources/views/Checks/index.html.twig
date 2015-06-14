@@ -9,24 +9,23 @@
 
             <div class="reviews_list-item">
                 <div class="reviews_list-item_num">{{ key + 1 }}.</div>
-                <div class="reviews_list-item_img img_c">
-                    <a href="{{ asset(check.getFilePathWeb()) }}" target="_blank">
-                        <img src="{{ asset(check.getFilePathWeb()) }}" alt="name"/>
-                    </a>
+                <div class="reviews_list-item_img">
+
+                    <div class="photo-logo-56">
+                        <a href="{{ asset(check.getFilePathWeb()) }}" class="photo" target="_blank">
+                            <img src="{{ asset(check.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                        </a>
+                    </div>
+
                 </div>
                 <div class="reviews_list-item_title">
                     <span>{{ check.createdAt.format('d.m.Y') }}</span><br />
-                    {% if check.isStatusNew() %}
-                    <div style="color: red; margin-top: 3px;">
-                        <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_check', {'id': check.id}) }}" style="color: #bc8f8f; font-size: 16px;">удалить</a>
-                    </div>
-                    {% endif %}
                 </div>
                 <div class="reviews_list-item_status">
 
                     {% if check.isStatusNew() %}
                         <b class="status_assay"></b>
-                        <span>Чек проверяется. Нам потребуется до 24 часов</span>
+                        <span>Чек не проверен</span>
                     {% endif %}
 
                     {% if check.isStatusConfirmed() %}
@@ -40,12 +39,19 @@
                     {% endif %}
 
                 </div>
+                <div class="reviews_list-item_status">
+                    {% if check.isStatusNew() %}
+                        <a href="{{ path('application_admin_checks_approved', {'id': check.id}) }}" class="but-blue-approved"><b class="status_approved"><i class="fa fa-check"></i></b>Принять</a>
+                        <a href="{{ path('application_admin_checks_disallow', {'id': check.id}) }}" class="but-red-disallow"><b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить</a>
+                    {% endif %}
+                    &nbsp;
+                </div>
             </div><!--.reviews_list-item-->
 
         {% else %}
 
             <div style="text-align: center;">
-                Вы не добавили ни одного чека. Сделайте это быстрее и заработайте больше баллов
+                На данный момент нет присланных чеков
             </div>
 
         {% endfor %}

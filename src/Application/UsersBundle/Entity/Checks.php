@@ -103,6 +103,14 @@ class Checks
     protected $createdAt;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="processing_at", type="datetime", nullable=true)
+     */
+    protected $processingAt;
+
+
+    /**
      * @return int
      */
     public function getId()
@@ -320,6 +328,22 @@ class Checks
     }
 
     /**
+     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\File\UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
      * @param \DateTime $createdAt
      * @return \Application\UsersBundle\Entity\Checks
      */
@@ -338,19 +362,21 @@ class Checks
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
+     * @param \DateTime $processingAt
+     * @return \Application\UsersBundle\Entity\Checks
      */
-    public function setFile($file)
+    public function setProcessingAt($processingAt)
     {
-        $this->file = $file;
+        $this->processingAt = $processingAt;
+        return $this;
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\File\UploadedFile
+     * @return \DateTime
      */
-    public function getFile()
+    public function getProcessingAt()
     {
-        return $this->file;
+        return $this->processingAt;
     }
 
 }

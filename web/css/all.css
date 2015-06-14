@@ -96,3 +96,23 @@ span.error_message_big {
     padding: 2px;
     display: table-cell;
 }
+
+.but-blue-approved {
+    border: none;
+    display: inline-block;
+    background-color: #28a5de;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 2px 10px 0 2px;
+    margin-right: 16px;
+}
+
+.but-red-disallow {
+    border: none;
+    display: inline-block;
+    background-color: #ff0601;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 2px 10px 0 2px;
+    margin-right: 16px;
+}

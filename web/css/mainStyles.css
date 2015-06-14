@@ -1535,35 +1535,35 @@ header {
             padding: 30px 40px;
             margin: -15px 0px 0px 30px; }
           /* line 1971, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
+           .cabinet_content__item-content .reviews_list-item_num, .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .cabinet_content__item-content .reviews_list-item_title, .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
             font-size: 14px;
             display: inline-block;
             text-align: left;
             vertical-align: middle; }
           /* line 1978, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num {
+          .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_num, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_num {
             text-align: right;
             padding-right: 20px; }
           /* line 1983, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img {
+          .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_img, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_img {
             width: 74px;
             height: 60px;
             margin-top: 4px;
             position: relative; }
           /* line 1991, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title {
+          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title {
             padding-left: 20px; }
             /* line 1994, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title a {
+            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name a, .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title a {
               display: inline-block;
               max-width: 250px;
               color: #9a9a9a; }
           /* line 2000, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
+          .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status {
             padding-left: 40px;
             max-width: 410px; }
             /* line 2003, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b {
+            .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b {
               display: inline-block;
               font-weight: normal;
               width: 30px;
@@ -1572,19 +1572,19 @@ header {
               vertical-align: middle;
               text-align: center; }
               /* line 2013, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_approved {
+              .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_approved {
                 background-color: #28a5de; }
               /* line 2016, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_disallow {
+              .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_disallow {
                 background-color: #ff0601; }
               /* line 2020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b i {
+              .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b i {
                 color: #FFFFFF;
                 font-size: 18px;
                 vertical-align: middle;
                 margin-top: 6px; }
             /* line 2027, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status span {
+            .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status span, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status span {
               display: inline-block;
               vertical-align: middle;
               padding-left: 20px; }
@@ -1600,10 +1600,10 @@ header {
           width: 220px;
           max-width: inherit; }
         /* line 2076, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-        .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status {
+        .cabinet_content__item-content .reviews_list-item_status {
           width: 240px; }
           /* line 2088, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-          .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_status span {
+          .cabinet_content__item-content .reviews_list-item_status span {
             width: 178px; }
       /* line 2097, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item .content_main__articles-pagi {

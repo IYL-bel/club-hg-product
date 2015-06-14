@@ -14,6 +14,14 @@ application_admin_checks:
     path:     /checks/
     defaults: { _controller: ApplicationAdminBundle:Checks:index }
 
+application_admin_checks_approved:
+    path:     /checks/approved/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Checks:approvedCheck }
+
+application_admin_checks_disallow:
+    path:     /checks/disallow/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Checks:disallowCheck }
+
 application_admin_contests:
     path:     /contests/
     defaults: { _controller: ApplicationAdminBundle:Contests:index }

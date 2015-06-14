@@ -1,0 +1,4 @@
+Application\UsersBundle\Entity\Checks:
+    properties:
+        commentAdmin:
+            - NotBlank: {  message: property.blank, groups: [form-disallow] }
