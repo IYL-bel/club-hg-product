@@ -1,0 +1,41 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+{% form_theme form 'ApplicationAdminBundle::form.html.twig' %}
+
+
+{% block content %}
+
+<h3>{% if id %}Редактирование информации о призе{% else %}Добавление нового приза{% endif %}</h3>
+
+<div style="width: 482px;">
+    {{ form_start(form) }}
+
+        {{ form_row(form.title) }}
+
+        <div class="form-row" style="width: 160px;">
+            <div class="form-label">
+                {{ form_label(form.type) }}
+            </div>
+            {{ form_errors(form.type) }}
+            {{ form_widget(form.type) }}
+        </div>
+
+        <div class="form-row">
+            {{ form_errors(form.awardedScores) }}
+            {{ form_widget(form.awardedScores) }}
+            <span class="form-label">{{ form_label(form.awardedScores) }}</span>
+        </div>
+
+        <div class="form-row" style="width: 326px;">
+            <div class="form-label">
+                {{ form_label(form.file) }}
+            </div>
+            {{ form_errors(form.file) }}
+            {{ form_widget(form.file) }}
+        </div>
+
+        <input type="submit" class="blue_btn" value="Сохранить"> <a class="link-cancel" href="{{ path('application_admin_prizes') }}">Отмена</a>
+
+    {{ form_end(form) }}
+</div>
+
+{% endblock content %}

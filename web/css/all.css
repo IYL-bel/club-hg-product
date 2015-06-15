@@ -13,6 +13,10 @@
     color: #000000;
 }
 
+tr.odd {
+    background: #f5f7f9;
+}
+
 span.errors-for-input {
     color: #ff444b;
     text-shadow: 0 0 1px #ffa8b1;

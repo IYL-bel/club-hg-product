@@ -1,0 +1,11 @@
+admin:
+  form:
+    edit_prize:
+      types_label:
+        bronze: Бронзовый
+        silver: Серебряный
+        gold: Золотой
+        platinum: Платиновый
+      participationTypes_label:
+        forPoints: За баллы
+        inDraw: В розыгрыше

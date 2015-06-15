@@ -2,22 +2,24 @@
 /**
  * Club Hg-Product
  *
- * Add Main Slider form
+ * Edit Prize form
  *
+ * @package    ApplicationAdminBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace TemplatesBundle\Form\Type;
+namespace Application\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Application\AdminBundle\Repository\Prizes as PrizesRepository;
 
 /**
- * TemplatesBundle\Form\Type\AddMainSlider
+ * Application\AdminBundle\Form\Type\EditPrize
  */
-class AddMainSlider extends AbstractType
+class EditPrize extends AbstractType
 {
 
     /**
@@ -27,32 +29,30 @@ class AddMainSlider extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', 'textarea', array(
+            ->add('title', 'textarea', array(
                 'required' => false,
-                'label' => 'Текст на слайде',
+                'label' => 'Название приза',
             ))
 
-            ->add('textColor', 'choice', array(
-                'choices' => array(
-                    'black' => 'Черный',
-                    'white' => 'Белый'
-                ),
+            ->add('type', 'choice', array(
+                'choices' => PrizesRepository::getNamesType('admin.form.edit_prize.types_label.'),
                 'required' => false,
-                'label' => 'Цвет текста',
+                'label' => 'Уровень приза',
                 'empty_value' => ''
             ))
 
-            ->add('link','text', array(
+            ->add('awardedScores', 'checkbox', array(
                 'required' => false,
-                'label' => 'Ссылка'
+                'label' => 'Приз дается за баллы или в розыгрыше',
             ))
 
-            ->add('pictureFile', 'file', array(
+            ->add('file', 'file', array(
                 'required' => false,
-                'label' => 'Фоновая картинка (формат PNG, размер 558x411)'
+                'label' => 'Картинка приза (формат JPG, PNG, размер 230x284)'
             ))
 
-            ->add('picturePath', 'hidden')
+            ->add('filePath', 'hidden')
+            ->add('fileName', 'hidden')
         ;
     }
 
@@ -62,7 +62,7 @@ class AddMainSlider extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TemplatesBundle\Entity\MainSlider',
+            'data_class' => 'Application\AdminBundle\Entity\Prizes',
         ));
     }
 
@@ -71,7 +71,7 @@ class AddMainSlider extends AbstractType
      */
     public function getName()
     {
-        return 'add_main_slider_form';
+        return 'edit_prize_form';
     }
 
 }

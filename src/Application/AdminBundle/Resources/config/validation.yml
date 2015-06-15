@@ -1,0 +1,17 @@
+Application\AdminBundle\Entity\Prizes:
+    properties:
+        title:
+            - NotBlank: {  message: property.blank }
+        type:
+            - NotBlank: {  message: property.option }
+        file:
+            - Image:
+                mimeTypes:  [image/jpeg, image/pjpeg, image/png]
+                minWidth: 230
+                minWidthMessage: property.img_size.min_width_fix
+                maxWidth: 230
+                maxWidthMessage: property.img_size.max_width_fix
+                minHeight: 284
+                minHeightMessage: property.img_size.min_height_fix
+                maxHeight: 284
+                maxHeightMessage: property.img_size.max_height_fix
