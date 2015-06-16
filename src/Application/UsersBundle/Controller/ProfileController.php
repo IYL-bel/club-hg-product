@@ -19,8 +19,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Application\UsersBundle\Form\Type\AddCheckFile as AddCheckFileForm;
 use Application\UsersBundle\Entity\Checks;
 use Application\UsersBundle\Repository\Checks as ChecksRepository;
+use TemplatesBundle\Repository\Statuses as StatusesRepository;
 
 /**
+ * @Security("has_role('ROLE_USER')")
+ *
  * Application\UsersBundle\Controller\ProfileController
  */
 class ProfileController extends Controller
@@ -28,7 +31,6 @@ class ProfileController extends Controller
 
     /**
      * @Template()
-     * @Security("has_role('ROLE_USER')")
      *
      * @return array
      */
@@ -43,42 +45,18 @@ class ProfileController extends Controller
         $checksRepository = $em->getRepository('ApplicationUsersBundle:Checks');
         $checks = $checksRepository->findBy( array('user' => $this->getUser()), array('createdAt' => 'DESC') );
 
-        $profStatuses[] = array(
-            'title' => 'БРОНЗА',
-            'name_medal' => 'bronze',
-            'comments' => array(
-                'Бесплатно тестировать средства HG раз в месяц',
-                'Участвовать в "бронзовых" розыгрышах',
-                'Ообменивать баллы на "бронзовые" призы'
-            )
-        );
-        $profStatuses[] = array(
-            'title' => 'СЕРЕБРО',
-            'name_medal' => 'silver',
-            'comments' => array(
-               'Бесплатно тестировать средства HG два в месяц',
-                'Участвовать в "серебрянных" розыгрышах',
-                'Обменивать баллы на "серебрянные" призы'
-            )
-        );
-        $profStatuses[] = array(
-            'title' => 'ЗОЛОТО',
-            'name_medal' => 'gold',
-            'comments' => array(
-                'Бесплатно тестировать средства HG три в месяц',
-                'Участвовать в "золотых" розыгрышах',
-                'Обменивать баллы на "золотые" призы'
-            )
-        );
-        $profStatuses[] = array(
-            'title' => 'ПЛАТИНА',
-            'name_medal' => 'platinum',
-            'comments' => array(
-                'Бесплатно тестировать любые средства HG, но не более одного средства один раз.',
-                'Участвовать в "платиновых" розыгрышах',
-                'Обменивать баллы на "платиновые" призы'
-            )
-        );
+        //  -- STATUSES --
+        $statusesRepository = $em->getRepository('TemplatesBundle:Statuses');
+        $statuses = $statusesRepository->findAll();
+
+        $defaultStatuses = StatusesRepository::getAllStatuses();
+
+        if ($statuses) {
+            /** @var $status \TemplatesBundle\Entity\Statuses */
+            foreach ($statuses as $status) {
+                $defaultStatuses[$status->getNameStatus()] = $status;
+            }
+        }
 
         $form = array(
             'add_check_file' => $formAddCheckFile->createView(),
@@ -87,7 +65,8 @@ class ProfileController extends Controller
         return array(
             'form' => $form,
             'checks' => $checks,
-            'prof_statuses' => $profStatuses
+            'prof_statuses' => $defaultStatuses,
+            'default_scores_statuses' => StatusesRepository::getDefaultScoresForStatuses(),
         );
     }
 

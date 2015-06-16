@@ -120,3 +120,7 @@ span.error_message_big {
     padding: 2px 10px 0 2px;
     margin-right: 16px;
 }
+
+.border-status-user {
+    border: solid 1px #28a5de;
+}

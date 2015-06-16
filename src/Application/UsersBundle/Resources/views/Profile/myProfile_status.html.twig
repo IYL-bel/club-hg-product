@@ -1,34 +1,43 @@
 <div style="margin: 0 28px 0 28px;">
 
-    {% for status in prof_statuses  %}
+    {% for key, status in prof_statuses  %}
 
-        <div style="border: solid 1px #28a5de; margin-bottom: 18px; padding: 6px 0;">
+        <div style="margin-bottom: 18px; padding: 6px 0;" class="border-status-user">
             <table width="100%">
                 <tr >
-                    <td>
+                    <td style="width: 200px;">
                         <div style="margin: 16px;">
                             <div class="status_medal" style="padding-top: 5px;">
                                 {#<i></i>#}
-                                <div><img src="{{ asset('images/medal_'~status.name_medal~'.png') }}" alt=""></div>
+                                <div><img src="{{ asset('images/medal_'~key~'.png') }}" alt=""></div>
                             </div>
                             <div class="status_title">
-                                <span>{{ status.title }}</span>
+                                {% set name_status = 'templates.names.statuses_profile.'~key %}
+                                <span>{{ name_status |trans }}</span>
                             </div>
                         </div>
                     </td>
                     <td>
                         <div style="padding-left: 20px;">
-                            Нужно набрать 1000 балов
+                            Нужно набрать
+
+                            {% if status and status.scores %}
+                                {{ status.scores }}
+                            {% else %}
+                                {{ default_scores_statuses[key] }}
+                            {% endif %}
+
+                            балов
                         </div>
                     </td>
                     <td>
                         <div class="status_txt">
-                            <p>Данный статус позволяет вам:</p>
-                            <ul>
-                                {% for comment in status.comments %}
-                                    <li>{{ comment }}</li>
-                                {% endfor %}
-                            </ul>
+                            {% if status %}
+                                {{ status.description |trans |raw }}
+                            {% else %}
+                                {% set description = 'templates.description.statuses.'~key %}
+                                {{ description |trans |raw }}
+                            {% endif %}
                         </div>
                     </td>
                 </tr>

@@ -5,6 +5,11 @@ templates:
       silver: Серебряный
       gold: Золотой
       platinum: Платиновый
+    statuses_profile:
+      bronze: БРОНЗА
+      silver: СЕРЕБРО
+      gold: ЗОЛОТО
+      platinum: ПЛАТИНА
   description:
     statuses:
       bronze: |

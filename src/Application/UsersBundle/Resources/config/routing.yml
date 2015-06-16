@@ -2,6 +2,10 @@ application_users_profile_my:
     path:     my-profile/
     defaults: { _controller: ApplicationUsersBundle:Profile:my }
 
+application_users_profile_my:
+    path:     my-profile/checks/
+    defaults: { _controller: ApplicationUsersBundle:Profile:my }
+
 application_users_profile_add_check_file:
     path:     profile/add-check-file/
     defaults: { _controller: ApplicationUsersBundle:Profile:addCheckFile }
