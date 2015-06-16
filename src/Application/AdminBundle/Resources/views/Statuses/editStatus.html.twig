@@ -1,0 +1,22 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+{% form_theme form 'ApplicationAdminBundle::form.html.twig' %}
+
+
+{% block content %}
+
+{% set name_status = 'templates.names.statuses.'~name %}
+<h3>Редактирование статуса <span style="color: #545454;">{{ name_status |trans }}</span></h3>
+
+<div style="width: 482px;">
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <input type="submit" class="blue_btn" value="Сохранить"> <a class="link-cancel" href="{{ path('application_admin_statuses') }}">Отмена</a>
+
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock content %}

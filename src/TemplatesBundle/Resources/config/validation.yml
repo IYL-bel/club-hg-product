@@ -17,3 +17,15 @@ TemplatesBundle\Entity\MainSlider:
                 minHeightMessage: property.img_size.min_height_fix
                 maxHeight: 411
                 maxHeightMessage: property.img_size.max_height_fix
+
+TemplatesBundle\Entity\Statuses:
+    properties:
+        description:
+            - NotBlank:
+                message: property.blank
+        scores:
+            - NotBlank:
+                message: property.blank
+            - Type:
+                type: numeric
+                message: property.number_only

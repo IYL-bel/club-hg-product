@@ -4,6 +4,7 @@
  *
  * Add Main Slider form
  *
+ * @package    TemplatesBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */

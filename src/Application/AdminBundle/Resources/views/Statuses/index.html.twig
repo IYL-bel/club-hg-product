@@ -1,0 +1,57 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+<div class="cabinet_content__item-content">
+    <div class="reviews_list">
+
+        <table width="100%">
+
+            {% for key, status in statuses %}
+                <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+
+                    <td>
+                        <div class="status_medal" style="padding-top: 5px; text-align: center;">
+                            <div><img src="{{ asset('images/medal_'~key~'.png') }}" alt=""></div>
+                        </div>
+                        <div style="text-align: center; margin-top: 8px;">
+                            {% set name_status = 'templates.names.statuses.'~key %}
+                            {{ name_status |trans }}
+                        </div>
+                    </td>
+
+                    <td>
+                        {% if status and status.scores %}
+                            {{ status.scores }}
+                        {% else %}
+                            {{ default_scores[key] }}
+                        {% endif %}
+                        бал.
+                    </td>
+
+                    <td>
+                        <div class="statuses-description">
+                            {% if status %}
+                                {{ status.description |trans |raw }}
+                            {% else %}
+                                {% set description = 'templates.description.statuses.'~key %}
+                                {{ description |trans |raw }}
+                            {% endif %}
+                        </div>
+                    </td>
+
+                    <td>
+                        <a href="{{ path('application_admin_statuses_edit', {'name': key}) }}">Изменить</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+
+        </table>
+
+    </div><!--.reviews_list-->
+</div>
+
+{% endblock content %}

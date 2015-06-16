@@ -37,3 +37,11 @@ application_admin_prizes:
 application_admin_prizes_edit:
     path:     /prizes/edit/{id}
     defaults: { _controller: ApplicationAdminBundle:Prizes:editPrize, id: null }
+
+application_admin_statuses:
+    path:     /statuses/
+    defaults: { _controller: ApplicationAdminBundle:Statuses:index }
+
+application_admin_statuses_edit:
+    path:     /statuses/edit/{name}
+    defaults: { _controller: ApplicationAdminBundle:Statuses:editStatus }
