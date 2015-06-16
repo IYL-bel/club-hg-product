@@ -1141,7 +1141,8 @@ header {
       .content_main__articles-tile_header_title {
         font-weight: normal;
         font-size: 24px;
-        padding-left: 20px;
+        padding-left: 18px;
+        padding-right: 10px;
         color: #008dd2; }
         /* line 1437, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles-tile_header_title.white {

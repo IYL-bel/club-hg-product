@@ -51,6 +51,13 @@ class Prizes
     protected $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="title_color", length=8, nullable=true)
+     */
+    protected $titleColor;
+
+    /**
      * @var int
      *
      * @ORM\Column(type="integer")
@@ -345,6 +352,24 @@ class Prizes
     public function isAwardedScores()
     {
         return $this->awardedScores;
+    }
+
+    /**
+     * @param string $titleColor
+     * @return \Application\AdminBundle\Entity\Prizes
+     */
+    public function setTitleColor($titleColor)
+    {
+        $this->titleColor = $titleColor;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitleColor()
+    {
+        return $this->titleColor;
     }
 
 }

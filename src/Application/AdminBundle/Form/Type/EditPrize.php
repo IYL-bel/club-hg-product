@@ -34,6 +34,16 @@ class EditPrize extends AbstractType
                 'label' => 'Название приза',
             ))
 
+            ->add('titleColor', 'choice', array(
+                'choices' => array(
+                    'blue' => 'Синий',
+                    'white' => 'Белый'
+                ),
+                'required' => false,
+                'label' => 'Цвет текста',
+                'empty_value' => false,
+            ))
+
             ->add('type', 'choice', array(
                 'choices' => PrizesRepository::getNamesType('admin.form.edit_prize.types_label.'),
                 'required' => false,
