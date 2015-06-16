@@ -2,7 +2,7 @@
 /**
  * Club Hg-Product
  *
- * Prizes entity
+ * Contests entity
  *
  * @package    ApplicationAdminBundle
  * @author     Yury Istomenok <iyl@tut.by>
@@ -14,17 +14,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use Application\AdminBundle\Repository\Prizes as PrizesRepository;
+use Application\AdminBundle\Repository\Contests as ContestsRepository;
 
 
 /**
- * Application\AdminBundle\Entity\Prizes
+ * Application\AdminBundle\Entity\Contests
  *
- * @ORM\Table(name="prizes")
- * @ORM\Entity(repositoryClass="Application\AdminBundle\Repository\Prizes")
+ * @ORM\Table(name="contests")
+ * @ORM\Entity(repositoryClass="Application\AdminBundle\Repository\Contests")
  * @ORM\HasLifecycleCallbacks
  */
-class Prizes
+class Contests
 {
 
     /**
@@ -32,7 +32,7 @@ class Prizes
      *
      * @var string
      */
-    protected static $webPath = 'uploads/prizes';
+    protected static $webPath = 'uploads/contests';
 
     /**
      * @var int
@@ -51,11 +51,11 @@ class Prizes
     protected $title;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="text", nullable=true)
      */
-    protected $type;
+    protected $description;
 
     /**
      * @var \Symfony\Component\HttpFoundation\File\UploadedFile
@@ -79,13 +79,6 @@ class Prizes
     protected $fileName;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean", name="awarded_scores")
-     */
-    protected $awardedScores = false;
-
-    /**
      * @var int
      *
      * @ORM\Column(type="integer")
@@ -100,6 +93,28 @@ class Prizes
      */
     protected $createdAt;
 
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    protected $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="started_at", type="datetime")
+     */
+    protected $startedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="finished_at", type="datetime")
+     */
+    protected $finishedAt;
+
 
     /**
      * @return int
@@ -111,7 +126,7 @@ class Prizes
 
     /**
      * @param string $title
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setTitle($title)
     {
@@ -128,37 +143,8 @@ class Prizes
     }
 
     /**
-     * @param int $type
-     * @return \Application\AdminBundle\Entity\Prizes
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $preName
-     * @return string
-     */
-    public function getTypeString($preName = 'admin.form.edit_prize.types_label.')
-    {
-        $data = PrizesRepository::getNamesType($preName);
-
-        return $data[$this->type];
-    }
-
-    /**
      * @param string $filePath
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setFilePath($filePath)
     {
@@ -176,7 +162,7 @@ class Prizes
 
     /**
      * @param string $fileName
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setFileName($fileName)
     {
@@ -265,7 +251,7 @@ class Prizes
 
     /**
      * @param int $status
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setStatus($status)
     {
@@ -286,7 +272,7 @@ class Prizes
      */
     public function isStatusActive()
     {
-        if ($this->status == PrizesRepository::STATUS_ACTIVE ) {
+        if ($this->status == ContestsRepository::STATUS_ACTIVE ) {
             return true;
         }
 
@@ -295,7 +281,7 @@ class Prizes
 
     /**
      * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setFile($file)
     {
@@ -313,7 +299,7 @@ class Prizes
 
     /**
      * @param \DateTime $createdAt
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\AdminBundle\Entity\Contests
      */
     public function setCreatedAt($createdAt)
     {
@@ -330,21 +316,75 @@ class Prizes
     }
 
     /**
-     * @param boolean $awardedScores
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @param string $description
+     * @return \Application\AdminBundle\Entity\Contests
      */
-    public function setAwardedScores($awardedScores)
+    public function setDescription($description)
     {
-        $this->awardedScores = $awardedScores;
+        $this->description = $description;
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    public function isAwardedScores()
+    public function getDescription()
     {
-        return $this->awardedScores;
+        return $this->description;
+    }
+
+    /**
+     * @param \DateTime $finishedAt
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setFinishedAt($finishedAt)
+    {
+        $this->finishedAt = $finishedAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFinishedAt()
+    {
+        return $this->finishedAt;
+    }
+
+    /**
+     * @param \DateTime $startedAt
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setStartedAt($startedAt)
+    {
+        $this->startedAt = $startedAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartedAt()
+    {
+        return $this->startedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 
 }

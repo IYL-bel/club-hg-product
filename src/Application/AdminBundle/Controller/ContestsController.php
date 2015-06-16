@@ -11,9 +11,16 @@ namespace Application\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
+
+use Application\AdminBundle\Entity\Contests;
+use Application\AdminBundle\Form\Type\EditContests as EditContestsForm;
 
 
 /**
+ * @Security("has_role('ROLE_ADMIN')")
+ *
  * Application\AdminBundle\Controller\ContestsController
  */
 class ContestsController extends Controller
@@ -26,7 +33,59 @@ class ContestsController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsRepository \Application\AdminBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationAdminBundle:Contests');
+        $contests = $contestsRepository->findAll();
+
+        return array(
+            'contests' => $contests,
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param null $id
+     * @return array
+     */
+    public function editContestAction(Request $request, $id = null)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsRepository \Application\AdminBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationAdminBundle:Contests');
+
+        if ($id) {
+            /** @var $contests \Application\AdminBundle\Repository\Contests */
+            $contests = $contestsRepository->find($id);
+            if (!$contests) {
+                return $this->redirectToRoute('application_admin_contests');
+            }
+        } else {
+            /** @var $contests \Application\AdminBundle\Repository\Contests */
+            $contests = new Contests();
+        }
+
+        $form = $this->createForm(new EditContestsForm(), $contests);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $contests = $form->getData();
+            $contests->setStatus($contestsRepository::STATUS_ACTIVE);
+
+            $em->persist($contests);
+            $em->flush();
+
+            return $this->redirectToRoute('application_admin_contests');
+        }
+
+        return array(
+            'id' => $id,
+            'form' => $form->createView(),
+        );
     }
 
 }

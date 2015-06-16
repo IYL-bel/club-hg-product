@@ -3,6 +3,59 @@
 
 {% block content %}
 
-Admin Contests
+<div class="cabinet_content__item-content">
+
+    <div style="margin-bottom: 30px;">
+        <a href="{{ path('application_admin_contests_edit') }}" class="blue_btn">Добавить конкурс</a>
+    </div>
+
+
+    <table width="100%">
+
+        {% for key, contest in contests %}
+
+            <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+                <td>
+                    <div class="photo-logo-56">
+                        {% if contest.filePath %}
+                            <a href="{{ asset(contest.getFilePathWeb()) }}" class="photo" target="_blank">
+                                <img src="{{ asset(contest.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                            </a>
+                        {% else %}
+                            <img src="{{ asset('images/not-file.jpg') }}" class="photo-img" title="Файл не загружен" alt="name"/>
+                        {% endif %}
+                    </div>
+
+                </td>
+                <td>
+                    <span>{{ contest.title }}</span>
+                </td>
+                <td>
+                    c {{ contest.startedAt.format('d.m.Y') }} по {{ contest.finishedAt.format('d.m.Y') }}
+                </td>
+
+                <td>
+                    <a href="{{ path('application_admin_contests_edit', {'id': contest.id}) }}">Изменить</a>
+                </td>
+
+            </tr>
+
+        {% else %}
+
+            <tr>
+                <td colspan="3">
+                    <div style="text-align: center;">
+                        Список конкурсов пуст
+                    </div>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</div>
 
 {% endblock content %}
