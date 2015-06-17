@@ -1211,7 +1211,7 @@ header {
       left: 0;
       bottom: 0;
       width: 100%;
-      border-top: 1px solid #e0e0e0;
+      /*border-top: 1px solid #e0e0e0;*/
       font-size: 12px; }
       /* line 1526, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .winners .content_main__articles-tile_footer {

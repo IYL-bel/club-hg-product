@@ -51,6 +51,20 @@ class Contests
     protected $title;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", name="points_participation", nullable=true)
+     */
+    protected $pointsParticipation;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", name="points_winner", nullable=true)
+     */
+    protected $pointsWinner;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="text", nullable=true)
@@ -385,6 +399,42 @@ class Contests
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @param int $pointsParticipation
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setPointsParticipation($pointsParticipation)
+    {
+        $this->pointsParticipation = $pointsParticipation;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPointsParticipation()
+    {
+        return $this->pointsParticipation;
+    }
+
+    /**
+     * @param int $pointsWinner
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setPointsWinner($pointsWinner)
+    {
+        $this->pointsWinner = $pointsWinner;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPointsWinner()
+    {
+        return $this->pointsWinner;
     }
 
 }

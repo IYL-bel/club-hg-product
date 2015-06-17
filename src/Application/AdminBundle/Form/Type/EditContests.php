@@ -38,6 +38,16 @@ class EditContests extends AbstractType
                 'label' => 'Описание конкурса',
             ))
 
+            ->add('pointsParticipation','text', array(
+                'required' => false,
+                'label' => 'Количество баллов за участие'
+            ))
+
+            ->add('pointsWinner','text', array(
+                'required' => false,
+                'label' => 'Количество баллов за победу'
+            ))
+
             ->add('file', 'file', array(
                 'required' => false,
                 'label' => 'Картинка конкурса (формат JPG, PNG, размер 231x290)'

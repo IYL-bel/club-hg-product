@@ -43,7 +43,16 @@ class DefaultController extends Controller
      */
     public function contestsAction()
     {
-        return array();
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $prizesRepository \Application\AdminBundle\Repository\Prizes */
+        $contestsRepository = $em->getRepository('ApplicationAdminBundle:Contests');
+
+        $contests = $contestsRepository->findBy( array(), array('createdAt' => 'DESC') );
+
+        return array(
+            'contests' => $contests
+        );
     }
 
     /**

@@ -34,6 +34,18 @@ Application\AdminBundle\Entity\Contests:
                 minHeightMessage: property.img_size.min_height_fix
                 maxHeight: 290
                 maxHeightMessage: property.img_size.max_height_fix
+        pointsParticipation:
+            - NotBlank:
+                message: property.blank
+            - Type:
+                type: numeric
+                message: property.number_only
+        pointsWinner:
+             - NotBlank:
+                 message: property.blank
+             - Type:
+                 type: numeric
+                 message: property.number_only
         startedAt:
             - Date: ~
             - NotBlank: {  message: property.blank }
