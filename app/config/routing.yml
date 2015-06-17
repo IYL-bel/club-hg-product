@@ -1,3 +1,7 @@
+application_scores:
+    resource: "@ApplicationScoresBundle/Resources/config/routing.yml"
+    prefix:   /
+
 _home:
     path:     /
     defaults: { _controller: ApplicationBaseBundle:Default:index }

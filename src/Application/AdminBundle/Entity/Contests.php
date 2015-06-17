@@ -15,6 +15,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\AdminBundle\Repository\Contests as ContestsRepository;
+use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 
 
 /**
@@ -49,20 +51,6 @@ class Contests
      * @ORM\Column(type="string", length=150, nullable=true)
      */
     protected $title;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", name="points_participation", nullable=true)
-     */
-    protected $pointsParticipation;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", name="points_winner", nullable=true)
-     */
-    protected $pointsWinner;
 
     /**
      * @var string
@@ -128,6 +116,32 @@ class Contests
      * @ORM\Column(name="finished_at", type="datetime")
      */
     protected $finishedAt;
+
+    /**
+     * @var \Application\ScoresBundle\Entity\Scores
+     *
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="contestsScoresParticipation", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="scores_participation__id", referencedColumnName="id", nullable=true)
+     */
+    protected $scoresParticipation;
+
+    /**
+     * @var int
+     */
+    protected $pointsParticipation;
+
+    /**
+     * @var \Application\ScoresBundle\Entity\Scores
+     *
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="contestsScoresWinner", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="scores_winner__id", referencedColumnName="id", nullable=true)
+     */
+    protected $scoresWinner;
+
+    /**
+     * @var int
+     */
+    protected $pointsWinner;
 
 
     /**
@@ -435,6 +449,42 @@ class Contests
     public function getPointsWinner()
     {
         return $this->pointsWinner;
+    }
+
+    /**
+     * @param \Application\ScoresBundle\Entity\Scores $scoresParticipation
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setScoresParticipation(Scores $scoresParticipation)
+    {
+        $this->scoresParticipation = $scoresParticipation;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function getScoresParticipation()
+    {
+        return $this->scoresParticipation;
+    }
+
+    /**
+     * @param \Application\ScoresBundle\Entity\Scores $scoresWinner
+     * @return \Application\AdminBundle\Entity\Contests
+     */
+    public function setScoresWinner(Scores $scoresWinner)
+    {
+        $this->scoresWinner = $scoresWinner;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function getScoresWinner()
+    {
+        return $this->scoresWinner;
     }
 
 }

@@ -16,6 +16,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Application\AdminBundle\Entity\Contests;
 use Application\AdminBundle\Form\Type\EditContests as EditContestsForm;
+use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 
 
 /**
@@ -69,12 +71,38 @@ class ContestsController extends Controller
             $contests = new Contests();
         }
 
+        $scoresParticipation = $contests->getScoresParticipation();
+        if ($scoresParticipation) {
+            $contests->setPointsParticipation( $scoresParticipation->getPoints() );
+        }
+
+        $scoresWinner = $contests->getScoresWinner();
+        if ($scoresWinner) {
+            $contests->setPointsWinner($scoresWinner->getPoints() );
+        }
+
         $form = $this->createForm(new EditContestsForm(), $contests);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $contests = $form->getData();
             $contests->setStatus($contestsRepository::STATUS_ACTIVE);
+
+            $scoresParticipation = $contests->getScoresParticipation();
+            if (!$scoresParticipation) {
+                $scoresParticipation = new Scores();
+                $scoresParticipation->setType(ScoresRepository::TYPE__CONTESTS_PARTICIPATION);
+            }
+            $scoresParticipation->setPoints( $contests->getPointsParticipation() );
+            $contests->setScoresParticipation($scoresParticipation);
+
+            $scoresWinner = $contests->getScoresWinner();
+            if (!$scoresWinner) {
+                $scoresWinner = new Scores();
+                $scoresWinner->setType(ScoresRepository::TYPE__CONTESTS_WINNER );
+            }
+            $scoresWinner->setPoints( $contests->getPointsWinner() );
+            $contests->setScoresWinner($scoresWinner);
 
             $em->persist($contests);
             $em->flush();

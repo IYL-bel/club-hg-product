@@ -13,6 +13,7 @@ namespace Application\BaseBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 
 /**
@@ -83,6 +84,45 @@ class DefaultController extends Controller
      */
     public function catalogProductsAction()
     {
+        return array();
+    }
+
+
+    public function testAction()
+    {
+        //var_dump(111111);
+
+        $rsm = new ResultSetMapping();
+        $rsm->addEntityResult('Application\VacancyBundle\Entity\Vacancy', 'v');
+        $rsm->addFieldResult('v', 'id', 'id');
+        $rsm->addFieldResult('v', 'title', 'title');
+        $rsm->addFieldResult('v', 'city', 'city');
+
+        /** @var $hgProdRuEm \Doctrine\ORM\EntityManager */
+        $hgProdRuEm = $this->get('doctrine')->getManager('hg_prod_ru');
+        $query = $hgProdRuEm
+            ->createNativeQuery('SELECT c.* FROM content c WHERE id = :id', $rsm)
+        //->createQuery('SELECT * FROM content WHERE id = :id')
+            ->setParameter('id', 184);
+        $res = $query->getResult();
+        var_dump($res);
+
+
+
+
+
+        /** @var $stmt \Doctrine\ORM\EntityManager */
+        $stmt = $this->get('doctrine')->getManager('hg_prod_ru')
+            ->getConnection()
+            ->prepare('SELECT c.id, c.title, c.prev_text FROM content c WHERE id = :id');
+        $stmt->bindValue('id', 184);
+        $stmt->execute();
+        $re = $stmt->fetchAll();
+
+        var_dump($re);
+
+
+
         return array();
     }
 
