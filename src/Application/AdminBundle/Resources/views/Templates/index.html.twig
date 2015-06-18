@@ -3,15 +3,41 @@
 
 {% block content %}
 
-
 <h2>Главная страница</h2>
 
-<h4>Основной слайдер</h4>
-<ul class="list">
-    <li>Слайд 1 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 1}) }}" class="change">изменить</a></li>
-    <li>Слайд 2 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 2}) }}" class="change">изменить</a></li>
-    <li>Слайд 3 <a href="{{ path('application_admin_templates_change_main_slider', {'id': 3}) }}" class="change">изменить</a></li>
-</ul>
+<div class="block-template">
+    <h4>Основной слайдер</h4>
+    <ul class="list">
+        <li>Слайд 1: <a href="{{ path('application_admin_templates_change_main_slider', {'id': 1}) }}" class="change">изменить</a></li>
+        <li>Слайд 2: <a href="{{ path('application_admin_templates_change_main_slider', {'id': 2}) }}" class="change">изменить</a></li>
+        <li>Слайд 3: <a href="{{ path('application_admin_templates_change_main_slider', {'id': 3}) }}" class="change">изменить</a></li>
+    </ul>
+</div>
 
+<div class="block-template">
+    <h4>Советы от клуба</h4>
+
+    {% if caution_main_tips %}
+        <div style="font-size: 13px; margin-left: 1px;">
+            <span class="caution-message"> ▪ Советы от клуба не будут отображаться на странице пока не будут выбраны оба совета</span>
+        </div>
+    {% endif %}
+
+    <ul class="list">
+
+        {% for key, main_tip in main_tips_club %}
+            <li>
+                Совет № {{ key }}:
+                {% if main_tip %}
+                    <a class="blue-link" href="{{ main_tip.link }}" style="font-size: 15px;" target="_blank">{{ main_tip.title }}</a>
+                {% else %}
+                     <span class="caution-message"> - ничего не выбрано - </span>
+                {% endif %}
+                | <a href="{{ path('application_admin_templates_change_main_tip', {'id': key}) }}" class="change">изменить</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
 
 {% endblock content %}

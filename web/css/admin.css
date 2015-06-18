@@ -50,6 +50,11 @@
     margin-left: 4px;
 }
 
+.admin-content .block-template {
+    margin-left: 12px;
+    margin-bottom: 24px;
+}
+
 .admin-content ul.list {
     display: block;
     list-style: disc;

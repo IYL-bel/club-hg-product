@@ -88,27 +88,14 @@ class DefaultController extends Controller
     }
 
 
+
+
+
+
+
+
     public function testAction()
     {
-        //var_dump(111111);
-
-        $rsm = new ResultSetMapping();
-        $rsm->addEntityResult('Application\VacancyBundle\Entity\Vacancy', 'v');
-        $rsm->addFieldResult('v', 'id', 'id');
-        $rsm->addFieldResult('v', 'title', 'title');
-        $rsm->addFieldResult('v', 'city', 'city');
-
-        /** @var $hgProdRuEm \Doctrine\ORM\EntityManager */
-        $hgProdRuEm = $this->get('doctrine')->getManager('hg_prod_ru');
-        $query = $hgProdRuEm
-            ->createNativeQuery('SELECT c.* FROM content c WHERE id = :id', $rsm)
-        //->createQuery('SELECT * FROM content WHERE id = :id')
-            ->setParameter('id', 184);
-        $res = $query->getResult();
-        var_dump($res);
-
-
-
 
 
         /** @var $stmt \Doctrine\ORM\EntityManager */

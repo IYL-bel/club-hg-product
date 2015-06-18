@@ -13,9 +13,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 use TemplatesBundle\Form\Type\AddMainSlider;
 use TemplatesBundle\Entity\MainSlider;
+use TemplatesBundle\Entity\MainTipsClub;
 
 
 /**
@@ -33,7 +35,22 @@ class TemplatesController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $cautionMainTips = true;
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $mainTipsClubRepository \TemplatesBundle\Repository\MainTipsClub */
+        $mainTipsClubRepository = $em->getRepository('TemplatesBundle:MainTipsClub');
+        $mainTipsClub[1] = $mainTipsClubRepository->findOneBy( array('numTip' => 1) );
+        $mainTipsClub[2] = $mainTipsClubRepository->findOneBy( array('numTip' => 2) );
+
+        if ($mainTipsClub[1] &&  $mainTipsClub[2]) {
+            $cautionMainTips = false;
+        }
+
+        return array(
+            'main_tips_club' => $mainTipsClub,
+            'caution_main_tips' => $cautionMainTips,
+        );
     }
 
     /**
@@ -77,6 +94,77 @@ class TemplatesController extends Controller
         return array(
             'id' => $id,
             'form' => $formView,
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param int $id
+     * @return array
+     */
+    public function changeMainTipAction(Request $request, $id)
+    {
+        // Check id number of slides
+        if ( !in_array($id, range(1, 2)) ) {
+            return $this->redirectToRoute('application_admin_templates');
+        }
+
+        $error = false;
+
+        $rsm = new ResultSetMapping();
+        $rsm->addEntityResult('HgProductBundle\Entity\Content', 'c');
+        $rsm->addFieldResult('c', 'id', 'id');
+        $rsm->addFieldResult('c', 'title', 'title');
+        $rsm->addFieldResult('c', 'description', 'description');
+        $rsm->addFieldResult('c', 'category', 'category');
+        $rsm->addFieldResult('c', 'url', 'url');
+
+        /** @var $emHgProd \Doctrine\ORM\EntityManager */
+        $emHgProd = $this->getDoctrine()->getManager('hg_prod_ru');
+        $query = $emHgProd
+            ->createNativeQuery('SELECT c.* FROM content c WHERE category = :category ORDER BY c.id DESC', $rsm)
+            ->setParameter('category', 69);
+        $blockHelgi = $query->getResult();
+
+        if ($request->getMethod() == 'POST') {
+            $selectedId = $request->request->get('news-id');
+            if ($selectedId) {
+                $queryCurrentArticle = $emHgProd
+                    ->createNativeQuery('SELECT c.* FROM content c WHERE id = :id', $rsm)
+                    ->setParameter('id', $selectedId);
+                /** @var $currentArticle \HgProductBundle\Entity\Content */
+                $currentArticle = $queryCurrentArticle->getSingleResult();
+
+                /** @var $em \Doctrine\ORM\EntityManager */
+                $em = $this->getDoctrine()->getManager();
+                /** @var $mainTipsClubRepository \TemplatesBundle\Repository\MainTipsClub */
+                $mainTipsClubRepository = $em->getRepository('TemplatesBundle:MainTipsClub');
+
+                /** @var $mainTips \TemplatesBundle\Entity\MainTipsClub */
+                $mainTips = $mainTipsClubRepository->findOneBy(array('numTip' => $id));
+                if (!$mainTips) {
+                    $mainTips = new MainTipsClub();
+                    $mainTips->setNumTip($id);
+                }
+                $mainTips
+                    ->setTitle( $currentArticle->getTitle() )
+                    ->setLink('http://hg-product.ru/blog-helgi/' . $currentArticle->getUrl() );
+
+                $em->persist($mainTips);
+                $em->flush();
+
+                return $this->redirectToRoute('application_admin_templates');
+            } else {
+                $error = true;
+            }
+        }
+
+        return array(
+            'id' => $id,
+            'block_helgi' => $blockHelgi,
+            'error' => $error,
         );
     }
 

@@ -99,7 +99,7 @@ doctrine:
                 connection: hg_prod_ru
                 #auto_mapping: true
                 mappings:
-                    ApplicationBaseBundle: ~
+                    HgProductBundle: ~
 
 # Doctrine Migrations Configuration
 doctrine_migrations:

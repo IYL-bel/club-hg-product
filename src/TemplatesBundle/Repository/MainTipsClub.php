@@ -2,7 +2,7 @@
 /**
  * Club Hg-Product
  *
- * Main Slider repository
+ * Main Tips Club repository
  *
  * @package    TemplatesBundle
  * @author     Yury Istomenok <iyl@tut.by>
@@ -14,9 +14,9 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TemplatesBundle\Repository\MainSlider
+ * TemplatesBundle\Repository\MainTipsClub
  */
-class MainSlider extends EntityRepository
+class MainTipsClub extends EntityRepository
 {
 
 }

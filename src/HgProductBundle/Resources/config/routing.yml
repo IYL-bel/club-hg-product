@@ -1,0 +1,3 @@
+hg_product_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: HgProductBundle:Default:index }

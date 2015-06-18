@@ -45,9 +45,18 @@ span.error_message_big {
     margin-left: 4px;
 }
 
+span.caution-message {
+    color: #ef833d;
+    text-shadow: 0 0 1px #efc3a2;
+}
+
 .waiting-container {
     position: relative;
     min-height: 40px;
+}
+
+a.blue-link {
+    color: #008dd2;
 }
 
 .waiting-indicator {

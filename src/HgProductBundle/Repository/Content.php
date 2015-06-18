@@ -2,21 +2,22 @@
 /**
  * Club Hg-Product
  *
- * Main Slider repository
+ * Content repository
  *
- * @package    TemplatesBundle
+ * @package    HgProductBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace TemplatesBundle\Repository;
+namespace HgProductBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
- * TemplatesBundle\Repository\MainSlider
+ * HgProductBundle\Repository\Content
  */
-class MainSlider extends EntityRepository
+class Content extends EntityRepository
 {
 
 }
