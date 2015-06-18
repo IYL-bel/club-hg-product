@@ -55,6 +55,20 @@ class MainTipsClub
      */
     protected $link;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="picture_link", length=255, nullable=true)
+     */
+    protected $pictureLink;
+
 
     /**
      * @return int
@@ -116,6 +130,40 @@ class MainTipsClub
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param string $description
+     * @return \TemplatesBundle\Entity\MainTipsClub
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $pictureLink
+     */
+    public function setPictureLink($pictureLink)
+    {
+        $this->pictureLink = $pictureLink;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPictureLink()
+    {
+        return $this->pictureLink;
     }
 
 }

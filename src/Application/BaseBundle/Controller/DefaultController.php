@@ -33,7 +33,23 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('application_base_security_login'));
         }
 
-        return array();
+        // MAIN TIPS CLUB
+        $cautionMainTips = false;
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $mainTipsClubRepository \TemplatesBundle\Repository\MainTipsClub */
+        $mainTipsClubRepository = $em->getRepository('TemplatesBundle:MainTipsClub');
+        $mainTipsClub[1] = $mainTipsClubRepository->findOneBy( array('numTip' => 1) );
+        $mainTipsClub[2] = $mainTipsClubRepository->findOneBy( array('numTip' => 2) );
+
+        if ($mainTipsClub[1] &&  $mainTipsClub[2]) {
+            $cautionMainTips = true;
+        }
+
+        return array(
+            'main_tips_club' => $mainTipsClub,
+            'show_main_tips_club' => $cautionMainTips,
+        );
     }
 
     /**

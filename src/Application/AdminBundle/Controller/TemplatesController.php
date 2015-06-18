@@ -137,6 +137,10 @@ class TemplatesController extends Controller
                 /** @var $currentArticle \HgProductBundle\Entity\Content */
                 $currentArticle = $queryCurrentArticle->getSingleResult();
 
+                $contentFieldsDataRepository = $emHgProd->getRepository('HgProductBundle:ContentFieldsData');
+                /** @var $contentFieldsData \HgProductBundle\Entity\ContentFieldsData */
+                $contentFieldsData = $contentFieldsDataRepository->findOneBy(array('itemId' => $selectedId));
+
                 /** @var $em \Doctrine\ORM\EntityManager */
                 $em = $this->getDoctrine()->getManager();
                 /** @var $mainTipsClubRepository \TemplatesBundle\Repository\MainTipsClub */
@@ -150,7 +154,9 @@ class TemplatesController extends Controller
                 }
                 $mainTips
                     ->setTitle( $currentArticle->getTitle() )
-                    ->setLink('http://hg-product.ru/blog-helgi/' . $currentArticle->getUrl() );
+                    ->setLink('http://hg-product.ru/blog-helgi/' . $currentArticle->getUrl() )
+                    ->setDescription( $currentArticle->getDescription() )
+                    ->setPictureLink('http://hg-product.ru' . $contentFieldsData->getData() );
 
                 $em->persist($mainTips);
                 $em->flush();

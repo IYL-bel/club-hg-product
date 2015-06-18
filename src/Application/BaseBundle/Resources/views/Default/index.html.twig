@@ -153,43 +153,9 @@
 
     </div><!--.content_main__infoblock-->
 
-    <div class="content_main__big_tips">
-
-        <div class="content_main__big_tips-item">
-            <div class="content_main__big_tips-item_left left">
-                <div class="img_c">
-                    <img src="{{ asset('images/not_optimize/hands.jpg') }}" />
-                    <a class="look_tip" href="#">Советы от клуба</a>
-                    <h4><a href="#">Как хозяйке сохранить красоту рук?</a></h4>
-                </div>
-
-            </div>
-
-            <div class="content_main__big_tips-item_right right">
-                <div class="content_main__big_tips-item_right_txt">
-                    <p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>
-                </div>
-            </div>
-        </div><!--.content_main__big_tips-item-->
-
-        <div class="content_main__big_tips-item white">
-            <div class="content_main__big_tips-item_left left">
-                <div class="img_c">
-                    <img src="{{ asset('images/not_optimize/hands2.jpg') }}" />
-                    <a class="look_tip" href="#">Советы от клуба</a>
-                    <h4><a href="#">Как хозяйке сохранить красоту рук?</a></h4>
-                </div>
-
-            </div>
-
-            <div class="content_main__big_tips-item_right right">
-                <div class="content_main__big_tips-item_right_txt">
-                    <p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>
-                </div>
-            </div>
-        </div><!--.content_main__big_tips-item-->
-
-    </div><!--.content_main__big_tips-->
+    {% if show_main_tips_club %}
+        {{ include('ApplicationBaseBundle:Default:index_mainTipsClub.html.twig') }}
+    {% endif %}
 
     <div class="content_main__infoblock more_score">
 

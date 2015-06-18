@@ -1,0 +1,41 @@
+<div class="content_main__big_tips">
+
+    <div class="content_main__big_tips-item">
+        <div class="content_main__big_tips-item_left left">
+            <div class="img_c">
+                {#<img src="{{ asset('images/not_optimize/hands.jpg') }}" />#}
+                    <img src="{{ main_tips_club[1].pictureLink }}" />
+
+                <a class="look_tip" href="http://hg-product.ru/blog-helgi" target="_blank">Советы от клуба</a>
+                <h4><a href="{{ main_tips_club[1].link }}" target="_blank">{{ main_tips_club[1].title }}</a></h4>
+            </div>
+        </div>
+
+        <div class="content_main__big_tips-item_right right">
+            <div class="content_main__big_tips-item_right_txt">
+                {#<p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>#}
+                    <p>{{ main_tips_club[1].description |truncate(150) }}</p>
+            </div>
+        </div>
+    </div><!--.content_main__big_tips-item-->
+
+    <div class="content_main__big_tips-item white">
+        <div class="content_main__big_tips-item_left left">
+            <div class="img_c">
+                {#<img src="{{ asset('images/not_optimize/hands2.jpg') }}" />#}
+                    <img src="{{ main_tips_club[2].pictureLink }}" />
+
+                <a class="look_tip" href="http://hg-product.ru/blog-helgi" target="_blank">Советы от клуба</a>
+                <h4><a href="{{ main_tips_club[2].link }}" target="_blank">{{ main_tips_club[2].title }}</a></h4>
+            </div>
+        </div>
+
+        <div class="content_main__big_tips-item_right right">
+            <div class="content_main__big_tips-item_right_txt">
+                {#<p>Нанесите <a href="#">Средство для мытья цементных швов</a> на межплиточные соединения и оставьте на 10 минут, чтобы полностью избавиться от загрязнений</p>#}
+                    <p>{{ main_tips_club[2].description |truncate(150) }}</p>
+            </div>
+        </div>
+    </div><!--.content_main__big_tips-item-->
+
+</div><!--.content_main__big_tips-->
