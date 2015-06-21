@@ -11,6 +11,7 @@
 namespace Application\BaseBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Doctrine\ORM\Query\ResultSetMapping;
@@ -62,8 +63,8 @@ class DefaultController extends Controller
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
-        /** @var $prizesRepository \Application\AdminBundle\Repository\Prizes */
-        $contestsRepository = $em->getRepository('ApplicationAdminBundle:Contests');
+        /** @var $prizesRepository \Application\ContestsBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
 
         $contests = $contestsRepository->findBy( array(), array('createdAt' => 'DESC') );
 
@@ -71,6 +72,31 @@ class DefaultController extends Controller
             'contests' => $contests
         );
     }
+
+
+
+
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function responseMemberContestsAction()
+    {
+
+        sleep(2);
+
+
+        $success = 1;
+
+        $template = $this->renderView('ApplicationBaseBundle:Default:responseContests.html.twig', array());
+
+        return new Response(json_encode(array(
+            'success' => $success,
+            'template' => $template,
+        )));
+    }
+
+
 
     /**
      * @Template()

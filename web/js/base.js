@@ -157,3 +157,57 @@ Project.Base.LoadForm = (function(obj, path, type, id) {
     return false;
 
 });
+
+
+
+/**
+ * @type {Project.Base.PopupContent}
+ */
+Project.Base.PopupContent = (function(item) {
+
+    var $link = $(item);
+    var $content = $('.popup_wrap_content');
+
+    /**
+     * Constructor
+     */
+    var Obj = function() {};
+
+    /**
+     * @type {Object}
+     */
+    Obj = {
+
+        /**
+         * @return {*}
+         */
+        show: function() {
+            var wait = new Project.Base.Waiting();
+            wait.show($content);
+            this.ajaxResponse();
+
+            return this;
+        },
+
+        /**
+         * @return {*}
+         */
+        ajaxResponse: function() {
+
+            var url = $link.attr('href');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                dataType: "json",
+                success: function(data){
+                    $content.html(data.template);
+                }
+            });
+
+            return this;
+        }
+    };
+
+    return Obj;
+});

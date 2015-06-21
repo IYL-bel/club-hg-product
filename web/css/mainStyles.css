@@ -1806,12 +1806,12 @@ header {
           font-style: normal; }
       /* line 2379, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content_form, .popup_wrap_content_form {
-        position: relative;
+        /*position: relative;*/
         padding-right: 35px; }
         /* line 2383, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_form form, .popup_wrap_content_form form {
-          position: relative;
-          padding-bottom: 80px; }
+          /*position: relative;*/
+          padding-bottom: 10px; }
         /* line 2388, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .reviews_list-item_wrap_content_form .product_name, .popup_wrap_content_form .product_name {
           width: 442px;
@@ -1829,7 +1829,7 @@ header {
       /* line 2408, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .input_file_btn, .popup_wrap_content .input_file_btn {
         display: block;
-        position: absolute;
+        /*position: absolute;*/
         top: 36px;
         left: 101%;
         width: 30px;
@@ -1848,7 +1848,7 @@ header {
         height: 0; }
       /* line 2431, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .reviews_list-item_wrap_content .blue_btn, .reviews_list-item_wrap_content .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row input, .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row .reviews_list-item_wrap_content input, .popup_wrap_content .blue_btn, .popup_wrap_content .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row input, .content_main__articles.cabinet .cabinet_content__item-content form .form_row.submit_row .popup_wrap_content input {
-        position: absolute;
+        /*position: absolute;*/
         bottom: 0;
         right: 0; }
       /* line 2443, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
@@ -1878,7 +1878,7 @@ header {
 
 /* line 2484, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
 .progress {
-  position: relative; }
+  /*position: relative;*/ }
   /* line 2487, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .progress_name {
     font-size: 10px; }
@@ -1886,10 +1886,10 @@ header {
   .progress_bar {
     height: 10px;
     border: 1px solid #e0e0e0;
-    position: relative; }
+    /*position: relative;*/ }
     /* line 2496, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .progress_bar_per {
-      position: absolute;
+      /*position: absolute;*/
       width: 10%;
       height: 100%;
       background-color: #008dd2; }
@@ -1899,7 +1899,7 @@ header {
     color: #9a9a9a;
     font-size: 10px;
     display: inline-block;
-    position: absolute;
+    /*position: absolute;*/
     right: -20px;
     bottom: 1px; }
 

@@ -74,7 +74,7 @@ class EditContests extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Application\AdminBundle\Entity\Contests',
+            'data_class' => 'Application\ContestsBundle\Entity\Contests',
         ));
     }
 

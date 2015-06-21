@@ -40,17 +40,19 @@ jQuery(document).ready(function($){
         $(this).css({zIndex: ($medals.length - i)});
     });
 
-    var $show_popup = $('.show_popup');
+    var $show_popup = $('.js_PopupShow');
     $show_popup.on('click', function(e){
         $('body').addClass('show_pp_overflow');
         e.preventDefault();
+        var PopupContent = new Project.Base.PopupContent(this);
+        PopupContent.show();
+
     });
 
     var $popup_close = $('.popup_close');
     $popup_close.on('click', function(){
         $('body').removeClass('show_pp_overflow');
     });
-
 
     var $caru = $('.header__items-scores');
     if($caru.length){

@@ -1,0 +1,74 @@
+<div class="popup_wrap_content_title">
+    <h3 class="title">Весенний <strong>субботник</strong></h3>
+    <span> / <i>150</i> баллов</span>
+</div>
+
+<div class="popup_wrap_content_txt">
+    <p>
+        Для участия в конкурсе опишите домашний тест одного из средств HG, загрузите на сайт материал с фотографиями
+    </p>
+</div>
+
+<div class="popup_wrap_content_name">
+    Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
+</div>
+
+<div style="float: right; margin-top: 30px;">
+    <label for="file-field" class="input_file_btn" href="#"><i class="fa fa-camera"></i></label>
+</div>
+
+<div class="popup_wrap_content_form">
+    <form id="content_form" action="#">
+
+        <textarea class="form_txta" placeholder="Введите текст"></textarea>
+
+        <div class="file_field_wrap">
+            <input type="file" id="file-field" multiple="true" />
+        </div>
+
+        <div class="download_result">
+
+            <ul id="img-list" class="img-list">
+                <li>
+                    <div class="img_w">
+                        <img src="{{ asset('images/not_optimize/gall_01.jpg') }}" alt=""/>
+                    </div>
+                    <textarea placeholder="Описание фото"></textarea>
+                </li>
+
+                <li>
+                    <div class="img_w">
+                        <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt=""/>
+                    </div>
+                    <textarea placeholder="Описание фото"></textarea>
+                </li>
+
+                <li>
+                    <div class="progress">
+                        <span class="progress_name">IMG_80256</span>
+                        <div class="progress_bar">
+                            <div class="progress_bar_per" style="width: 47%;"></div>
+                        </div>
+                        <a class="remove" href="#"><i class="fa fa-times"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="progress">
+                        <span class="progress_name">IMG_80267_ed</span>
+                        <div class="progress_bar">
+                            <div class="progress_bar_per" style="width: 78%;"></div>
+                        </div>
+                        <a class="remove" href="#"><i class="fa fa-times"></i></a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <div style="text-align: end; margin-top: 24px;">
+            <input class="blue_btn" id="send-btn" type="submit" value="Участвовать"/>
+        </div>
+
+
+    </form>
+</div>

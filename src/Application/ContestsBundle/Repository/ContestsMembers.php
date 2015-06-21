@@ -2,21 +2,21 @@
 /**
  * Club Hg-Product
  *
- * Contests repository
+ * Contests Members repository
  *
- * @package    ApplicationAdminBundle
+ * @package    ApplicationContestsBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Application\AdminBundle\Repository;
+namespace Application\ContestsBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Application\AdminBundle\Repository\Contests
+ * Application\ContestsBundle\Repository\ContestsMembers
  */
-class Contests extends EntityRepository
+class ContestsMembers extends EntityRepository
 {
     const STATUS_ACTIVE  = 1;
     const STATUS_HIDDEN  = 2;

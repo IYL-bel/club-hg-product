@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use Application\AdminBundle\Entity\Contests;
+use Application\ContestsBundle\Entity\Contests;
 
 
 /**
@@ -51,16 +51,16 @@ class Scores
     protected $type;
 
     /**
-     * @var \Application\AdminBundle\Entity\Contests
+     * @var \Application\ContestsBundle\Entity\Contests
      *
-     * @ORM\OneToOne(targetEntity="Application\AdminBundle\Entity\Contests", mappedBy="scoresParticipation")
+     * @ORM\OneToOne(targetEntity="Application\ContestsBundle\Entity\Contests", mappedBy="scoresParticipation")
      */
     protected $contestsScoresParticipation;
 
     /**
-     * @var \Application\AdminBundle\Entity\Contests
+     * @var \Application\ContestsBundle\Entity\Contests
      *
-     * @ORM\OneToOne(targetEntity="Application\AdminBundle\Entity\Contests", mappedBy="scoresWinner")
+     * @ORM\OneToOne(targetEntity="Application\ContestsBundle\Entity\Contests", mappedBy="scoresWinner")
      */
     protected $contestsScoresWinner;
 
@@ -74,7 +74,7 @@ class Scores
     }
 
     /**
-     * @param \Application\AdminBundle\Entity\Contests $contestsScoresParticipation
+     * @param \Application\ContestsBundle\Entity\Contests $contestsScoresParticipation
      * @return \Application\ScoresBundle\Entity\Scores
      */
     public function setContestsScoresParticipation(Contests $contestsScoresParticipation)
@@ -84,7 +84,7 @@ class Scores
     }
 
     /**
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function getContestsScoresParticipation()
     {
@@ -92,7 +92,7 @@ class Scores
     }
 
     /**
-     * @param \Application\AdminBundle\Entity\Contests $contestsScoresWinner
+     * @param \Application\ContestsBundle\Entity\Contests $contestsScoresWinner
      * @return \Application\ScoresBundle\Entity\Scores
      */
     public function setContestsScoresWinner(Contests $contestsScoresWinner)
@@ -102,7 +102,7 @@ class Scores
     }
 
     /**
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function getContestsScoresWinner()
     {

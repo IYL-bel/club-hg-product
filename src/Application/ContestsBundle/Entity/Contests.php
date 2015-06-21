@@ -4,26 +4,27 @@
  *
  * Contests entity
  *
- * @package    ApplicationAdminBundle
+ * @package    ApplicationContestsBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Application\AdminBundle\Entity;
+namespace Application\ContestsBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use Application\AdminBundle\Repository\Contests as ContestsRepository;
+use Application\ContestsBundle\Repository\Contests as ContestsRepository;
 use Application\ScoresBundle\Entity\Scores;
 use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 
 
 /**
- * Application\AdminBundle\Entity\Contests
+ * Application\ContestsBundle\Entity\Contests
  *
  * @ORM\Table(name="contests")
- * @ORM\Entity(repositoryClass="Application\AdminBundle\Repository\Contests")
+ * @ORM\Entity(repositoryClass="Application\ContestsBundle\Repository\Contests")
  * @ORM\HasLifecycleCallbacks
  */
 class Contests
@@ -143,6 +144,22 @@ class Contests
      */
     protected $pointsWinner;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ContestsMembers", mappedBy="contest", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="contest_id")
+     */
+    protected $contestsMembers;
+
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->contestsMembers = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -154,7 +171,7 @@ class Contests
 
     /**
      * @param string $title
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setTitle($title)
     {
@@ -172,7 +189,7 @@ class Contests
 
     /**
      * @param string $filePath
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setFilePath($filePath)
     {
@@ -190,7 +207,7 @@ class Contests
 
     /**
      * @param string $fileName
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setFileName($fileName)
     {
@@ -279,7 +296,7 @@ class Contests
 
     /**
      * @param int $status
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setStatus($status)
     {
@@ -309,7 +326,7 @@ class Contests
 
     /**
      * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setFile($file)
     {
@@ -327,7 +344,7 @@ class Contests
 
     /**
      * @param \DateTime $createdAt
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setCreatedAt($createdAt)
     {
@@ -345,7 +362,7 @@ class Contests
 
     /**
      * @param string $description
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setDescription($description)
     {
@@ -363,7 +380,7 @@ class Contests
 
     /**
      * @param \DateTime $finishedAt
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setFinishedAt($finishedAt)
     {
@@ -381,7 +398,7 @@ class Contests
 
     /**
      * @param \DateTime $startedAt
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setStartedAt($startedAt)
     {
@@ -399,7 +416,7 @@ class Contests
 
     /**
      * @param \DateTime $updatedAt
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -417,7 +434,7 @@ class Contests
 
     /**
      * @param int $pointsParticipation
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setPointsParticipation($pointsParticipation)
     {
@@ -435,7 +452,7 @@ class Contests
 
     /**
      * @param int $pointsWinner
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setPointsWinner($pointsWinner)
     {
@@ -453,7 +470,7 @@ class Contests
 
     /**
      * @param \Application\ScoresBundle\Entity\Scores $scoresParticipation
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setScoresParticipation(Scores $scoresParticipation)
     {
@@ -471,7 +488,7 @@ class Contests
 
     /**
      * @param \Application\ScoresBundle\Entity\Scores $scoresWinner
-     * @return \Application\AdminBundle\Entity\Contests
+     * @return \Application\ContestsBundle\Entity\Contests
      */
     public function setScoresWinner(Scores $scoresWinner)
     {
@@ -485,6 +502,24 @@ class Contests
     public function getScoresWinner()
     {
         return $this->scoresWinner;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $contestsMembers
+     * @return \Application\ContestsBundle\Entity\Contests
+     */
+    public function setContestsMembers($contestsMembers)
+    {
+        $this->contestsMembers = $contestsMembers;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getContestsMembers()
+    {
+        return $this->contestsMembers;
     }
 
 }

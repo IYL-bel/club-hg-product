@@ -1,0 +1,4 @@
+services:
+#    application_contests.example:
+#        class: Application\ContestsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

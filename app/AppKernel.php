@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new TemplatesBundle\TemplatesBundle(),
             new Application\ScoresBundle\ApplicationScoresBundle(),
             new HgProductBundle\HgProductBundle(),
+            new Application\ContestsBundle\ApplicationContestsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
