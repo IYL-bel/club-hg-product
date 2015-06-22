@@ -1,0 +1,21 @@
+<div class="popup_wrap_content_title">
+    <h3 class="title"><strong>{{ contest.title }}</strong></h3>
+    <span> / <i>{{ contest.scoresWinner.points }}</i> баллов</span>
+</div>
+
+<div class="popup_wrap_content_txt">
+    <p>{{ contest.description }}</p>
+</div>
+
+<div class="popup_wrap_content_name">
+    {#Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>#}
+    {{ app.user.firstName }} {{ app.user.lastName }}
+</div>
+
+{% if isContestsMember %}
+    <div>
+        <span class="caution-message">Вы уже участвуете в данном конкурсе</span>
+    </div>
+{% else %}
+    {{ include('ApplicationContestsBundle:Contests:responseMember_form.html.twig') }}
+{% endif %}

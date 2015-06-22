@@ -1,11 +1,3 @@
-application_base_contests:
-    path:     contests/
-    defaults: { _controller: ApplicationBaseBundle:Default:contests }
-
-application_base_contests_response_member:
-    path:     contests/response-member/
-    defaults: { _controller: ApplicationBaseBundle:Default:responseMemberContests }
-
 application_base_prizes:
     path:     prizes/
     defaults: { _controller: ApplicationBaseBundle:Default:prizes }

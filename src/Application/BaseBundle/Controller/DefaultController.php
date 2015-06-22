@@ -59,51 +59,6 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function contestsAction()
-    {
-        /** @var $em \Doctrine\ORM\EntityManager */
-        $em = $this->getDoctrine()->getManager();
-        /** @var $prizesRepository \Application\ContestsBundle\Repository\Contests */
-        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
-
-        $contests = $contestsRepository->findBy( array(), array('createdAt' => 'DESC') );
-
-        return array(
-            'contests' => $contests
-        );
-    }
-
-
-
-
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function responseMemberContestsAction()
-    {
-
-        sleep(2);
-
-
-        $success = 1;
-
-        $template = $this->renderView('ApplicationBaseBundle:Default:responseContests.html.twig', array());
-
-        return new Response(json_encode(array(
-            'success' => $success,
-            'template' => $template,
-        )));
-    }
-
-
-
-    /**
-     * @Template()
-     * @Security("has_role('ROLE_USER')")
-     *
-     * @return array
-     */
     public function prizesAction()
     {
         /** @var $em \Doctrine\ORM\EntityManager */

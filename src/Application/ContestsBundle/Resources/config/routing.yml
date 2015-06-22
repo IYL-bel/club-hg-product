@@ -1,3 +1,11 @@
-application_contests_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ApplicationContestsBundle:Default:index }
+application_contests_index:
+    path:     /
+    defaults: { _controller: ApplicationContestsBundle:Contests:index }
+
+application_contests_response_member:
+    path:     /response-member/{idContest}/
+    defaults: { _controller: ApplicationContestsBundle:Contests:responseMember }
+
+application_contests_add_file_in_response_member:
+    path:     /add-file-in-response-member/
+    defaults: { _controller: ApplicationContestsBundle:Contests:addFileInResponseMember }

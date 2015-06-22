@@ -162,6 +162,15 @@ class ContestsMembersPhotos
     }
 
     /**
+     * @static
+     * @return string
+     */
+    public static function getWebPath()
+    {
+        return self::$webPath;
+    }
+
+    /**
      * @param string $pathFile
      * @return string
      */

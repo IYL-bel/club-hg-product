@@ -1,15 +1,3 @@
-application_contests:
-    resource: "@ApplicationContestsBundle/Resources/config/routing.yml"
-    prefix:   /
-
-hg_product:
-    resource: "@HgProductBundle/Resources/config/routing.yml"
-    prefix:   /
-
-application_scores:
-    resource: "@ApplicationScoresBundle/Resources/config/routing.yml"
-    prefix:   /
-
 _home:
     path:     /
     defaults: { _controller: ApplicationBaseBundle:Default:index }
@@ -26,6 +14,17 @@ application_base_security_login_check:
 application_base_security_logout:
     path:     /logout
 
+application_contests:
+    resource: "@ApplicationContestsBundle/Resources/config/routing.yml"
+    prefix:   /contests
+
+hg_product:
+    resource: "@HgProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+application_scores:
+    resource: "@ApplicationScoresBundle/Resources/config/routing.yml"
+    prefix:   /
 
 application_admin:
     resource: "@ApplicationAdminBundle/Resources/config/routing.yml"

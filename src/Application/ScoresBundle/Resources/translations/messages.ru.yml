@@ -1,0 +1,5 @@
+scores:
+  add_file_in_response_member:
+    text_validation:
+      mime_types: Данный тип файла недопустим. Допустимые типы файлов: jpg, png, gif.
+      max_size: Размер файла больше допустимого. Допустимый размер файла 6Mb

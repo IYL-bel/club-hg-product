@@ -1,0 +1,9 @@
+<li>
+    <div class="img_w">
+        <img src="{{ asset(addedFile.linkFile) }}" alt=""/>
+    </div>
+    <textarea name="fileDescription[{{ countsFiles }}]" placeholder="Описание фото">{{ addedFile.fileDescription }}</textarea>
+    <input type="hidden" name="fileName[{{ countsFiles }}]" value="{{ addedFile.fileName }}">
+    <input type="hidden" name="fileNameOriginal[{{ countsFiles }}]" value="{{ addedFile.fileNameOriginal }}">
+
+</li>

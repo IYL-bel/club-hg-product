@@ -73,10 +73,20 @@ Project.Base.Waiting = (function() {
 });
 
 
-Project.Base.WaitLoadFile = (function(){
+Project.Base.WaitLoadFile = (function(options){
+
+    var defaultOptions = {
+        'width': null
+    };
+
+    var $options = {};
+    $options = $.extend(defaultOptions, options);
 
     var nameClassIndicator = 'wait-load-file-indicator';
     var indicatorHtml = '<div class="' + nameClassIndicator + '"></div>';
+    if ($options.width) {
+        indicatorHtml = $(indicatorHtml).css('width', $options.width);
+    }
 
     /**
      * Constructor
@@ -113,7 +123,6 @@ Project.Base.WaitLoadFile = (function(){
     };
 
     return Obj;
-
 });
 
 
@@ -155,9 +164,18 @@ Project.Base.LoadForm = (function(obj, path, type, id) {
     });
 
     return false;
-
 });
 
+
+Project.Base.Popup = (function(){});
+
+Project.Base.Popup.open = function(){
+    $('body').addClass('show_pp_overflow');
+};
+
+Project.Base.Popup.close = function(){
+    $('body').removeClass('show_pp_overflow');
+};
 
 
 /**
@@ -211,3 +229,35 @@ Project.Base.PopupContent = (function(item) {
 
     return Obj;
 });
+
+
+/**
+ *
+ * @type {Function}
+ */
+Project.Base.AjaxResponse = (function(obj) {
+
+    var form = $(obj).parents('form');
+    var formContainer = $('.popup_wrap_content');
+
+    var wait = new Project.Base.Waiting();
+    wait.show(formContainer);
+
+    $.ajax({
+        type: "POST",
+        url: form.attr('action'),
+        data: form.serialize(),
+        dataType: "json",
+        success: function(data){
+            if (data.success) {
+                Project.Base.Popup.close();
+            } else {
+                formContainer.html(data.template);
+            }
+            wait.hide();
+        }
+    });
+
+    return false;
+});
+

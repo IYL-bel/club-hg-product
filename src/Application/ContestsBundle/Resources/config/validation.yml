@@ -34,3 +34,8 @@ Application\ContestsBundle\Entity\Contests:
             - Date: ~
             - NotBlank: {  message: property.blank }
 
+
+Application\ContestsBundle\Entity\ContestsMembers:
+    properties:
+        description:
+            - NotBlank: {  message: property.blank }

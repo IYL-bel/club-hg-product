@@ -1,0 +1,48 @@
+{% form_theme form 'ApplicationAdminBundle::form.html.twig' %}
+
+
+<div style="float: right; margin-top: 30px;">
+    <label for="add_file_in_response_member" class="input_file_btn" title="Добавить файл"><i class="fa fa-camera"></i></label>
+</div>
+
+
+<form id="add_file_in_response_member_form" method="post" action="{{ path('application_contests_add_file_in_response_member') }}" enctype="multipart/form-data">
+    <input type="file" id="add_file_in_response_member" name="add_file" class="none">
+    <input type="hidden" id="count_files_in_response_member" name="count_files" value="{{ addedFiles |length }}">
+</form>
+
+
+<div class="popup_wrap_content_form">
+    <form id="add_contests_member_form" action="{{ path('application_contests_response_member', {'idContest': contest.id}) }}" method="post" {{ form_enctype(form) }}>
+
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description) }}
+
+        {{ form_rest(form) }}
+
+        <div class="download_result" style="margin-top: 12px;">
+
+            <ul id="list-added-files" class="img-list">
+                {% if addedFiles |length %}
+                    {% for key, addedFile in addedFiles %}
+                        {{ include('ApplicationContestsBundle:Contests:responseMember_form_addFile.html.twig', {'addedFile': addedFile, 'countsFiles': key}) }}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+
+            <div>
+                <span id="error-add-check_file" class="error_message_big"></span>
+                <span id="error-valid-add-check_file" class="error_message"></span>
+            </div>
+
+            <div id="for_waiting" style="margin-top: 12px;"></div>
+
+        </div>
+
+        <div style="text-align: end; margin-top: 24px;">
+            <input class="ajax-form-submit blue_btn"  type="button" value="Участвовать"/>
+        </div>
+
+    </form>
+</div>
+

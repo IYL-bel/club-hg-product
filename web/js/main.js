@@ -42,16 +42,20 @@ jQuery(document).ready(function($){
 
     var $show_popup = $('.js_PopupShow');
     $show_popup.on('click', function(e){
-        $('body').addClass('show_pp_overflow');
+        //$('body').addClass('show_pp_overflow');
+        Project.Base.Popup.open();
         e.preventDefault();
         var PopupContent = new Project.Base.PopupContent(this);
         PopupContent.show();
-
     });
 
     var $popup_close = $('.popup_close');
     $popup_close.on('click', function(){
-        $('body').removeClass('show_pp_overflow');
+        Project.Base.Popup.close();
+    });
+
+    $('div.popup_wrap_content').on('click', '.ajax-form-submit', function(){
+        Project.Base.AjaxResponse(this);
     });
 
     var $caru = $('.header__items-scores');
