@@ -1,0 +1,79 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+<div class="cabinet_content__item-content">
+
+    <div class="popup_wrap_content_title">
+        <h3 class="title"><strong>{{ contest.title }}</strong></h3>
+        <span> / <i>{{ contest.scoresWinner.points }}</i> баллов</span>
+    </div>
+
+    <div class="popup_wrap_content_txt" style="margin-bottom: 26px;">
+        <p>{{ contest.description }}</p>
+    </div>
+
+    <table width="100%">
+
+        {% for key, member in contestsMembers %}
+
+            <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
+
+                <td>
+                    <span>{{ member.createdAt.format('d.m.Y') }}</span>
+                </td>
+                <td>
+                    {{ member.user.firstName }} {{ member.user.lastName }}
+                </td>
+                <td>
+                    <a href="">Подробнее</a>
+                </td>
+                <td>
+                    {% if member.isStatusNew() %}
+                        <b class="status_assay"></b>
+                        <span>Чек не проверен</span>
+                    {% endif %}
+
+                    {% if member.isStatusConfirmed() %}
+                        <b class="status_approved"><i class="fa fa-check"></i></b>
+                        <span>+{{ member.contest.scoresParticipation.points }} очков</span>
+                    {% endif %}
+
+                    {% if member.isStatusRejected() %}
+                        <b class="status_disallow"><i class="fa fa-times"></i></b>
+                        <span>{{ check.commentAdmin }}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="item-content">
+                        {% if member.isStatusNew() %}
+                            <a href="{{ path('application_admin_contests_member_approved', {'id': member.id}) }}" class="but-blue-approved button">
+                                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                            </a>
+                            <a href="" class="but-red-disallow button">
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                            </a>
+                        {% endif %}
+                    </div>
+                </td>
+
+            </tr>
+
+        {% else %}
+
+            <tr>
+                <td colspan="3">
+                    <div style="text-align: center;">
+                        Список конкурсов пуст
+                    </div>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock content %}

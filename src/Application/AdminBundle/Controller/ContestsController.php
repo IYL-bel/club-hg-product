@@ -18,6 +18,7 @@ use Application\ContestsBundle\Entity\Contests;
 use Application\AdminBundle\Form\Type\EditContests as EditContestsForm;
 use Application\ScoresBundle\Entity\Scores;
 use Application\ScoresBundle\Repository\Scores as ScoresRepository;
+use Application\ScoresBundle\Entity\ScoresUsers;
 
 
 /**
@@ -114,6 +115,71 @@ class ContestsController extends Controller
             'id' => $id,
             'form' => $form->createView(),
         );
+    }
+
+    /**
+     * @Template()
+     *
+     * @param int $id
+     * @return array
+     */
+    public function membersAction($id)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
+        $contest = $contestsRepository->find($id);
+
+        if (!$contest) {
+            $this->redirectToRoute('application_admin_contests');
+        }
+
+        /** @var $contestsMembersRepository \Application\ContestsBundle\Repository\ContestsMembers */
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        $contestsMembers = $contestsMembersRepository->findBy(array('contest' => $id));
+
+        return array(
+            'contest' => $contest,
+            'contestsMembers' => $contestsMembers,
+        );
+    }
+
+    /**
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function approvedMemberResponseAction($id)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsMembersRepository \Application\ContestsBundle\Repository\ContestsMembers */
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        /** @var $itemContestsMembers \Application\ContestsBundle\Entity\ContestsMembers */
+        $itemContestsMembers = $contestsMembersRepository->findOneBy(array(
+            'id' => $id,
+            'status' => $contestsMembersRepository::STATUS_NEW
+        ));
+
+        if ($itemContestsMembers) {
+            $itemContestsMembers->setStatus($contestsMembersRepository::STATUS_CONFIRMED);
+
+            $em->persist($itemContestsMembers);
+            $em->flush();
+
+            // add Balls for User
+            $scoresUsers = new ScoresUsers();
+            $scoresUsers->setScore( $itemContestsMembers->getContest()->getScoresParticipation() );
+            $scoresUsers->setUser( $itemContestsMembers->getUser() );
+
+            $em->persist($scoresUsers);
+            $em->flush();
+
+            return $this->redirectToRoute('application_admin_contests_members', array( 'id' => $itemContestsMembers->getContest()->getId() ));
+        }
+
+        return $this->redirectToRoute('application_admin_contests');
     }
 
 }

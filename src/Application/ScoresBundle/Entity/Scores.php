@@ -1,8 +1,8 @@
 <?php
 /**
- * Scores Hg-Product
+ * Club Hg-Product
  *
- * Prizes entity
+ * Scores entity
  *
  * @package    ApplicationScoresBundle
  * @author     Yury Istomenok <iyl@tut.by>
@@ -10,6 +10,7 @@
  */
 namespace Application\ScoresBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -64,6 +65,22 @@ class Scores
      */
     protected $contestsScoresWinner;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ScoresUsers", mappedBy="score", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="score_id")
+     */
+    protected $scoresUsers;
+
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->scoresUsers = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -143,6 +160,24 @@ class Scores
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $scoresUsers
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function setScoresUsers($scoresUsers)
+    {
+        $this->scoresUsers = $scoresUsers;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getScoresUsers()
+    {
+        return $this->scoresUsers;
     }
 
 }

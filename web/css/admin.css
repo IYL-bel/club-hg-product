@@ -12,6 +12,10 @@
     padding: 2px 8px;
 }
 
+.admin-content table tr td .item-content {
+    margin: 8px 0;
+}
+
 .content_main__articles.cabinet .admin-content .cabinet_content__item-content {
     width: 900px;
     margin: 0 auto;
@@ -38,6 +42,10 @@
 }
 
 .admin-content a {
+    font-size: 14px;
+}
+
+.admin-content a.button {
     font-size: 12px;
 }
 

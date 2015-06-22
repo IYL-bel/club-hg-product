@@ -47,7 +47,6 @@ class ContestsController extends Controller
         return array(
             'contests' => $contests
         );
-
     }
 
     /**
@@ -69,6 +68,7 @@ class ContestsController extends Controller
         /** @var $contest \Application\ContestsBundle\Entity\Contests */
         $contest = $contestsRepository->findOneBy( array('id' => $idContest) );
 
+        /** @var $contestsMemberRepository \Application\ContestsBundle\Repository\ContestsMembers */
         $contestsMemberRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
         $contestsMember = $contestsMemberRepository->findOneBy(array(
             'contest' => $contest,
@@ -81,6 +81,7 @@ class ContestsController extends Controller
             $contestsMember = new ContestsMembers();
             $contestsMember->setUser( $this->getUser() );
             $contestsMember->setContest($contest);
+            $contestsMember->setStatus($contestsMemberRepository::STATUS_NEW);
 
             $form = $this->createForm(new AddContestsMemberForm(), $contestsMember);
             $form->handleRequest($request);

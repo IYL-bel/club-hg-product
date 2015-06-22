@@ -41,8 +41,12 @@
                 </div>
                 <div class="reviews_list-item_status">
                     {% if check.isStatusNew() %}
-                        <a href="{{ path('application_admin_checks_approved', {'id': check.id}) }}" class="but-blue-approved"><b class="status_approved"><i class="fa fa-check"></i></b>Принять</a>
-                        <a href="{{ path('application_admin_checks_disallow', {'id': check.id}) }}" class="but-red-disallow"><b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить</a>
+                        <a href="{{ path('application_admin_checks_approved', {'id': check.id}) }}" class="but-blue-approved button">
+                            <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                        </a>
+                        <a href="{{ path('application_admin_checks_disallow', {'id': check.id}) }}" class="but-red-disallow button">
+                            <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                        </a>
                     {% endif %}
                     &nbsp;
                 </div>

@@ -1564,7 +1564,7 @@ header {
             padding-left: 40px;
             max-width: 410px; }
             /* line 2003, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-            .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b {
+            .cabinet_content__item-content b, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b {
               display: inline-block;
               font-weight: normal;
               width: 30px;
@@ -1573,13 +1573,13 @@ header {
               vertical-align: middle;
               text-align: center; }
               /* line 2013, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_approved {
+              .cabinet_content__item-content b.status_approved, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_approved, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_approved {
                 background-color: #28a5de; }
               /* line 2016, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_disallow {
+              .cabinet_content__item-content b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b.status_disallow, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b.status_disallow {
                 background-color: #ff0601; }
               /* line 2020, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-              .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b i {
+              .cabinet_content__item-content b i, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_status b i, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_status b i {
                 color: #FFFFFF;
                 font-size: 18px;
                 vertical-align: middle;

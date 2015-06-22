@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\ContestsBundle\Entity\Contests;
 use Application\UsersBundle\Entity\Users;
+use Application\ContestsBundle\Repository\ContestsMembers as ContestsMembersRepository;
 
 
 /**
@@ -76,6 +77,20 @@ class ContestsMembers
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="comment_admin", length=256, nullable=true)
+     */
+    protected $commentAdmin;
 
     /**
      * @var ArrayCollection
@@ -208,6 +223,78 @@ class ContestsMembers
     public function getContestsMembersPhotos()
     {
         return $this->contestsMembersPhotos;
+    }
+
+    /**
+     * @param string $commentAdmin
+     * @return \Application\ContestsBundle\Entity\ContestsMembers
+     */
+    public function setCommentAdmin($commentAdmin)
+    {
+        $this->commentAdmin = $commentAdmin;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCommentAdmin()
+    {
+        return $this->commentAdmin;
+    }
+
+    /**
+     * @param int $status
+     * @return \Application\ContestsBundle\Entity\ContestsMembers
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusNew()
+    {
+        if ($this->status == ContestsMembersRepository::STATUS_NEW ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusConfirmed()
+    {
+        if ($this->status == ContestsMembersRepository::STATUS_CONFIRMED) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusRejected()
+    {
+        if ($this->status == ContestsMembersRepository::STATUS_REJECTED) {
+            return true;
+        }
+
+        return false;
     }
 
 }

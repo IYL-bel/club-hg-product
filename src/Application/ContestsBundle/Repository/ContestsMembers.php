@@ -18,7 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ContestsMembers extends EntityRepository
 {
-    const STATUS_ACTIVE  = 1;
-    const STATUS_HIDDEN  = 2;
+    const STATUS_NEW        = 1;
+    const STATUS_CONFIRMED  = 2;
+    const STATUS_REJECTED   = 3;
 
 }

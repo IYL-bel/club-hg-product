@@ -34,6 +34,14 @@ application_admin_contests_edit:
     path:     /contests/edit/{id}
     defaults: { _controller: ApplicationAdminBundle:Contests:editContest, id: null }
 
+application_admin_contests_members:
+    path:     /contests/members/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Contests:members }
+
+application_admin_contests_member_approved:
+    path:     /contests/member-approved/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Contests:approvedMemberResponse }
+
 application_admin_prizes:
     path:     /prizes/
     defaults: { _controller: ApplicationAdminBundle:Prizes:index }

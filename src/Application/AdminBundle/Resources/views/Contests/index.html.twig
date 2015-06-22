@@ -9,12 +9,11 @@
         <a href="{{ path('application_admin_contests_edit') }}" class="blue_btn">Добавить конкурс</a>
     </div>
 
-
     <table width="100%">
 
         {% for key, contest in contests %}
 
-            <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+            <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
                 <td>
                     <div class="photo-logo-56">
                         {% if contest.filePath %}
@@ -31,9 +30,11 @@
                     <span>{{ contest.title }}</span>
                 </td>
                 <td>
+                    <a href="{{ path('application_admin_contests_members', {'id': contest.id}) }}">Участники</a> <strong>({{ contest.contestsMembers |length }})</strong>
+                </td>
+                <td>
                     c {{ contest.startedAt.format('d.m.Y') }} по {{ contest.finishedAt.format('d.m.Y') }}
                 </td>
-
                 <td>
                     <a href="{{ path('application_admin_contests_edit', {'id': contest.id}) }}">Изменить</a>
                 </td>
@@ -53,8 +54,6 @@
         {% endfor %}
 
     </table>
-
-</div>
 
 </div>
 
