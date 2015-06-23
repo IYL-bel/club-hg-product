@@ -1,0 +1,78 @@
+{% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
+
+
+{% block content_profile %}
+
+    <div class="cabinet_content__item contests active">
+        <div class="cabinet_content__item-content">
+
+            <div class="reviews_list">
+
+                <div class="reviews_list-item">
+                    <div class="reviews_list-item_num">1.</div>
+                    <div class="reviews_list-item_img img_c">
+                        <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
+                    </div>
+                    <div class="reviews_list-item_name">
+                        <a href="#">Весенний субботник</a>
+                    </div>
+                    <div class="reviews_list-item_title">
+                        <a href="#">Средство НG  для удаления известкового налета</a>
+                    </div>
+                    <div class="reviews_list-item_status">
+                        <b class="status_assay"></b>
+                        <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                    </div>
+                </div><!--.reviews_list-item-->
+
+                <div class="reviews_list-item">
+                    <div class="reviews_list-item_num">2.</div>
+                    <div class="reviews_list-item_img img_c">
+                        <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
+                    </div>
+                    <div class="reviews_list-item_name">
+                        <a href="#">8 марта с HG</a>
+                    </div>
+                    <div class="reviews_list-item_title">
+                        <a href="#">Универсальное чистящее средство для ванной и туалета</a>
+                    </div>
+                    <div class="reviews_list-item_status">
+                        <b class="status_approved"><i class="fa fa-check"></i></b>
+                        <span>+100 очков</span>
+                    </div>
+                </div><!--.reviews_list-item-->
+
+                <div class="reviews_list-item">
+                    <div class="reviews_list-item_num">3.</div>
+                    <div class="reviews_list-item_img img_c">
+                        <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
+                    </div>
+                    <div class="reviews_list-item_name">
+                        <a href="#">Весенний субботник</a>
+                    </div>
+                    <div class="reviews_list-item_title">
+                        <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
+                    </div>
+                    <div class="reviews_list-item_status">
+                        <b class="status_disallow"><i class="fa fa-times"></i></b>
+                        <span>+100 очков</span>
+                    </div>
+                </div><!--.reviews_list-item-->
+
+            </div><!--.reviews_list-->
+
+            <div class="content_main__articles-pagi">
+                <span class="prev"><i class="fa fa-angle-left"></i><span>Назад</span></span>
+                <a class="page" href="#">1</a>
+                <span><b>2</b></span>
+                <a class="page" href="#">3</a>
+                <a class="page" href="#">4</a>
+                <a class="page" href="#">5</a>
+                <a class="next" href="#"><span>Вперед</span><i class="fa fa-angle-right"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock content_profile %}

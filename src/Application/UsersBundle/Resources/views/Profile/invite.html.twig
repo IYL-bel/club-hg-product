@@ -1,0 +1,35 @@
+{% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
+
+
+{% block content_profile %}
+
+
+<div class="cabinet_content__item invite active">
+    <div class="cabinet_content__item-content">
+
+
+        <form action="#">
+            <div class="invite_wrap">
+                <div class="form_row">
+                    <label for="inv_email">E-mail</label>
+                    <input id="inv_email" type="text"/>
+                </div>
+
+                <div class="form_row textarea_row">
+                    <label for="inv_text">Текст сообщения</label>
+                    <textarea id="inv_text"></textarea>
+                </div>
+
+                <div class="form_row submit_row">
+                    <input type="submit" value="Отправить приглашение"/>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
+
+
+{% endblock content_profile %}

@@ -2,6 +2,10 @@ application_users_profile_my:
     path:     my-profile/
     defaults: { _controller: ApplicationUsersBundle:Profile:my }
 
+application_users_profile_checks:
+    path:     my-profile/checks/
+    defaults: { _controller: ApplicationUsersBundle:Profile:checks }
+
 application_users_profile_add_check_file:
     path:     profile/add-check-file/
     defaults: { _controller: ApplicationUsersBundle:Profile:addCheckFile }
@@ -9,3 +13,27 @@ application_users_profile_add_check_file:
 application_users_profile_remove_check:
     path:     profile/remove-check/{id}/
     defaults: { _controller: ApplicationUsersBundle:Profile:removeCheck }
+
+application_users_profile_contests:
+    path:     my-profile/contests/
+    defaults: { _controller: ApplicationUsersBundle:Profile:contests }
+
+application_users_profile_reviews:
+    path:     my-profile/reviews/
+    defaults: { _controller: ApplicationUsersBundle:Profile:reviews }
+
+application_users_profile_testing:
+    path:     my-profile/testing/
+    defaults: { _controller: ApplicationUsersBundle:Profile:testing }
+
+application_users_profile_invite:
+    path:     my-profile/invite/
+    defaults: { _controller: ApplicationUsersBundle:Profile:invite }
+
+application_users_profile_status:
+    path:     my-profile/status/
+    defaults: { _controller: ApplicationUsersBundle:Profile:status }
+
+application_users_profile_settings:
+    path:     my-profile/settings/
+    defaults: { _controller: ApplicationUsersBundle:Profile:settings }

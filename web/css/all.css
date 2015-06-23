@@ -59,6 +59,10 @@ a.blue-link {
     color: #008dd2;
 }
 
+.content .content_main__articles.cabinet .tabs-profile-menu a {
+    padding-left: 1px;
+}
+
 .waiting-indicator {
     background: rgba(255, 255, 255, 0.75) url('../images/wait2.gif') no-repeat;
     background-position-x: center;

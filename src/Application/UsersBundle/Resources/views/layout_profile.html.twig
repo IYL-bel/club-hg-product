@@ -1,0 +1,37 @@
+{% extends '::layout.html.twig' %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/upload_files.js') }}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="content_header">
+        <h1 class="content_header__title">
+            Личный кабинет
+        </h1>
+
+        <ul class="content_header__breadcrumbs">
+            <li><a href="#">Главная</a></li>
+            <li><a href="{{ path('_home') }}">Клуб находчивых домохозяек</a></li>
+            <li><span>Личный кабинет</span></li>
+        </ul>
+    </div>
+
+    <div class="content_main">
+        <div class="content_main__articles cabinet">
+            <div class="cabinet_content">
+
+                {{ include('ApplicationUsersBundle:Profile:menu_profile.html.twig') }}
+
+                {% block content_profile %}
+                {%  endblock content_profile %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

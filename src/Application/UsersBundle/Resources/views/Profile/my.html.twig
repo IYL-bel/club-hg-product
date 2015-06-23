@@ -26,20 +26,11 @@
 
 
 <div class="content_main">
-
     <div class="content_main__articles cabinet">
-
         <div class="cabinet_content">
 
-            <ul class="cabinet_content__tabs">
-                <li class="checks active"><span>Чеки</span></li>
-                <li class="contests"><span>Конкурсы</span></li>
-                <li class="reviews"><span>Отзывы</span></li>
-                <li class="testing"><span>Заявка <br/> на тестирование</span></li>
-                <li class="invite"><span>Пригласить друзей</span></li>
-                <li class="status"><span>Статус</span></li>
-                <li class="settings"><span>Личные настройки</span></li>
-            </ul>
+            {{ include('ApplicationUsersBundle:Profile:menu_profile.html.twig') }}
+
 
             <div class="cabinet_content__item checks active">
                 {{ include('ApplicationUsersBundle:Profile:myProfile_checks.html.twig') }}

@@ -1,0 +1,14 @@
+{% if nameAction is not defined or nameAction is empty %}
+    {% set nameAction = app.request.get('_template').get('name') %}
+{% endif %}
+
+
+<ul class="cabinet_content__tabs tabs-profile-menu">
+    <a href="{{ path('application_users_profile_checks') }}"><li class="checks {% if nameAction == 'checks' %} active{% endif %}"><span>Чеки</span></li></a>
+    <a href="{{ path('application_users_profile_contests') }}"><li class="contests {% if nameAction == 'contests' %} active{% endif %}"><span>Конкурсы</span></li></a>
+    <a href="{{ path('application_users_profile_reviews') }}"><li class="reviews {% if nameAction == 'reviews' %} active{% endif %}"><span>Отзывы</span></li></a>
+    <a href="{{ path('application_users_profile_testing') }}"><li class="testing {% if nameAction == 'testing' %} active{% endif %}"><span>Заявка <br/> на тестирование</span></li></a>
+    <a href="{{ path('application_users_profile_invite') }}"><li class="invite {% if nameAction == 'invite' %} active{% endif %}"><span>Пригласить друзей</span></li></a>
+    <a href="{{ path('application_users_profile_status') }}"><li class="status {% if nameAction == 'status' %} active{% endif %}"><span>Статус</span></li></a>
+    <a href="{{ path('application_users_profile_settings') }}"><li class="settings {% if nameAction == 'settings' %} active{% endif %}"><span>Личные настройки</span></li></a>
+</ul>

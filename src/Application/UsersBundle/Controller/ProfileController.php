@@ -36,6 +36,16 @@ class ProfileController extends Controller
      */
     public function myAction()
     {
+        return $this->redirectToRoute('application_users_profile_checks');
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function checksAction()
+    {
         $addCheckFileType = new AddCheckFileForm();
         $formAddCheckFile = $this->createForm($addCheckFileType);
 
@@ -45,19 +55,6 @@ class ProfileController extends Controller
         $checksRepository = $em->getRepository('ApplicationUsersBundle:Checks');
         $checks = $checksRepository->findBy( array('user' => $this->getUser()), array('createdAt' => 'DESC') );
 
-        //  -- STATUSES --
-        $statusesRepository = $em->getRepository('TemplatesBundle:Statuses');
-        $statuses = $statusesRepository->findAll();
-
-        $defaultStatuses = StatusesRepository::getAllStatuses();
-
-        if ($statuses) {
-            /** @var $status \TemplatesBundle\Entity\Statuses */
-            foreach ($statuses as $status) {
-                $defaultStatuses[$status->getNameStatus()] = $status;
-            }
-        }
-
         $form = array(
             'add_check_file' => $formAddCheckFile->createView(),
         );
@@ -65,8 +62,6 @@ class ProfileController extends Controller
         return array(
             'form' => $form,
             'checks' => $checks,
-            'prof_statuses' => $defaultStatuses,
-            'default_scores_statuses' => StatusesRepository::getDefaultScoresForStatuses(),
         );
     }
 
@@ -158,6 +153,85 @@ class ProfileController extends Controller
         }
 
         return $this->redirectToRoute('application_users_profile_my');
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function contestsAction()
+    {
+
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function reviewsAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function testingAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function inviteAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function statusAction()
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        $statusesRepository = $em->getRepository('TemplatesBundle:Statuses');
+        $statuses = $statusesRepository->findAll();
+
+        $defaultStatuses = StatusesRepository::getAllStatuses();
+
+        if ($statuses) {
+            /** @var $status \TemplatesBundle\Entity\Statuses */
+            foreach ($statuses as $status) {
+                $defaultStatuses[$status->getNameStatus()] = $status;
+            }
+        }
+
+        return array(
+            'prof_statuses' => $defaultStatuses,
+            'default_scores_statuses' => StatusesRepository::getDefaultScoresForStatuses(),
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function settingsAction()
+    {
+        return array();
     }
 
 }

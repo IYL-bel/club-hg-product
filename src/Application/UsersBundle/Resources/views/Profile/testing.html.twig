@@ -1,0 +1,51 @@
+{% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
+
+
+{% block content_profile %}
+
+
+<div class="cabinet_content__item testing active">
+    <div class="cabinet_content__item-content">
+        <form action="#">
+            <div class="invite_wrap">
+
+                <div class="form_row">
+                    <label for="testing_name">Имя</label>
+                    <input id="testing_name" type="text"/>
+                </div>
+
+                <div class="form_row">
+                    <label for="testing_email">E-mail</label>
+                    <input id="testing_email" type="text"/>
+                </div>
+
+
+                <div class="form_row">
+                    <label for="testing_good">Товар</label>
+                    <input id="testing_good" type="text"/>
+                </div>
+
+                <div class="form_row textarea_row">
+                    <label for="testing_txt">Телефон и адрес доставки</label>
+                    <textarea id="testing_txt"></textarea>
+                </div>
+
+                <div class="form_row chek_row">
+                    <div class="chek_row_wrap">
+                        <input id="testing_deliv" checked type="checkbox"/>
+                        <label for="testing_deliv">Получать новостную рассылку</label>
+                    </div>
+                </div>
+
+                <div class="form_row submit_row">
+                    <input type="submit" value="Заказать"/>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock content_profile %}
