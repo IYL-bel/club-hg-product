@@ -9,3 +9,7 @@ application_contests_response_member:
 application_contests_add_file_in_response_member:
     path:     /add-file-in-response-member/
     defaults: { _controller: ApplicationContestsBundle:Contests:addFileInResponseMember }
+
+application_contest_item:
+    path:     /item/{idContest}/
+    defaults: { _controller: ApplicationContestsBundle:Contests:item }

@@ -11,16 +11,12 @@
 
 <div class="content_header">
 
-    <h1 class="content_header__title">
-        Весенний субботник
-        <span>/ <i>68</i> участниц</span>
-    </h1>
-
     <ul class="content_header__breadcrumbs">
         <li><a href="#">Главная</a></li>
-        <li><a href="#">Клуб экспертов чистоты</a></li>
-        <li><a href="#">Конкурсы</a></li>
-        <li><span>Весенний субботник</span></li>
+        <li><a href="{{ path('_home') }}">Клуб экспертов чистоты</a></li>
+        <li><span>Конкурсы</span></li>
+        {#<li><a href="#">Конкурсы</a></li>#}
+        {#<li><span>Весенний субботник</span></li>#}
     </ul><!--.content_header__breadcrumbs-->
 
     <ul class="content_header__show">
@@ -44,11 +40,11 @@
                 </div>
                 <div class="content_main__articles-tile_header">
                     <div class="content_main__articles-tile_header_scores">+{{ contest.scoresParticipation.points }} баллов</div>
-                    <h5 class="content_main__articles-tile_header_title">{{ contest.title }}</h5>
+                    <h5 class="content_main__articles-tile_header_title"><a href="{{ path('application_contest_item', {'idContest': contest.id}) }}">{{ contest.title }}</a></h5>
                 </div>
                 <div class="content_main__articles-tile_footer">
                     {#<div class="content_main__articles-tile_footer_desc">1/ Придумай оригинальное поздравление с 8 марта для домохозяек<br/> 2/ Загрузи на сайт<br/></div>#}
-                    <div class="content_main__articles-tile_footer_link"><span>24 участницы </span><i>/</i><a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contest.id}) }}">Участвовать</a></div>
+                    <div class="content_main__articles-tile_footer_link"><span>{{ contest.contestsMembers |length }} участников</span><i>/</i><a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contest.id}) }}">Участвовать</a></div>
                 </div>
             </div><!--.content_main__articles-tile-->
 

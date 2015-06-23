@@ -216,4 +216,25 @@ class ContestsController extends Controller
         )));
     }
 
+    /**
+     * @Template()
+     *
+     * @param int $idContest
+     * @return array
+     */
+    public function itemAction($idContest)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $prizesRepository \Application\ContestsBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
+
+        /** @var $contest \Application\ContestsBundle\Entity\Contests */
+        $contest = $contestsRepository->find($idContest);
+
+        return array(
+            'contest' => $contest,
+            'idContest' => $idContest
+        );
+    }
 }

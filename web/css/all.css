@@ -63,6 +63,15 @@ a.blue-link {
     padding-left: 1px;
 }
 
+.content_main__articles-tile_header_title a {
+    color: #008dd2;
+    text-decoration: none;
+}
+
+.content_main__articles-tile_header_title a:hover {
+    text-decoration: underline;
+}
+
 .waiting-indicator {
     background: rgba(255, 255, 255, 0.75) url('../images/wait2.gif') no-repeat;
     background-position-x: center;
