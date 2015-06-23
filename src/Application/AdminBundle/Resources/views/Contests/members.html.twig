@@ -27,23 +27,27 @@
                     {{ member.user.firstName }} {{ member.user.lastName }}
                 </td>
                 <td>
-                    <a href="">Подробнее</a>
+                    <a href="{{ path('application_admin_contests_member_more', {'id': member.id}) }}">Подробнее</a>
                 </td>
                 <td>
-                    {% if member.isStatusNew() %}
-                        <b class="status_assay"></b>
-                        <span>Чек не проверен</span>
-                    {% endif %}
+                    <div class="item-content">
 
-                    {% if member.isStatusConfirmed() %}
-                        <b class="status_approved"><i class="fa fa-check"></i></b>
-                        <span>+{{ member.contest.scoresParticipation.points }} очков</span>
-                    {% endif %}
+                        {% if member.isStatusNew() %}
+                            <b class="status_assay"></b>
+                            <span>Чек не проверен</span>
+                        {% endif %}
 
-                    {% if member.isStatusRejected() %}
-                        <b class="status_disallow"><i class="fa fa-times"></i></b>
-                        <span>{{ check.commentAdmin }}</span>
-                    {% endif %}
+                        {% if member.isStatusConfirmed() %}
+                            <b class="status_approved"><i class="fa fa-check"></i></b>
+                            <span>+{{ member.contest.scoresParticipation.points }} очков</span>
+                        {% endif %}
+
+                        {% if member.isStatusRejected() %}
+                            <b class="status_disallow"><i class="fa fa-times"></i></b>
+                            <span>{{ member.commentAdmin }}</span>
+                        {% endif %}
+
+                    </div>
                 </td>
                 <td>
                     <div class="item-content">
@@ -51,7 +55,7 @@
                             <a href="{{ path('application_admin_contests_member_approved', {'id': member.id}) }}" class="but-blue-approved button">
                                 <b class="status_approved"><i class="fa fa-check"></i></b>Принять
                             </a>
-                            <a href="" class="but-red-disallow button">
+                            <a href="{{ path('application_admin_contests_member_disallow', {'id': member.id}) }}" class="but-red-disallow button">
                                 <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
                             </a>
                         {% endif %}

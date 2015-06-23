@@ -38,9 +38,17 @@ application_admin_contests_members:
     path:     /contests/members/{id}/
     defaults: { _controller: ApplicationAdminBundle:Contests:members }
 
+application_admin_contests_member_more:
+    path:     /contests/member-more/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Contests:memberMore }
+
 application_admin_contests_member_approved:
     path:     /contests/member-approved/{id}/
     defaults: { _controller: ApplicationAdminBundle:Contests:approvedMemberResponse }
+
+application_admin_contests_member_disallow:
+    path:     /contests/member-disallow/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Contests:disallowMemberResponse }
 
 application_admin_prizes:
     path:     /prizes/

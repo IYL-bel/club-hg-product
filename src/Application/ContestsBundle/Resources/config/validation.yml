@@ -39,3 +39,5 @@ Application\ContestsBundle\Entity\ContestsMembers:
     properties:
         description:
             - NotBlank: {  message: property.blank }
+        commentAdmin:
+            - NotBlank: {  message: property.blank, groups: [form-disallow] }

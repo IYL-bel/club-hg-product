@@ -102,6 +102,12 @@ class ContestsController extends Controller
             }
 
             if ( $form->isValid() ) {
+
+                /** @var $contestsMember \Application\ContestsBundle\Entity\ContestsMembers */
+                $contestsMember = $form->getData();
+                $em->persist($contestsMember);
+                $em->flush();
+
                 $contestsMembersPhotos = array();
                 if ( count($addedFiles) ) {
                     foreach ($addedFiles as $addedFile) {
@@ -109,11 +115,10 @@ class ContestsController extends Controller
                         $itemContestsMembersPhotos->setDescription( $addedFile['fileDescription'] );
                         $itemContestsMembersPhotos->setFileName( $addedFile['fileNameOriginal'] );
                         $itemContestsMembersPhotos->setFilePath( $addedFile['fileName'] );
+                        $itemContestsMembersPhotos->setContestsMember($contestsMember);
                         $contestsMembersPhotos[] = $itemContestsMembersPhotos;
                     }
                 }
-                /** @var $contestsMember \Application\ContestsBundle\Entity\ContestsMembers */
-                $contestsMember = $form->getData();
                 $contestsMember->setContestsMembersPhotos($contestsMembersPhotos);
 
                 $em->persist($contestsMember);

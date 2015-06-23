@@ -1,0 +1,60 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+<div class="cabinet_content__item-content">
+
+    <div class="popup_wrap_content_title">
+        <h3 class="title"><strong>{{ itemContestsMembers.contest.title }}</strong></h3>
+        <span> / <i>{{ itemContestsMembers.contest.scoresWinner.points }}</i> баллов</span>
+    </div>
+
+    <div class="popup_wrap_content_txt" style="margin-bottom: 26px;">
+        <p>{{ itemContestsMembers.contest.description }}</p>
+    </div>
+
+
+
+    <div class="popup_wrap_content_name">
+        {#Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>#}
+        {{ itemContestsMembers.user.firstName }} {{ itemContestsMembers.user.lastName }}
+    </div>
+
+    {{ itemContestsMembers.description }}
+
+    <div class="download_result" style="margin-top: 12px;">
+
+        {% if itemContestsMembers.contestsMembersPhotos |length %}
+            {% for photo in itemContestsMembers.contestsMembersPhotos %}
+                <div style="height: 110px;">
+                    <div style="float: left;">
+                        <div class="photo-logo-100">
+                            <a href="{{ asset(photo.getFilePathWeb()) }}" class="photo" target="_blank">
+                                <img src="{{ asset(photo.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="margin-left: 120px; padding-top: 26px;">
+                        <span>{{ photo.description }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+    {% if itemContestsMembers.isStatusNew() %}
+        <a href="{{ path('application_admin_contests_member_approved', {'id': itemContestsMembers.id}) }}" class="but-blue-approved button">
+            <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+        </a>
+        <a href="{{ path('application_admin_contests_member_disallow', {'id': itemContestsMembers.id}) }}" class="but-red-disallow button">
+            <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+        </a>
+    {% endif %}
+
+
+
+</div>
+
+{% endblock content %}
