@@ -162,8 +162,15 @@ class ProfileController extends Controller
      */
     public function contestsAction()
     {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsMembersRepository \Application\ContestsBundle\Entity\ContestsMembers */
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        $contestsMembers = $contestsMembersRepository->findBy( array( 'user' => $this->getUser() ), array('createdAt' => 'DESC') );
 
-        return array();
+        return array(
+            'contestsMembers' => $contestsMembers,
+        );
     }
 
     /**

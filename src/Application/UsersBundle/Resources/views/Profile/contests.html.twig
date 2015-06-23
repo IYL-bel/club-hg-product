@@ -8,67 +8,43 @@
 
             <div class="reviews_list">
 
-                <div class="reviews_list-item">
-                    <div class="reviews_list-item_num">1.</div>
-                    <div class="reviews_list-item_img img_c">
-                        <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
-                    </div>
-                    <div class="reviews_list-item_name">
-                        <a href="#">Весенний субботник</a>
-                    </div>
-                    <div class="reviews_list-item_title">
-                        <a href="#">Средство НG  для удаления известкового налета</a>
-                    </div>
-                    <div class="reviews_list-item_status">
-                        <b class="status_assay"></b>
-                        <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
-                    </div>
-                </div><!--.reviews_list-item-->
+                {% for key, member in contestsMembers %}
 
-                <div class="reviews_list-item">
-                    <div class="reviews_list-item_num">2.</div>
-                    <div class="reviews_list-item_img img_c">
-                        <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="name"/>
-                    </div>
-                    <div class="reviews_list-item_name">
-                        <a href="#">8 марта с HG</a>
-                    </div>
-                    <div class="reviews_list-item_title">
-                        <a href="#">Универсальное чистящее средство для ванной и туалета</a>
-                    </div>
-                    <div class="reviews_list-item_status">
-                        <b class="status_approved"><i class="fa fa-check"></i></b>
-                        <span>+100 очков</span>
-                    </div>
-                </div><!--.reviews_list-item-->
+                    <div class="reviews_list-item">
+                        <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+                        <div class="reviews_list-item_img img_c">
+                            <img src="{{ asset( member.contest.getFilePathWeb() ) }}" alt="name"/>
+                        </div>
+                        <div class="reviews_list-item_name">
+                            <a href="{{ path('application_contest_item', {'idContest': member.contest.id}) }}">{{ member.contest.title }}</a>
+                        </div>
+                        <div class="reviews_list-item_title">
+                            <a href="{{ path('application_contest_member', {'idMember': member.id}) }}">Посмотреть ваш отклик</a>
+                        </div>
+                        <div class="reviews_list-item_status">
 
-                <div class="reviews_list-item">
-                    <div class="reviews_list-item_num">3.</div>
-                    <div class="reviews_list-item_img img_c">
-                        <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="name"/>
-                    </div>
-                    <div class="reviews_list-item_name">
-                        <a href="#">Весенний субботник</a>
-                    </div>
-                    <div class="reviews_list-item_title">
-                        <a href="#">Гигиеническое чистящее средство для гидромассажных ванн</a>
-                    </div>
-                    <div class="reviews_list-item_status">
-                        <b class="status_disallow"><i class="fa fa-times"></i></b>
-                        <span>+100 очков</span>
-                    </div>
-                </div><!--.reviews_list-item-->
+                            {% if member.isStatusNew() %}
+                                <b class="status_assay"></b>
+                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                            {% endif %}
 
-            </div><!--.reviews_list-->
+                            {% if member.isStatusConfirmed() %}
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+{{ member.contest.scoresParticipation.points }} очков</span>
+                            {% endif %}
 
-            <div class="content_main__articles-pagi">
-                <span class="prev"><i class="fa fa-angle-left"></i><span>Назад</span></span>
-                <a class="page" href="#">1</a>
-                <span><b>2</b></span>
-                <a class="page" href="#">3</a>
-                <a class="page" href="#">4</a>
-                <a class="page" href="#">5</a>
-                <a class="next" href="#"><span>Вперед</span><i class="fa fa-angle-right"></i></a>
+                            {% if member.isStatusRejected() %}
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>{{ member.commentAdmin }}</span>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                {% else %}
+                    Вы пока не учавствуете в конкурсах
+                {% endfor %}
+
             </div>
 
         </div>

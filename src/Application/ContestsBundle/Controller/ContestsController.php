@@ -237,4 +237,23 @@ class ContestsController extends Controller
             'idContest' => $idContest
         );
     }
+
+    /**
+     * @Template()
+     *
+     * @param int $idMember
+     * @return array
+     */
+    public function memberAction($idMember)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsMembersRepository \Application\ContestsBundle\Entity\ContestsMembers */
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        $contestsMember = $contestsMembersRepository->find($idMember);
+
+        return array(
+            'member' => $contestsMember,
+        );
+    }
 }
