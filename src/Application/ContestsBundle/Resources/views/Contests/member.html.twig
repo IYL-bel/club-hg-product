@@ -41,11 +41,11 @@
         <div class="content_main__articles-item">
 
             <div class="content_main__articles-item__title">
-                <h3 class="title">Уборка в кладовке</h3>
-                <span> / <i>10</i> баллов</span>
+                <h3 class="title">{{ member.contest.title }}</h3>
+                <span> / <i>{{ member.contest.scoresParticipation.points }}</i> баллов</span>
                 <div class="content_main__articles-item__title-avatar">
                     <span>
-                        <img src="{{ member.user.photoLink }}" alt="{{ app.user.firstName }} {{ app.user.lastName }}"/>
+                        <img src="{{ member.user.photoLink }}" alt="{{ member.user.firstName }} {{ member.user.lastName }}"/>
                     </span>
                     <strong>
                         {{ app.user.firstName }}<br/>
@@ -61,6 +61,20 @@
 
                 <div class="gallery">
 
+
+                    {% for itemPhoto in member.contestsMembersPhotos %}
+                        <div class="gallery-item">
+                            <div class="gallery-item__img_wrap">
+                                <img src="{{ asset(itemPhoto.getFilePathWeb()) }}" alt="{{ itemPhoto.description }}" style="width: 295px;"/>
+                            </div>
+                            <strong>{{ itemPhoto.description }}</strong>
+                        </div>
+                    {% endfor %}
+
+
+
+
+                    {#
                     <div class="gallery-item">
                         <div class="gallery-item__img_wrap">
                             <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
@@ -89,11 +103,14 @@
                         </div>
                         <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
                     </div>
+                    #}
+
+
 
                 </div>
 
                 <div class="content_main__articles-item__txt-name">
-                    Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
+                    {{ member.user.firstName }} {{ member.user.lastName }}{#<span> , домохозяйка</span><i> , Минск</i>#}
                 </div>
 
                 <div class="content_main__articles-item__txt-soc">

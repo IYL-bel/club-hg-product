@@ -152,7 +152,7 @@ class ProfileController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('application_users_profile_my');
+        return $this->redirectToRoute('application_users_profile_checks');
     }
 
     /**
@@ -171,6 +171,30 @@ class ProfileController extends Controller
         return array(
             'contestsMembers' => $contestsMembers,
         );
+    }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function removeContestAction($id)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        $member = $contestsMembersRepository->findOneBy( array(
+            'user' => $this->getUser(),
+            'status' => ChecksRepository::STATUS_NEW,
+            'id' => $id
+        ));
+
+        if ($member) {
+            $em->remove($member);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('application_users_profile_contests');
     }
 
     /**
@@ -199,6 +223,16 @@ class ProfileController extends Controller
      * @return array
      */
     public function inviteAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function questionnaireAction()
     {
         return array();
     }

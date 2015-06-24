@@ -18,6 +18,10 @@ application_users_profile_contests:
     path:     my-profile/contests/
     defaults: { _controller: ApplicationUsersBundle:Profile:contests }
 
+application_users_profile_remove_contest:
+    path:     profile/remove-contest/{id}/
+    defaults: { _controller: ApplicationUsersBundle:Profile:removeContest }
+
 application_users_profile_reviews:
     path:     my-profile/reviews/
     defaults: { _controller: ApplicationUsersBundle:Profile:reviews }
@@ -29,6 +33,10 @@ application_users_profile_testing:
 application_users_profile_invite:
     path:     my-profile/invite/
     defaults: { _controller: ApplicationUsersBundle:Profile:invite }
+
+application_users_profile_questionnaire:
+    path:     my-profile/questionnaire/
+    defaults: { _controller: ApplicationUsersBundle:Profile:questionnaire }
 
 application_users_profile_status:
     path:     my-profile/status/

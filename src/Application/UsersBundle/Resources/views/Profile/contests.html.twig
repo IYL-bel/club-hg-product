@@ -20,17 +20,22 @@
                         </div>
                         <div class="reviews_list-item_title">
                             <a href="{{ path('application_contest_member', {'idMember': member.id}) }}">Посмотреть ваш отклик</a>
+                            {% if member.isStatusNew() %}
+                                <div class="remove">
+                                    <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_contest', {'id': member.id}) }}">удалить</a>
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="reviews_list-item_status">
 
                             {% if member.isStatusNew() %}
                                 <b class="status_assay"></b>
-                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                                <span>Конкурсная работа проверяется. <br />Нам потребуется до 24 часов</span>
                             {% endif %}
 
                             {% if member.isStatusConfirmed() %}
                                 <b class="status_approved"><i class="fa fa-check"></i></b>
-                                <span>+{{ member.contest.scoresParticipation.points }} очков</span>
+                                <span>+ {{ member.contest.scoresParticipation.points }} очков<br /> За победу {{ member.contest.scoresWinner.points }} очков</span>
                             {% endif %}
 
                             {% if member.isStatusRejected() %}

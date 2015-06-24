@@ -25,9 +25,9 @@
                     <div class="reviews_list-item_title">
                         <span>{{ check.createdAt.format('d.m.Y') }}</span><br />
                         {% if check.isStatusNew() %}
-                        <div style="color: red; margin-top: 3px;">
-                            <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_check', {'id': check.id}) }}" style="color: #bc8f8f; font-size: 16px;">удалить</a>
-                        </div>
+                            <div class="remove">
+                                <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_check', {'id': check.id}) }}">удалить</a>
+                            </div>
                         {% endif %}
                     </div>
                     <div class="reviews_list-item_status">

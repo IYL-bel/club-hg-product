@@ -146,3 +146,29 @@ a.blue-link {
 .border-status-user {
     border: solid 1px #28a5de;
 }
+
+
+
+
+.cabinet_content__item-content .reviews_list-item_title .remove {
+    color: red;
+    margin-top: 3px;
+}
+
+.cabinet_content__item-content .reviews_list-item_title .remove a {
+    color: #bc8f8f;
+    font-size: 16px;
+}
+
+.contests .cabinet_content__item-content .reviews_list-item_title {
+    width: 200px;
+}
+
+.contests .cabinet_content__item-content .reviews_list-item_status {
+    width: 280px;
+}
+
+.contests .cabinet_content__item-content .reviews_list-item_status span {
+    width: 220px;
+}
+

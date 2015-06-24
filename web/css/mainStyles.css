@@ -1555,7 +1555,7 @@ header {
           .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name, .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title {
             padding-left: 20px; }
             /* line 1994, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name a, .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title a {
+            .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_name a, .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item_name a, .cabinet_content__item-content .reviews_list-item_title a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_name a, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item_title a {
               display: inline-block;
               max-width: 250px;
               color: #9a9a9a; }
@@ -1597,7 +1597,7 @@ header {
           width: 240px;
           max-width: inherit; }
         /* line 2069, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-        .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item_title {
+        .cabinet_content__item-content .reviews_list-item_title {
           width: 220px;
           max-width: inherit; }
         /* line 2076, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
