@@ -14,7 +14,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use Application\AdminBundle\Repository\Prizes as PrizesRepository;
+use Application\PrizesBundle\Repository\Prizes as PrizesRepository;
 
 /**
  * Application\AdminBundle\Form\Type\EditPrize
@@ -42,6 +42,11 @@ class EditPrize extends AbstractType
                 'required' => false,
                 'label' => 'Цвет текста',
                 'empty_value' => false,
+            ))
+
+            ->add('pointsBuy', 'text', array(
+                'required' => false,
+                'label' => ' Стоимость приза в баллах'
             ))
 
             ->add('type', 'choice', array(
@@ -72,7 +77,7 @@ class EditPrize extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Application\AdminBundle\Entity\Prizes',
+            'data_class' => 'Application\PrizesBundle\Entity\Prizes',
         ));
     }
 

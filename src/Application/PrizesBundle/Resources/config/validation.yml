@@ -1,9 +1,11 @@
-Application\AdminBundle\Entity\Prizes:
+Application\PrizesBundle\Entity\Prizes:
     properties:
         title:
             - NotBlank: {  message: property.blank }
         type:
             - NotBlank: {  message: property.option }
+        pointsBuy:
+            - NotBlank: {  message: property.blank }
         file:
             - Image:
                 mimeTypes:  [image/jpeg, image/pjpeg, image/png]

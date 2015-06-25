@@ -4,24 +4,24 @@
  *
  * Prizes entity
  *
- * @package    ApplicationAdminBundle
+ * @package    ApplicationPrizesBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Application\AdminBundle\Entity;
+namespace Application\PrizesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use Application\AdminBundle\Repository\Prizes as PrizesRepository;
+use Application\PrizesBundle\Repository\Prizes as PrizesRepository;
 
 
 /**
- * Application\AdminBundle\Entity\Prizes
+ * Application\PrizesBundle\Entity\Prizes
  *
  * @ORM\Table(name="prizes")
- * @ORM\Entity(repositoryClass="Application\AdminBundle\Repository\Prizes")
+ * @ORM\Entity(repositoryClass="Application\PrizesBundle\Repository\Prizes")
  * @ORM\HasLifecycleCallbacks
  */
 class Prizes
@@ -107,6 +107,19 @@ class Prizes
      */
     protected $createdAt;
 
+    /**
+     * @var \Application\ScoresBundle\Entity\Scores
+     *
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="prizesScoresBuy", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="scores_buy__id", referencedColumnName="id", nullable=true)
+     */
+    protected $scoresBuy;
+
+    /**
+     * @var int
+     */
+    protected $pointsBuy;
+
 
     /**
      * @return int
@@ -118,7 +131,7 @@ class Prizes
 
     /**
      * @param string $title
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setTitle($title)
     {
@@ -136,7 +149,7 @@ class Prizes
 
     /**
      * @param int $type
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setType($type)
     {
@@ -165,7 +178,7 @@ class Prizes
 
     /**
      * @param string $filePath
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setFilePath($filePath)
     {
@@ -183,7 +196,7 @@ class Prizes
 
     /**
      * @param string $fileName
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setFileName($fileName)
     {
@@ -272,7 +285,7 @@ class Prizes
 
     /**
      * @param int $status
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setStatus($status)
     {
@@ -302,7 +315,7 @@ class Prizes
 
     /**
      * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setFile($file)
     {
@@ -320,9 +333,9 @@ class Prizes
 
     /**
      * @param \DateTime $createdAt
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -338,7 +351,7 @@ class Prizes
 
     /**
      * @param boolean $awardedScores
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setAwardedScores($awardedScores)
     {
@@ -356,7 +369,7 @@ class Prizes
 
     /**
      * @param string $titleColor
-     * @return \Application\AdminBundle\Entity\Prizes
+     * @return \Application\PrizesBundle\Entity\Prizes
      */
     public function setTitleColor($titleColor)
     {
@@ -370,6 +383,42 @@ class Prizes
     public function getTitleColor()
     {
         return $this->titleColor;
+    }
+
+    /**
+     * @param int $pointsBuy
+     * @return \Application\PrizesBundle\Entity\Prizes
+     */
+    public function setPointsBuy($pointsBuy)
+    {
+        $this->pointsBuy = $pointsBuy;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPointsBuy()
+    {
+        return $this->pointsBuy;
+    }
+
+    /**
+     * @param \Application\ScoresBundle\Entity\Scores $scoresBuy
+     * @return \Application\PrizesBundle\Entity\Prizes
+     */
+    public function setScoresBuy($scoresBuy)
+    {
+        $this->scoresBuy = $scoresBuy;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function getScoresBuy()
+    {
+        return $this->scoresBuy;
     }
 
 }

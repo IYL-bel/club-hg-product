@@ -1,0 +1,3 @@
+application_prizes_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ApplicationPrizesBundle:Default:index }

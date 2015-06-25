@@ -73,6 +73,13 @@ class Scores
      */
     protected $scoresUsers;
 
+    /**
+     * @var \Application\PrizesBundle\Entity\Prizes
+     *
+     * @ORM\OneToOne(targetEntity="Application\PrizesBundle\Entity\Prizes", mappedBy="scoresBuy")
+     */
+    protected $prizesScoresBuy;
+
 
     /**
      * constructor
@@ -178,6 +185,24 @@ class Scores
     public function getScoresUsers()
     {
         return $this->scoresUsers;
+    }
+
+    /**
+     * @param \Application\PrizesBundle\Entity\Prizes $prizesScoresBuy
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function setPrizesScoresBuy($prizesScoresBuy)
+    {
+        $this->prizesScoresBuy = $prizesScoresBuy;
+        return $this;
+    }
+
+    /**
+     * @return \Application\PrizesBundle\Entity\Prizes
+     */
+    public function getPrizesScoresBuy()
+    {
+        return $this->prizesScoresBuy;
     }
 
 }

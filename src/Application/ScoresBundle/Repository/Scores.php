@@ -21,5 +21,6 @@ class Scores extends EntityRepository
 
     const TYPE__CONTESTS_PARTICIPATION   = 1;
     const TYPE__CONTESTS_WINNER          = 2;
+    const TYPE__PRIZES                   = 20;
 
 }

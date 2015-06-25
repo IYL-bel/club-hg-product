@@ -34,6 +34,7 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('application_base_security_login'));
         }
 
+
         // MAIN TIPS CLUB
         $cautionMainTips = false;
         /** @var $em \Doctrine\ORM\EntityManager */
@@ -47,9 +48,23 @@ class DefaultController extends Controller
             $cautionMainTips = true;
         }
 
+
+        // PRIZES
+        /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
+        $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
+        $allIdsPrizes = $prizesRepository->getIdsAllPrizes();
+        $allIds = array();
+        foreach ($allIdsPrizes as $val) {
+            $allIds[] = $val['id'];
+        }
+        shuffle($allIds);
+        $randomIdsForPrizes = array_slice($allIds, 0, 4);
+        $prizes = $prizesRepository->getPrizesForMainPage($randomIdsForPrizes);
+
         return array(
             'main_tips_club' => $mainTipsClub,
             'show_main_tips_club' => $cautionMainTips,
+            'prizes' => $prizes,
         );
     }
 
@@ -63,8 +78,8 @@ class DefaultController extends Controller
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
-        /** @var $prizesRepository \Application\AdminBundle\Repository\Prizes */
-        $prizesRepository = $em->getRepository('ApplicationAdminBundle:Prizes');
+        /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
+        $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
 
         $prizes = $prizesRepository->findBy( array(), array('createdAt' => 'DESC') );
 

@@ -4,20 +4,21 @@
  *
  * Prizes repository
  *
- * @package    ApplicationAdminBundle
+ * @package    ApplicationPrizesBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Application\AdminBundle\Repository;
+namespace Application\PrizesBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Application\AdminBundle\Repository\Prizes
+ *  Application\PrizesBundle\Repository\Prizes
  */
 class Prizes extends EntityRepository
 {
+
     const TYPE_BRONZE     = 1;
     const TYPE_SILVER     = 2;
     const TYPE_GOLD       = 3;
@@ -43,6 +44,32 @@ class Prizes extends EntityRepository
         );
     }
 
+    /**
+     * @return array
+     */
+    public function getIdsAllPrizes()
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb
+            ->select(array('p.id'))
+            ->where('p.status = :status')
+            ->setParameters(array(
+                'status' => self::STATUS_ACTIVE,
+            ));
 
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param array $ids
+     * @return array
+     */
+    public function getPrizesForMainPage($ids)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb->where( $qb->expr()->in('p.id', $ids) );
+
+        return $qb->getQuery()->getResult();
+    }
 
 }

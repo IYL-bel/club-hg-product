@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new HgProductBundle\HgProductBundle(),
             new Application\ContestsBundle\ApplicationContestsBundle(),
             new SocialNetworksBundle\SocialNetworksBundle(),
+            new Application\PrizesBundle\ApplicationPrizesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

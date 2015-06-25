@@ -15,8 +15,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 
-use Application\AdminBundle\Entity\Prizes;
+use Application\PrizesBundle\Entity\Prizes;
 use Application\AdminBundle\Form\Type\EditPrize as EditPrizeForm;
+use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 
 
 /**
@@ -36,8 +38,8 @@ class PrizesController extends Controller
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
-        /** @var $prizesRepository \Application\AdminBundle\Repository\Prizes */
-        $prizesRepository = $em->getRepository('ApplicationAdminBundle:Prizes');
+        /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
+        $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
         $prizes = $prizesRepository->findAll();
 
         return array(
@@ -56,18 +58,23 @@ class PrizesController extends Controller
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
-        /** @var $prizesRepository \Application\AdminBundle\Repository\Prizes */
-        $prizesRepository = $em->getRepository('ApplicationAdminBundle:Prizes');
+        /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
+        $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
 
         if ($id) {
-            /** @var $prize \Application\AdminBundle\Entity\Prizes */
+            /** @var $prize \Application\PrizesBundle\Entity\Prizes */
             $prize = $prizesRepository->find($id);
             if (!$prize) {
                 return $this->redirectToRoute('application_admin_prizes');
             }
         } else {
-            /** @var $prize \Application\AdminBundle\Entity\Prizes */
+            /** @var $prize \Application\PrizesBundle\Entity\Prizes */
             $prize = new Prizes();
+        }
+
+        $scoresBuy = $prize->getScoresBuy();
+        if ($scoresBuy) {
+            $prize->setPointsBuy( $scoresBuy->getPoints() );
         }
 
         $form = $this->createForm(new EditPrizeForm(), $prize);
@@ -76,6 +83,14 @@ class PrizesController extends Controller
         if ($form->isValid()) {
             $prize = $form->getData();
             $prize->setStatus($prizesRepository::STATUS_ACTIVE);
+
+            $scoresBuy = $prize->getScoresBuy();
+            if (!$scoresBuy) {
+                $scoresBuy = new Scores();
+                $scoresBuy->setType(ScoresRepository::TYPE__PRIZES);
+            }
+            $scoresBuy->setPoints( $prize->getPointsBuy() );
+            $prize->setScoresBuy($scoresBuy);
 
             $em->persist($prize);
             $em->flush();
