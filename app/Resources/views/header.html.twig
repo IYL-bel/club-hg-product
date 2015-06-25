@@ -17,7 +17,7 @@
                 <div class="header__items-person_desc">
                     <strong>
                         <a href="{{ path('application_users_profile_my') }}">{{ app.user.firstName }} {{ app.user.lastName }}</a>
-                        <span><i>150</i>баллов</span>
+                        <span><i>{{ app.user.scorePoints }}</i> баллов</span>
                     </strong>
                     <b class="coin"></b>
                 </div>

@@ -4,6 +4,7 @@
  *
  * Profile controller
  *
+ * @package    ApplicationUsersBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
@@ -20,6 +21,8 @@ use Application\UsersBundle\Form\Type\AddCheckFile as AddCheckFileForm;
 use Application\UsersBundle\Entity\Checks;
 use Application\UsersBundle\Repository\Checks as ChecksRepository;
 use TemplatesBundle\Repository\Statuses as StatusesRepository;
+use Application\UsersBundle\Form\Type\EditUserProfile as EditUserProfileForm;
+
 
 /**
  * @Security("has_role('ROLE_USER')")
@@ -268,11 +271,29 @@ class ProfileController extends Controller
     /**
      * @Template()
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @return array
      */
-    public function settingsAction()
+    public function settingsAction(Request $request)
     {
-        return array();
+        $userProfile = $this->getUser();
+        $form = $this->createForm(new EditUserProfileForm(), $userProfile);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $userProfile = $form->getData();
+
+            /** @var $em \Doctrine\ORM\EntityManager */
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($userProfile);
+            $em->flush();
+
+            return $this->redirectToRoute('application_users_profile_settings');
+        }
+
+        return array(
+            'form' => $form->createView(),
+        );
     }
 
 }

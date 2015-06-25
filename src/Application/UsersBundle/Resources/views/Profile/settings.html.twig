@@ -1,4 +1,5 @@
 {% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
+{% form_theme form 'ApplicationUsersBundle::form.html.twig' %}
 
 
 {% block content_profile %}
@@ -6,7 +7,8 @@
 
 <div class="cabinet_content__item settings active">
     <div class="cabinet_content__item-content">
-        <form action="#">
+
+        {{ form_start(form) }}
 
             <div class="about_wrap">
 
@@ -14,12 +16,20 @@
 
                 <div class="avatar_w">
                     <div class="img_w">
-                        <img src="{{ asset('images/not_optimize/girl_01.jpg') }}" alt="name"/>
+                        <img src="{{ asset(app.user.photoLink) }}" alt="{{ app.user.firstName }} {{ app.user.lastName }}"/>
                     </div>
                     <label for="avatar_ch"></label>
                     <input id="avatar_ch" type="file" value="изменить фото"/>
                 </div>
 
+                {{ form_row(form.firstName) }}
+                {{ form_row(form.lastName) }}
+                {{ form_row(form.birthday) }}
+                {{ form_row(form.occupation) }}
+                {{ form_row(form.postcode) }}
+                {{ form_row(form.shippingAddress) }}
+
+                {#
                 <div class="form_row">
                     <label for="name">Имя</label>
                     <input id="name" type="text"/>
@@ -36,19 +46,20 @@
                     <label for="activities">Род занятий</label>
                     <input id="activities" type="text"/>
                 </div>
+                #}
 
                 <div class="form_row submit_row">
                     <input type="submit" value="Сохранить"/>
                 </div>
-
             </div>
 
+        {{ form_end(form) }}
+
+
+            {#
             <hr/>
-
             <div class="pass_wrap">
-
                 <h2>смена пароля</h2>
-
                 <div class="form_row">
                     <label for="oldpass">Старый пароль</label>
                     <input id="oldpass" type="password"/>
@@ -61,18 +72,14 @@
                     <label for="renewpass">Новый пароль</label>
                     <input id="renewpass" type="password"/>
                 </div>
-
                 <hr/>
-
                 <div class="form_row submit_row">
                     <input type="submit" value="Сохранить"/>
                 </div>
+            </div>#}
 
-            </div>
-
-        </form>
+        {#</form>#}
     </div>
-
 </div>
 
 

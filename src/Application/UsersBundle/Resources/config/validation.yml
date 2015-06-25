@@ -1,4 +1,45 @@
+
 Application\UsersBundle\Entity\Checks:
     properties:
         commentAdmin:
-            - NotBlank: {  message: property.blank, groups: [form-disallow] }
+            - NotBlank: { message: property.blank, groups: [form-disallow] }
+
+
+Application\UsersBundle\Entity\Users:
+    properties:
+        firstName:
+            - NotBlank: { message: property.blank, groups: [edit-profile] }
+            - Length:
+                max: 30
+                groups: [edit-profile]
+
+        lastName:
+            - NotBlank: { message: property.blank, groups: [edit-profile] }
+            - Length:
+                max: 30
+                groups: [edit-profile]
+
+        occupation:
+            - Length:
+                max: 60
+                groups: [edit-profile]
+
+        postcode:
+            - Type:
+                type: numeric
+                message: property.number_only
+                groups: [edit-profile]
+            - Length:
+                max: 6
+                groups: [edit-profile]
+
+        shippingAddress:
+            - Length:
+                max: 125
+                groups: [edit-profile]
+
+
+
+
+
+

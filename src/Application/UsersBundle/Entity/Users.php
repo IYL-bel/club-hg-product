@@ -4,6 +4,7 @@
  *
  * Users entity
  *
+ * @package    ApplicationUsersBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
@@ -114,6 +115,41 @@ class Users extends BaseUser
      * @ORM\Column(type="string", length=128, unique=true)
      */
     protected $slug;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $birthday;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=64, nullable=true)
+     */
+    protected $occupation;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $postcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="shipping_address", length=128, nullable=true)
+     */
+    protected $shippingAddress;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", name="score_points", nullable=true)
+     */
+    protected $scorePoints;
 
     /**
      * @var ArrayCollection
@@ -436,6 +472,96 @@ class Users extends BaseUser
     public function getScoresUsers()
     {
         return $this->scoresUsers;
+    }
+
+    /**
+     * @param int $postcode
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @param int $scorePoints
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setScorePoints($scorePoints)
+    {
+        $this->scorePoints = $scorePoints;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScorePoints()
+    {
+        return $this->scorePoints;
+    }
+
+    /**
+     * @param string $shippingAddress
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setShippingAddress($shippingAddress)
+    {
+        $this->shippingAddress = $shippingAddress;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress;
+    }
+
+    /**
+     * @param \DateTime $birthday
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @param string $occupation
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupation()
+    {
+        return $this->occupation;
     }
 
 }

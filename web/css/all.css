@@ -172,3 +172,33 @@ a.blue-link {
     width: 220px;
 }
 
+.form-row {
+    float: right;
+    width: 446px;
+    padding-bottom: 16px;
+    text-align: left;
+}
+
+.form-row .form-label {
+    display: inline-block;
+    font-size: 14px;
+    width: 100px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.form-row .form-input {
+    width: 320px;
+    display: inline-block;
+}
+
+.form-row input[type="text"] {
+    width: 100%;
+    padding: 5px 10px;
+    color: #6d6e71;
+    font-size: 12px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: none;
+    outline: none;
+    border: 1px solid #bcbec0;
+}

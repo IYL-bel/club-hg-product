@@ -4,6 +4,7 @@
  *
  * Add Check File form
  *
+ * @package    ApplicationUsersBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
