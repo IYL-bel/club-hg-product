@@ -20,7 +20,6 @@ class AppKernel extends Kernel
 
             // additional bundles
             new FOS\UserBundle\FOSUserBundle(),
-            new AppBundle\AppBundle(),
             new Application\UsersBundle\ApplicationUsersBundle(),
             new Application\BaseBundle\ApplicationBaseBundle(),
             new Application\AdminBundle\ApplicationAdminBundle(),
@@ -28,6 +27,7 @@ class AppKernel extends Kernel
             new Application\ScoresBundle\ApplicationScoresBundle(),
             new HgProductBundle\HgProductBundle(),
             new Application\ContestsBundle\ApplicationContestsBundle(),
+            new SocialNetworksBundle\SocialNetworksBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

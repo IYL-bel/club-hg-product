@@ -134,6 +134,14 @@ class Users extends BaseUser
     /**
      * @var ArrayCollection
      *
+     * @ORM\OneToMany(targetEntity="Application\ContestsBundle\Entity\ContestsVoting", mappedBy="user", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $contestsVoting;
+
+    /**
+     * @var ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="Application\ScoresBundle\Entity\ScoresUsers", mappedBy="user", cascade={"persist","remove","merge"})
      * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
      */
@@ -148,6 +156,7 @@ class Users extends BaseUser
         parent::__construct();
         $this->checks = new ArrayCollection();
         $this->contestsMembers = new ArrayCollection();
+        $this->contestsVoting = new ArrayCollection();
         $this->scoresUsers = new ArrayCollection();
     }
 
@@ -391,6 +400,24 @@ class Users extends BaseUser
     public function getContestsMembers()
     {
         return $this->contestsMembers;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $contestsVoting
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setContestsVoting($contestsVoting)
+    {
+        $this->contestsVoting = $contestsVoting;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getContestsVoting()
+    {
+        return $this->contestsVoting;
     }
 
     /**

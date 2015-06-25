@@ -256,4 +256,5 @@ class ContestsController extends Controller
             'member' => $contestsMember,
         );
     }
+
 }

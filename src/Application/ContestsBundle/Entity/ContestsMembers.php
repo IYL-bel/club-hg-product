@@ -100,6 +100,14 @@ class ContestsMembers
      */
     protected $contestsMembersPhotos;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ContestsVoting", mappedBy="contestsMember", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="contests_member_id")
+     */
+    protected $contestsVoting;
+
 
     /**
      * constructor
@@ -107,6 +115,7 @@ class ContestsMembers
     public function __construct()
     {
         $this->contestsMembersPhotos = new ArrayCollection();
+        $this->contestsVoting = new ArrayCollection();
     }
 
     /**
@@ -139,7 +148,7 @@ class ContestsMembers
      * @param \DateTime $createdAt
      * @return \Application\ContestsBundle\Entity\ContestsMembers
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -175,7 +184,7 @@ class ContestsMembers
      * @param \DateTime $updatedAt
      * @return \Application\ContestsBundle\Entity\ContestsMembers
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
         return $this;
@@ -295,6 +304,24 @@ class ContestsMembers
         }
 
         return false;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $contestsVoting
+     * @return \Application\ContestsBundle\Entity\ContestsMembers
+     */
+    public function setContestsVoting($contestsVoting)
+    {
+        $this->contestsVoting = $contestsVoting;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getContestsVoting()
+    {
+        return $this->contestsVoting;
     }
 
 }

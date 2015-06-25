@@ -1,0 +1,3 @@
+social_networks_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SocialNetworksBundle:Default:index }
