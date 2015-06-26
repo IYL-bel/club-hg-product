@@ -19,6 +19,7 @@ use Application\AdminBundle\Form\Type\EditContests as EditContestsForm;
 use Application\ScoresBundle\Entity\Scores;
 use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 use Application\ScoresBundle\Entity\ScoresUsers;
+use Application\ScoresBundle\Repository\ScoresUsers as ScoresUsersRepository;
 use Application\ContestsBundle\Form\Type\ContestsMembersDisallowComment as ContestsMembersDisallowCommentForm;
 
 
@@ -193,12 +194,9 @@ class ContestsController extends Controller
             $em->flush();
 
             // add Balls for User
-            $scoresUsers = new ScoresUsers();
-            $scoresUsers->setScore( $itemContestsMembers->getContest()->getScoresParticipation() );
-            $scoresUsers->setUser( $itemContestsMembers->getUser() );
-
-            $em->persist($scoresUsers);
-            $em->flush();
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->additionUserScore($itemContestsMembers->getContest()->getScoresParticipation(), $itemContestsMembers->getUser() );
 
             return $this->redirectToRoute('application_admin_contests_members', array( 'id' => $itemContestsMembers->getContest()->getId() ));
         }

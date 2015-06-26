@@ -19,4 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ScoresUsers extends EntityRepository
 {
 
+    const TYPE_CALCULATION__ADDITION     = 1;
+    const TYPE_CALCULATION__SUBTRACTION  = 2;
+
 }

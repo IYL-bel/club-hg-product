@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\UsersBundle\Entity\Users;
 use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\ScoresUsers as ScoresUsersRepository;
 
 
 /**
@@ -60,6 +61,13 @@ class ScoresUsers
      * @ORM\Column(name="created_at", type="datetime")
      */
     protected $createdAt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="type_calculation", type="smallint", nullable=true)
+     */
+    protected $typeCalculation;
 
 
     /**
@@ -122,6 +130,39 @@ class ScoresUsers
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @param int $typeCalculation
+     * @return \Application\ScoresBundle\Entity\ScoresUsers
+     */
+    public function setTypeCalculation($typeCalculation)
+    {
+        $this->typeCalculation = $typeCalculation;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTypeCalculation()
+    {
+        return $this->typeCalculation;
+    }
+
+    /**
+     * @param int $points
+     * @return int
+     */
+    public function changeCalculate($points)
+    {
+        if ($this->getTypeCalculation() ==  ScoresUsersRepository::TYPE_CALCULATION__SUBTRACTION) {
+            $points = $points - $this->getScore()->getPoints();
+        } else {
+            $points = $points + $this->getScore()->getPoints();
+        }
+
+        return $points;
     }
 
 }
