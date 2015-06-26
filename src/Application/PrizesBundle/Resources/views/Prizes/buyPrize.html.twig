@@ -1,0 +1,14 @@
+<div class="popup_wrap_content_title">
+    <h3 class="title"><strong>Покупка приза</strong></h3>
+</div>
+
+<div class="popup_wrap_content_txt">
+    {#<p>{{ contest.description }}</p>#}
+    <p>{{ prize.title }}</p>
+</div>
+
+{% if isEnoughBalls %}
+    <div>
+        <span class="caution-message">Купить приз невозможно, нет нужного уровня или недостаточно баллов</span>
+    </div>
+{% endif %}

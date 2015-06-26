@@ -121,7 +121,7 @@ class Contests
     /**
      * @var \Application\ScoresBundle\Entity\Scores
      *
-     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="contestsScoresParticipation", cascade={"persist","remove","merge"})
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="contestsScoresParticipation", cascade={"persist","remove","merge"})
      * @ORM\JoinColumn(name="scores_participation__id", referencedColumnName="id", nullable=true)
      */
     protected $scoresParticipation;
@@ -134,7 +134,7 @@ class Contests
     /**
      * @var \Application\ScoresBundle\Entity\Scores
      *
-     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="contestsScoresWinner", cascade={"persist","remove","merge"})
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="contestsScoresWinner", cascade={"persist","remove","merge"})
      * @ORM\JoinColumn(name="scores_winner__id", referencedColumnName="id", nullable=true)
      */
     protected $scoresWinner;

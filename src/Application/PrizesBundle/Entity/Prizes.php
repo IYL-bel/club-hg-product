@@ -110,7 +110,7 @@ class Prizes
     /**
      * @var \Application\ScoresBundle\Entity\Scores
      *
-     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", mappedBy="prizesScoresBuy", cascade={"persist","remove","merge"})
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="prizesScoresBuy", cascade={"persist","remove","merge"})
      * @ORM\JoinColumn(name="scores_buy__id", referencedColumnName="id", nullable=true)
      */
     protected $scoresBuy;

@@ -12,7 +12,7 @@
         </div>
         #}
         <div class="content_main__articles-tile_footer_buy">
-            <a href="buy">Купить</a><span> / {% if prize.scoresBuy %}{{ prize.scoresBuy.points }}{% else %}0{% endif %} баллов</span>
+            <a class="js_PopupShow" href="{{ path('application_prizes_buy_prize', {'idPrize': prize.id}) }}">Купить</a><span> / {% if prize.scoresBuy %}{{ prize.scoresBuy.points }}{% else %}0{% endif %} баллов</span>
         </div>
     </div>
     <div class="blue_b bt"></div>
