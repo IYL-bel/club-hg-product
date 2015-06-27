@@ -4,6 +4,7 @@
  *
  * Contests controller
  *
+ * @package    ApplicationContestsBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
@@ -69,19 +70,33 @@ class ContestsController extends Controller
             if (!$contests) {
                 return $this->redirectToRoute('application_admin_contests');
             }
+
+            $scoresParticipation = $contests->getScoresParticipation();
+            if ($scoresParticipation) {
+                $contests->setPointsParticipation( $scoresParticipation->getPoints() );
+            }
+
+            $scoresWinner = $contests->getScoresWinner();
+            if ($scoresWinner) {
+                $contests->setPointsWinner($scoresWinner->getPoints() );
+            }
         } else {
             /** @var $contests \Application\ContestsBundle\Entity\Contests */
             $contests = new Contests();
-        }
 
-        $scoresParticipation = $contests->getScoresParticipation();
-        if ($scoresParticipation) {
-            $contests->setPointsParticipation( $scoresParticipation->getPoints() );
-        }
+            /** @var $scoresRepository \Application\ScoresBundle\Repository\Scores */
+            $scoresRepository = $em->getRepository('ApplicationScoresBundle:Scores');
+            /** @var $scoresParticipationBase \Application\ScoresBundle\Entity\Scores */
+            $scoresParticipationBase = $scoresRepository->findOneBy( array('type' => ScoresRepository::TYPE__CONTESTS_PARTICIPATION_BASE) );
+            if ($scoresParticipationBase) {
+                $contests->setPointsParticipation( $scoresParticipationBase->getPoints() );
+            }
 
-        $scoresWinner = $contests->getScoresWinner();
-        if ($scoresWinner) {
-            $contests->setPointsWinner($scoresWinner->getPoints() );
+            /** @var $scoresWinnerBase \Application\ScoresBundle\Entity\Scores */
+            $scoresWinnerBase = $scoresRepository->findOneBy( array('type' => ScoresRepository::TYPE__CONTESTS_WINNER_BASE) );
+            if ($scoresWinnerBase) {
+                $contests->setPointsWinner( $scoresWinnerBase->getPoints() );
+            }
         }
 
         $form = $this->createForm(new EditContestsForm(), $contests);

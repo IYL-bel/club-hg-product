@@ -69,6 +69,32 @@ class ScoresActionService
 
     /**
      * @param \Application\UsersBundle\Entity\Users $user
+     * @return bool
+     */
+    public function addUserRegistrationScore(Users $user)
+    {
+        /** @var $scoresRepository \Application\ScoresBundle\Repository\Scores */
+        $scoresRepository = $this->entityManager->getRepository('ApplicationScoresBundle:Scores');
+        /** @var $scoreRegistration \Application\ScoresBundle\Entity\Scores */
+        $scoreRegistration = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__REGISTRATION) );
+
+        if ($scoreRegistration) {
+            /** @var $scoresUsersRepository \Application\ScoresBundle\Repository\ScoresUsers */
+            $scoresUsersRepository = $this->entityManager->getRepository('ApplicationScoresBundle:ScoresUsers');
+            /** @var $scoreUserRegistration \Application\ScoresBundle\Entity\ScoresUsers */
+            $scoreUserRegistration = $scoresUsersRepository->findOneBy( array('user' => $user, 'score' => $scoreRegistration) );
+            if (!$scoreUserRegistration) {
+                $this->additionUserScore($scoreRegistration, $user);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param \Application\UsersBundle\Entity\Users $user
      * @return ScoresActionService
      */
     public function recalculateUserScores(Users $user)

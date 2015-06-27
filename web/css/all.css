@@ -172,14 +172,14 @@ a.blue-link {
     width: 220px;
 }
 
-.form-row {
+.form-row-line {
     float: right;
     width: 446px;
     padding-bottom: 16px;
     text-align: left;
 }
 
-.form-row .form-label {
+.form-row-line .form-label {
     display: inline-block;
     font-size: 14px;
     width: 100px;
@@ -187,12 +187,12 @@ a.blue-link {
     vertical-align: middle;
 }
 
-.form-row .form-input {
+.form-row-line .form-input {
     width: 320px;
     display: inline-block;
 }
 
-.form-row input[type="text"] {
+.form-row-line input[type="text"] {
     width: 100%;
     padding: 5px 10px;
     color: #6d6e71;

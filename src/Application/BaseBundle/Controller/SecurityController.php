@@ -17,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Application\UsersBundle\Entity\Users;
 use Application\UsersBundle\Repository\Users as UsersRepository;
+use Application\ScoresBundle\Entity\ScoresUsers;
 
 
 /**
@@ -171,9 +172,10 @@ class SecurityController extends Controller
                 $user->setConfirmationToken(null);
                 $user->setPassword('not-password');
             }
+
             //$user->addRole( 'ROLE_ADMIN' );
-            $user->setFirstName( $fbUser['first_name'] );
-            $user->setLastName( $fbUser['last_name'] );
+            //$user->setFirstName( $fbUser['first_name'] );
+            //$user->setLastName( $fbUser['last_name'] );
             $user->setLink( $fbUser['link'] );
 
             $userManager->updateUser($user);
@@ -181,6 +183,12 @@ class SecurityController extends Controller
                 $user->setUsername( $user->getSlug() );
                 $userManager->updateUser($user);
             }
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->addUserRegistrationScore($user);
+
             $this->authenticateUser($user);
         }
 
@@ -262,8 +270,8 @@ class SecurityController extends Controller
                 $user->setPassword('not-password');
                 $user->setLink( 'http://vk.com/' . $vkUser['screen_name'] );
             }
-            $user->setFirstName( $vkUser['first_name'] );
-            $user->setLastName( $vkUser['last_name'] );
+            //$user->setFirstName( $vkUser['first_name'] );
+            //$user->setLastName( $vkUser['last_name'] );
             $user->setPhotoLink( $vkUser['photo_big'] );
 
             $userManager->updateUser($user);
@@ -271,6 +279,12 @@ class SecurityController extends Controller
                 $user->setUsername( $user->getSlug() );
                 $userManager->updateUser($user);
             }
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->addUserRegistrationScore($user);
+
             $this->authenticateUser($user);
         }
 
@@ -369,8 +383,8 @@ class SecurityController extends Controller
                 $user->setPassword('not-password');
                 $user->setLink( 'http://ok.ru/profile/' . $okUser['uid'] );
             }
-            $user->setFirstName( $okUser['first_name'] );
-            $user->setLastName( $okUser['last_name'] );
+            //$user->setFirstName( $okUser['first_name'] );
+            //$user->setLastName( $okUser['last_name'] );
 
             if ( isset($okUser['pic_2']) && $okUser['pic_2'] ) {
                 $user->setPhotoLink( $okUser['pic_2'] );
@@ -381,6 +395,12 @@ class SecurityController extends Controller
                 $user->setUsername( $user->getSlug() );
                 $userManager->updateUser($user);
             }
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->addUserRegistrationScore($user);
+
             $this->authenticateUser($user);
         }
 

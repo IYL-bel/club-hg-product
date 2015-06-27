@@ -50,16 +50,20 @@ class DefaultController extends Controller
 
 
         // PRIZES
+        $prizes = array();
         /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
         $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
         $allIdsPrizes = $prizesRepository->getIdsAllPrizes();
-        $allIds = array();
-        foreach ($allIdsPrizes as $val) {
-            $allIds[] = $val['id'];
+        if ($allIdsPrizes) {
+            $allIds = array();
+            foreach ($allIdsPrizes as $val) {
+                $allIds[] = $val['id'];
+            }
+            shuffle($allIds);
+            $randomIdsForPrizes = array_slice($allIds, 0, 4);
+            $prizes = $prizesRepository->getPrizesForMainPage($randomIdsForPrizes);
         }
-        shuffle($allIds);
-        $randomIdsForPrizes = array_slice($allIds, 0, 4);
-        $prizes = $prizesRepository->getPrizesForMainPage($randomIdsForPrizes);
+
 
         return array(
             'main_tips_club' => $mainTipsClub,
