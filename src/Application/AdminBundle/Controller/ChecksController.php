@@ -16,6 +16,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 
 use Application\AdminBundle\Form\Type\CheckDisallow as CheckDisallowForm;
+use Application\AdminBundle\Form\Type\CheckApproved as CheckApprovedForm;
+use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 
 
 /**
@@ -46,10 +49,11 @@ class ChecksController extends Controller
     /**
      * @Template()
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param int $id
      * @return array
      */
-    public function approvedCheckAction($id)
+    public function approvedCheckAction(Request $request, $id)
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
@@ -61,15 +65,34 @@ class ChecksController extends Controller
             'status' => $checksRepository::STATUS_NEW
         ));
 
-        if ($check) {
+        if (!$check) {
+            return $this->redirectToRoute('application_admin_checks');
+        }
+
+        $form = $this->createForm(new CheckApprovedForm(), $check);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $scoreCheck = new Scores();
+            $scoreCheck->setPoints( $check->getPoints() );
+            $scoreCheck->setType(ScoresRepository::TYPE__CHECKS);
+
             $check->setStatus($checksRepository::STATUS_CONFIRMED);
             $check->setProcessingAt( new \DateTime('now') );
+            $check->setScores($scoreCheck);
 
             $em->persist($check);
             $em->flush();
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->additionUserScore( $check->getScores(), $check->getUser() );
+
+            return $this->redirectToRoute('application_admin_checks');
         }
 
-        return $this->redirectToRoute('application_admin_checks');
+        return array( 'form' => $form->createView() );
     }
 
     /**

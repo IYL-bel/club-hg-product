@@ -165,12 +165,15 @@ class SecurityController extends Controller
 
                 $user->setFbId( $fbUser['id'] );
                 $user->setTypeUser( UsersRepository::TYPE_USER_FB );
+                $user->setFirstName( $fbUser['first_name'] );
+                $user->setLastName( $fbUser['last_name'] );
                 $user->setPhotoLink('https://graph.facebook.com/' . $fbUser['id'] . '/picture?type=large');
                 $user->setUsername( 'fb_'. $fbUser['id'] );
                 $user->setEmail( 'fb_'. $fbUser['id'] );
                 $user->setEnabled(true);
                 $user->setConfirmationToken(null);
                 $user->setPassword('not-password');
+
             }
 
             //$user->addRole( 'ROLE_ADMIN' );
@@ -263,6 +266,8 @@ class SecurityController extends Controller
 
                 $user->setVkId( $vkUser['uid'] );
                 $user->setTypeUser( UsersRepository::TYPE_USER_VK );
+                $user->setFirstName( $vkUser['first_name'] );
+                $user->setLastName( $vkUser['last_name'] );
                 $user->setUsername( 'vk_'. $vkUser['uid'] );
                 $user->setEmail( 'vk_'. $vkUser['uid'] );
                 $user->setEnabled(true);
@@ -376,6 +381,8 @@ class SecurityController extends Controller
 
                 $user->setOkId( $okUser['uid'] );
                 $user->setTypeUser( UsersRepository::TYPE_USER_OK );
+                $user->setFirstName( $okUser['first_name'] );
+                $user->setLastName( $okUser['last_name'] );
                 $user->setUsername( 'ok_'. $okUser['uid'] );
                 $user->setEmail( 'ok_'. $okUser['uid'] );
                 $user->setEnabled(true);

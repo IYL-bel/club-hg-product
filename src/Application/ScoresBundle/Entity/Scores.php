@@ -16,6 +16,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\ContestsBundle\Entity\Contests;
+use Application\UsersBundle\Entity\Checks;
+use Application\PrizesBundle\Entity\Prizes;
 
 
 /**
@@ -79,6 +81,13 @@ class Scores
      * @ORM\OneToOne(targetEntity="Application\PrizesBundle\Entity\Prizes", mappedBy="scoresBuy")
      */
     protected $prizesScoresBuy;
+
+    /**
+     * @var \Application\UsersBundle\Entity\Checks
+     *
+     * @ORM\OneToOne(targetEntity="Application\UsersBundle\Entity\Checks", mappedBy="scores")
+     */
+    protected $checksScores;
 
 
     /**
@@ -191,7 +200,7 @@ class Scores
      * @param \Application\PrizesBundle\Entity\Prizes $prizesScoresBuy
      * @return \Application\ScoresBundle\Entity\Scores
      */
-    public function setPrizesScoresBuy($prizesScoresBuy)
+    public function setPrizesScoresBuy(Prizes $prizesScoresBuy)
     {
         $this->prizesScoresBuy = $prizesScoresBuy;
         return $this;
@@ -203,6 +212,24 @@ class Scores
     public function getPrizesScoresBuy()
     {
         return $this->prizesScoresBuy;
+    }
+
+    /**
+     * @param \Application\UsersBundle\Entity\Checks $checksScores
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function setChecksScores(Checks $checksScores)
+    {
+        $this->checksScores = $checksScores;
+        return $this;
+    }
+
+    /**
+     * @return \Application\UsersBundle\Entity\Checks
+     */
+    public function getChecksScores()
+    {
+        return $this->checksScores;
     }
 
 }

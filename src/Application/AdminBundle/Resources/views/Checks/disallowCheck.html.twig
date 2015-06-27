@@ -4,18 +4,17 @@
 
 {% block content %}
 
-<h3>Отклонение чека</h3>
+    <h3>Отклонение чека</h3>
+    <p style="margin-bottom: 12px;">Добавьте в комментарий причину отклонения</p>
 
-<p style="margin-bottom: 12px;">Добавьте в комментарий причину отклонения</p>
+    <div style="width: 482px;">
+        {{ form_start(form) }}
 
-<div style="width: 482px;">
-    {{ form_start(form) }}
+            {{ form_widget(form) }}
 
-        {{ form_widget(form) }}
+            <input type="submit" class="blue_btn" value="Отклонить"> <a class="link-cancel" href="{{ path('application_admin_checks') }}">Отмена</a>
 
-        <input type="submit" class="blue_btn" value="Отклонить"> <a class="link-cancel" href="{{ path('application_admin_templates') }}">Отмена</a>
-
-    {{ form_end(form) }}
-</div>
+        {{ form_end(form) }}
+    </div>
 
 {% endblock content %}

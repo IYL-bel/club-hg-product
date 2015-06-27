@@ -25,6 +25,7 @@ class Scores extends EntityRepository
     const TYPE__CONTESTS_WINNER_BASE         = 4;
     const TYPE__REGISTRATION                 = 11; // Регистрация в клубе
     const TYPE__PRIZES                       = 20;
+    const TYPE__CHECKS                       = 22;
     const TYPE__FILLED_PROFILE               = 33; // Заполнение профиля "о себе"
     const TYPE__FILLING_QUESTIONNAIRE        = 34; // Заполнение расширенной анкеты
     const TYPE__TEST_DRIVE_REQUEST_BASE      = 41; // Заявка на тест-драйв

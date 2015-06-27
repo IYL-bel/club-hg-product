@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\UsersBundle\Entity\Users;
 use Application\UsersBundle\Repository\Checks as ChecksRepository;
+use Application\ScoresBundle\Entity\Scores;
 
 
 /**
@@ -108,6 +109,19 @@ class Checks
      * @ORM\Column(name="processing_at", type="datetime", nullable=true)
      */
     protected $processingAt;
+
+    /**
+     * @var \Application\ScoresBundle\Entity\Scores
+     *
+     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="checksScores", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="scores_id", referencedColumnName="id", nullable=true)
+     */
+    protected $scores;
+
+    /**
+     * @var int
+     */
+    protected $points;
 
 
     /**
@@ -377,6 +391,42 @@ class Checks
     public function getProcessingAt()
     {
         return $this->processingAt;
+    }
+
+    /**
+     * @param int $points
+     * @return \Application\UsersBundle\Entity\Checks
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @param \Application\ScoresBundle\Entity\Scores $scores
+     * @return \Application\UsersBundle\Entity\Checks
+     */
+    public function setScores(Scores $scores)
+    {
+        $this->scores = $scores;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function getScores()
+    {
+        return $this->scores;
     }
 
 }

@@ -3,7 +3,12 @@ Application\UsersBundle\Entity\Checks:
     properties:
         commentAdmin:
             - NotBlank: { message: property.blank, groups: [form-disallow] }
-
+        points:
+            - NotBlank: { message: property.blank, groups: [form-approved] }
+            - Type:
+                type: numeric
+                message: property.number_only
+                groups: [form-approved]
 
 Application\UsersBundle\Entity\Users:
     properties:

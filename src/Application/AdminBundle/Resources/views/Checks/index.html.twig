@@ -30,7 +30,7 @@
 
                     {% if check.isStatusConfirmed() %}
                         <b class="status_approved"><i class="fa fa-check"></i></b>
-                        <span>+100 очков</span>
+                        <span>+{{ check.scores.points }} очков</span>
                     {% endif %}
 
                     {% if check.isStatusRejected() %}
