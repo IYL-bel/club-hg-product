@@ -31,10 +31,15 @@
                 <p>и получи +5 баллов  за каждую</p>
             </div>
             <div class="soc wight">
+                {{ render(controller('SocialNetworksBundle:Connection:sharing', {'url': url('application_base_security_login')} )) }}
+            </div>
+            {#
+            <div class="soc wight">
                 <a class="soc_ico fb" href="#"></a>
                 <a class="soc_ico vk" href="#"></a>
                 <a class="soc_ico ok" href="#"></a>
             </div>
+            #}
         </div>
 
     </div>

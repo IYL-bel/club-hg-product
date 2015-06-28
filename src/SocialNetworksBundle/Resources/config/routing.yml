@@ -1,3 +1,3 @@
-social_networks_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: SocialNetworksBundle:Default:index }
+social_networks_connection_after_share_fb:
+    path:     /connection/after-share/fb
+    defaults: { _controller: SocialNetworksBundle:Connection:afterShareFb }

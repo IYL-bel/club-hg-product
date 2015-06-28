@@ -15,6 +15,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Application\UsersBundle\Entity\Users;
 use Application\ScoresBundle\Entity\Scores;
+use Application\ScoresBundle\Repository\Scores as ScoresRepository;
 use Application\ScoresBundle\Entity\ScoresUsers;
 use Application\ScoresBundle\Repository\ScoresUsers as ScoresUsersRepository;
 
@@ -87,6 +88,62 @@ class ScoresActionService
         $this->recalculateUserScores($user);
 
         return $this;
+    }
+
+    /**
+     * @param \Application\UsersBundle\Entity\Users $user
+     * @param $type
+     * @throws \Exception
+     * @return bool
+     */
+    public function addShareScore(Users $user, $type)
+    {
+        switch ($type) {
+            case 'fb':
+                $scoreType = ScoresRepository::TYPE__SHARE_FB;
+                break;
+
+            case 'vk':
+                $scoreType = ScoresRepository::TYPE__SHARE_VK;
+                break;
+
+            case 'ok':
+                $scoreType = ScoresRepository::TYPE__SHARE_OK;
+                break;
+
+            default:
+                throw new \Exception('Set the wrong type of social network');
+                break;
+        }
+
+        /** @var $scoresRepository \Application\ScoresBundle\Repository\Scores */
+        $scoresRepository = $this->entityManager->getRepository('ApplicationScoresBundle:Scores');
+        /** @var $scoreSharing \Application\ScoresBundle\Entity\Scores */
+        $scoreSharing = $scoresRepository->findOneBy( array('type' => $scoreType) );
+
+        if ($scoreSharing) {
+            /** @var $scoresUsersRepository \Application\ScoresBundle\Repository\ScoresUsers */
+            $scoresUsersRepository = $this->entityManager->getRepository('ApplicationScoresBundle:ScoresUsers');
+            $scoreUserSharingLastWeek = $scoresUsersRepository->getSharingUserFromTime($user->getId(), $scoreType);
+
+            $isLastWeek = false;
+            if ($scoreUserSharingLastWeek) {
+                $lastWeekDate = new \DateTime();
+                $lastWeekDate->modify('-7 day');
+                $lastWeekTimestamp = $lastWeekDate->getTimestamp();
+                if ($lastWeekTimestamp > $scoreUserSharingLastWeek[0]['createdAt']->getTimestamp() ) {
+                    $isLastWeek = true;
+                }
+            }
+
+            if ( count($scoreUserSharingLastWeek) < 1 || $isLastWeek ) {
+                $this->additionUserScore($scoreSharing, $user);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

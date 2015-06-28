@@ -37,4 +37,5 @@ class Scores extends EntityRepository
     const TYPE__FB_REFERRAL_ACTIVITY         = 61;
     const TYPE__VK_REFERRAL_ACTIVITY         = 62;
     const TYPE__OK_REFERRAL_ACTIVITY         = 63;
+
 }

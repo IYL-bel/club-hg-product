@@ -113,12 +113,15 @@
                     {{ member.user.firstName }} {{ member.user.lastName }}{#<span> , домохозяйка</span><i> , Минск</i>#}
                 </div>
 
-                {{ render(controller('SocialNetworksBundle:Connection:sharing', {
-                    'url': url('application_contest_member', {'idMember': member.id }),
-                    'title': member.contest.title,
-                    'description': member.description |truncate(150)
+                {#{{ render(controller('SocialNetworksBundle:Connection:sharing', {
+                    'url': url('application_contest_member', {'idMember': member.id })
+                    })) }}#}
 
-                    })) }}
+                <div class="content_main__articles-item__txt-soc">
+                    <a class="soc_ico fb" href="#"></a>
+                    <a class="soc_ico vk" href="#"></a>
+                    <a class="soc_ico ok" href="#"></a>
+                </div>
 
             </div><!--.content_main__articles-item__txt-->
 

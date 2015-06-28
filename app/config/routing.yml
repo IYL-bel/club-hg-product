@@ -1,11 +1,4 @@
-application_message:
-    resource: "@ApplicationMessageBundle/Resources/config/routing.yml"
-    prefix:   /
-
-application_prizes:
-    resource: "@ApplicationPrizesBundle/Resources/config/routing.yml"
-    prefix:   /
-
+# home page
 _home:
     path:     /
     defaults: { _controller: ApplicationBaseBundle:Default:index }
@@ -22,17 +15,6 @@ application_base_security_login_check:
 application_base_security_logout:
     path:     /logout
 
-application_contests:
-    resource: "@ApplicationContestsBundle/Resources/config/routing.yml"
-    prefix:   /contests
-
-hg_product:
-    resource: "@HgProductBundle/Resources/config/routing.yml"
-    prefix:   /
-
-application_scores:
-    resource: "@ApplicationScoresBundle/Resources/config/routing.yml"
-    prefix:   /
 
 application_admin:
     resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
@@ -42,9 +24,33 @@ application_base:
     resource: "@ApplicationBaseBundle/Resources/config/routing.yml"
     prefix:   /
 
+application_contests:
+    resource: "@ApplicationContestsBundle/Resources/config/routing.yml"
+    prefix:   /contests
+
+application_message:
+    resource: "@ApplicationMessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+application_prizes:
+    resource: "@ApplicationPrizesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+application_scores:
+    resource: "@ApplicationScoresBundle/Resources/config/routing.yml"
+    prefix:   /
+
 application_users:
     resource: "@ApplicationUsersBundle/Resources/config/routing.yml"
     prefix:   /
+
+hg_product:
+    resource: "@HgProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+social_networks:
+    resource: "@SocialNetworksBundle/Resources/config/routing.yml"
+    prefix:   /social-networks
 
 templates:
     resource: "@TemplatesBundle/Resources/config/routing.yml"
