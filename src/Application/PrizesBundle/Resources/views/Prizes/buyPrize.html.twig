@@ -4,11 +4,21 @@
 
 <div class="popup_wrap_content_txt">
     {#<p>{{ contest.description }}</p>#}
-    <p>{{ prize.title }}</p>
+    <p>{{ prize.title }} / - {{ prize.scoresBuy.points }}</p>
 </div>
 
-{% if isEnoughBalls %}
+{% if errorMessage %}
     <div>
-        <span class="caution-message">Купить приз невозможно, нет нужного уровня или недостаточно баллов</span>
+        <span class="caution-message">
+            {% if errorMessage == 'isEnoughBalls' %}
+                Купить приз невозможно, нет нужного уровня или недостаточно баллов
+            {% endif %}
+            {% if errorMessage == 'notShippingAddress' %}
+                Вы не укзали индекс и адрес доставки. Заполните ваш профиль.
+            {% endif %}
+        </span>
     </div>
+{% else %}
+    <p><span class="confirm-message">Приз будет отправлен на ваш адрес</span></p>
 {% endif %}
+

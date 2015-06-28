@@ -1,0 +1,5 @@
+services:
+    send_email:
+        class: Application\MessageBundle\Service\SendEmailService
+        arguments: [@service_container]
+

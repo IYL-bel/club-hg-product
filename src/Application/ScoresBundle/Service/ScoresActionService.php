@@ -68,6 +68,28 @@ class ScoresActionService
     }
 
     /**
+     * @param \Application\ScoresBundle\Entity\Scores $score
+     * @param \Application\UsersBundle\Entity\Users $user
+     * @return ScoresActionService
+     */
+    public function subtractionUserScore(Scores $score, Users $user)
+    {
+        // remove Balls for User
+        $scoresUsers = new ScoresUsers();
+        $scoresUsers->setScore($score);
+        $scoresUsers->setUser($user);
+        $scoresUsers->setTypeCalculation(ScoresUsersRepository::TYPE_CALCULATION__SUBTRACTION);
+
+        $this->entityManager->persist($scoresUsers);
+        $this->entityManager->flush();
+
+        // recalculate user points
+        $this->recalculateUserScores($user);
+
+        return $this;
+    }
+
+    /**
      * @param \Application\UsersBundle\Entity\Users $user
      * @return bool
      */

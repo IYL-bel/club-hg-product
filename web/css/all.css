@@ -50,6 +50,11 @@ span.caution-message {
     text-shadow: 0 0 1px #efc3a2;
 }
 
+span.confirm-message {
+    color: forestgreen;
+    text-shadow: 0 0 1px #a5bba1;
+}
+
 .waiting-container {
     position: relative;
     min-height: 40px;
@@ -57,6 +62,10 @@ span.caution-message {
 
 a.blue-link {
     color: #008dd2;
+}
+
+form a.link-cancel {
+    margin-left: 15px;
 }
 
 .content .content_main__articles.cabinet .tabs-profile-menu a {

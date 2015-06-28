@@ -1,0 +1,8 @@
+messages:
+  emails:
+    checkout_prize_for_admin:
+      subject: Получение приза
+      body: |
+        Пользователь %user_name% заказал приз "%prize%" <br />
+        Адрес доставки: %user_postcode%, %user_address%
+

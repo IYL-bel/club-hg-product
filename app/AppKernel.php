@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Application\ContestsBundle\ApplicationContestsBundle(),
             new SocialNetworksBundle\SocialNetworksBundle(),
             new Application\PrizesBundle\ApplicationPrizesBundle(),
+            new Application\MessageBundle\ApplicationMessageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,4 +1,4 @@
 services:
-#    application_base.example:
-#        class: Application\BaseBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+#    send_email:
+#        class: Application\BaseBundle\Service\SendEmailService
+#        arguments: [@service_container]
