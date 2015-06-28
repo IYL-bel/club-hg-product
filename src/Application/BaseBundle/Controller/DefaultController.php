@@ -65,10 +65,29 @@ class DefaultController extends Controller
         }
 
 
+        // CONTESTS
+        /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
+
+        $contestActive = null;
+        $allActiveIdsContests = $contestsRepository->getIdsAllActualContests();
+        if ($allActiveIdsContests) {
+            if (count($allActiveIdsContests) > 1) {
+                $index = rand(0, count($allActiveIdsContests) - 1);
+                $selectedId = $allActiveIdsContests[$index];
+            } else {
+                $selectedId = $allActiveIdsContests[0];
+            }
+            $contestActive = $contestsRepository->find($selectedId);
+        }
+
         return array(
             'main_tips_club' => $mainTipsClub,
             'show_main_tips_club' => $cautionMainTips,
             'prizes' => $prizes,
+            'contests' => array(
+                'active' => $contestActive
+            ),
         );
     }
 

@@ -18,7 +18,32 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contests extends EntityRepository
 {
+
     const STATUS_ACTIVE  = 1;
     const STATUS_HIDDEN  = 2;
+
+
+    /**
+     * @return array
+     */
+    public function getIdsAllActualContests()
+    {
+        $currentDate = new \DateTime();
+        $currentDate->setTime(0, 0, 0);
+
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->select(array('c.id'))
+            ->where('c.status = :status')
+            ->andWhere('c.startedAt <= :current_date')
+            ->andWhere('c.finishedAt >= :current_date')
+            ->setParameters(array(
+                'status' => self::STATUS_ACTIVE,
+                'current_date' => $currentDate,
+            ))
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 
 }

@@ -1,6 +1,12 @@
 {% extends '::layout.html.twig' %}
 
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/upload_files.js') }}"></script>
+{% endblock %}
+
+
 {% block front_slider %}
     {{ render(controller('TemplatesBundle:Default:mainSlider')) }}
 {% endblock %}
@@ -48,19 +54,18 @@
     <div class="content_main__infoblock actual">
 
         <div class="content_main__infoblock-left left">
+            <a class="look_actual" href="{{ path('application_contests_index') }}">Текущие конкурсы</a>
 
-            <a class="look_actual" href="#">Текущие конкурсы</a>
-
-            <h3 class="title">8 марта с HG</h3>
+            <h3 class="title">{{ contests.active.title }}</h3>
             <div class="content_main__infoblock-left_txt">
-                <p>Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!</p>
-                <a href="#">участвовать</a>
+                <p>{{ contests.active.description |truncate(120) }}{#Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!#}</p>
+                <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.active.id}) }}">участвовать</a>
             </div>
-
         </div>
+
+
         {#
         <div class="content_main__infoblock-right right">
-
             <a class="look_actual" href="#">Ближайшие конкурсы</a>
 
             <h3 class="title">Весенний субботник</h3>
@@ -68,7 +73,6 @@
                 <p>Получите по 15 баллов за каждое фото теста продукции HG в вашем доме (фото до и после обязательны)</p>
                 <a href="#">участвовать</a>
             </div>
-
         </div>#}
 
     </div>
