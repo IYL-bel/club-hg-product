@@ -1,3 +1,7 @@
 social_networks_connection_after_share_fb:
     path:     /connection/after-share/fb
     defaults: { _controller: SocialNetworksBundle:Connection:afterShareFb }
+
+social_networks_connection_add_share_score:
+    path:     /connection/add-share-score/{type}
+    defaults: { _controller: SocialNetworksBundle:Connection:addShareScore }

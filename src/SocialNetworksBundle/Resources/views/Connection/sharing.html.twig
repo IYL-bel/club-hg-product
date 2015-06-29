@@ -1,3 +1,6 @@
-{{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {'linkAuth': url.fb, 'typeNetwork': 'fb'}) }}
-<a class="soc_ico vk" href="#"></a>
-<a class="soc_ico ok" href="#"></a>
+{{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {'linkAuth': url.fb, 'typeNetwork': 'fb', 'urlAddScore': ''}) }}
+{{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {'linkAuth': url.vk, 'typeNetwork': 'vk', 'urlAddScore': path('social_networks_connection_add_share_score', {'type': 'vk'})}) }}
+{{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {'linkAuth': url.ok, 'typeNetwork': 'ok', 'urlAddScore': path('social_networks_connection_add_share_score', {'type': 'ok'})}) }}
+
+
+{#<a class="soc_ico ok" href="#"></a>#}

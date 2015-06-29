@@ -13,6 +13,8 @@ namespace SocialNetworksBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+
 
 /**
  * SocialNetworksBundle\Controller\ConnectionController
@@ -36,25 +38,46 @@ class ConnectionController extends Controller
         //  &redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer
 
         $fb = 'https://www.facebook.com/dialog/share';
-        $params = array(
+        $paramsFb = array(
             'app_id' => $this->container->getParameter('facebook_app_id'),
             'display' => 'popup',
             'href' => $url,
             'redirect_uri' => $this->generateUrl('social_networks_connection_after_share_fb', array(), true),
         );
-        $fbLink = $fb . '?' . http_build_query($params);
+        $fbLink = $fb . '?' . http_build_query($paramsFb);
+
+
+        // VKONTAKTE SHARE LINK
+        $vk = 'http://vk.com/share.php';
+        $paramsVk = array(
+            'url' => $url,
+        );
+        $vkLink = $vk . '?' . http_build_query($paramsVk);
+
+
+        //ODNOKLASSNIKI SHARE LINK
+        //  http://www.odnoklassniki.ru/dk?
+        //      st.cmd=addShare&st.s=1
+        //      &st.comments=hello
+        //      &st._surl=http://club.hg-product.ru/login
+        $ok = 'http://www.odnoklassniki.ru/dk';
+        $paramsOk = array(
+            'st.cmd' => 'addShare&st.s=1',
+            'st.comments' => 'Hello',
+            'st._surl' => $url,
+        );
+        $okLink = $ok . '?' . http_build_query($paramsOk);
 
 
         $url = array(
             'fb' => $fbLink,
-            'vk' => '',
-            'ok' => '',
+            'vk' => $vkLink,
+            'ok' => $okLink,
         );
 
         return array(
             'url' => $url
         );
-
     }
 
     /**
@@ -88,6 +111,26 @@ class ConnectionController extends Controller
             'error_code' => $errorCode,
             'error_message' => $errorMessage,
         );
+    }
+
+    /**
+     * @param string $type
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function addShareScoreAction($type)
+    {
+        $success = true;
+        if ($type == 'vk' || $type == 'ok') {
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->addShareScore($this->getUser(), $type);
+        }
+
+        return new Response(json_encode(array(
+            'success' => $success,
+        )));
     }
 
 }
