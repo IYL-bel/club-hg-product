@@ -80,7 +80,7 @@ class Users extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string", name="photo_link", length=128, nullable=true)
+     * @ORM\Column(type="string", name="photo_link", length=256, nullable=true)
      */
     protected $photoLink;
 
