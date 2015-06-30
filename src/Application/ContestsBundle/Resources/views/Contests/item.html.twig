@@ -9,178 +9,57 @@
 
 {% block content %}
 
-<div class="content_header">
+    <div class="content_header">
 
-    <h1 class="content_header__title">
-        {{ contest.title }}
-        <span>/ <i>{{ contest.contestsMembers |length }}</i> участников</span>
-    </h1>
+        <h1 class="content_header__title">
+            {{ contest.title }}
+            <span>/ <i>{{ contest.getCountContestsMembersConfirmed() }}</i> участников</span>
+        </h1>
 
-    <ul class="content_header__breadcrumbs">
-        <li><a href="#">Главная</a></li>
-        <li><a href="{{ path('_home') }}">Клуб экспертов чистоты</a></li>
-        <li><a href="{{ path('application_contests_index') }}">Конкурсы</a></li>
-        <li><span>{{ contest.title }}</span></li>
-    </ul>
+        <ul class="content_header__breadcrumbs">
+            <li><a href="#">Главная</a></li>
+            <li><a href="{{ path('_home') }}">Клуб экспертов чистоты</a></li>
+            <li><a href="{{ path('application_contests_index') }}">Конкурсы</a></li>
+            <li><span>{{ contest.title }}</span></li>
+        </ul>
 
-    {#
-    <ul class="content_header__show">
-        <li><span>Показать:</span></li>
-        <li><a href="#">Все конкурсы</a></li>
-        <li><a href="#">Текущие конкурсы</a></li>
-        <li><a href="#">Архив конкурсов</a></li>
-        <li><a href="#">Победители</a></li>
-    </ul><!--.content_header__show-->
-    #}
-</div><!--.content_header-->
+        {#
+        <ul class="content_header__show">
+            <li><span>Показать:</span></li>
+            <li><a href="#">Все конкурсы</a></li>
+            <li><a href="#">Текущие конкурсы</a></li>
+            <li><a href="#">Архив конкурсов</a></li>
+            <li><a href="#">Победители</a></li>
+        </ul><!--.content_header__show-->
+        #}
+    </div><!--.content_header-->
 
+    <div class="content_main">
 
+        <div class="content_main__articles">
 
-
-
-
-<div class="content_main">
-
-    <div class="content_main__articles">
-
-        <div class="content_main__articles-item">
-
-            <div class="content_main__articles-item__title">
-                <h3 class="title">Революция на кухне</h3>
-                <span> / <i>150</i> баллов <b>/ победа</b></span>
-                <div class="content_main__articles-item__title-avatar">
-                                <span>
-                                    <img src="{{ asset('images/not_optimize/avatar.jpg') }}" alt="Елена Кучеренко"/>
-                                </span>
-                    <strong>
-                        Елена<br/>
-                        Кучеренко,
-                        <i>Минск</i>
-                    </strong>
+            {% for member in contestMembers %}
+                {{ include('ApplicationContestsBundle:Contests:member_item.html.twig', {'member': member}) }}
+            {% else %}
+                <div class="" style="text-align: center; margin-top: 44px;">
+                    Нет усастников в конкурсе
                 </div>
-            </div><!--.content_main__articles-item__title-->
+            {% endfor %}
 
-            <div class="content_main__articles-item__txt">
+            {#
+            <div class="content_main__articles-pagi">
+                <a class="prev" href="#"><i class="fa fa-angle-left"></i><span>Назад</span></a>
+                <a class="page" href="#">1</a>
+                <span><b>2</b></span>
+                <a class="page" href="#">3</a>
+                <a class="page" href="#">4</a>
+                <a class="page" href="#">5</a>
+                <a class="next" href="#"><span>Вперед</span><i class="fa fa-angle-right"></i></a>
+            </div>
+            #}
 
-                <p>Получила на тестирование HG Средство для удаления грибка и плесени. Средство быстро убивает грибок, плесень, водоросли, мох и другие микроорганизмы в местах с повышенной влажностью. Не смотря на то, что у меня в ванной комнате не настолько уж и повышенная влажность, и она всегда хорошо проветривается, на швах между кафельной плиткой у меня все черное, особенно в непосредственной близости с самой ванной. Выводить чем только не пытались, но, безрезультатно. Именно поэтому с нетерпением ждала Средство для удаления грибка и плесени, которое в первый же день и протестировала.</p>
-
-                <div class="gallery">
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap img_w">
-                            <img src="{{ asset('images/not_optimize/gall_01.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
-                        </div>
-                        <strong>Чайник был ржавы и с известковым налетом</strong>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt="Для полной очистки хватило 10 минут со средством  HG"/>
-                        </div>
-                        <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
-                    </div>
-
-                </div>
-
-                <div class="content_main__articles-item__txt-name">
-                    Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
-                </div>
-
-                <div class="content_main__articles-item__txt-soc">
-                    <a class="soc_ico fb" href="#">15</a>
-                    <a class="soc_ico vk" href="#">45</a>
-                    <a class="soc_ico ok" href="#">80</a>
-                </div>
-
-            </div><!--.content_main__articles-item__txt-->
-
-        </div><!--.content_main__articles-item-->
-
-
-        <div class="content_main__articles-item">
-
-            <div class="content_main__articles-item__title">
-                <h3 class="title">Уборка в кладовке</h3>
-                <span> / <i>10</i> баллов</span>
-                <div class="content_main__articles-item__title-avatar">
-                                <span>
-                                    <img src="{{ asset('images/not_optimize/avatar.jpg') }}" alt="Елена Кучеренко"/>
-                                </span>
-                    <strong>
-                        Елена<br/>
-                        Кучеренко,
-                        <i>Минск</i>
-                    </strong>
-                </div>
-            </div><!--.content_main__articles-item__title-->
-
-            <div class="content_main__articles-item__txt">
-
-                <p>Получила на тестирование HG Средство для удаления грибка и плесени. Средство быстро убивает грибок, плесень, водоросли, мох и другие микроорганизмы в местах с повышенной влажностью. Не смотря на то, что у меня в ванной комнате не настолько уж и повышенная влажность, и она всегда хорошо проветривается, на швах между кафельной плиткой у меня все черное, особенно в непосредственной близости с самой ванной. Выводить чем только не пытались, но, безрезультатно. Именно поэтому с нетерпением ждала Средство для удаления грибка и плесени, которое в первый же день и протестировала.</p>
-
-                <div class="gallery">
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
-                        </div>
-                        <strong>Чайник был ржавы и с известковым налетом</strong>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="Для полной очистки хватило 10 минут со средством  HG"/>
-                        </div>
-                        <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
-                    </div>
-
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
-                        </div>
-                        <strong>Чайник был ржавы и с известковым налетом</strong>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="Для полной очистки хватило 10 минут со средством  HG"/>
-                        </div>
-                        <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
-                    </div>
-
-                </div>
-
-                <div class="content_main__articles-item__txt-name">
-                    Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
-                </div>
-
-                <div class="content_main__articles-item__txt-soc">
-                    <a class="soc_ico fb" href="#">15</a>
-                    <a class="soc_ico vk" href="#">45</a>
-                    <a class="soc_ico ok" href="#">80</a>
-                </div>
-
-            </div><!--.content_main__articles-item__txt-->
-
-        </div><!--.content_main__articles-item-->
-
-        <div class="content_main__articles-pagi">
-            <a class="prev" href="#"><i class="fa fa-angle-left"></i><span>Назад</span></a>
-            <a class="page" href="#">1</a>
-            <span><b>2</b></span>
-            <a class="page" href="#">3</a>
-            <a class="page" href="#">4</a>
-            <a class="page" href="#">5</a>
-            <a class="next" href="#"><span>Вперед</span><i class="fa fa-angle-right"></i></a>
         </div>
 
-    </div><!--.content_main__articles-->
-
-</div><!--.content_main-->
-
-
-
-
+    </div>
 
 {% endblock content %}

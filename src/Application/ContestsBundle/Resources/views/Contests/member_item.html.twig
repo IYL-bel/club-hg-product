@@ -1,0 +1,47 @@
+<div class="content_main__articles-item">
+
+    <div class="content_main__articles-item__title">
+        <h3 class="title">{{ member.contest.title }}</h3>
+        <span> / <i>{{ member.contest.scoresParticipation.points }}</i> баллов</span>
+        <div class="content_main__articles-item__title-avatar">
+            <span>
+                <img src="{{ member.user.photoLink }}" alt="{{ member.user.firstName }} {{ member.user.lastName }}"/>
+            </span>
+            <strong>
+                {{ member.user.firstName }}<br/>
+                {{ member.user.lastName }}
+                {#<i>Минск</i>#}
+            </strong>
+        </div>
+    </div><!--.content_main__articles-item__title-->
+
+    <div class="content_main__articles-item__txt">
+
+        <p>{{ member.description |nl2br }}</p>
+
+        <div class="gallery">
+
+            {% for itemPhoto in member.contestsMembersPhotos %}
+                <div class="gallery-item">
+                    <div class="gallery-item__img_wrap">
+                        <img src="{{ asset(itemPhoto.getFilePathWeb()) }}" alt="{{ itemPhoto.description }}" style="width: 295px;"/>
+                    </div>
+                    <strong>{{ itemPhoto.description }}</strong>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="content_main__articles-item__txt-name">
+            {{ member.user.firstName }} {{ member.user.lastName }}{% if member.user.occupation %}<span>, {{ member.user.occupation }}</span>{% endif %}{#<i> , Минск</i>#}
+        </div>
+
+        <div class="content_main__articles-item__txt-soc">
+            <a class="soc_ico fb" href="#"></a>
+            <a class="soc_ico vk" href="#"></a>
+            <a class="soc_ico ok" href="#"></a>
+        </div>
+
+    </div>
+
+</div>

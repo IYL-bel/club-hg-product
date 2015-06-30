@@ -522,4 +522,22 @@ class Contests
         return $this->contestsMembers;
     }
 
+    /**
+     * @return int
+     */
+    public function getCountContestsMembersConfirmed()
+    {
+        $count = 0;
+        if ($this->contestsMembers) {
+            /** @var $member \Application\ContestsBundle\Entity\ContestsMembers */
+            foreach($this->contestsMembers as $member) {
+                if ( $member->isStatusConfirmed() ) {
+                    $count = $count + 1;
+                }
+            }
+        }
+
+        return $count;
+    }
+
 }

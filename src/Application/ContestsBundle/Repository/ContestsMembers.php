@@ -18,8 +18,32 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ContestsMembers extends EntityRepository
 {
+
     const STATUS_NEW        = 1;
     const STATUS_CONFIRMED  = 2;
     const STATUS_REJECTED   = 3;
+
+
+    /**
+     * @param int $contestId
+     * @return array
+     */
+    public function getConfirmedMembersForSelectContest($contestId)
+    {
+        $qb = $this->createQueryBuilder('cm');
+        $qb
+            ->join('cm.contest', 'c')
+            ->where('c.id = :contest_id')
+            ->andWhere('cm.status = :status')
+            ->orderBy('c.updatedAt', 'DESC')
+            //->setMaxResults(10)
+            ->setParameters(array(
+                'contest_id' => $contestId,
+                'status' => self::STATUS_CONFIRMED,
+            ))
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 
 }

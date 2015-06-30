@@ -9,126 +9,35 @@
 
 {% block content %}
 
+    <div class="content_header">
 
-<div class="content_header">
+        <h1 class="content_header__title">
+            {{ member.contest.title }}
+            <span>/ <i>{{ member.contest.contestsMembers |length }}</i> участников</span>
+        </h1>
 
-    <h1 class="content_header__title">
-        {{ member.contest.title }}
-        <span>/ <i>{{ member.contest.contestsMembers |length }}</i> участников</span>
-    </h1>
+        <ul class="content_header__breadcrumbs">
+            <li><a href="#">Главная</a></li>
+            <li><a href="{{ path('_home') }}">Клуб экспертов чистоты</a></li>
+            <li><a href="{{ path('application_contests_index') }}">Конкурсы</a></li>
+            <li><a href="{{ path('application_contest_item', {'idContest': member.contest.id}) }}">{{ member.contest.title }}</a></li>
+        </ul>
 
-    <ul class="content_header__breadcrumbs">
-        <li><a href="#">Главная</a></li>
-        <li><a href="{{ path('_home') }}">Клуб экспертов чистоты</a></li>
-        <li><a href="{{ path('application_contests_index') }}">Конкурсы</a></li>
-        <li><a href="{{ path('application_contest_item', {'idContest': member.contest.id}) }}">{{ member.contest.title }}</a></li>
-    </ul>
+        {#
+        <ul class="content_header__show">
+            <li><span>Показать:</span></li>
+            <li><a href="#">Все конкурсы</a></li>
+            <li><a href="#">Текущие конкурсы</a></li>
+            <li><a href="#">Архив конкурсов</a></li>
+            <li><a href="#">Победители</a></li>
+        </ul><!--.content_header__show-->
+        #}
+    </div><!--.content_header-->
 
-    {#
-    <ul class="content_header__show">
-        <li><span>Показать:</span></li>
-        <li><a href="#">Все конкурсы</a></li>
-        <li><a href="#">Текущие конкурсы</a></li>
-        <li><a href="#">Архив конкурсов</a></li>
-        <li><a href="#">Победители</a></li>
-    </ul><!--.content_header__show-->
-    #}
-</div><!--.content_header-->
-
-<div class="content_main">
-    <div class="content_main__articles">
-
-        <div class="content_main__articles-item">
-
-            <div class="content_main__articles-item__title">
-                <h3 class="title">{{ member.contest.title }}</h3>
-                <span> / <i>{{ member.contest.scoresParticipation.points }}</i> баллов</span>
-                <div class="content_main__articles-item__title-avatar">
-                    <span>
-                        <img src="{{ member.user.photoLink }}" alt="{{ member.user.firstName }} {{ member.user.lastName }}"/>
-                    </span>
-                    <strong>
-                        {{ app.user.firstName }}<br/>
-                        {{ app.user.lastName }}
-                        {#<i>Минск</i>#}
-                    </strong>
-                </div>
-            </div><!--.content_main__articles-item__title-->
-
-            <div class="content_main__articles-item__txt">
-
-                <p>{{ member.description }}</p>
-
-                <div class="gallery">
-
-
-                    {% for itemPhoto in member.contestsMembersPhotos %}
-                        <div class="gallery-item">
-                            <div class="gallery-item__img_wrap">
-                                <img src="{{ asset(itemPhoto.getFilePathWeb()) }}" alt="{{ itemPhoto.description }}" style="width: 295px;"/>
-                            </div>
-                            <strong>{{ itemPhoto.description }}</strong>
-                        </div>
-                    {% endfor %}
-
-
-
-
-                    {#
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
-                        </div>
-                        <strong>Чайник был ржавы и с известковым налетом</strong>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="Для полной очистки хватило 10 минут со средством  HG"/>
-                        </div>
-                        <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
-                    </div>
-
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="Чайник был ржавы и с известковым налетом"/>
-                        </div>
-                        <strong>Чайник был ржавы и с известковым налетом</strong>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-item__img_wrap">
-                            <img src="{{ asset('images/not_optimize/gall_04.jpg') }}" alt="Для полной очистки хватило 10 минут со средством  HG"/>
-                        </div>
-                        <strong>Для полной очистки хватило 10 минут со средством  HG</strong>
-                    </div>
-                    #}
-
-
-
-                </div>
-
-                <div class="content_main__articles-item__txt-name">
-                    {{ member.user.firstName }} {{ member.user.lastName }}{#<span> , домохозяйка</span><i> , Минск</i>#}
-                </div>
-
-                {#{{ render(controller('SocialNetworksBundle:Connection:sharing', {
-                    'url': url('application_contest_member', {'idMember': member.id })
-                    })) }}#}
-
-                <div class="content_main__articles-item__txt-soc">
-                    <a class="soc_ico fb" href="#"></a>
-                    <a class="soc_ico vk" href="#"></a>
-                    <a class="soc_ico ok" href="#"></a>
-                </div>
-
-            </div><!--.content_main__articles-item__txt-->
-
-        </div><!--.content_main__articles-item-->
-
-    </div><!--.content_main__articles-->
-</div><!--.content_main-->
-
+    <div class="content_main">
+        <div class="content_main__articles">
+            {{ include('ApplicationContestsBundle:Contests:member_item.html.twig') }}
+        </div>
+    </div>
 
 {% endblock content %}

@@ -23,8 +23,6 @@ use Application\ContestsBundle\Entity\ContestsMembersPhotos;
 
 
 /**
- * @Security("has_role('ROLE_USER')")
- *
  * Application\ContestsBundle\Controller\ContestsController
  */
 class ContestsController extends Controller
@@ -32,6 +30,7 @@ class ContestsController extends Controller
 
     /**
      * @Template()
+     * @Security("has_role('ROLE_USER')")
      *
      * @return array
      */
@@ -50,6 +49,8 @@ class ContestsController extends Controller
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
+     *
      * @param \Application\ContestsBundle\Controller\Request $request
      * @param int $idContest
      * @return \Symfony\Component\HttpFoundation\Response
@@ -218,6 +219,7 @@ class ContestsController extends Controller
 
     /**
      * @Template()
+     * @Security("has_role('ROLE_USER')")
      *
      * @param int $idContest
      * @return array
@@ -232,9 +234,14 @@ class ContestsController extends Controller
         /** @var $contest \Application\ContestsBundle\Entity\Contests */
         $contest = $contestsRepository->find($idContest);
 
+        /** @var $contestsMembersRepository \Application\ContestsBundle\Repository\ContestsMembers */
+        $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
+        $contestMembers = $contestsMembersRepository->getConfirmedMembersForSelectContest( $contest->getId() );
+
         return array(
             'contest' => $contest,
-            'idContest' => $idContest
+            'idContest' => $idContest,
+            'contestMembers' => $contestMembers,
         );
     }
 
@@ -250,10 +257,10 @@ class ContestsController extends Controller
         $em = $this->getDoctrine()->getManager();
         /** @var $contestsMembersRepository \Application\ContestsBundle\Entity\ContestsMembers */
         $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
-        $contestsMember = $contestsMembersRepository->find($idMember);
+        $contestMember = $contestsMembersRepository->find($idMember);
 
         return array(
-            'member' => $contestsMember,
+            'member' => $contestMember,
         );
     }
 
