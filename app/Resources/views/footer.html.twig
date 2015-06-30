@@ -1,10 +1,9 @@
 <!--  footer  -->
 <footer>
     <div class="footer">
-
         <div class="footer-info">
             <p>
-                <a href="http://www.rusautolack.ru" target="_blank">“Русавтолак”</a><br/>
+                <a href="http://www.rusautolack.ru" target="_blank" rel="nofollow">“Русавтолак”</a><br/>
                 Официальный дистрибьютор бытовой<br/>
                 химии HG на территории РФ<br/>
                 {#<a href="http://www.rusautolack.ru" target="_blank">www.rusautolack.ru</a><br/>#}
@@ -12,11 +11,19 @@
             </p>
         </div>
 
-        <div class="footer-soc">
-            <a class="soc_ico fb" href="#"></a>
-            <a class="soc_ico vk" href="#"></a>
-            <a class="soc_ico ok" href="#"></a>
+        <div class="user-agreement">
+            <a href="{{ path('application_base_default_user_agreement') }}">Соглашение с пользователем</a>
         </div>
 
-    </div><!--.footer-->
+        <div class="footer-soc">
+            <a class="soc_ico fb" href="https://www.facebook.com/HGrussia" target="_blank"></a>
+            <a class="soc_ico vk" href="https://vk.com/hg_rus" target="_blank"></a>
+            <a class="soc_ico ok" href="http://ok.ru/group/51834300596438" target="_blank"></a>
+        </div>
+    </div>
+
+    {% block yandexMetrika %}
+        {{ include('ApplicationBaseBundle::yandex_metrika.html.twig') }}
+    {% endblock %}
+
 </footer>

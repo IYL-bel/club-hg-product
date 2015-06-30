@@ -122,8 +122,15 @@ class DefaultController extends Controller
         return array();
     }
 
-
-
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function userAgreementAction()
+    {
+        return array();
+    }
 
 
 

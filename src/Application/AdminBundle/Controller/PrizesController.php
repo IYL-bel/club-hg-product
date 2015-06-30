@@ -82,6 +82,13 @@ class PrizesController extends Controller
 
         if ($form->isValid()) {
             $prize = $form->getData();
+
+            if ( $prize->getFile() ) {
+                /** @var $file \Symfony\Component\HttpFoundation\File\UploadedFile */
+                $file = $prize->getFile();
+                $prize->setFileName( $file->getClientOriginalName() );
+            }
+
             $prize->setStatus($prizesRepository::STATUS_ACTIVE);
 
             $scoresBuy = $prize->getScoresBuy();

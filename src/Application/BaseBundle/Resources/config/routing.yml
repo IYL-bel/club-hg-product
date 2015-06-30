@@ -17,3 +17,7 @@ application_base_security_login_vk:
 application_base_security_login_ok:
     path:     auth/login-ok/
     defaults: { _controller: ApplicationBaseBundle:Security:loginOk }
+
+application_base_default_user_agreement:
+    path:     user-agreement/
+    defaults: { _controller: ApplicationBaseBundle:Default:userAgreement }

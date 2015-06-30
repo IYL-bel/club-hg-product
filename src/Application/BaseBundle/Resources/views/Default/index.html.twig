@@ -57,31 +57,33 @@
     {% endif %}
 
 
-    <div class="content_main__infoblock actual">
+    {% if contests.active %}
+        <div class="content_main__infoblock actual">
 
-        <div class="content_main__infoblock-left left">
-            <a class="look_actual" href="{{ path('application_contests_index') }}">Текущие конкурсы</a>
+            <div class="content_main__infoblock-left left">
+                <a class="look_actual" href="{{ path('application_contests_index') }}">Текущие конкурсы</a>
 
-            <h3 class="title">{{ contests.active.title }}</h3>
-            <div class="content_main__infoblock-left_txt">
-                <p>{{ contests.active.description |truncate(120) }}{#Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!#}</p>
-                <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.active.id}) }}">участвовать</a>
+                <h3 class="title">{{ contests.active.title }}</h3>
+                <div class="content_main__infoblock-left_txt">
+                    <p>{{ contests.active.description |truncate(120) }}{#Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!#}</p>
+                    <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.active.id}) }}">участвовать</a>
+                </div>
             </div>
+
+
+            {#
+            <div class="content_main__infoblock-right right">
+                <a class="look_actual" href="#">Ближайшие конкурсы</a>
+
+                <h3 class="title">Весенний субботник</h3>
+                <div class="content_main__infoblock-right_txt">
+                    <p>Получите по 15 баллов за каждое фото теста продукции HG в вашем доме (фото до и после обязательны)</p>
+                    <a href="#">участвовать</a>
+                </div>
+            </div>#}
+
         </div>
-
-
-        {#
-        <div class="content_main__infoblock-right right">
-            <a class="look_actual" href="#">Ближайшие конкурсы</a>
-
-            <h3 class="title">Весенний субботник</h3>
-            <div class="content_main__infoblock-right_txt">
-                <p>Получите по 15 баллов за каждое фото теста продукции HG в вашем доме (фото до и после обязательны)</p>
-                <a href="#">участвовать</a>
-            </div>
-        </div>#}
-
-    </div>
+    {% endif %}
 
     {% if show_main_tips_club %}
         {{ include('ApplicationBaseBundle:Default:index_mainTipsClub.html.twig') }}

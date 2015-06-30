@@ -4,6 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta id="viewport" name="viewport" content="width=device-width">
         <title>HG - Лучший эксперт чистоты</title>
+
+        <!-- /Yandex.Metrika counter -->
         <meta name='yandex-verification' content='5475c665e716aa8b' />
 
 
@@ -34,13 +36,23 @@
             <script src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
 
+
+        {% block googleAnalytics %}
+            {{ include('ApplicationBaseBundle::google_analytics.html.twig') }}
+        {% endblock %}
+
+
     </head>
 
-    <body class="front_page">
+    <body class="front_page {% if not is_granted('IS_AUTHENTICATED_FULLY') %}nr{% endif %}">
         <div class="viewport">
 
             {% block header %}
-                {% include '::header.html.twig' %}
+                {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                    {% include '::header.html.twig' %}
+                {% else %}
+                    {% include '::header_not_auth.html.twig' %}
+                {% endif %}
             {% endblock %}
 
 
@@ -62,7 +74,6 @@
 
 
     {% block popup %}
-
         <div class="popup">
             <div class="popup_close"></div>
             <div class="popup_wrap" id="img-container">
@@ -71,7 +82,6 @@
                 </div>
             </div>
         </div>
-
     {% endblock popup %}
 
 
