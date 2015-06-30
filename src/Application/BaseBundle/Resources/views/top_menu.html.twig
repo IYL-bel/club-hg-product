@@ -4,6 +4,6 @@
         <li{% if app.request.attributes.get('_route') == '_home' %} class="active"{% endif %}><a href="{{ path('_home') }}">Клуб</a></li>
         <li{% if nameController == 'Contests' %} class="active"{% endif %}><a href="{{ path('application_contests_index') }}">Конкурсы</a></li>
         <li{% if app.request.attributes.get('_route') == 'application_base_prizes' %} class="active"{% endif %}>><a href="{{ path('application_base_prizes') }}">Призы</a></li>
-        <li{% if app.request.attributes.get('_route') == 'application_base_catalog_products' %} class="active"{% endif %}>><a href="{{ path('application_base_catalog_products') }}">Каталог продукци</a></li>
+        <li{% if app.request.attributes.get('_route') == 'application_base_catalog_products' %} class="active"{% endif %}>><a href="http://hg-product.ru/shop/category/katalog-produktsii" target="_blank">Каталог</a></li>
     </ul>
 </div><!--.header__items-top_menu-->

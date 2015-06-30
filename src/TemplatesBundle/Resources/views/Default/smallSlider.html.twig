@@ -1,0 +1,21 @@
+{% if sliderContests %}
+    <div class="header__items-scores">
+
+        <div class="header__items-scores_w">
+
+            {% for contest in sliderContests %}
+                <div class="header__items-scores_w-i">
+                    <strong>
+                        <span><i>+ {{ contest.scoresParticipation.points }}</i> баллов</span><br />
+                        <a href="{{ path('application_contests_index') }}">{{ contest.title |truncate(20) }}</a>
+                    </strong>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <a href="#prev" class="arr prev"><i class="fa fa-angle-left"></i></a>
+        <a href="#next" class="arr next"><i class="fa fa-angle-right"></i></a>
+
+    </div>
+{% endif %}

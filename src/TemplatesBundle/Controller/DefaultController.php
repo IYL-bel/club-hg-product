@@ -58,4 +58,20 @@ class DefaultController extends Controller
         );
     }
 
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function smallSliderAction()
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
+        $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
+        $sliderContests = $contestsRepository->getActualContestsForSmallSlider();
+
+        return array('sliderContests' => $sliderContests);
+    }
+
 }

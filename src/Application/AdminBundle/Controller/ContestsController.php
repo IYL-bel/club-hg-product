@@ -104,6 +104,13 @@ class ContestsController extends Controller
 
         if ($form->isValid()) {
             $contests = $form->getData();
+
+            if ( $contests->getFile() ) {
+                /** @var $file \Symfony\Component\HttpFoundation\File\UploadedFile */
+                $file = $contests->getFile();
+                $contests->setFileName( $file->getClientOriginalName() );
+            }
+
             $contests->setStatus($contestsRepository::STATUS_ACTIVE);
 
             $scoresParticipation = $contests->getScoresParticipation();

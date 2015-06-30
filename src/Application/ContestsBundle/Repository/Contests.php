@@ -46,4 +46,28 @@ class Contests extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @return array
+     */
+    public function getActualContestsForSmallSlider()
+    {
+        $currentDate = new \DateTime();
+        $currentDate->setTime(0, 0, 0);
+
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->where('c.status = :status')
+            ->andWhere('c.startedAt <= :current_date')
+            ->andWhere('c.finishedAt >= :current_date')
+            ->orderBy('c.updatedAt', 'DESC')
+            ->setMaxResults(10)
+            ->setParameters(array(
+                'status' => self::STATUS_ACTIVE,
+                'current_date' => $currentDate,
+            ))
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
