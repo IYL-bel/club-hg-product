@@ -1,0 +1,7 @@
+prizes:
+    label:
+        types_prize:
+            bronze: Бронзовые
+            silver: Серебряные
+            gold: Золотые
+            platinum: Платиновые

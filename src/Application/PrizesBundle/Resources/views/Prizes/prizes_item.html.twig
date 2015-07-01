@@ -1,5 +1,5 @@
 <div class="content_main__articles-tile{% if (loop.index - 1) % 4 == 0 %} first{% endif %}">
-    <div class="content_main__articles-tile_img img_c">
+    <div class="content_main__articles-tile_img {#img_c#}">
         <img src="{{ asset(prize.getFilePathWeb()) }}" alt="{{ prize.title }}"/>
     </div>
     <div class="content_main__articles-tile_header">

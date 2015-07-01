@@ -3,37 +3,46 @@
 
 {% block content %}
 
+    <div class="content_header">
 
-<div class="content_header">
+        <h1 class="content_header__title">
+            Призы
+        </h1>
 
-    <h1 class="content_header__title">
-        Призы
-    </h1>
+        <ul class="content_header__breadcrumbs">
+            <li><a href="#">Главная</a></li>
+            <li><a href="{{ path('_home') }}">Клуб</a></li>
+            <li><span>Призы</span></li>
+        </ul><!--.content_header__breadcrumbs-->
+        {#
+        <ul class="content_header__show">
+            <li><span>Показать:</span></li>
+            <li><a href="#">Все призы</a></li>
+            <li><a href="#">Товары</a></li>
+            <li><a href="#">Услуги</a></li>
+        </ul>#}
 
-    <ul class="content_header__breadcrumbs">
-        <li><a href="#">Главная</a></li>
-        <li><a href="{{ path('_home') }}">Клуб находчивых домохозяек</a></li>
-        <li><span>Призы</span></li>
-    </ul><!--.content_header__breadcrumbs-->
-    {#
-    <ul class="content_header__show">
-        <li><span>Показать:</span></li>
-        <li><a href="#">Все призы</a></li>
-        <li><a href="#">Товары</a></li>
-        <li><a href="#">Услуги</a></li>
-    </ul>#}
-
-</div><!--.content_header-->
+    </div><!--.content_header-->
 
 
-<div class="content_main">
-    <div class="content_main__articles trophy">
+    <div class="content_main">
 
-        {% for prize in prizes %}
-            {{ include('ApplicationPrizesBundle:Prizes:prizes_item.html.twig') }}
+        {% for type in prizesTypes %}
+            {% if prizes[type] %}
+                {% set typePrizesName = 'prizes.label.types_prize.' ~ type %}
+
+                <div style="font-size: 36px; margin-top: 26px;">{{ typePrizesName |trans }}</div>
+                <div class="content_main__articles trophy">
+
+                    {% for prize in prizes[type] %}
+                        {{ include('ApplicationPrizesBundle:Prizes:prizes_item.html.twig') }}
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
         {% endfor %}
 
     </div>
-</div>
 
 {% endblock content %}

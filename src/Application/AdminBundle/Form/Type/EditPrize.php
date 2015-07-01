@@ -63,7 +63,7 @@ class EditPrize extends AbstractType
 
             ->add('file', 'file', array(
                 'required' => false,
-                'label' => 'Картинка приза (формат JPG, PNG, размер 230x284)'
+                'label' => 'Картинка приза (формат JPG, PNG, размер 228x306)'
             ))
 
             ->add('filePath', 'hidden')

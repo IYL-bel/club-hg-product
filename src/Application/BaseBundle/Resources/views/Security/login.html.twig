@@ -1,30 +1,34 @@
 {% extends '::layout.html.twig' %}
 
 
-{% block content %}
+{% block content_container %}
 
-    <div class="content_front_bkg"></div>
+    {#<div class="content_front_bkg"></div>#}
 
-    <div class="content_front">
-        <h1 class="front_title">Клуб<strong>Экспертов Чистоты</strong></h1>
+    <div class="content-container-for-login">
+        <div class="content">
+            <div class="content_front">
+                <h1 class="front_title">Клуб<strong>Экспертов Чистоты</strong></h1>
 
-        <div class="content_front_sign">
-            <div class="content_front_sign_form">
-                <div class="content_front_sign_form_soc">
-                    <strong class="title">Войти через социальные сети</strong>
-                    <div class="soc">
-                        {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'fb'} )) %}
-                        {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'vk'} )) %}
-                        {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'ok'} )) %}
+                <div class="content_front_sign">
+                    <div class="content_front_sign_form">
+                        <div class="content_front_sign_form_soc">
+                            <strong class="title">Войти через социальные сети</strong>
+                            <div class="soc">
+                                {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'fb'} )) %}
+                                {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'vk'} )) %}
+                                {% render(controller('ApplicationBaseBundle:Security:buttonSocNetwork', {'typeNetwork': 'ok'} )) %}
 
-                        {#<a class="soc_ico fb" href="#"></a>#}
-                        {#<a class="soc_ico vk" href="#"></a>#}
-                        {#<a class="soc_ico ok" href="#"></a>#}
+                                {#<a class="soc_ico fb" href="#"></a>#}
+                                {#<a class="soc_ico vk" href="#"></a>#}
+                                {#<a class="soc_ico ok" href="#"></a>#}
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
-
     </div>
 
-{% endblock content %}
+{% endblock content_container %}

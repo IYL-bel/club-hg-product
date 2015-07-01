@@ -60,10 +60,12 @@
             {% endblock %}
 
 
-            <div class="content">
-                {% block content %}
-                {% endblock content %}
-            </div>
+            {% block content_container %}
+                <div class="content">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            {% endblock content_container %}
 
 
             {% block footer %}

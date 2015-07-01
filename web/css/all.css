@@ -17,6 +17,14 @@ tr.odd {
     background: #f5f7f9;
 }
 
+
+.content-container-for-login {
+    background: #28a5de url("../images/front_bkg.jpg") no-repeat 0 0;
+    background-color: #158ed7;
+    height: 680px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 span.errors-for-input {
     color: #ff444b;
     text-shadow: 0 0 1px #ffa8b1;

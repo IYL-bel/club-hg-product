@@ -545,6 +545,8 @@ header {
           width: 170px;
           height: 45px;
           font-size: 0;
+            padding-left: 8px;
+            padding-right: 8px;
           letter-spacing: 0; }
           /* line 632, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-scores_w-i:before {

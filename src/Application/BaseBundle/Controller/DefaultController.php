@@ -103,11 +103,17 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
         $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
+        $prizesTypes = $prizesRepository::getNamesType();
 
-        $prizes = $prizesRepository->findBy( array(), array('createdAt' => 'DESC') );
+        $prizes = array();
+        foreach($prizesTypes as $key => $type) {
+            $prizes[$type] = $prizesRepository->getPrizesForType($key);
+        }
+        //$prizes = $prizesRepository->findBy( array(), array('createdAt' => 'DESC') );
 
         return array(
-            'prizes' => $prizes
+            'prizesTypes' => $prizesTypes,
+            'prizes' => $prizes,
         );
     }
 

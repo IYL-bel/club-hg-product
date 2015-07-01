@@ -72,4 +72,23 @@ class Prizes extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param int $type
+     * @return array
+     */
+    public function getPrizesForType($type)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb
+            ->where('p.status = :status')
+            ->andWhere('p.type = :type')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setParameters(array(
+                'status' => self::STATUS_ACTIVE,
+                'type' => $type
+            ));
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
