@@ -13,9 +13,11 @@
                                 <img src="{{ asset('images/not_optimize/slider_img_01.png') }}" />
                             {% endif %}
                         </div>
-                        <div class="front_slider_wrap_content-item_txt color-{{ slide.textColor }}">
-                            {{ slide.text |raw }}
-                        </div>
+                        <a href="{{ slide.link }}">
+                            <div class="front_slider_wrap_content-item_txt color-{{ slide.textColor }}">
+                                {{ slide.text |raw }}
+                            </div>
+                        </a>
                     </div>
                 {% else %}
                     {{ include('TemplatesBundle:Default:mainSlider_defaultSlide_'~ key ~'.html.twig') }}
