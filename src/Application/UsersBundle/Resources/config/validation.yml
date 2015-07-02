@@ -43,8 +43,10 @@ Application\UsersBundle\Entity\Users:
                 max: 125
                 groups: [edit-profile]
 
-
-
-
-
+Application\UsersBundle\Entity\CommentsProduction:
+    properties:
+        nameProduct:
+            - NotBlank: { message: property.blank }
+        description:
+            - NotBlank: { message: property.blank }
 

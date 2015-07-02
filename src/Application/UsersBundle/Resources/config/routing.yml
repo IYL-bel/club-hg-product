@@ -26,6 +26,14 @@ application_users_profile_reviews:
     path:     my-profile/reviews/
     defaults: { _controller: ApplicationUsersBundle:Profile:reviews }
 
+application_users_profile_review_add:
+    path:     my-profile/add-review/
+    defaults: { _controller: ApplicationUsersBundle:Profile:addReview }
+
+application_users_profile_review_add_file:
+    path:     my-profile/add-file-in-review/
+    defaults: { _controller: ApplicationUsersBundle:Profile:addFileInReview }
+
 application_users_profile_testing:
     path:     my-profile/testing/
     defaults: { _controller: ApplicationUsersBundle:Profile:testing }

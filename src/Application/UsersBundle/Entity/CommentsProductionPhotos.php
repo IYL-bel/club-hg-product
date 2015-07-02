@@ -19,7 +19,7 @@ use Application\UsersBundle\Entity\CommentsProduction;
 
 
 /**
- * Application\ContestsBundle\Entity\CommentsProductionPhotos
+ * Application\UsersBundle\Entity\CommentsProductionPhotos
  *
  * @ORM\Table(name="comments_production_photos")
  * @ORM\Entity(repositoryClass="Application\UsersBundle\Repository\CommentsProductionPhotos")

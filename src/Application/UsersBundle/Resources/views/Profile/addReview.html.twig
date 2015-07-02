@@ -1,0 +1,11 @@
+<div class="popup_wrap_content_title">
+    <h3 class="title"><strong>Отзыв на товар</strong></h3>
+    <span> / <i>200</i> баллов</span>
+</div>
+
+<div class="popup_wrap_content_name">
+    {#Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>#}
+    {{ app.user.firstName }} {{ app.user.lastName }}{% if app.user.occupation %}<span>, {{ app.user.occupation }}</span>{% endif %}
+</div>
+
+{{ include('ApplicationUsersBundle:Profile:addReview_form.html.twig') }}

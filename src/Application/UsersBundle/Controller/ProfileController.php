@@ -25,7 +25,10 @@ use Application\UsersBundle\Form\Type\EditUserProfile as EditUserProfileForm;
 use Application\UsersBundle\Form\Type\AddRequestTestingProduct as AddRequestTestingProductForm;
 use Application\TestProductionBundle\Entity\TestsProduction;
 use Application\TestProductionBundle\Repository\TestsProduction as TestsProductionRepository;
-
+use Application\UsersBundle\Form\Type\AddCommentProduction as AddCommentProductionForm;
+use Application\UsersBundle\Entity\CommentsProductionPhotos;
+use Application\UsersBundle\Entity\CommentsProduction;
+use Application\UsersBundle\Repository\CommentsProduction as CommentsProductionRepository;
 
 /**
  * @Security("has_role('ROLE_USER')")
@@ -210,7 +213,172 @@ class ProfileController extends Controller
      */
     public function reviewsAction()
     {
-        return array();
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var  $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
+        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
+        $commentsProduct = $commentsProductRepository->findBy( array('user' => $this->getUser()) );
+
+        return array(
+            'commentsProduct' => $commentsProduct
+        );
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function addReviewAction(Request $request)
+    {
+        $success = false;
+        $addedFiles = array();
+
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        $commentProduction = new CommentsProduction();
+        $commentProduction->setUser( $this->getUser() );
+        $commentProduction->setStatus(CommentsProductionRepository::STATUS_NEW);
+
+        /** @var $scoresRepository \Application\ScoresBundle\Repository\Scores */
+        $scoresRepository = $em->getRepository('ApplicationScoresBundle:Scores');
+        /** @var  $scoreForCommentProduction \Application\ScoresBundle\Entity\Scores */
+        $scoreForCommentProduction = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__REVIEWS_PRODUCT_BASE) );
+
+        if ($scoreForCommentProduction) {
+            $commentProduction->setScore($scoreForCommentProduction);
+        }
+
+        $form = $this->createForm(new AddCommentProductionForm(), $commentProduction);
+        $form->handleRequest($request);
+
+        $addedFilesName = $request->request->get('fileName');
+        $addedFilesNameOriginal = $request->request->get('fileNameOriginal');
+        $addedFilesDescription = $request->request->get('fileDescription');
+
+        if ( count($addedFilesName) ) {
+            foreach($addedFilesName as $key => $val) {
+                $addedFiles[$key] = array(
+                    'fileName' => $addedFilesName[$key],
+                    'fileNameOriginal' => $addedFilesNameOriginal[$key],
+                    'linkFile' => CommentsProductionPhotos::getWebPath() . '/' . $addedFilesName[$key],
+                    'fileDescription' => $addedFilesDescription[$key],
+                );
+            }
+        }
+
+        if ( $form->isValid() ) {
+            /** @var  $commentProduction \Application\UsersBundle\Entity\CommentsProduction */
+            $commentProduction = $form->getData();
+
+            $em->persist($commentProduction);
+            $em->flush();
+
+            $commentProductionPhotos = array();
+            if ( count($addedFiles) ) {
+                foreach ($addedFiles as $addedFile) {
+                    $itemCommentProductionPhotos = new CommentsProductionPhotos();
+                    $itemCommentProductionPhotos->setDescription( $addedFile['fileDescription'] );
+                    $itemCommentProductionPhotos->setFileName( $addedFile['fileNameOriginal'] );
+                    $itemCommentProductionPhotos->setFilePath( $addedFile['fileName'] );
+                    $itemCommentProductionPhotos->setCommentsProduction($commentProduction);
+                    $commentProductionPhotos[] = $itemCommentProductionPhotos;
+                }
+            }
+            $commentProduction->setCommentsProductionPhotos($commentProductionPhotos);
+
+            $em->persist($commentProduction);
+            $em->flush();
+
+            $success = true;
+        }
+
+        $formView = $form->createView();
+
+        $template = $this->renderView('ApplicationUsersBundle:Profile:addReview.html.twig', array(
+            'form' => $formView,
+            'addedFiles' => $addedFiles,
+        ));
+
+        return new Response(json_encode(array(
+            'success' => $success,
+            'template' => $template,
+            'addedFiles' => $addedFiles,
+        )));
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function addFileInReviewAction(Request $request)
+    {
+        $success = false;
+        $originalName = null;
+        $fileName = null;
+        $errorMessage = 'Не удалось загрузить файл';
+        $errorValidMessage = null;
+        $itemListFiles = null;
+
+        /** @var $file \Symfony\Component\HttpFoundation\File\UploadedFile */
+        $file = $request->files->get('add_file');
+        $countFiles = $request->request->get('count');
+
+        $fileConstraint = new File();
+        /** @var $translator \Symfony\Bundle\FrameworkBundle\Translation\Translator */
+        $translator = $this->get('translator');
+
+        $fileConstraint->mimeTypes = array(
+            'image/gif',
+            'image/jpeg',
+            'image/pjpeg',
+            'image/png',
+        );
+        $fileConstraint->mimeTypesMessage = $translator->trans('scores.add_file_in_response_member.text_validation.mime_types');
+
+        $fileConstraint->maxSize = '7000000';
+        $fileConstraint->maxSizeMessage = $translator->trans('scores.add_file_in_response_member.text_validation.max_size');
+
+        /** @var $validatorService \Symfony\Component\Validator\Validator */
+        $validatorService = $this->get('validator');
+        $errorList = $validatorService->validateValue($file, $fileConstraint);
+
+        if ($file && count($errorList) == 0) {
+            $countFiles = $countFiles + 1;
+
+            $path = CommentsProductionPhotos::getFileFullPath();
+            $fileName = uniqid() . '.' . $file->guessExtension();
+            $originalName = $_FILES['add_file']['name'];
+            $file->move($path, $fileName);
+
+            $addedFile = array(
+                'fileName' => $fileName,
+                'fileNameOriginal' => $originalName,
+                'linkFile' => CommentsProductionPhotos::getWebPath() . '/' . $fileName,
+                'fileDescription' => '',
+            );
+
+            $itemListFiles = $this->renderView('ApplicationContestsBundle:Contests:responseMember_form_addFile.html.twig', array(
+                'addedFile' => $addedFile,
+                'countsFiles' => $countFiles,
+            ));
+
+            $success = true;
+        }
+
+        if ( count($errorList) > 0 ) {
+            $errorValidMessage = $errorList[0]->getMessage();
+        }
+
+        return new Response(json_encode(array(
+            'success' => $success,
+            'errorMessage' => $errorMessage,
+            'errorValidMessage' => $errorValidMessage,
+            'countFiles' => $countFiles,
+            'file_originalName' => $originalName,
+            'file_name' => $fileName,
+            'item_list_files' => $itemListFiles,
+        )));
     }
 
     /**

@@ -6,8 +6,50 @@
 
 <div class="cabinet_content__item reviews active">
     <div class="cabinet_content__item-content">
+
+        <div style="margin-bottom: 20px;">
+            <a class="js_PopupShow blue_btn" href="{{ path('application_users_profile_review_add') }}">Добавить отзыв</a>
+        </div>
+
         <div class="reviews_list">
 
+            {% for key, comment in commentsProduct %}
+                <div class="reviews_list-item">
+
+                    <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+                    {#
+                    <div class="reviews_list-item_img img_c">
+                        <img src="{{ asset('images/not_optimize/gall_03.jpg') }}" alt="name"/>
+                    </div>#}
+
+                    <div class="reviews_list-item_title">
+                        <span>{{ comment.nameProduct }}</span>
+                        {#<a href="#">Средство НG  для удаления известкового налета</a>#}
+                    </div>
+
+                    <div class="reviews_list-item_status">
+                        {% if comment.isStatusNew() %}
+                            <b class="status_assay"></b>
+                            <span>Чек проверяется. Нам потребуется до 24 часов</span>
+                        {% endif %}
+
+                        {% if comment.isStatusConfirmed() %}
+                            <b class="status_approved"><i class="fa fa-check"></i></b>
+                            <span>+{{ comment.scores.points }} очков</span>
+                        {% endif %}
+
+                        {% if comment.isStatusRejected() %}
+                            <b class="status_disallow"><i class="fa fa-times"></i></b>
+                            <span>{{ comment.commentAdmin }}</span>
+                        {% endif %}
+                    </div>
+
+                </div>
+            {% else %}
+                <div style="text-align: center">Нет добавленных изывов</div>
+            {% endfor %}
+
+            {#
             <div class="reviews_list-item">
                 <div class="reviews_list-item_num">1.</div>
                 <div class="reviews_list-item_img img_c">
@@ -49,79 +91,9 @@
                     <span>+100 очков</span>
                 </div>
             </div><!--.reviews_list-item-->
+            #}
 
-            <div class="reviews_list-item">
-
-                <div class="reviews_list-item_num">4.</div>
-
-                <div class="popup_wrap_content">
-                    <div class="popup_wrap_content_name">
-                        Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>
-                    </div>
-                    <div class="popup_wrap_content_form">
-                        <form id="content_form" action="#">
-
-                            <input class="product_name" id="product_name" type="text" placeholder="Название товара из каталога" />
-
-                            <textarea class="form_txta" placeholder="Введите текст"></textarea>
-
-                            <label for="file-field" class="input_file_btn"><i class="fa fa-camera"></i></label>
-
-                            <div class="file_field_wrap">
-                                <input type="file" id="file-field" multiple="true" />
-                            </div>
-
-
-                            <div class="download_result">
-
-                                <ul id="img-list" class="img-list">
-
-                                    <li>
-                                        <div class="img_w">
-                                            <img src="{{ asset('images/not_optimize/gall_01.jpg') }}" alt=""/>
-                                        </div>
-                                        <textarea placeholder="Описание фото"></textarea>
-                                    </li>
-
-                                    <li>
-                                        <div class="img_w">
-                                            <img src="{{ asset('images/not_optimize/gall_02.jpg') }}" alt=""/>
-                                        </div>
-                                        <textarea placeholder="Описание фото"></textarea>
-                                    </li>
-
-                                    <li>
-                                        <div class="progress">
-                                            <span class="progress_name">IMG_80256</span>
-                                            <div class="progress_bar">
-                                                <div class="progress_bar_per" style="width: 47%;"></div>
-                                            </div>
-                                            <a class="remove" href="#"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="progress">
-                                            <span class="progress_name">IMG_80267_ed</span>
-                                            <div class="progress_bar">
-                                                <div class="progress_bar_per" style="width: 78%;"></div>
-                                            </div>
-                                            <a class="remove" href="#"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </li>
-
-
-                                </ul>
-
-                            </div>
-
-                            <input class="blue_btn" id="send-btn" type="submit" value="Отправить"/>
-
-                        </form>
-                    </div>
-                </div>
-            </div><!--.reviews_list-item-->
-
-        </div><!--.reviews_list-->
+        </div>
     </div>
 </div>
 

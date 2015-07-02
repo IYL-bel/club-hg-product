@@ -18,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Application\UsersBundle\Entity\Users;
 use Application\ScoresBundle\Entity\Scores;
+use Application\UsersBundle\Repository\CommentsProduction as CommentsProductionRepository;
 
 
 /**
@@ -93,8 +94,8 @@ class CommentsProduction
     /**
      * @var \Application\ScoresBundle\Entity\Scores
      *
-     * @ORM\OneToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="commentsProductionScore", cascade={"persist","remove","merge"})
-     * @ORM\JoinColumn(name="score_id", referencedColumnName="id", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="commentsProduction")
+     * @ORM\JoinColumn(name="score_id", referencedColumnName="id")
      */
     protected $score;
 
@@ -265,6 +266,42 @@ class CommentsProduction
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusNew()
+    {
+        if ($this->status == CommentsProductionRepository::STATUS_NEW ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusConfirmed()
+    {
+        if ($this->status == CommentsProductionRepository::STATUS_CONFIRMED) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusRejected()
+    {
+        if ($this->status == CommentsProductionRepository::STATUS_REJECTED) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

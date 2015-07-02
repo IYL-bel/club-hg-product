@@ -91,11 +91,12 @@ class Scores
     protected $checksScores;
 
     /**
-     * @var \Application\UsersBundle\Entity\CommentsProduction
+     * @var ArrayCollection
      *
-     * @ORM\OneToOne(targetEntity="Application\UsersBundle\Entity\CommentsProduction", mappedBy="score")
+     * @ORM\OneToMany(targetEntity="Application\UsersBundle\Entity\CommentsProduction", mappedBy="score", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="score_id")
      */
-    protected $commentsProductionScore;
+    protected $commentsProduction;
 
 
     /**
@@ -104,6 +105,7 @@ class Scores
     public function __construct()
     {
         $this->scoresUsers = new ArrayCollection();
+        $this->commentsProduction = new ArrayCollection();
     }
 
     /**
@@ -241,21 +243,19 @@ class Scores
     }
 
     /**
-     * @param \Application\UsersBundle\Entity\CommentsProduction $commentsProductionScore
-     * @return \Application\ScoresBundle\Entity\Scores
+     * @return ArrayCollection
      */
-    public function setCommentsProductionScore(CommentsProduction $commentsProductionScore)
+    public function getCommentsProduction()
     {
-        $this->commentsProductionScore = $commentsProductionScore;
-        return $this;
+        return $this->commentsProduction;
     }
 
     /**
-     * @return \Application\UsersBundle\Entity\CommentsProduction
+     * @param ArrayCollection $commentsProduction
      */
-    public function getCommentsProductionScore()
+    public function setCommentsProduction($commentsProduction)
     {
-        return $this->commentsProductionScore;
+        $this->commentsProduction = $commentsProduction;
     }
 
 }

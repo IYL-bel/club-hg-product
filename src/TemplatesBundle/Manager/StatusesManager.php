@@ -64,7 +64,7 @@ class StatusesManager
         if ($statuses) {
             /** @var $status \TemplatesBundle\Entity\Statuses */
             foreach ($statuses as $status) {
-                $defaultStatuses[$status->getNameStatus()] = array(
+                $actualStatuses[$status->getNameStatus()] = array(
                     'scores' => $status->getScores(),
                     'description' => $status->getDescription(),
                 );
