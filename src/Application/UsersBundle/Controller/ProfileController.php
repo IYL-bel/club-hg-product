@@ -298,6 +298,7 @@ class ProfileController extends Controller
         $template = $this->renderView('ApplicationUsersBundle:Profile:addReview.html.twig', array(
             'form' => $formView,
             'addedFiles' => $addedFiles,
+            'commentProduction' => $commentProduction,
         ));
 
         return new Response(json_encode(array(

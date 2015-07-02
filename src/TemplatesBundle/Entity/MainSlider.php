@@ -247,7 +247,7 @@ class MainSlider
     {
         if ( null !== $this->pictureFile ) {
             // do whatever you want to generate a unique name
-            $this->setPicturePath( 'main-slider-' . $this->getNumSlide() . '.' . $this->pictureFile->guessExtension() );
+            $this->setPicturePath( 'main-slider-' . $this->getNumSlide() . '-' . uniqid() . '.' . $this->pictureFile->guessExtension() );
         }
     }
 

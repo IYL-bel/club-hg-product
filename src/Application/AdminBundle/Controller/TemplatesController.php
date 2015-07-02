@@ -82,7 +82,13 @@ class TemplatesController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            /** @var \TemplatesBundle\Entity\MainSlider $mainSlider */
             $mainSlider = $form->getData();
+
+            if ( $mainSlider->getPictureFile() ) {
+                $mainSlider->setPicturePath( uniqid() );
+            }
+
             $em->persist($mainSlider);
             $em->flush();
 
