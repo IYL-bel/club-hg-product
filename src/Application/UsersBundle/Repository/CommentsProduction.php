@@ -2,7 +2,7 @@
 /**
  * Club Hg-Product
  *
- * Checks repository
+ * Comments Production repository
  *
  * @package    ApplicationUsersBundle
  * @author     Yury Istomenok <iyl@tut.by>
@@ -14,9 +14,9 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Application\UsersBundle\Repository\Checks
+ * Application\UsersBundle\Repository\CommentsProduction
  */
-class Checks extends EntityRepository
+class CommentsProduction extends EntityRepository
 {
 
     const STATUS_NEW        = 1;

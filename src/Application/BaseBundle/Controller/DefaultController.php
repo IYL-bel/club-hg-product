@@ -54,40 +54,36 @@ class DefaultController extends Controller
         /** @var $prizesRepository \Application\PrizesBundle\Repository\Prizes */
         $prizesRepository = $em->getRepository('ApplicationPrizesBundle:Prizes');
         $allIdsPrizes = $prizesRepository->getIdsAllPrizes();
-        if ($allIdsPrizes) {
-            $allIds = array();
-            foreach ($allIdsPrizes as $val) {
-                $allIds[] = $val['id'];
-            }
-            shuffle($allIds);
-            $randomIdsForPrizes = array_slice($allIds, 0, 4);
+
+        /** @var $randomSelectionService \Application\BaseBundle\Service\RandomSelection */
+        $randomSelectionService = $this->get('random_selection');
+        $randomIdsForPrizes = $randomSelectionService->chooseSeveralVariants($allIdsPrizes, 4);
+        if ($randomIdsForPrizes) {
             $prizes = $prizesRepository->getPrizesForMainPage($randomIdsForPrizes);
         }
 
 
         // CONTESTS
+        $contests = array(
+            'left' => null,
+            'right' => null,
+        );
         /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
         $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
-
-        $contestActive = null;
         $allActiveIdsContests = $contestsRepository->getIdsAllActualContests();
-        if ($allActiveIdsContests) {
-            if (count($allActiveIdsContests) > 1) {
-                $index = rand(0, count($allActiveIdsContests) - 1);
-                $selectedId = $allActiveIdsContests[$index];
-            } else {
-                $selectedId = $allActiveIdsContests[0];
+        $randomIdsPrizes = $randomSelectionService->chooseSeveralVariants($allActiveIdsContests, 2);
+        if ($randomIdsPrizes) {
+            $contests['left'] = $contestsRepository->find($randomIdsPrizes[0]);
+            if ( isset($randomIdsPrizes[1]) ) {
+                $contests['right'] = $contestsRepository->find($randomIdsPrizes[1]);
             }
-            $contestActive = $contestsRepository->find($selectedId);
         }
 
         return array(
             'main_tips_club' => $mainTipsClub,
             'show_main_tips_club' => $cautionMainTips,
             'prizes' => $prizes,
-            'contests' => array(
-                'active' => $contestActive
-            ),
+            'contests' => $contests
         );
     }
 

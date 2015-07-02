@@ -545,8 +545,8 @@ header {
           width: 170px;
           height: 45px;
           font-size: 0;
-            padding-left: 8px;
-            padding-right: 8px;
+          padding-left: 5px;
+          padding-right: 5px;
           letter-spacing: 0; }
           /* line 632, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .header__items-scores_w-i:before {
@@ -810,7 +810,7 @@ header {
     font-size: 14px; }
     /* line 989, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
     .content_main__infoblock .title {
-      font-size: 35px;
+      font-size: 30px;
       margin: 0;
       padding-bottom: 22px; }
     /* line 997, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */

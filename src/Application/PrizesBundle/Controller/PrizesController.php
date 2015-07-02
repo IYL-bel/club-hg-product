@@ -37,11 +37,15 @@ class PrizesController extends Controller
         /** @var $prize \Application\PrizesBundle\Entity\Prizes */
         $prize = $prizesRepository->find($idPrize);
 
+        /** @var $statusesManager \TemplatesBundle\Manager\StatusesManager */
+        $statusesManager = $this->get('templates.statuses_manager');
+        $userStatus = $statusesManager->getUserStatus( $this->getUser() );
+
         if ($prize->getScoresBuy() && $prize->getScoresBuy()->getPoints() > 0) {
             /** @var $currentUser \Application\UsersBundle\Entity\Users */
             $currentUser = $this->getUser();
 
-            if ($currentUser->getScorePoints() > $prize->getScoresBuy()->getPoints() ) {
+            if ($currentUser->getScorePoints() > $prize->getScoresBuy()->getPoints() && $prize->getTypeString() == $userStatus) {
                 if ($currentUser->getPostcode() && $currentUser->getShippingAddress() ) {
 
                     // remove Balls for User

@@ -2,7 +2,7 @@
 /**
  * Club Hg-Product
  *
- * Checks repository
+ * Comments Production Photos repository
  *
  * @package    ApplicationUsersBundle
  * @author     Yury Istomenok <iyl@tut.by>
@@ -14,13 +14,9 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Application\UsersBundle\Repository\Checks
+ * Application\UsersBundle\Repository\CommentsProductionPhotos
  */
-class Checks extends EntityRepository
+class CommentsProductionPhotos extends EntityRepository
 {
-
-    const STATUS_NEW        = 1;
-    const STATUS_CONFIRMED  = 2;
-    const STATUS_REJECTED   = 3;
 
 }

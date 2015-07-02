@@ -1,4 +1,3 @@
 services:
-#    send_email:
-#        class: Application\BaseBundle\Service\SendEmailService
-#        arguments: [@service_container]
+    random_selection:
+        class: Application\BaseBundle\Service\RandomSelection

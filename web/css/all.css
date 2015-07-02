@@ -202,6 +202,7 @@ form a.link-cancel {
     width: 100px;
     text-align: left;
     vertical-align: middle;
+    padding-top: 3px;
 }
 
 .form-row-line .form-input {
@@ -219,6 +220,20 @@ form a.link-cancel {
     outline: none;
     border: 1px solid #bcbec0;
 }
+
+.form-row-line textarea {
+    width: 100%;
+    height: 80px;
+    padding: 5px 10px;
+    color: #6d6e71;
+    font-size: 12px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    /*resize: none;*/
+    outline: none;
+    border: 1px solid #bcbec0;
+}
+
+
 
 footer .user-agreement {
     position: absolute;

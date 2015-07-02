@@ -183,6 +183,22 @@ class Users extends BaseUser
      */
     protected $scoresUsers;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Application\TestProductionBundle\Entity\TestsProduction", mappedBy="user", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $testsProduction;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="CommentsProduction", mappedBy="user", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $commentsProduction;
+
 
     /**
      * constructor
@@ -194,6 +210,8 @@ class Users extends BaseUser
         $this->contestsMembers = new ArrayCollection();
         $this->contestsVoting = new ArrayCollection();
         $this->scoresUsers = new ArrayCollection();
+        $this->testsProduction = new ArrayCollection();
+        $this->commentsProduction = new ArrayCollection();
     }
 
     /**
@@ -562,6 +580,42 @@ class Users extends BaseUser
     public function getOccupation()
     {
         return $this->occupation;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTestsProduction()
+    {
+        return $this->testsProduction;
+    }
+
+    /**
+     * @param ArrayCollection $testsProduction
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setTestsProduction($testsProduction)
+    {
+        $this->testsProduction = $testsProduction;
+        return $this;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $commentsProduction
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setCommentsProduction($commentsProduction)
+    {
+        $this->commentsProduction = $commentsProduction;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getCommentsProduction()
+    {
+        return $this->commentsProduction;
     }
 
 }

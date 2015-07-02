@@ -7,9 +7,9 @@
 <div class="cabinet_content__item status active">
     <div style="margin: 0 28px 0 28px;">
 
-        {% for key, status in prof_statuses  %}
+        {% for key, status in statuses  %}
 
-            <div style="margin-bottom: 18px; padding: 6px 0;" class="border-status-user">
+            <div style="margin-bottom: 18px; padding: 6px 0;" {% if userStatus == key %}class="border-status-user"{% endif %}>
                 <table width="100%">
                     <tr >
                         <td style="width: 200px;">
@@ -26,25 +26,12 @@
                         </td>
                         <td>
                             <div style="padding-left: 20px;">
-                                Нужно набрать
-
-                                {% if status and status.scores %}
-                                    {{ status.scores }}
-                                {% else %}
-                                    {{ default_scores_statuses[key] }}
-                                {% endif %}
-
-                                балов
+                                Нужно набрать {{ status.scores }} балов
                             </div>
                         </td>
                         <td>
                             <div class="status_txt">
-                                {% if status %}
-                                    {{ status.description |trans |raw }}
-                                {% else %}
-                                {% set description = 'templates.description.statuses.'~key %}
-                                    {{ description |trans |raw }}
-                                {% endif %}
+                                {{ status.description |raw }}
                             </div>
                         </td>
                     </tr>

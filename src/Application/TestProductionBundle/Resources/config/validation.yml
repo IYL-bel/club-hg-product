@@ -1,0 +1,6 @@
+Application\TestProductionBundle\Entity\TestsProduction:
+    properties:
+        nameProduct:
+            - NotBlank: {  message: property.blank }
+        phone:
+            - NotBlank: {  message: property.blank }

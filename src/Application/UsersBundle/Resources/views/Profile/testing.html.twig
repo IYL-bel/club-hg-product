@@ -1,11 +1,44 @@
 {% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
-
+{% form_theme form 'ApplicationUsersBundle::form.html.twig' %}
 
 {% block content_profile %}
 
 
 <div class="cabinet_content__item testing active">
     <div class="cabinet_content__item-content">
+
+        {{ form_start(form) }}
+
+            <div class="invite_wrap">
+
+                {% if isAddress == false %}
+                    <div style="margin-left: 115px; margin-bottom: 6px;">
+                        <span class="error_message">В вашем профиле не указа адрес доставки</span>
+                    </div>
+                {% endif %}
+
+                {{ form_row(form.nameProduct) }}
+                {{ form_row(form.phone) }}
+
+                <div class="form-row-line">
+                    <div class="form-label" style="vertical-align : top;">
+                        {{ form_label(form.commentUser) }}
+                    </div>
+                    <div class="form-input">
+                        {{ form_errors(form.commentUser) }}
+                        {{ form_widget(form.commentUser) }}
+                    </div>
+                </div>
+
+                <div class="form_row submit_row">
+                    <input type="submit" value="Заказать"/>
+                </div>
+            </div>
+
+        {{ form_end(form) }}
+
+
+        {#
         <form action="#">
             <div class="invite_wrap">
 
@@ -44,6 +77,9 @@
             </div>
 
         </form>
+        #}
+
+
     </div>
 </div>
 

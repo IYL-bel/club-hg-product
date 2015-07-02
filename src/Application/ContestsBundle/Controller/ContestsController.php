@@ -74,6 +74,7 @@ class ContestsController extends Controller
         $contestsMember = $contestsMemberRepository->findOneBy(array(
             'contest' => $contest,
             'user' => $this->getUser(),
+            'status' => array($contestsMemberRepository::STATUS_CONFIRMED, $contestsMemberRepository::STATUS_NEW),
         ));
 
         if ($contestsMember) {

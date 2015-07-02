@@ -18,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Application\ContestsBundle\Entity\Contests;
 use Application\UsersBundle\Entity\Checks;
 use Application\PrizesBundle\Entity\Prizes;
+use Application\UsersBundle\Entity\CommentsProduction;
 
 
 /**
@@ -88,6 +89,13 @@ class Scores
      * @ORM\OneToOne(targetEntity="Application\UsersBundle\Entity\Checks", mappedBy="scores")
      */
     protected $checksScores;
+
+    /**
+     * @var \Application\UsersBundle\Entity\CommentsProduction
+     *
+     * @ORM\OneToOne(targetEntity="Application\UsersBundle\Entity\CommentsProduction", mappedBy="score")
+     */
+    protected $commentsProductionScore;
 
 
     /**
@@ -230,6 +238,24 @@ class Scores
     public function getChecksScores()
     {
         return $this->checksScores;
+    }
+
+    /**
+     * @param \Application\UsersBundle\Entity\CommentsProduction $commentsProductionScore
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function setCommentsProductionScore(CommentsProduction $commentsProductionScore)
+    {
+        $this->commentsProductionScore = $commentsProductionScore;
+        return $this;
+    }
+
+    /**
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function getCommentsProductionScore()
+    {
+        return $this->commentsProductionScore;
     }
 
 }

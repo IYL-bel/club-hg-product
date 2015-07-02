@@ -1,4 +1,6 @@
 services:
-#    templates.example:
-#        class: TemplatesBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    templates.statuses_manager:
+        class: TemplatesBundle\Manager\StatusesManager
+        arguments:
+            em: '@doctrine.orm.entity_manager'
+            container: '@service_container'

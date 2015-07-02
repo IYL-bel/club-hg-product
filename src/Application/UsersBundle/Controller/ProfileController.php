@@ -22,6 +22,9 @@ use Application\UsersBundle\Entity\Checks;
 use Application\UsersBundle\Repository\Checks as ChecksRepository;
 use TemplatesBundle\Repository\Statuses as StatusesRepository;
 use Application\UsersBundle\Form\Type\EditUserProfile as EditUserProfileForm;
+use Application\UsersBundle\Form\Type\AddRequestTestingProduct as AddRequestTestingProductForm;
+use Application\TestProductionBundle\Entity\TestsProduction;
+use Application\TestProductionBundle\Repository\TestsProduction as TestsProductionRepository;
 
 
 /**
@@ -213,11 +216,40 @@ class ProfileController extends Controller
     /**
      * @Template()
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @return array
      */
-    public function testingAction()
+    public function testingAction(Request $request)
     {
-        return array();
+        $isAddress = false;
+        /** @var  $currentUser \Application\UsersBundle\Entity\Users */
+        $currentUser = $this->getUser();
+        if ( $currentUser->getPostcode() && $currentUser->getShippingAddress() ) {
+            $isAddress = true;
+        }
+
+        $testProduction = new TestsProduction();
+        $testProduction->setUser( $this->getUser() );
+        $testProduction->setStatus(TestsProductionRepository::STATUS__NEW);
+
+        $form = $this->createForm(new  AddRequestTestingProductForm(), $testProduction);
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $isAddress) {
+            /** @var $em \Doctrine\ORM\EntityManager */
+            $em = $this->getDoctrine()->getManager();
+            $testProduction = $form->getData();
+
+            $em->persist($testProduction);
+            $em->flush();
+
+            return $this->redirectToRoute('application_users_profile_testing');
+        }
+
+        return array(
+            'isAddress' => $isAddress,
+            'form' => $form->createView()
+        );
     }
 
     /**
@@ -247,24 +279,14 @@ class ProfileController extends Controller
      */
     public function statusAction()
     {
-        /** @var $em \Doctrine\ORM\EntityManager */
-        $em = $this->getDoctrine()->getManager();
-
-        $statusesRepository = $em->getRepository('TemplatesBundle:Statuses');
-        $statuses = $statusesRepository->findAll();
-
-        $defaultStatuses = StatusesRepository::getAllStatuses();
-
-        if ($statuses) {
-            /** @var $status \TemplatesBundle\Entity\Statuses */
-            foreach ($statuses as $status) {
-                $defaultStatuses[$status->getNameStatus()] = $status;
-            }
-        }
+        /** @var $statusesManager \TemplatesBundle\Manager\StatusesManager */
+        $statusesManager = $this->get('templates.statuses_manager');
+        $statuses = $statusesManager->getActualStatuses();
+        $userStatus = $statusesManager->getUserStatus( $this->getUser() );
 
         return array(
-            'prof_statuses' => $defaultStatuses,
-            'default_scores_statuses' => StatusesRepository::getDefaultScoresForStatuses(),
+            'statuses' => $statuses,
+            'userStatus' => $userStatus,
         );
     }
 

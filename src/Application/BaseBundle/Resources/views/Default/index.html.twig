@@ -34,13 +34,6 @@
             <div class="soc wight">
                 {{ render(controller('SocialNetworksBundle:Connection:sharing', {'url': url('application_base_security_login')} )) }}
             </div>
-            {#
-            <div class="soc wight">
-                <a class="soc_ico fb" href="#"></a>
-                <a class="soc_ico vk" href="#"></a>
-                <a class="soc_ico ok" href="#"></a>
-            </div>
-            #}
         </div>
 
     </div>
@@ -57,30 +50,31 @@
     {% endif %}
 
 
-    {% if contests.active %}
+    {% if contests.left and contests.right %}
         <div class="content_main__infoblock actual">
 
             <div class="content_main__infoblock-left left">
                 <a class="look_actual" href="{{ path('application_contests_index') }}">Текущие конкурсы</a>
 
-                <h3 class="title">{{ contests.active.title }}</h3>
+                <h3 class="title">{{ contests.left.title }}</h3>
                 <div class="content_main__infoblock-left_txt">
-                    <p>{{ contests.active.description |truncate(120) }}{#Пришлите  лучшее поздравление с международным женским днем и получите 100 балов!#}</p>
-                    <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.active.id}) }}">участвовать</a>
+                    <p>{{ contests.left.description |truncate(120) }}</p>
+                    <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.left.id}) }}">участвовать</a>
                 </div>
             </div>
 
+            {% if contests.right %}
+                <div class="content_main__infoblock-right right">
+                    {#<a class="look_actual" href="#">Ближайшие конкурсы</a>#}
+                    <a class="look_actual" href="{{ path('application_contests_index') }}">Текущие конкурсы</a>
 
-            {#
-            <div class="content_main__infoblock-right right">
-                <a class="look_actual" href="#">Ближайшие конкурсы</a>
-
-                <h3 class="title">Весенний субботник</h3>
-                <div class="content_main__infoblock-right_txt">
-                    <p>Получите по 15 баллов за каждое фото теста продукции HG в вашем доме (фото до и после обязательны)</p>
-                    <a href="#">участвовать</a>
+                    <h3 class="title">{{ contests.right.title }}</h3>
+                    <div class="content_main__infoblock-right_txt">
+                        <p>{{ contests.right.description |truncate(120) }}</p>
+                        <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contests.right.id}) }}">участвовать</a>
+                    </div>
                 </div>
-            </div>#}
+            {% endif %}
 
         </div>
     {% endif %}
