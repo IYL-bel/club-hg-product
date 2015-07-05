@@ -2,17 +2,17 @@
     'linkAuth': url.fb,
     'typeNetwork': 'fb',
     'urlAddScore': '',
-    'value': ''
+    'value': value.fb
     }) }}
 {{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {
     'linkAuth': url.vk,
     'typeNetwork': 'vk',
-    'urlAddScore': path('social_networks_connection_add_share_score', {'type': 'vk'}),
-    'value': ''
+    'urlAddScore': path('social_networks_connection_share_add_vote_contests_vk', {'idMember': idMember}),
+    'value': value.vk
     }) }}
 {{ include('SocialNetworksBundle:Connection:sharing_button.html.twig', {
     'linkAuth': url.ok,
     'typeNetwork': 'ok',
-    'urlAddScore': path('social_networks_connection_add_share_score', {'type': 'ok'}),
-    'value': ''
+    'urlAddScore': path('social_networks_connection_share_add_vote_contests_ok', {'idMember': idMember}),
+    'value': value.ok
     }) }}

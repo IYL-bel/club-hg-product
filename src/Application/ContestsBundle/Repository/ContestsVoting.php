@@ -23,4 +23,27 @@ class ContestsVoting extends EntityRepository
     const TYPE_VK  = 2;
     const TYPE_OK  = 3;
 
+
+    /**
+     * @param string $type
+     * @param int $contestsMemberId
+     * @return array
+     */
+    public function getCountVoteForType($type, $contestsMemberId)
+    {
+        $qb = $this->createQueryBuilder('cv');
+        $qb
+            ->select( $qb->expr()->count('cv.id')  )
+            ->join('cv.contestsMember', 'cm')
+            ->where('cv.type = :type')
+            ->andWhere('cm.id = :memberId')
+            ->setParameters(array(
+                'type' => $type,
+                'memberId' => $contestsMemberId
+            ))
+        ;
+
+        return (int)$qb->getQuery()->getSingleScalarResult();
+    }
+
 }

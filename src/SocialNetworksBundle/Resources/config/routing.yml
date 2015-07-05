@@ -5,3 +5,15 @@ social_networks_connection_after_share_fb:
 social_networks_connection_add_share_score:
     path:     /connection/add-share-score/{type}
     defaults: { _controller: SocialNetworksBundle:Connection:addShareScore }
+
+social_networks_connection_share_add_vote_contests_fb:
+    path:     /connection/share-add-vote-contests-fb/{idMember}
+    defaults: { _controller: SocialNetworksBundle:Connection:shareAddVoteContestsForFb }
+
+social_networks_connection_share_add_vote_contests_vk:
+    path:     /connection/share-add-vote-contests-vk/{idMember}
+    defaults: { _controller: SocialNetworksBundle:Connection:shareAddVoteContests, type: 'vk' }
+
+social_networks_connection_share_add_vote_contests_ok:
+    path:     /connection/share-add-vote-contests-ok/{idMember}
+    defaults: { _controller: SocialNetworksBundle:Connection:shareAddVoteContests, type: 'ok' }

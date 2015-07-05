@@ -18,7 +18,6 @@
     <div class="content_main__articles-item__txt">
 
         <p>{{ member.description |nl2br }}</p>
-
         <div class="gallery">
 
             {% for itemPhoto in member.contestsMembersPhotos %}
@@ -37,9 +36,10 @@
         </div>
 
         <div class="content_main__articles-item__txt-soc">
-            <a class="soc_ico fb" href="#"></a>
-            <a class="soc_ico vk" href="#"></a>
-            <a class="soc_ico ok" href="#"></a>
+            {{ render(controller('SocialNetworksBundle:Connection:shareForContestsVoting', {
+                'url': url('application_contest_member', {'idMember': member.id}),
+                'idMember': member.id
+                } )) }}
         </div>
 
     </div>

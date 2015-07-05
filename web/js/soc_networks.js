@@ -15,7 +15,7 @@ function clickShare(type, urlAddScore) {
             dataType: "json",
             success: function(data){
                 if (data.success) {
-
+                    location.reload();
                 }
             }
         });
