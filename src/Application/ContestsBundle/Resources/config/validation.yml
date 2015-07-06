@@ -38,6 +38,6 @@ Application\ContestsBundle\Entity\Contests:
 Application\ContestsBundle\Entity\ContestsMembers:
     properties:
         description:
-            - NotBlank: {  message: property.blank }
+            - NotBlank: { message: property.blank }
         commentAdmin:
-            - NotBlank: {  message: property.blank, groups: [form-disallow] }
+            - NotBlank: { message: property.blank, groups: [form-disallow] }

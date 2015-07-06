@@ -49,4 +49,6 @@ Application\UsersBundle\Entity\CommentsProduction:
             - NotBlank: { message: property.blank }
         description:
             - NotBlank: { message: property.blank }
+        commentAdmin:
+            - NotBlank: { message: property.blank, groups: [form-disallow] }
 

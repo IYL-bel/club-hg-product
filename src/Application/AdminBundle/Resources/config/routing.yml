@@ -65,3 +65,19 @@ application_admin_statuses:
 application_admin_statuses_edit:
     path:     /statuses/edit/{name}
     defaults: { _controller: ApplicationAdminBundle:Statuses:editStatus }
+
+application_admin_reviews:
+    path:     /reviews/
+    defaults: { _controller: ApplicationAdminBundle:Reviews:index }
+
+application_admin_reviews_more:
+    path:     /reviews/comment-more/{id}
+    defaults: { _controller: ApplicationAdminBundle:Reviews:commentMore }
+
+application_admin_reviews_approved:
+    path:     /reviews/approved/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Reviews:approvedComment }
+
+application_admin_reviews_disallow:
+    path:     /reviews/disallow/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Reviews:disallowComment }

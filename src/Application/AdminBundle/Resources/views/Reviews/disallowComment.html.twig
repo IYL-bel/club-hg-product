@@ -1,0 +1,20 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+{% form_theme form 'ApplicationAdminBundle::form.html.twig' %}
+
+
+{% block content %}
+
+    <h3>Отклонение отзыва</h3>
+    <p style="margin-bottom: 12px;">Добавьте в комментарий причину отклонения</p>
+
+    <div style="width: 482px;">
+        {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+            <input type="submit" class="blue_btn" value="Отклонить"> <a class="link-cancel" href="{{ path('application_admin_reviews') }}">Отмена</a>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock content %}
