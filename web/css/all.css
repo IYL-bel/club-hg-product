@@ -233,8 +233,6 @@ form a.link-cancel {
     border: 1px solid #bcbec0;
 }
 
-
-
 footer .user-agreement {
     position: absolute;
     left: 450px;
@@ -265,4 +263,8 @@ footer .user-agreement a {
 .content-text p {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+body .ui-widget {
+    font-size: 12px;
 }

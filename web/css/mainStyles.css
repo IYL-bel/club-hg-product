@@ -745,13 +745,15 @@ header {
           width: 100%;
           min-height: 320px; }
         /* line 899, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-        .content_main__big_tips-item_left a.look_tip {
+        .content_main__big_tips-item_left a.look_tip, .content_main__big_tips-item_right a.look_tip {
           position: absolute;
           top: 30px;
           left: 30px;
           color: #a7a9ac; }
+        .content_main__big_tips-item_right a.look_tip {
+          left: 10px; }
         /* line 906, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-        .content_main__big_tips-item_left h4 {
+        .content_main__big_tips-item_left h4, .content_main__big_tips-item_right h4 {
           color: #008dd2;
           font-size: 24px;
           position: absolute;
@@ -761,6 +763,10 @@ header {
           /* line 915, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
           .content_main__big_tips-item_left h4 a {
             color: #008dd2; }
+        .content_main__big_tips-item_right h4 {
+          font-size: 21px;
+          left: 10px;
+          bottom: 50px;}
       /* line 922, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__big_tips-item_right {
         float: right;

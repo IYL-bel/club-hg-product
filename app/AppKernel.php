@@ -20,17 +20,20 @@ class AppKernel extends Kernel
 
             // additional bundles
             new FOS\UserBundle\FOSUserBundle(),
-            new Application\UsersBundle\ApplicationUsersBundle(),
-            new Application\BaseBundle\ApplicationBaseBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+
+            // my bundles
             new Application\AdminBundle\ApplicationAdminBundle(),
-            new TemplatesBundle\TemplatesBundle(),
-            new Application\ScoresBundle\ApplicationScoresBundle(),
-            new HgProductBundle\HgProductBundle(),
+            new Application\BaseBundle\ApplicationBaseBundle(),
             new Application\ContestsBundle\ApplicationContestsBundle(),
-            new SocialNetworksBundle\SocialNetworksBundle(),
-            new Application\PrizesBundle\ApplicationPrizesBundle(),
             new Application\MessageBundle\ApplicationMessageBundle(),
+            new Application\PrizesBundle\ApplicationPrizesBundle(),
+            new Application\ScoresBundle\ApplicationScoresBundle(),
             new Application\TestProductionBundle\ApplicationTestProductionBundle(),
+            new Application\UsersBundle\ApplicationUsersBundle(),
+            new HgProductBundle\HgProductBundle(),
+            new SocialNetworksBundle\SocialNetworksBundle(),
+            new TemplatesBundle\TemplatesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -401,13 +401,27 @@ class ProfileController extends Controller
         $testProduction->setUser( $this->getUser() );
         $testProduction->setStatus(TestsProductionRepository::STATUS__NEW);
 
-        $form = $this->createForm(new  AddRequestTestingProductForm(), $testProduction);
+        $formAddRequestTestingProduct = new AddRequestTestingProductForm();
+
+        $nameProduct = array();
+        if ($request->getMethod() == 'POST') {
+            $data = $request->get( $formAddRequestTestingProduct->getName() );
+            if ( isset($data['nameProduct']) ) {
+                $nameProduct = $data['nameProduct'];
+                $testProduction->setNameProduct($nameProduct);
+            }
+        }
+
+        $form = $this->createForm($formAddRequestTestingProduct, $testProduction);
         $form->handleRequest($request);
 
         if ($form->isValid() && $isAddress) {
             /** @var $em \Doctrine\ORM\EntityManager */
             $em = $this->getDoctrine()->getManager();
             $testProduction = $form->getData();
+
+            $nameProduct = json_decode($nameProduct, true);
+            $testProduction->setNameProduct( $nameProduct['label'] );
 
             $em->persist($testProduction);
             $em->flush();
@@ -417,7 +431,7 @@ class ProfileController extends Controller
 
         return array(
             'isAddress' => $isAddress,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         );
     }
 

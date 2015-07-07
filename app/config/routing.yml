@@ -50,7 +50,7 @@ application_users:
 
 hg_product:
     resource: "@HgProductBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /hg-product
 
 social_networks:
     resource: "@SocialNetworksBundle/Resources/config/routing.yml"

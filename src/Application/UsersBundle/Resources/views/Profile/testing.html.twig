@@ -1,87 +1,44 @@
 {% extends 'ApplicationUsersBundle::layout_profile.html.twig' %}
 {% form_theme form 'ApplicationUsersBundle::form.html.twig' %}
 
+
 {% block content_profile %}
 
+    <div class="cabinet_content__item testing active">
+        <div class="cabinet_content__item-content">
 
-<div class="cabinet_content__item testing active">
-    <div class="cabinet_content__item-content">
+            {{ form_start(form) }}
+            {{ form_javascript(form) }}
 
-        {{ form_start(form) }}
+                <div class="invite_wrap">
 
-            <div class="invite_wrap">
+                    {% if isAddress == false %}
+                        <div style="margin-left: 115px; margin-bottom: 6px;">
+                            <span class="error_message">В вашем профиле не указан адрес доставки</span>
+                        </div>
+                    {% endif %}
 
-                {% if isAddress == false %}
-                    <div style="margin-left: 115px; margin-bottom: 6px;">
-                        <span class="error_message">В вашем профиле не указан адрес доставки</span>
+                    {{ form_row(form.nameProduct) }}
+                    {{ form_row(form.phone) }}
+
+                    <div class="form-row-line">
+                        <div class="form-label" style="vertical-align : top;">
+                            {{ form_label(form.commentUser) }}
+                        </div>
+                        <div class="form-input">
+                            {{ form_errors(form.commentUser) }}
+                            {{ form_widget(form.commentUser) }}
+                        </div>
                     </div>
-                {% endif %}
 
-                {{ form_row(form.nameProduct) }}
-                {{ form_row(form.phone) }}
-
-                <div class="form-row-line">
-                    <div class="form-label" style="vertical-align : top;">
-                        {{ form_label(form.commentUser) }}
-                    </div>
-                    <div class="form-input">
-                        {{ form_errors(form.commentUser) }}
-                        {{ form_widget(form.commentUser) }}
-                    </div>
-                </div>
-
-                <div class="form_row submit_row">
-                    <input type="submit" value="Заказать"/>
-                </div>
-            </div>
-
-        {{ form_end(form) }}
-
-
-        {#
-        <form action="#">
-            <div class="invite_wrap">
-
-                <div class="form_row">
-                    <label for="testing_name">Имя</label>
-                    <input id="testing_name" type="text"/>
-                </div>
-
-                <div class="form_row">
-                    <label for="testing_email">E-mail</label>
-                    <input id="testing_email" type="text"/>
-                </div>
-
-
-                <div class="form_row">
-                    <label for="testing_good">Товар</label>
-                    <input id="testing_good" type="text"/>
-                </div>
-
-                <div class="form_row textarea_row">
-                    <label for="testing_txt">Телефон и адрес доставки</label>
-                    <textarea id="testing_txt"></textarea>
-                </div>
-
-                <div class="form_row chek_row">
-                    <div class="chek_row_wrap">
-                        <input id="testing_deliv" checked type="checkbox"/>
-                        <label for="testing_deliv">Получать новостную рассылку</label>
+                    <div class="form_row submit_row">
+                        <input type="submit" value="Заказать"/>
                     </div>
                 </div>
 
-                <div class="form_row submit_row">
-                    <input type="submit" value="Заказать"/>
-                </div>
+            {{ form_end(form) }}
 
-            </div>
-
-        </form>
-        #}
-
-
+        </div>
     </div>
-</div>
-
 
 {% endblock content_profile %}
