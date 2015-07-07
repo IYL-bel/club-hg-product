@@ -30,6 +30,7 @@ use Application\UsersBundle\Entity\CommentsProductionPhotos;
 use Application\UsersBundle\Entity\CommentsProduction;
 use Application\UsersBundle\Repository\CommentsProduction as CommentsProductionRepository;
 
+
 /**
  * @Security("has_role('ROLE_USER')")
  *
@@ -219,9 +220,37 @@ class ProfileController extends Controller
         $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
         $commentsProduct = $commentsProductRepository->findBy( array('user' => $this->getUser()) );
 
+        /** @var $commentsProductionManager \Application\UsersBundle\Manager\CommentsProduction */
+        $commentsProductionManager = $this->get('users.comments_production_manager');
+        $commentsProduct = $commentsProductionManager->addShopProductData($commentsProduct);
+
         return array(
             'commentsProduct' => $commentsProduct
         );
+    }
+
+    /**
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function reviewMoreAction($id)
+    {
+        $success = false;
+
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var  $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
+        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
+        $commentProduct = $commentsProductRepository->find($id);
+
+        $template = $this->renderView('ApplicationUsersBundle:Profile:reviewMore.html.twig', array(
+            'commentProduct' => $commentProduct
+        ));
+
+        return new Response(json_encode(array(
+            'success' => $success,
+            'template' => $template,
+        )));
     }
 
     /**
@@ -270,6 +299,14 @@ class ProfileController extends Controller
         if ( $form->isValid() ) {
             /** @var  $commentProduction \Application\UsersBundle\Entity\CommentsProduction */
             $commentProduction = $form->getData();
+
+            $data = $request->get( $form->getName() );
+            if ( isset($data['nameProduct']) ) {
+                $nameProduct = json_decode($data['nameProduct'], true);
+
+                $commentProduction->setNameProduct( $nameProduct['label'] );
+                $commentProduction->setShopProductsI18nId( $nameProduct['value'] );
+            }
 
             $em->persist($commentProduction);
             $em->flush();
@@ -401,18 +438,7 @@ class ProfileController extends Controller
         $testProduction->setUser( $this->getUser() );
         $testProduction->setStatus(TestsProductionRepository::STATUS__NEW);
 
-        $formAddRequestTestingProduct = new AddRequestTestingProductForm();
-
-        $nameProduct = array();
-        if ($request->getMethod() == 'POST') {
-            $data = $request->get( $formAddRequestTestingProduct->getName() );
-            if ( isset($data['nameProduct']) ) {
-                $nameProduct = $data['nameProduct'];
-                $testProduction->setNameProduct($nameProduct);
-            }
-        }
-
-        $form = $this->createForm($formAddRequestTestingProduct, $testProduction);
+        $form = $this->createForm(new AddRequestTestingProductForm(), $testProduction);
         $form->handleRequest($request);
 
         if ($form->isValid() && $isAddress) {
@@ -420,8 +446,13 @@ class ProfileController extends Controller
             $em = $this->getDoctrine()->getManager();
             $testProduction = $form->getData();
 
-            $nameProduct = json_decode($nameProduct, true);
-            $testProduction->setNameProduct( $nameProduct['label'] );
+            $data = $request->get( $form->getName() );
+            if ( isset($data['nameProduct']) ) {
+                $nameProduct = json_decode($data['nameProduct'], true);
+
+                $testProduction->setNameProduct( $nameProduct['label'] );
+                $testProduction->setShopProductsI18nId( $nameProduct['value'] );
+            }
 
             $em->persist($testProduction);
             $em->flush();

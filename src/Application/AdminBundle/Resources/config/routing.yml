@@ -81,3 +81,7 @@ application_admin_reviews_approved:
 application_admin_reviews_disallow:
     path:     /reviews/disallow/{id}/
     defaults: { _controller: ApplicationAdminBundle:Reviews:disallowComment }
+
+application_admin_testing:
+    path:     /testing/
+    defaults: { _controller: ApplicationAdminBundle:Testing:index }

@@ -1763,7 +1763,8 @@ header {
   background-color: rgba(0, 0, 0, 0.7); }
   /* line 2303, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .show_pp_overflow .reviews_list-item, .show_pp_overflow .popup {
-    display: block; }
+    display: block;
+    z-index: 50; }
   /* line 2307, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
   .reviews_list-item_close, .popup_close {
     position: absolute;

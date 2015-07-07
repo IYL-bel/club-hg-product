@@ -28,7 +28,8 @@ class AddCommentProduction extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameProduct', 'text', array(
+            ->add('nameProduct', 'genemu_jqueryautocompleter_choice', array(
+                'route_name' => 'hg_product_auto_complete_get_product',
                 'required' => false,
                 'label' => '',
                 'attr' => array(

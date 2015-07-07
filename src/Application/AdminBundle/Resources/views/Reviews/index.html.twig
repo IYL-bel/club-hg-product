@@ -5,20 +5,25 @@
 
 <div class="cabinet_content__item-content">
 
-    <table width="100%">
+    <table width="100%" class="tab-admin">
 
         {% for key, comment in commentsProduct %}
 
             <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
-
                 <td>
-                    <span>{{ comment.createdAt.format('d.m.Y') }}</span>
+                    <div class="photo-logo-56">
+                        {% if comment.smallImage %}
+                            <a href="{{ comment.shopProductUrl }}" class="photo" target="_blank">
+                                <img src="{{ comment.smallImage }}" class="photo-img" alt="{{ comment.nameProduct }}"/>
+                            </a>
+                        {% endif %}
+                    </div>
                 </td>
                 <td>
-                    {{ comment.nameProduct }}
+                    <a href="{{ path('application_admin_reviews_more', {'id': comment.id}) }}" class="grey-link"><span>{{ comment.nameProduct }}</span></a>
                 </td>
                 <td>
-                    <a href="{{ path('application_admin_reviews_more', {'id': comment.id}) }}">Подробнее</a>
+                    <span>{{ comment.createdAt.format('d.m.y') }}</span>
                 </td>
                 <td>
                     <div class="item-content">
@@ -40,7 +45,7 @@
 
                     </div>
                 </td>
-                <td>
+                <td width="230">
                     <div class="item-content">
 
                         {% if comment.isStatusNew() %}
@@ -53,11 +58,11 @@
                         {% endif %}
 
                         {% if comment.isStatusConfirmed() %}
-                            Подтверждён {{ comment.processingAt.format('d.m.Y') }}
+                            Подтверждён {{ comment.processingAt.format('d.m.y') }}
                         {% endif %}
 
                         {% if comment.isStatusRejected() %}
-                            Отклонён {{ comment.processingAt.format('d.m.Y') }}
+                            Отклонён {{ comment.processingAt.format('d.m.y') }}
                         {% endif %}
 
                     </div>

@@ -72,6 +72,10 @@ a.blue-link {
     color: #008dd2;
 }
 
+a.grey-link {
+    color: #9a9a9a;
+}
+
 form a.link-cancel {
     margin-left: 15px;
 }
@@ -267,4 +271,8 @@ footer .user-agreement a {
 
 body .ui-widget {
     font-size: 12px;
+}
+
+.tab-admin {
+    font-size: 14px;
 }

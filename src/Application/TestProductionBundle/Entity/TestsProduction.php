@@ -45,9 +45,16 @@ class TestsProduction
     /**
      * @var string
      *
-     * @ORM\Column(type="string", name="name_product", length=150, nullable=true)
+     * @ORM\Column(type="string", name="name_product", length=500, nullable=true)
      */
     protected $nameProduct;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", name="shop_products_i18n__id", nullable=true)
+     */
+    protected $shopProductsI18nId;
 
     /**
      * @var string
@@ -205,6 +212,24 @@ class TestsProduction
     public function setPhone($phone)
     {
         $this->phone = $phone;
+    }
+
+    /**
+     * @param int $shopProductsI18nId
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setShopProductsI18nId($shopProductsI18nId)
+    {
+        $this->shopProductsI18nId = $shopProductsI18nId;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShopProductsI18nId()
+    {
+        return $this->shopProductsI18nId;
     }
 
 }

@@ -51,9 +51,16 @@ class CommentsProduction
     /**
      * @var string
      *
-     * @ORM\Column(type="string", name="name_product", length=150, nullable=true)
+     * @ORM\Column(type="string", name="name_product", length=500, nullable=true)
      */
     protected $nameProduct;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", name="shop_products_i18n__id", nullable=true)
+     */
+    protected $shopProductsI18nId;
 
     /**
      * @var string
@@ -106,6 +113,16 @@ class CommentsProduction
      * @ORM\JoinColumn(name="id", referencedColumnName="comments_production_id")
      */
     protected $commentsProductionPhotos;
+
+    /**
+     * @var null|string
+     */
+    protected $shopProductUrl = null;
+
+    /**
+     * @var null|string
+     */
+    protected $smallImage = null;
 
 
     /**
@@ -320,6 +337,60 @@ class CommentsProduction
     public function getCommentsProductionPhotos()
     {
         return $this->commentsProductionPhotos;
+    }
+
+    /**
+     * @param int $shopProductsI18nId
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function setShopProductsI18nId($shopProductsI18nId)
+    {
+        $this->shopProductsI18nId = $shopProductsI18nId;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShopProductsI18nId()
+    {
+        return $this->shopProductsI18nId;
+    }
+
+    /**
+     * @param null|string $shopProductUrl
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function setShopProductUrl($shopProductUrl)
+    {
+        $this->shopProductUrl = 'http://hg-product.ru/shop/product/' . $shopProductUrl;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShopProductUrl()
+    {
+        return $this->shopProductUrl;
+    }
+
+    /**
+     * @param null|string $smallImage
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function setSmallImage($smallImage)
+    {
+        $this->smallImage = 'http://hg-product.ru/uploads/shop/' . $smallImage;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSmallImage()
+    {
+        return $this->smallImage;
     }
 
 }

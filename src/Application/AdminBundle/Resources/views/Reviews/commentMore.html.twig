@@ -10,18 +10,14 @@
         <span> / <i>{{ itemCommentProduct.score.points }}</i> баллов</span>
     </div>
 
-    <div class="popup_wrap_content_txt" style="margin-bottom: 26px;">
-        <p>{{ itemCommentProduct.description }}</p>
-    </div>
-
-
-
-    <div class="popup_wrap_content_name">
+    <div class="popup_wrap_content_name" style="margin-top: 12px;">
         {#Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>#}
-        {{ itemCommentProduct.user.firstName }} {{ itemCommentProduct.user.lastName }}
+        {{ itemCommentProduct.user.firstName }} {{ itemCommentProduct.user.lastName }}{% if itemCommentProduct.user.occupation %}<span>, {{ itemCommentProduct.user.occupation }}</span>{% endif %}
     </div>
 
-    {{ itemCommentProduct.description }}
+    <div class="popup_wrap_content_txt">
+        <p>{{ itemCommentProduct.description |nl2br }}</p>
+    </div>
 
     <div class="download_result" style="margin-top: 12px;">
 

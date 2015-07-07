@@ -1,0 +1,44 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="cabinet_content__item-content">
+
+        <table width="100%" class="tab-admin">
+
+            {% for key, test in testsProduction %}
+
+                <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
+
+                    <td>
+                        <span>{{ test.createdAt.format('d.m.y') }}</span>
+                    </td>
+                    <td>
+                        <span>{{ test.nameProduct }}</span>
+                    </td>
+                    <td>
+                        {{ test.user.firstName }} {{ test.user.lastName }}
+                    </td>
+                    <td>
+                        {{ test.user.shippingAddress }} <br />
+                        тел. {{ test.phone }}
+                    </td>
+
+                </tr>
+
+            {% else %}
+                <tr>
+                    <td colspan="3">
+                        <div style="text-align: center;">
+                            Список тестов пуст
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+{% endblock content %}
