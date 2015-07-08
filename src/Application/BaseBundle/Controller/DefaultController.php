@@ -134,6 +134,23 @@ class DefaultController extends Controller
         return array();
     }
 
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function tableScoresAction()
+    {
+        /** @var $scoresTableService \Application\ScoresBundle\Service\ScoresTableService */
+        $scoresTableService = $this->get('scores_table.service');
+        $tableScores = $scoresTableService->getTableScore();
+
+        return array(
+            'tableScores' => $tableScores,
+        );
+    }
+
+
 
 
 

@@ -66,6 +66,10 @@ application_admin_statuses_edit:
     path:     /statuses/edit/{name}
     defaults: { _controller: ApplicationAdminBundle:Statuses:editStatus }
 
+application_admin_statuses_edit_table_scores:
+    path:     /statuses/edit-table-scores/{type}
+    defaults: { _controller: ApplicationAdminBundle:Statuses:editTableScores }
+
 application_admin_reviews:
     path:     /reviews/
     defaults: { _controller: ApplicationAdminBundle:Reviews:index }

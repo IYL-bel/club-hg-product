@@ -9,6 +9,10 @@
     color: #FFFFFF;
 }
 
+.color-turquoise {
+    color: #008dd2;
+}
+
 .color-black {
     color: #000000;
 }
@@ -17,6 +21,9 @@ tr.odd {
     background: #f5f7f9;
 }
 
+.text-center {
+    text-align: center;
+}
 
 .content-container-for-login {
     background: #28a5de url("../images/front_bkg.jpg") no-repeat 0 0;
@@ -241,6 +248,7 @@ footer .user-agreement {
     position: absolute;
     left: 450px;
     top: 25px;
+    text-align: center;
 }
 
 footer .user-agreement a {
@@ -275,4 +283,17 @@ body .ui-widget {
 
 .tab-admin {
     font-size: 14px;
+}
+
+table.tab-scores {
+    border-top: solid 1px #E9EDF0;
+    border-bottom: solid 1px #E9EDF0;
+}
+
+table.tab-scores tr td, .admin-content table.tab-scores tr td {
+    padding: 16px 30px;
+}
+
+table.tab-scores tr td span.points {
+    font-size: 18px;
 }

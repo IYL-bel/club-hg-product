@@ -1,0 +1,8 @@
+Application\ScoresBundle\Entity\Scores:
+    properties:
+        points:
+            - NotBlank: { message: property.blank }
+            - Type:
+                type: numeric
+                message: property.number_only
+

@@ -3,3 +3,8 @@ services:
         class: Application\ScoresBundle\Service\ScoresActionService
         arguments: [@service_container]
 
+    scores_table.service:
+        class: Application\ScoresBundle\Service\ScoresTableService
+        arguments:
+            container: '@service_container'
+            em: '@doctrine.orm.entity_manager'

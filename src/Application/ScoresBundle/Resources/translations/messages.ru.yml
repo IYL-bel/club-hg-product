@@ -3,3 +3,14 @@ scores:
     text_validation:
       mime_types: Данный тип файла недопустим. Допустимые типы файлов: jpg, png, gif.
       max_size: Размер файла больше допустимого. Допустимый размер файла 6Mb
+  tab_scores:
+    registration: Регистрация в клубе
+    share: Поделиться ссылкой с друзьями в Facebook, Вконтакте, Одноклассники и других соц. сетях
+    contests_participation_base: Участие в конкурсе
+    contests_winner_base: Победа в конкурсе
+    load_check: Загрузка чека в личный кабинет
+    filled_profile: Заполнение профиля "о себе"
+    test_drive_request_base: Заявка на тест-драйв
+    test_drive_report_base: Отчет о тест-драйве
+    reviews_product_base: Написание отзыва на продукт
+    filling_questionnaire: Заполнение расширенной анкеты

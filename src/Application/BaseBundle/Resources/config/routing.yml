@@ -21,3 +21,7 @@ application_base_security_login_ok:
 application_base_default_user_agreement:
     path:     user-agreement/
     defaults: { _controller: ApplicationBaseBundle:Default:userAgreement }
+
+application_base_default_table_scores:
+    path:     table-scores/
+    defaults: { _controller: ApplicationBaseBundle:Default:tableScores }

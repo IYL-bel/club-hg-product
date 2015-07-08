@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use TemplatesBundle\Repository\Statuses as StatusesRepository;
 use TemplatesBundle\Form\Type\EditStatus as EditStatusForm;
 use TemplatesBundle\Entity\Statuses;
+use Application\AdminBundle\Form\Type\EditScorePoints as EditScorePointsForm;
 
 
 /**
@@ -49,9 +50,14 @@ class StatusesController extends Controller
             }
         }
 
+        /** @var $scoresTableService \Application\ScoresBundle\Service\ScoresTableService */
+        $scoresTableService = $this->get('scores_table.service');
+        $tableScores = $scoresTableService->getTableScore();
+
         return array(
             'statuses' => $defaultStatuses,
             'default_scores' => StatusesRepository::getDefaultScoresForStatuses(),
+            'tableScores' => $tableScores,
         );
     }
 
@@ -101,6 +107,75 @@ class StatusesController extends Controller
 
         return array(
             'name' => $name,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param string $type
+     * @return array
+     */
+    public function editTableScoresAction(Request $request, $type)
+    {
+        /** @var $scoresTableService \Application\ScoresBundle\Service\ScoresTableService */
+        $scoresTableService = $this->get('scores_table.service');
+        $allTypes = $scoresTableService->getBaseTypesScore();
+
+        if ( !in_array($type, $allTypes) ) {
+            return $this->redirectToRoute('application_admin_statuses');
+        }
+
+        $typeForDb = $type;
+        if ($type == 'share') {
+            $typeForDb = 'share_fb';
+        }
+
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var \Application\ScoresBundle\Repository\Scores $scoresRepository */
+        $scoresRepository = $em->getRepository('ApplicationScoresBundle:Scores');
+        $score = $scoresRepository->findOneBy( array('type' => $scoresRepository::getNameTypes($typeForDb)) );
+
+        $form = $this->createForm(new EditScorePointsForm(), $score);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            /** @var \Application\ScoresBundle\Entity\Scores $score */
+            $score = $form->getData();
+
+            $em->persist($score);
+            $em->flush();
+
+            // recalculate Users change points
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->changePointsScore( $scoresRepository::getNameTypes($typeForDb) );
+
+            if ($type == 'share') {
+                /** @var \Application\ScoresBundle\Entity\Scores $scoreShareVk */
+                $scoreShareVk = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__SHARE_VK) );
+                $scoreShareVk->setPoints( $score->getPoints() );
+                $em->persist($scoreShareVk);
+
+                /** @var \Application\ScoresBundle\Entity\Scores $scoreShareOk */
+                $scoreShareOk = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__SHARE_OK) );
+                $scoreShareOk->setPoints( $score->getPoints() );
+                $em->persist($scoreShareOk);
+                $em->flush();
+
+                // recalculate Users change points
+                $serviceScoresAction->changePointsScore($scoresRepository::TYPE__SHARE_VK);
+                $serviceScoresAction->changePointsScore($scoresRepository::TYPE__SHARE_OK);
+            }
+
+            return $this->redirectToRoute('application_admin_statuses');
+        }
+
+        return array(
+            'type' => $type,
             'form' => $form->createView(),
         );
     }

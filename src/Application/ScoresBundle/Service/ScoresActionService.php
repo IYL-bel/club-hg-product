@@ -173,6 +173,28 @@ class ScoresActionService
     }
 
     /**
+     * @param int $type
+     * @return bool
+     */
+    public function changePointsScore($type)
+    {
+        /** @var \Application\UsersBundle\Repository\Users $usersRepository */
+        $usersRepository = $this->entityManager->getRepository('ApplicationUsersBundle:Users');
+        $changeUsers = $usersRepository->getUsersForChangeScore($type);
+
+        if ($changeUsers) {
+            /** @var \Application\UsersBundle\Entity\Users $user */
+            foreach($changeUsers as $user) {
+                $this->recalculateUserScores($user);
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @param \Application\UsersBundle\Entity\Users $user
      * @return ScoresActionService
      */

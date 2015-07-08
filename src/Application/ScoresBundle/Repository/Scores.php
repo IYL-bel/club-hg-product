@@ -38,4 +38,51 @@ class Scores extends EntityRepository
     const TYPE__VK_REFERRAL_ACTIVITY         = 62;
     const TYPE__OK_REFERRAL_ACTIVITY         = 63;
 
+
+    /**
+     * @param null|string $name
+     * @return array|int
+     */
+    public static function getNameTypes($name = null)
+    {
+        $types = array(
+            'registration'                 => self::TYPE__REGISTRATION,
+            'share_fb'                     => self::TYPE__SHARE_FB,
+            'share_vk'                     => self::TYPE__SHARE_VK,
+            'share_ok'                     => self::TYPE__SHARE_OK,
+            'contests_participation_base'  => self::TYPE__CONTESTS_PARTICIPATION_BASE,
+            'contests_winner_base'         => self::TYPE__CONTESTS_WINNER_BASE,
+            'load_check'                   => self::TYPE__CHECKS,
+            'filled_profile'               => self::TYPE__FILLED_PROFILE,
+            'test_drive_request_base'      => self::TYPE__TEST_DRIVE_REQUEST_BASE,
+            'test_drive_report_base'       => self::TYPE__TEST_DRIVE_REPORT_BASE,
+            'reviews_product_base'         => self::TYPE__REVIEWS_PRODUCT_BASE,
+            'filling_questionnaire'        => self::TYPE__FILLING_QUESTIONNAIRE,
+        );
+
+        if ($name) {
+            $allNameTypes = array_keys($types);
+            if ( in_array($name, $allNameTypes) ) {
+                return $types[$name];
+            }
+        }
+
+        return $types;
+    }
+
+    /**
+     * @param array $types
+     * @return array
+     */
+    public function getScoresForTypes($types)
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb
+            ->select(array('s.id', 's.type', 's.points'))
+            ->where( $qb->expr()->in('s.type', $types) )
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
