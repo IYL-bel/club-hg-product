@@ -150,28 +150,4 @@ class DefaultController extends Controller
         );
     }
 
-
-
-
-
-
-    public function testAction()
-    {
-
-
-        /** @var $stmt \Doctrine\ORM\EntityManager */
-        $stmt = $this->get('doctrine')->getManager('hg_prod_ru')
-            ->getConnection()
-            ->prepare('SELECT c.id, c.title, c.prev_text FROM content c WHERE id = :id');
-        $stmt->bindValue('id', 184);
-        $stmt->execute();
-        $re = $stmt->fetchAll();
-
-        var_dump($re);
-
-
-
-        return array();
-    }
-
 }
