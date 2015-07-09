@@ -10,21 +10,63 @@
             {% for key, test in testsProduction %}
 
                 <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
-
+                    <td>
+                        <div class="photo-logo-56">
+                            {% if test.smallImage %}
+                                <a href="{{ test.shopProductUrl }}" class="photo" target="_blank">
+                                    <img src="{{ test.smallImage }}" class="photo-img" alt="{{ test.nameProduct }}"/>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <a href="{{ path('application_admin_testing_customer_info_more', {'id': test.id}) }}" class="grey-link"><span>{{ test.nameProduct }}</span></a>
+                    </td>
                     <td>
                         <span>{{ test.createdAt.format('d.m.y') }}</span>
                     </td>
                     <td>
-                        <span>{{ test.nameProduct }}</span>
-                    </td>
-                    <td>
-                        {{ test.user.firstName }} {{ test.user.lastName }}
-                    </td>
-                    <td>
-                        {{ test.user.shippingAddress }} <br />
-                        тел. {{ test.phone }}
-                    </td>
+                        <div class="item-content">
 
+                            {% if test.isStatusNew() %}
+                                <b class="status_assay"></b>
+                                <span>Заявка на тест не проверена</span>
+                            {% endif %}
+
+                            {% if test.isStatusConfirmed() %}
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+{{ test.score.points }} очков</span>
+                            {% endif %}
+
+                            {% if test.isStatusRejected() %}
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>{{ test.commentAdmin }}</span>
+                            {% endif %}
+
+                        </div>
+                    </td>
+                    <td width="230">
+                        <div class="item-content">
+
+                            {% if test.isStatusNew() %}
+                                <a href="" class="but-blue-approved button">
+                                    <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                </a>
+                                <a href="" class="but-red-disallow button">
+                                    <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                </a>
+                            {% endif %}
+
+                            {% if test.isStatusConfirmed() %}
+                                Подтверждён {{ test.processingAt.format('d.m.y') }}
+                            {% endif %}
+
+                            {% if test.isStatusRejected() %}
+                                Отклонён {{ test.processingAt.format('d.m.y') }}
+                            {% endif %}
+
+                        </div>
+                    </td>
                 </tr>
 
             {% else %}

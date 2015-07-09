@@ -1,0 +1,35 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="cabinet_content__item-content">
+
+        <div class="popup_wrap_content_title">
+            <h3 class="title"><strong>{{ itemTestsProduction.nameProduct }}</strong></h3>
+            {% if itemTestsProduction.score %}<span> / <i>{{ itemTestsProduction.score.points }}</i> баллов</span>{% endif %}
+        </div>
+
+        <div class="popup_wrap_content_name" style="margin-top: 12px;">
+            {{ itemTestsProduction.user.firstName }} {{ itemTestsProduction.user.lastName }}{% if itemTestsProduction.user.occupation %}<span>, {{ itemTestsProduction.user.occupation }}</span>{% endif %}
+        </div>
+
+        {{ itemTestsProduction.user.shippingAddress }} <br />
+        тел. {{ itemTestsProduction.phone }}
+
+        <div class="popup_wrap_content_txt">
+            <p>{{ itemTestsProduction.commentUser |nl2br }}</p>
+        </div>
+
+        {% if itemTestsProduction.isStatusNew() %}
+            <a href="" class="but-blue-approved button">
+                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+            </a>
+            <a href="" class="but-red-disallow button">
+                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+            </a>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}

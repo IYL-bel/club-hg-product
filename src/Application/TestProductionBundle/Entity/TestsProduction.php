@@ -14,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Application\TestProductionBundle\Repository\TestsProduction as TestsProductionRepository;
+
 
 /**
  * Application\TestProductionBundle\Entity\TestsProduction
@@ -78,6 +80,13 @@ class TestsProduction
     protected $status;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", name="comment_admin", length=256, nullable=true)
+     */
+    protected $commentAdmin;
+
+    /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
@@ -92,6 +101,39 @@ class TestsProduction
      * @ORM\Column(name="updated_at", type="datetime")
      */
     protected $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="processing_at", type="datetime", nullable=true)
+     */
+    protected $processingAt;
+
+    /**
+     * @var \Application\ScoresBundle\Entity\Scores
+     *
+     * @ORM\ManyToOne(targetEntity="Application\ScoresBundle\Entity\Scores", inversedBy="testsProduction")
+     * @ORM\JoinColumn(name="score_id", referencedColumnName="id", nullable=true)
+     */
+    protected $score;
+
+    /**
+     * @var \Application\UsersBundle\Entity\CommentsProduction
+     *
+     * @ORM\OneToOne(targetEntity="Application\UsersBundle\Entity\CommentsProduction", inversedBy="testProduction", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="comment_production__id", referencedColumnName="id", nullable=true)
+     */
+    protected $commentProduction;
+
+    /**
+     * @var null|string
+     */
+    protected $shopProductUrl = null;
+
+    /**
+     * @var null|string
+     */
+    protected $smallImage = null;
 
 
     /**
@@ -167,6 +209,42 @@ class TestsProduction
     }
 
     /**
+     * @return bool
+     */
+    public function isStatusNew()
+    {
+        if ($this->status == TestsProductionRepository::STATUS_NEW ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusConfirmed()
+    {
+        if ($this->status == TestsProductionRepository::STATUS_CONFIRMED) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusRejected()
+    {
+        if ($this->status == TestsProductionRepository::STATUS_REJECTED) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -230,6 +308,96 @@ class TestsProduction
     public function getShopProductsI18nId()
     {
         return $this->shopProductsI18nId;
+    }
+
+    /**
+     * @param \Application\ScoresBundle\Entity\Scores $score
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param \Application\UsersBundle\Entity\CommentsProduction $commentProduction
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setCommentProduction($commentProduction)
+    {
+        $this->commentProduction = $commentProduction;
+        return $this;
+    }
+
+    /**
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function getCommentProduction()
+    {
+        return $this->commentProduction;
+    }
+
+    /**
+     * @param \DateTime $processingAt
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setProcessingAt($processingAt)
+    {
+        $this->processingAt = $processingAt;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getProcessingAt()
+    {
+        return $this->processingAt;
+    }
+
+    /**
+     * @param null|string $shopProductUrl
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setShopProductUrl($shopProductUrl)
+    {
+        $this->shopProductUrl = $shopProductUrl;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShopProductUrl()
+    {
+        return $this->shopProductUrl;
+    }
+
+    /**
+     * @param null|string $smallImage
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setSmallImage($smallImage)
+    {
+        $this->smallImage = $smallImage;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSmallImage()
+    {
+        return $this->smallImage;
     }
 
 }

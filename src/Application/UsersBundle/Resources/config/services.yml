@@ -1,9 +1,4 @@
 services:
-    users.comments_production_manager:
-        class: Application\UsersBundle\Manager\CommentsProduction
-        arguments:
-            emHgProd: '@doctrine.orm.hg_prod_ru_entity_manager'
-
 #    application_users.example:
 #        class: Application\UsersBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

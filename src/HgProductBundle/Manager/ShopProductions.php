@@ -2,21 +2,21 @@
 /**
  * Club Hg-Product
  *
- * Comments Production manager
+ * Shop Productions manager
  *
- * @package    ApplicationUsersBundle
+ * @package    HgProductBundle
  * @author     Yury Istomenok <iyl@tut.by>
  * @copyright  2015 IYL
  */
-namespace Application\UsersBundle\Manager;
+namespace HgProductBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
 
 
 /**
- * Application\UsersBundle\Manager\CommentsProduction
+ * HgProductBundle\Manager\ShopProductions
  */
-class CommentsProduction
+class ShopProductions
 {
 
     /**
@@ -36,16 +36,16 @@ class CommentsProduction
     }
 
     /**
-     * @param array $commentsProduct
+     * @param array $items
      * @return array
      */
-    public function addShopProductData($commentsProduct)
+    public function addShopProductData($items)
     {
         $idsShopProducts = array();
-        /** @var $comment \Application\UsersBundle\Entity\CommentsProduction */
-        foreach ($commentsProduct as $comment) {
-            if ( $comment->getShopProductsI18nId() ) {
-                $idsShopProducts[] = $comment->getShopProductsI18nId();
+        /** @var $item \Application\UsersBundle\Entity\CommentsProduction|\Application\TestProductionBundle\Entity\TestsProduction */
+        foreach ($items as $item) {
+            if ( $item->getShopProductsI18nId() ) {
+                $idsShopProducts[] = $item->getShopProductsI18nId();
             }
         }
 
@@ -59,18 +59,18 @@ class CommentsProduction
                 $shopProductsRew[$shop->getId()] = $shop;
             }
 
-            /** @var $comment \Application\UsersBundle\Entity\CommentsProduction */
-            foreach ($commentsProduct as $comment) {
-                if ( isset( $shopProductsRew[$comment->getShopProductsI18nId()] ) ) {
+            /** @var $item \Application\UsersBundle\Entity\CommentsProduction|\Application\TestProductionBundle\Entity\TestsProduction */
+            foreach ($items as $item) {
+                if ( isset( $shopProductsRew[$item->getShopProductsI18nId()] ) ) {
                     /** @var $itemShopProducts \HgProductBundle\Entity\ShopProducts */
-                    $itemShopProducts = $shopProductsRew[$comment->getShopProductsI18nId()];
-                    $comment->setShopProductUrl( $itemShopProducts->getUrl() );
-                    $comment->setSmallImage( $itemShopProducts->getSmallImage() );
+                    $itemShopProducts = $shopProductsRew[$item->getShopProductsI18nId()];
+                    $item->setShopProductUrl( 'http://hg-product.ru/shop/product/' . $itemShopProducts->getUrl() );
+                    $item->setSmallImage( 'http://hg-product.ru/uploads/shop/' . $itemShopProducts->getSmallImage() );
                 }
             }
         }
 
-        return $commentsProduct;
+        return $items;
     }
 
 }

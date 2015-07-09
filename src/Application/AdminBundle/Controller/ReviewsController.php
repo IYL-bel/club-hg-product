@@ -41,9 +41,9 @@ class ReviewsController extends Controller
         $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
         $commentsProduct = $commentsProductRepository->findBy( array(), array('createdAt' => 'DESC') );
 
-        /** @var $commentsProductionManager \Application\UsersBundle\Manager\CommentsProduction */
-        $commentsProductionManager = $this->get('users.comments_production_manager');
-        $commentsProduct = $commentsProductionManager->addShopProductData($commentsProduct);
+        /** @var $shopProductionsManager \HgProductBundle\Manager\ShopProductions */
+        $shopProductionsManager = $this->get('hg_product.shop_productions_manager');
+        $commentsProduct = $shopProductionsManager->addShopProductData($commentsProduct);
 
         return array(
             'commentsProduct' => $commentsProduct

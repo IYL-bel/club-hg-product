@@ -220,9 +220,9 @@ class ProfileController extends Controller
         $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
         $commentsProduct = $commentsProductRepository->findBy( array('user' => $this->getUser()) );
 
-        /** @var $commentsProductionManager \Application\UsersBundle\Manager\CommentsProduction */
-        $commentsProductionManager = $this->get('users.comments_production_manager');
-        $commentsProduct = $commentsProductionManager->addShopProductData($commentsProduct);
+        /** @var $shopProductionsManager \HgProductBundle\Manager\ShopProductions */
+        $shopProductionsManager = $this->get('hg_product.shop_productions_manager');
+        $commentsProduct = $shopProductionsManager->addShopProductData($commentsProduct);
 
         return array(
             'commentsProduct' => $commentsProduct
@@ -434,9 +434,20 @@ class ProfileController extends Controller
             $isAddress = true;
         }
 
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var $scoresRepository \Application\ScoresBundle\Repository\Scores */
+        $scoresRepository = $em->getRepository('ApplicationScoresBundle:Scores');
+        /** @var  $scoreForTestProduction \Application\ScoresBundle\Entity\Scores */
+        $scoreForTestProduction = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__TEST_DRIVE_REQUEST_BASE) );
+
         $testProduction = new TestsProduction();
         $testProduction->setUser( $this->getUser() );
-        $testProduction->setStatus(TestsProductionRepository::STATUS__NEW);
+        $testProduction->setStatus(TestsProductionRepository::STATUS_NEW);
+        if ($scoreForTestProduction) {
+            $testProduction->setScore($scoreForTestProduction);
+        }
 
         $form = $this->createForm(new AddRequestTestingProductForm(), $testProduction);
         $form->handleRequest($request);

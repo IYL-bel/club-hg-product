@@ -98,6 +98,14 @@ class Scores
      */
     protected $commentsProduction;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Application\TestProductionBundle\Entity\TestsProduction", mappedBy="score", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="score_id")
+     */
+    protected $testsProduction;
+
 
     /**
      * constructor
@@ -106,6 +114,7 @@ class Scores
     {
         $this->scoresUsers = new ArrayCollection();
         $this->commentsProduction = new ArrayCollection();
+        $this->testsProduction = new ArrayCollection();
     }
 
     /**
@@ -256,6 +265,24 @@ class Scores
     public function setCommentsProduction($commentsProduction)
     {
         $this->commentsProduction = $commentsProduction;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $testsProduction
+     * @return \Application\ScoresBundle\Entity\Scores
+     */
+    public function setTestsProduction($testsProduction)
+    {
+        $this->testsProduction = $testsProduction;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getTestsProduction()
+    {
+        return $this->testsProduction;
     }
 
 }

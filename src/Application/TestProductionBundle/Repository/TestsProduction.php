@@ -20,7 +20,8 @@ use Doctrine\ORM\Mapping as ORM;
 class TestsProduction extends EntityRepository
 {
 
-    const STATUS__NEW           = 1;
-    const STATUS__PRODUCT_SENT  = 2;
+    const STATUS_NEW        = 1;
+    const STATUS_CONFIRMED  = 2;
+    const STATUS_REJECTED   = 3;
 
 }

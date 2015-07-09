@@ -115,6 +115,20 @@ class CommentsProduction
     protected $commentsProductionPhotos;
 
     /**
+     * @var \Application\TestProductionBundle\Entity\TestsProduction
+     *
+     * @ORM\OneToOne(targetEntity="Application\TestProductionBundle\Entity\TestsProduction", mappedBy="commentProduction")
+     */
+    protected $testProduction;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="after_testing", type="boolean", nullable=true)
+     */
+    protected $afterTesting = false;
+
+    /**
      * @var null|string
      */
     protected $shopProductUrl = null;
@@ -363,7 +377,7 @@ class CommentsProduction
      */
     public function setShopProductUrl($shopProductUrl)
     {
-        $this->shopProductUrl = 'http://hg-product.ru/shop/product/' . $shopProductUrl;
+        $this->shopProductUrl = $shopProductUrl;
         return $this;
     }
 
@@ -381,7 +395,7 @@ class CommentsProduction
      */
     public function setSmallImage($smallImage)
     {
-        $this->smallImage = 'http://hg-product.ru/uploads/shop/' . $smallImage;
+        $this->smallImage = $smallImage;
         return $this;
     }
 
@@ -391,6 +405,40 @@ class CommentsProduction
     public function getSmallImage()
     {
         return $this->smallImage;
+    }
+
+    /**
+     * @param \Application\TestProductionBundle\Entity\TestsProduction $testProduction
+     * @return \Application\UsersBundle\Entity\CommentsProduction
+     */
+    public function setTestProduction($testProduction)
+    {
+        $this->testProduction = $testProduction;
+        return $this;
+    }
+
+    /**
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function getTestProduction()
+    {
+        return $this->testProduction;
+    }
+
+    /**
+     * @param boolean $afterTesting
+     */
+    public function setAfterTesting($afterTesting)
+    {
+        $this->afterTesting = $afterTesting;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAfterTesting()
+    {
+        return $this->afterTesting;
     }
 
 }

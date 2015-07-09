@@ -89,3 +89,7 @@ application_admin_reviews_disallow:
 application_admin_testing:
     path:     /testing/
     defaults: { _controller: ApplicationAdminBundle:Testing:index }
+
+application_admin_testing_customer_info_more:
+    path:     /testing/customer-info-more/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:customerInfoMore }
