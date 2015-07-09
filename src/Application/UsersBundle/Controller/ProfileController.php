@@ -100,7 +100,7 @@ class ProfileController extends Controller
         $fileConstraint->mimeTypesMessage = 'Данный тип файла недопустим. Допустимые типы файлов: jpg, png, gif.';
 
         $fileConstraint->maxSize = '7000000';
-        $fileConstraint->maxSizeMessage = 'Размер файла больше допустимого. Допустимый размер файла 6Mb';
+        $fileConstraint->maxSizeMessage = 'Размер файла больше допустимого. Допустимый размер файла 6MB';
 
         /** @var $validatorService \Symfony\Component\Validator\Validator */
         $validatorService = $this->get('validator');
