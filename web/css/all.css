@@ -83,6 +83,15 @@ a.grey-link {
     color: #9a9a9a;
 }
 
+hr.line-small {
+    display: block;
+    height: 0px;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 0;
+    clear: both;
+}
+
 form a.link-cancel {
     margin-left: 15px;
 }

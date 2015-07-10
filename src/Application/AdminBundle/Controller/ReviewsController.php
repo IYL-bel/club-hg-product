@@ -155,6 +155,8 @@ class ReviewsController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $itemCommentProduct = $form->getData();
+
             $itemCommentProduct->setStatus($commentsProductRepository::STATUS_REJECTED);
             $itemCommentProduct->setProcessingAt( new \DateTime('now') );
 

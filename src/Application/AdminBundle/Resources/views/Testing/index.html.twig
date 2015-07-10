@@ -30,7 +30,7 @@
 
                             {% if test.isStatusNew() %}
                                 <b class="status_assay"></b>
-                                <span>Заявка на тест не проверена</span>
+                                <span>Заявка не проверена</span>
                             {% endif %}
 
                             {% if test.isStatusConfirmed() %}
@@ -49,10 +49,10 @@
                         <div class="item-content">
 
                             {% if test.isStatusNew() %}
-                                <a href="" class="but-blue-approved button">
+                                <a href="{{ path('application_admin_testing_approved_request', {'id': test.id}) }}" class="but-blue-approved button">
                                     <b class="status_approved"><i class="fa fa-check"></i></b>Принять
                                 </a>
-                                <a href="" class="but-red-disallow button">
+                                <a href="{{ path('application_admin_testing_disallow_request', {'id': test.id}) }}" class="but-red-disallow button">
                                     <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
                                 </a>
                             {% endif %}

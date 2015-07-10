@@ -7,15 +7,65 @@
     <div class="cabinet_content__item testing active">
         <div class="cabinet_content__item-content">
 
-            {{ form_start(form) }}
-            {{ form_javascript(form) }}
+            {% if testsProduction %}
+                <div class="reviews_list">
+
+                    {% for key, test in testsProduction %}
+                        <div class="reviews_list-item">
+
+                            <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+
+                            <div class="reviews_list-item_img">
+                                <div class="photo-logo-56">
+                                    {% if test.smallImage %}
+                                    <a href="{{ test.shopProductUrl }}" class="photo" target="_blank">
+                                        <img src="{{ test.smallImage }}" class="photo-img" alt="{{ test.nameProduct }}"/>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="reviews_list-item_title">
+                                <span>{{ test.nameProduct }}</span>
+                            </div>
+
+                            <div class="reviews_list-item_status">
+                                {% if test.isStatusNew() %}
+                                    <b class="status_assay"></b>
+                                    <span>Заявка на тестирование проверяется. Нам потребуется до 24 часов</span>
+                                {% endif %}
+
+                                {% if test.isStatusConfirmed() %}
+                                    <b class="status_approved"><i class="fa fa-check"></i></b>
+                                    <span>+{{ test.score.points }} очков</span>
+                                {% endif %}
+
+                                {% if test.isStatusRejected() %}
+                                    <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                    <span>{{ test.commentAdmin }}</span>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+                <hr class="line-small" style="margin-bottom: 60px;">
+
+            {% endif %}
+
+
+            <div class="container__form-center">
+                {{ form_start(form) }}
+                {{ form_javascript(form) }}
 
                 <div class="invite_wrap">
 
                     {% if isAddress == false %}
-                        <div style="margin-left: 115px; margin-bottom: 6px;">
-                            <span class="error_message">В вашем профиле не указан адрес доставки</span>
-                        </div>
+                    <div style="margin-left: 115px; margin-bottom: 6px;">
+                        <span class="error_message">В вашем профиле не указан адрес доставки</span>
+                    </div>
                     {% endif %}
 
                     {{ form_row(form.nameProduct) }}
@@ -36,7 +86,8 @@
                     </div>
                 </div>
 
-            {{ form_end(form) }}
+                {{ form_end(form) }}
+            </div>
 
         </div>
     </div>

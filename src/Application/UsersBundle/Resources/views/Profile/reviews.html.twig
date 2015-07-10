@@ -3,59 +3,58 @@
 
 {% block content_profile %}
 
-<div class="cabinet_content__item reviews active">
-    <div class="cabinet_content__item-content">
+    <div class="cabinet_content__item reviews active">
+        <div class="cabinet_content__item-content">
 
-        <div style="margin-bottom: 20px;">
-            <a class="js_PopupShow blue_btn" href="{{ path('application_users_profile_review_add') }}">Добавить отзыв</a>
-        </div>
+            <div style="margin-bottom: 20px;">
+                <a class="js_PopupShow blue_btn" href="{{ path('application_users_profile_review_add') }}">Добавить отзыв</a>
+            </div>
 
-        <div class="reviews_list">
+            <div class="reviews_list">
 
-            {% for key, comment in commentsProduct %}
-                <div class="reviews_list-item">
+                {% for key, comment in commentsProduct %}
+                    <div class="reviews_list-item">
 
-                    <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+                        <div class="reviews_list-item_num">{{ key + 1 }}.</div>
 
-                    <div class="reviews_list-item_img">
-                        <div class="photo-logo-56">
-                            {% if comment.smallImage %}
-                                <a href="{{ comment.shopProductUrl }}" class="photo" target="_blank">
-                                    <img src="{{ comment.smallImage }}" class="photo-img" alt="{{ comment.nameProduct }}"/>
-                                </a>
+                        <div class="reviews_list-item_img">
+                            <div class="photo-logo-56">
+                                {% if comment.smallImage %}
+                                    <a href="{{ comment.shopProductUrl }}" class="photo" target="_blank">
+                                        <img src="{{ comment.smallImage }}" class="photo-img" alt="{{ comment.nameProduct }}"/>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="reviews_list-item_title">
+                            <a href="{{ path('application_users_profile_review_more', {'id': comment.id}) }}" class="js_PopupShow"><span>{{ comment.nameProduct }}</span></a>
+                        </div>
+
+                        <div class="reviews_list-item_status">
+                            {% if comment.isStatusNew() %}
+                                <b class="status_assay"></b>
+                                <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                            {% endif %}
+
+                            {% if comment.isStatusConfirmed() %}
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                <span>+{{ comment.score.points }} очков</span>
+                            {% endif %}
+
+                            {% if comment.isStatusRejected() %}
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                <span>{{ comment.commentAdmin }}</span>
                             {% endif %}
                         </div>
+
                     </div>
+                {% else %}
+                    <div style="text-align: center">Нет добавленных изывов</div>
+                {% endfor %}
 
-                    <div class="reviews_list-item_title">
-                        <a href="{{ path('application_users_profile_review_more', {'id': comment.id}) }}" class="js_PopupShow"><span>{{ comment.nameProduct }}</span></a>
-                    </div>
-
-                    <div class="reviews_list-item_status">
-                        {% if comment.isStatusNew() %}
-                            <b class="status_assay"></b>
-                            <span>Чек проверяется. Нам потребуется до 24 часов</span>
-                        {% endif %}
-
-                        {% if comment.isStatusConfirmed() %}
-                            <b class="status_approved"><i class="fa fa-check"></i></b>
-                            <span>+{{ comment.score.points }} очков</span>
-                        {% endif %}
-
-                        {% if comment.isStatusRejected() %}
-                            <b class="status_disallow"><i class="fa fa-times"></i></b>
-                            <span>{{ comment.commentAdmin }}</span>
-                        {% endif %}
-                    </div>
-
-                </div>
-            {% else %}
-                <div style="text-align: center">Нет добавленных изывов</div>
-            {% endfor %}
-
+            </div>
         </div>
     </div>
-</div>
-
 
 {% endblock content_profile %}

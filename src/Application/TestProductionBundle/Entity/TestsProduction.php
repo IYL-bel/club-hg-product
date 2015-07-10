@@ -400,4 +400,22 @@ class TestsProduction
         return $this->smallImage;
     }
 
+    /**
+     * @param string $commentAdmin
+     * @return \Application\TestProductionBundle\Entity\TestsProduction
+     */
+    public function setCommentAdmin($commentAdmin)
+    {
+        $this->commentAdmin = $commentAdmin;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCommentAdmin()
+    {
+        return $this->commentAdmin;
+    }
+
 }

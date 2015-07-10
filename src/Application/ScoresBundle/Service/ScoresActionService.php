@@ -47,25 +47,30 @@ class ScoresActionService
     }
 
     /**
+     * add Balls for User
+     *
      * @param \Application\ScoresBundle\Entity\Scores $score
      * @param \Application\UsersBundle\Entity\Users $user
      * @return \Application\ScoresBundle\Service\ScoresActionService
      */
     public function additionUserScore(Scores $score, Users $user)
     {
-        // add Balls for User
-        $scoresUsers = new ScoresUsers();
-        $scoresUsers->setScore($score);
-        $scoresUsers->setUser($user);
-        $scoresUsers->setTypeCalculation(ScoresUsersRepository::TYPE_CALCULATION__ADDITION);
+        if ($score && $user) {
+            $scoresUsers = new ScoresUsers();
+            $scoresUsers->setScore($score);
+            $scoresUsers->setUser($user);
+            $scoresUsers->setTypeCalculation(ScoresUsersRepository::TYPE_CALCULATION__ADDITION);
 
-        $this->entityManager->persist($scoresUsers);
-        $this->entityManager->flush();
+            $this->entityManager->persist($scoresUsers);
+            $this->entityManager->flush();
 
-        // recalculate user points
-        $this->recalculateUserScores($user);
+            // recalculate user points
+            $this->recalculateUserScores($user);
 
-        return $this;
+            return true;
+        }
+
+        return false;
     }
 
     /**

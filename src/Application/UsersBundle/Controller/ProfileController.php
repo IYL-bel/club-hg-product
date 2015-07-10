@@ -471,7 +471,16 @@ class ProfileController extends Controller
             return $this->redirectToRoute('application_users_profile_testing');
         }
 
+        /** @var $testsProductionRepository \Application\TestProductionBundle\Repository\TestsProduction */
+        $testsProductionRepository = $em->getRepository('ApplicationTestProductionBundle:TestsProduction');
+        $testsProduction = $testsProductionRepository->findBy(array('user' => $this->getUser()), array('createdAt' => 'DESC'));
+
+        /** @var $shopProductionsManager \HgProductBundle\Manager\ShopProductions */
+        $shopProductionsManager = $this->get('hg_product.shop_productions_manager');
+        $testsProduction = $shopProductionsManager->addShopProductData($testsProduction);
+
         return array(
+            'testsProduction' => $testsProduction,
             'isAddress' => $isAddress,
             'form' => $form->createView(),
         );

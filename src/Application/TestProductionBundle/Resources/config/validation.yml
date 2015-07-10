@@ -1,6 +1,8 @@
 Application\TestProductionBundle\Entity\TestsProduction:
     properties:
         nameProduct:
-            - NotBlank: {  message: property.blank }
+            - NotBlank: { message: property.blank }
         phone:
-            - NotBlank: {  message: property.blank }
+            - NotBlank: { message: property.blank }
+        commentAdmin:
+            - NotBlank: { message: property.blank, groups: [form-disallow] }

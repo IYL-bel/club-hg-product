@@ -93,3 +93,11 @@ application_admin_testing:
 application_admin_testing_customer_info_more:
     path:     /testing/customer-info-more/{id}/
     defaults: { _controller: ApplicationAdminBundle:Testing:customerInfoMore }
+
+application_admin_testing_approved_request:
+    path:     /testing/approved-request/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:approvedRequestTest }
+
+application_admin_testing_disallow_request:
+    path:     /testing/disallow-request/{id}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:disallowRequestTest }

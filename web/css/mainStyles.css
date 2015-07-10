@@ -1516,13 +1516,14 @@ header {
             position: relative;
             left: -5px; }
       /* line 1924, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-      .content_main__articles.cabinet .cabinet_content__item.testing .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.invite .cabinet_content__item-content {
-        width: 460px; }
+      .content_main__articles.cabinet .cabinet_content__item.testing .container__form-center, .content_main__articles.cabinet .cabinet_content__item.invite .cabinet_content__item-content {
+        width: 460px;
+        margin: 0 auto; }
       /* line 1928, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
       .content_main__articles.cabinet .cabinet_content__item.testing .form_row, .content_main__articles.cabinet .cabinet_content__item.invite .form_row {
         float: right; }
       /* line 1936, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
-      .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content {
+      .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content, .content_main__articles.cabinet .cabinet_content__item.testing .cabinet_content__item-content {
         width: 94%; }
         /* line 1941, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .content_main__articles.cabinet .cabinet_content__item.contests .cabinet_content__item-content .reviews_list-item, .content_main__articles.cabinet .cabinet_content__item.checks .cabinet_content__item-content .reviews_list-item, .content_main__articles.cabinet .cabinet_content__item.reviews .cabinet_content__item-content .reviews_list-item {
