@@ -218,7 +218,7 @@ class ProfileController extends Controller
         $em = $this->getDoctrine()->getManager();
         /** @var  $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
         $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
-        $commentsProduct = $commentsProductRepository->findBy( array('user' => $this->getUser()) );
+        $commentsProduct = $commentsProductRepository->findBy( array('user' => $this->getUser()), array('createdAt' => 'DESC') );
 
         /** @var $shopProductionsManager \HgProductBundle\Manager\ShopProductions */
         $shopProductionsManager = $this->get('hg_product.shop_productions_manager');
@@ -227,6 +227,30 @@ class ProfileController extends Controller
         return array(
             'commentsProduct' => $commentsProduct
         );
+    }
+
+    /**
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function reviewRemoveAction($id)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var  $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
+        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
+        $commentProduct = $commentsProductRepository->findOneBy(array(
+            'id' => $id,
+            'status' => $commentsProductRepository::STATUS_NEW,
+            'user' => $this->getUser()
+        ));
+
+        if ($commentProduct) {
+            $em->remove($commentProduct);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('application_users_profile_reviews');
     }
 
     /**
@@ -261,6 +285,10 @@ class ProfileController extends Controller
     {
         $success = false;
         $addedFiles = array();
+        $testProduction = array();
+        $nameProductForm = null;
+        $testingId = $request->query->get('testingId');
+        $formSend = $request->request->get('form_send');
 
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
@@ -278,7 +306,38 @@ class ProfileController extends Controller
             $commentProduction->setScore($scoreForCommentProduction);
         }
 
+        if ($testingId) {
+            /** @var $testsProductionRepository \Application\TestProductionBundle\Repository\TestsProduction */
+            $testsProductionRepository = $em->getRepository('ApplicationTestProductionBundle:TestsProduction');
+            /** @var $testProduction \Application\TestProductionBundle\Entity\TestsProduction */
+            $testProduction = $testsProductionRepository->find($testingId);
+            if ($testProduction) {
+                $commentProduction->setAfterTesting(true);
+                //$commentProduction->setTestProduction($testProduction);
+                $commentProduction->setNameProduct( $testProduction->getNameProduct() );
+                $commentProduction->setShopProductsI18nId( $testProduction->getShopProductsI18nId() );
+                $nameProductForm = $testProduction->getNameProduct();
+
+                /** @var  $scoreForCommentProduction \Application\ScoresBundle\Entity\Scores */
+                $scoreForCommentProduction = $scoresRepository->findOneBy( array('type' => $scoresRepository::TYPE__TEST_DRIVE_REPORT_BASE) );
+
+                if ($scoreForCommentProduction) {
+                    $commentProduction->setScore($scoreForCommentProduction);
+                }
+            }
+        }
+
         $form = $this->createForm(new AddCommentProductionForm(), $commentProduction);
+
+        if ($formSend && $testProduction) {
+            $dataForm = $request->request->get( $form->getName() );
+            $dataForm['nameProduct'] = json_encode(array(
+                'label' => $testProduction->getNameProduct(),
+                'value' => $testProduction->getShopProductsI18nId()
+            ));
+            $request->request->set($form->getName(), $dataForm);
+        }
+
         $form->handleRequest($request);
 
         $addedFilesName = $request->request->get('fileName');
@@ -300,7 +359,7 @@ class ProfileController extends Controller
             /** @var  $commentProduction \Application\UsersBundle\Entity\CommentsProduction */
             $commentProduction = $form->getData();
 
-            $data = $request->get( $form->getName() );
+            $data = $request->request->get( $form->getName() );
             if ( isset($data['nameProduct']) ) {
                 $nameProduct = json_decode($data['nameProduct'], true);
 
@@ -327,15 +386,24 @@ class ProfileController extends Controller
             $em->persist($commentProduction);
             $em->flush();
 
+            if ($testProduction) {
+                $testProduction->setCommentProduction($commentProduction);
+                $em->persist($testProduction);
+                $em->flush();
+            }
+
             $success = true;
         }
 
         $formView = $form->createView();
 
         $template = $this->renderView('ApplicationUsersBundle:Profile:addReview.html.twig', array(
+            'testingId' => $testingId,
             'form' => $formView,
             'addedFiles' => $addedFiles,
             'commentProduction' => $commentProduction,
+            'nameProductForm' => $nameProductForm,
+            'formSend' => $formSend,
         ));
 
         return new Response(json_encode(array(

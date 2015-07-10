@@ -34,7 +34,7 @@ class AddCommentProduction extends AbstractType
                 'label' => '',
                 'attr' => array(
                     'class' => 'product_name',
-                    'placeholder' => 'Название товара из каталога'
+                    'placeholder' => 'Название товара из каталога',
                 ),
             ))
 

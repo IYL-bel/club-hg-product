@@ -13,7 +13,7 @@
                     {% for key, test in testsProduction %}
                         <div class="reviews_list-item">
 
-                            <div class="reviews_list-item_num">{{ key + 1 }}.</div>
+                            {#<div class="reviews_list-item_num">{{ key + 1 }}.</div>#}
 
                             <div class="reviews_list-item_img">
                                 <div class="photo-logo-56">
@@ -25,14 +25,20 @@
                                 </div>
                             </div>
 
+                            {#
                             <div class="reviews_list-item_title">
                                 <span>{{ test.nameProduct }}</span>
+                            </div>
+                            #}
+
+                            <div class="reviews_list-item_title" style="width: 60px;">
+                                <span>{{ test.createdAt.format('d.m.y') }}</span>
                             </div>
 
                             <div class="reviews_list-item_status">
                                 {% if test.isStatusNew() %}
                                     <b class="status_assay"></b>
-                                    <span>Заявка на тестирование проверяется. Нам потребуется до 24 часов</span>
+                                    <span>Заявка проверяется. Нам потребуется до 24 часов</span>
                                 {% endif %}
 
                                 {% if test.isStatusConfirmed() %}
@@ -43,6 +49,31 @@
                                 {% if test.isStatusRejected() %}
                                     <b class="status_disallow"><i class="fa fa-times"></i></b>
                                     <span>{{ test.commentAdmin }}</span>
+                                {% endif %}
+                            </div>
+
+                            <div class="reviews_list-item_status">
+                                {% if test.isStatusConfirmed() %}
+                                    {% if test.commentProduction %}
+                                        {% if test.commentProduction.isStatusNew() %}
+                                            <b class="status_assay"></b>
+                                            <span>Отзыв проверяется. Нам потребуется до 24 часов</span>
+                                        {% endif %}
+
+                                        {% if test.commentProduction.isStatusConfirmed() %}
+                                            <b class="status_approved"><i class="fa fa-check"></i></b>
+                                            <span>+{{ test.score.points }} очков</span>
+                                        {% endif %}
+
+                                        {% if test.commentProduction.isStatusRejected() %}
+                                            <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                            <span>{{ test.commentAdmin }}</span>
+                                        {% endif %}
+                                    {% else %}
+                                        <a href="{{ path('application_users_profile_review_add', {'testingId': test.id}) }}" class="js_PopupShow but-blue-small" style="width: 120px;">
+                                            <span>Добавить отзыв</span>
+                                        </a>
+                                    {% endif %}
                                 {% endif %}
                             </div>
 

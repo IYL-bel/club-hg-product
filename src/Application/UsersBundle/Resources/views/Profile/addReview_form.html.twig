@@ -13,18 +13,24 @@
 
 <div class="popup_wrap_content_form">
 
-    <form id="add_contests_member_form" action="{{ path('application_users_profile_review_add') }}" method="post" {{ form_enctype(form) }}>
+    <form id="add_contests_member_form" action="{{ path('application_users_profile_review_add', {'testingId': testingId}) }}" method="post" {{ form_enctype(form) }}>
 
         {{ form_javascript(form) }}
 
-        {{ form_errors(form.nameProduct) }}
-        {{ form_widget(form.nameProduct) }}
+        {% set form_attr = {} %}
+        {% if testingId %}
+            {% set form_attr = {'attr': {'value': nameProductForm, 'readonly': 'readonly'}} %}
+        {% endif %}
 
+        {{ form_errors(form.nameProduct) }}
+        {{ form_widget(form.nameProduct, form_attr) }}
 
         {{ form_errors(form.description) }}
         {{ form_widget(form.description) }}
 
         {{ form_rest(form) }}
+
+        <input type="hidden" name="form_send" value="1">
 
         <div class="download_result" style="margin-top: 12px;">
 
@@ -46,7 +52,7 @@
         </div>
 
         <div style="text-align: end; margin-top: 24px;">
-            <input class="ajax-form-submit blue_btn"  type="button" value="Отправить"/>
+            <input class="ajax-form-submit blue_btn" name="button_send" type="button" value="Отправить"/>
         </div>
 
     </form>

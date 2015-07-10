@@ -15,8 +15,6 @@
                 {% for key, comment in commentsProduct %}
                     <div class="reviews_list-item">
 
-                        <div class="reviews_list-item_num">{{ key + 1 }}.</div>
-
                         <div class="reviews_list-item_img">
                             <div class="photo-logo-56">
                                 {% if comment.smallImage %}
@@ -29,6 +27,10 @@
 
                         <div class="reviews_list-item_title">
                             <a href="{{ path('application_users_profile_review_more', {'id': comment.id}) }}" class="js_PopupShow"><span>{{ comment.nameProduct }}</span></a>
+                        </div>
+
+                        <div class="reviews_list-item_title" style="width: 60px;">
+                            <span>{{ comment.createdAt.format('d.m.y') }}</span>
                         </div>
 
                         <div class="reviews_list-item_status">
@@ -45,6 +47,11 @@
                             {% if comment.isStatusRejected() %}
                                 <b class="status_disallow"><i class="fa fa-times"></i></b>
                                 <span>{{ comment.commentAdmin }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="reviews_list-item_num cross-close_container">
+                            {% if comment.isStatusNew() %}
+                                <a href="{{ path('application_users_profile_review_remove', {'id': comment.id}) }}" class="cross-close" title="Удалить"><i class="fa fa-times"></i></a>
                             {% endif %}
                         </div>
 

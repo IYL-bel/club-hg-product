@@ -17,9 +17,35 @@
     color: #000000;
 }
 
+.color-red {
+    color: #ff0601;
+}
+
+.color-grey {
+    color: #9a9a9a;
+}
+
 tr.odd {
     background: #f5f7f9;
 }
+
+.cross-close_container {
+    margin-top: -22px;
+}
+
+a.cross-close {
+    color: #ff0601;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 3px #FF7F7C;
+    text-decoration: none;
+}
+
+a.cross-close:hover {
+    text-shadow: 0 0 3px #ff0601;
+    font-size: 16px;
+}
+
 
 .text-center {
     text-align: center;
@@ -158,6 +184,16 @@ form a.link-cancel {
     /*border: 1px solid #dcdcdc;*/
     padding: 2px;
     display: table-cell;
+}
+
+.but-blue-small {
+    border: none;
+    display: flex;
+    background-color: #28a5de;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding: 6px 10px 6px 2px;
+    margin-right: 16px;
 }
 
 .but-blue-approved {

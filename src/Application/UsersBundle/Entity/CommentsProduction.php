@@ -19,6 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Application\UsersBundle\Entity\Users;
 use Application\ScoresBundle\Entity\Scores;
 use Application\UsersBundle\Repository\CommentsProduction as CommentsProductionRepository;
+use Application\TestProductionBundle\Entity\TestsProduction;
 
 
 /**
@@ -411,7 +412,7 @@ class CommentsProduction
      * @param \Application\TestProductionBundle\Entity\TestsProduction $testProduction
      * @return \Application\UsersBundle\Entity\CommentsProduction
      */
-    public function setTestProduction($testProduction)
+    public function setTestProduction(TestsProduction $testProduction)
     {
         $this->testProduction = $testProduction;
         return $this;

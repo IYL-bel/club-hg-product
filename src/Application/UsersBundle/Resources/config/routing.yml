@@ -26,6 +26,10 @@ application_users_profile_reviews:
     path:     my-profile/reviews/
     defaults: { _controller: ApplicationUsersBundle:Profile:reviews }
 
+application_users_profile_review_remove:
+    path:     my-profile/review-remove/{id}/
+    defaults: { _controller: ApplicationUsersBundle:Profile:reviewRemove }
+
 application_users_profile_review_more:
     path:     my-profile/review-more/{id}/
     defaults: { _controller: ApplicationUsersBundle:Profile:reviewMore }
