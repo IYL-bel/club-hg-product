@@ -101,3 +101,15 @@ application_admin_testing_approved_request:
 application_admin_testing_disallow_request:
     path:     /testing/disallow-request/{id}/
     defaults: { _controller: ApplicationAdminBundle:Testing:disallowRequestTest }
+
+application_admin_testing_report_info_more:
+    path:     /testing/report-info-more/{commentId}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:reportInfoMore }
+
+application_admin_testing_approved_report:
+    path:     /testing/approved-report/{commentId}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:approvedReportTest }
+
+application_admin_testing_disallow_report:
+    path:     /testing/disallow-report/{commentId}/
+    defaults: { _controller: ApplicationAdminBundle:Testing:disallowReportTest }

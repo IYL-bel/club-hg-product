@@ -1,4 +1,4 @@
 services:
-#    application_admin.example:
-#        class: Application\AdminBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    form.handler.comment_production_disallow:
+        class: Application\AdminBundle\Form\Handler\CommentProductionDisallow
+        arguments: [@service_container]

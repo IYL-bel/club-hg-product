@@ -5,7 +5,7 @@
 
     <div class="cabinet_content__item-content">
 
-        <table width="100%" class="tab-admin">
+        <table width="100%" class="tab-admin review">
 
             {% for key, test in testsProduction %}
 
@@ -19,54 +19,207 @@
                             {% endif %}
                         </div>
                     </td>
-                    <td>
-                        <a href="{{ path('application_admin_testing_customer_info_more', {'id': test.id}) }}" class="grey-link"><span>{{ test.nameProduct }}</span></a>
-                    </td>
-                    <td>
-                        <span>{{ test.createdAt.format('d.m.y') }}</span>
-                    </td>
-                    <td>
-                        <div class="item-content">
 
-                            {% if test.isStatusNew() %}
-                                <b class="status_assay"></b>
-                                <span>Заявка не проверена</span>
-                            {% endif %}
+                    {% if test.commentProduction %}
+                        <td colspan="5">
 
-                            {% if test.isStatusConfirmed() %}
-                                <b class="status_approved"><i class="fa fa-check"></i></b>
-                                <span>+{{ test.score.points }} очков</span>
-                            {% endif %}
+                            <table width="100%">
+                                <tr class="separator">
+                                    <td>
+                                        <a href="{{ path('application_admin_testing_customer_info_more', {'id': test.id}) }}" class="grey-link"><span>{{ test.nameProduct }}</span></a>
+                                    </td>
+                                    <td class="date">
+                                        <span>{{ test.createdAt.format('d.m.y') }}</span>
+                                    </td>
+                                    <td class="status">
+                                        <div class="item-content">
 
-                            {% if test.isStatusRejected() %}
-                                <b class="status_disallow"><i class="fa fa-times"></i></b>
-                                <span>{{ test.commentAdmin }}</span>
-                            {% endif %}
+                                            {% if test.isStatusNew() %}
+                                                <b class="status_assay"></b>
+                                            {% endif %}
 
-                        </div>
-                    </td>
-                    <td width="230">
-                        <div class="item-content">
+                                            {% if test.isStatusConfirmed() %}
+                                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                            {% endif %}
 
-                            {% if test.isStatusNew() %}
-                                <a href="{{ path('application_admin_testing_approved_request', {'id': test.id}) }}" class="but-blue-approved button">
-                                    <b class="status_approved"><i class="fa fa-check"></i></b>Принять
-                                </a>
-                                <a href="{{ path('application_admin_testing_disallow_request', {'id': test.id}) }}" class="but-red-disallow button">
-                                    <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
-                                </a>
-                            {% endif %}
+                                            {% if test.isStatusRejected() %}
+                                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                            {% endif %}
 
-                            {% if test.isStatusConfirmed() %}
-                                Подтверждён {{ test.processingAt.format('d.m.y') }}
-                            {% endif %}
+                                        </div>
+                                    </td>
+                                    <td class="status-text">
+                                        <div class="item-content">
 
-                            {% if test.isStatusRejected() %}
-                                Отклонён {{ test.processingAt.format('d.m.y') }}
-                            {% endif %}
+                                            {% if test.isStatusNew() %}
+                                                <span>Заявка не проверена</span>
+                                            {% endif %}
 
-                        </div>
-                    </td>
+                                            {% if test.isStatusConfirmed() %}
+                                                <span>+{{ test.score.points }} очков</span>
+                                            {% endif %}
+
+                                            {% if test.isStatusRejected() %}
+                                                <span>{{ test.commentAdmin }}</span>
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                    <td class="button">
+                                        <div class="item-content">
+
+                                            {% if test.isStatusNew() %}
+                                                <a href="{{ path('application_admin_testing_approved_request', {'id': test.id}) }}" class="but-blue-approved button">
+                                                    <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                                </a>
+                                                <a href="{{ path('application_admin_testing_disallow_request', {'id': test.id}) }}" class="but-red-disallow button">
+                                                    <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                                </a>
+                                            {% endif %}
+
+                                            {% if test.isStatusConfirmed() %}
+                                                Подтверждён {{ test.processingAt.format('d.m.y') }}
+                                            {% endif %}
+
+                                            {% if test.isStatusRejected() %}
+                                                Отклонён {{ test.processingAt.format('d.m.y') }}
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('application_admin_testing_report_info_more', {'commentId': test.commentProduction.id}) }}" class="grey-link"><span>Отчет о тест-драйве</span></a>
+                                    </td>
+                                    <td class="date">
+                                        <span>{{ test.commentProduction.createdAt.format('d.m.y') }}</span>
+                                    </td>
+                                    <td class="status">
+                                        <div class="item-content">
+
+                                            {% if test.commentProduction.isStatusNew() %}
+                                                <b class="status_assay"></b>
+                                            {% endif %}
+
+                                            {% if test.commentProduction.isStatusConfirmed() %}
+                                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                                            {% endif %}
+
+                                            {% if test.commentProduction.isStatusRejected() %}
+                                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                    <td class="status-text">
+                                        <div class="item-content">
+
+                                            {% if test.commentProduction.isStatusNew() %}
+                                                <span>Отклик не проверен</span>
+                                            {% endif %}
+
+                                            {% if test.commentProduction.isStatusConfirmed() %}
+                                                <span>+{{ test.commentProduction.score.points }} очков</span>
+                                            {% endif %}
+
+                                            {% if test.commentProduction.isStatusRejected() %}
+                                                <span>{{ test.commentProduction.commentAdmin }}</span>
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                    <td class="button">
+
+                                        {% if test.commentProduction.isStatusNew() %}
+                                            <a href="{{ path('application_admin_testing_approved_report', {'commentId': test.commentProduction.id}) }}" class="but-blue-approved button">
+                                                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                            </a>
+                                            <a href="{{ path('application_admin_testing_disallow_report', {'commentId': test.commentProduction.id}) }}" class="but-red-disallow button">
+                                                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                            </a>
+                                        {% endif %}
+
+                                        {% if test.commentProduction.isStatusConfirmed() %}
+                                            Подтверждён {{ test.commentProduction.processingAt.format('d.m.y') }}
+                                        {% endif %}
+
+                                        {% if test.commentProduction.isStatusRejected() %}
+                                            Отклонён {{ test.commentProduction.processingAt.format('d.m.y') }}
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    {% else %}
+
+                        <td>
+                            <a href="{{ path('application_admin_testing_customer_info_more', {'id': test.id}) }}" class="grey-link"><span>{{ test.nameProduct }}</span></a>
+                        </td>
+                        <td class="date">
+                            <span>{{ test.createdAt.format('d.m.y') }}</span>
+                        </td>
+                        <td class="status">
+                            <div class="item-content">
+
+                                {% if test.isStatusNew() %}
+                                    <b class="status_assay"></b>
+                                {% endif %}
+
+                                {% if test.isStatusConfirmed() %}
+                                    <b class="status_approved"><i class="fa fa-check"></i></b>
+                                {% endif %}
+
+                                {% if test.isStatusRejected() %}
+                                    <b class="status_disallow"><i class="fa fa-times"></i></b>
+                                {% endif %}
+
+                            </div>
+                        </td>
+                        <td class="status-text">
+                            <div class="item-content">
+
+                                {% if test.isStatusNew() %}
+                                    <span>Заявка не проверена</span>
+                                {% endif %}
+
+                                {% if test.isStatusConfirmed() %}
+                                    <span>+{{ test.score.points }} очков</span>
+                                {% endif %}
+
+                                {% if test.isStatusRejected() %}
+                                    <span>{{ test.commentAdmin }}</span>
+                                {% endif %}
+
+                            </div>
+                        </td>
+                        <td class="button">
+                            <div class="item-content">
+
+                                {% if test.isStatusNew() %}
+                                    <a href="{{ path('application_admin_testing_approved_request', {'id': test.id}) }}" class="but-blue-approved button">
+                                        <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                    </a>
+                                    <a href="{{ path('application_admin_testing_disallow_request', {'id': test.id}) }}" class="but-red-disallow button">
+                                        <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                    </a>
+                                {% endif %}
+
+                                {% if test.isStatusConfirmed() %}
+                                    Подтверждён {{ test.processingAt.format('d.m.y') }}
+                                {% endif %}
+
+                                {% if test.isStatusRejected() %}
+                                    Отклонён {{ test.processingAt.format('d.m.y') }}
+                                {% endif %}
+
+                            </div>
+                        </td>
+
+                    {% endif %}
+
                 </tr>
 
             {% else %}

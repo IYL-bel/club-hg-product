@@ -1,0 +1,54 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="cabinet_content__item-content">
+
+        <div class="popup_wrap_content_title">
+            <h3 class="title"><strong>{{ itemCommentProduct.nameProduct }}</strong></h3>
+            <span> / <i>{{ itemCommentProduct.score.points }}</i> баллов</span>
+        </div>
+
+        <div class="popup_wrap_content_name" style="margin-top: 12px;">
+            {#Елена Кучеренко<span> , домохозяйка</span><i> , Минск</i>#}
+            {{ itemCommentProduct.user.firstName }} {{ itemCommentProduct.user.lastName }}{% if itemCommentProduct.user.occupation %}<span>, {{ itemCommentProduct.user.occupation }}</span>{% endif %}
+        </div>
+
+        <div class="popup_wrap_content_txt">
+            <p>{{ itemCommentProduct.description |nl2br }}</p>
+        </div>
+
+        <div class="download_result" style="margin-top: 12px;">
+
+            {% if itemCommentProduct.commentsProductionPhotos |length %}
+                {% for photo in itemCommentProduct.commentsProductionPhotos %}
+                    <div style="height: 110px;">
+                        <div style="float: left;">
+                            <div class="photo-logo-100">
+                                <a href="{{ asset(photo.getFilePathWeb()) }}" class="photo" target="_blank">
+                                    <img src="{{ asset(photo.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="margin-left: 120px; padding-top: 26px;">
+                            <span>{{ photo.description }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+        {% if itemCommentProduct.isStatusNew() %}
+            <a href="{{ path('application_admin_testing_approved_report', {'commentId': itemCommentProduct.id}) }}" class="but-blue-approved button">
+                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+            </a>
+            <a href="{{ path('application_admin_testing_disallow_report', {'commentId': itemCommentProduct.id}) }}" class="but-red-disallow button">
+                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+            </a>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}

@@ -107,20 +107,9 @@ class ReviewsController extends Controller
             if ( $itemCommentProduct->getShopProductsI18nId() && $request->getHost() != 'virtual.club-hg-product' ) {
                 /** @var $emHgProd \Doctrine\ORM\EntityManager */
                 $emHgProd = $this->getDoctrine()->getManager('hg_prod_ru');
-                $sql = "INSERT INTO comments
-                    (module, user_name, user_mail, user_site, item_id, text, date, agent, user_ip)
-                    VALUES ('shop',
-                        '" . $itemCommentProduct->getUser()->getFirstName() . ' ' . $itemCommentProduct->getUser()->getLastName() . "',
-                        '" . $itemCommentProduct->getUser()->getEmail() . "',
-                        'on',
-                        '" . $itemCommentProduct->getShopProductsI18nId() . "',
-                        '" . $itemCommentProduct->getDescription() . "',
-                        '" . $itemCommentProduct->getCreatedAt()->getTimestamp() . "',
-                        '" . $request->headers->get('user-agent') . "',
-                        '127.0.0.1')";
-
-                $query = $emHgProd->getConnection()->prepare($sql);
-                $query->execute();
+                /** @var \HgProductBundle\Repository\Comments $commentRepository */
+                $commentRepository= $emHgProd->getRepository('HgProductBundle:Comments');
+                $commentRepository->addComment($request, $itemCommentProduct);
             }
         }
 
@@ -136,38 +125,18 @@ class ReviewsController extends Controller
      */
     public function disallowCommentAction(Request $request, $id)
     {
-        /** @var $em \Doctrine\ORM\EntityManager */
-        $em = $this->getDoctrine()->getManager();
-
-        /** @var $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
-        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
-        /** @var $itemCommentProduct \Application\UsersBundle\Entity\CommentsProduction */
-        $itemCommentProduct = $commentsProductRepository->findOneBy(array(
-            'id' => $id,
-            'status' => $commentsProductRepository::STATUS_NEW
-        ));
-
-        if (!$itemCommentProduct) {
+        /** @var \Application\AdminBundle\Form\Handler\CommentProductionDisallow $commentProductionDisallowHandler */
+        $commentProductionDisallowHandler = $this->get('form.handler.comment_production_disallow');
+        if ( !$commentProductionDisallowHandler->findCommentProduct($id) ) {
             return $this->redirectToRoute('application_admin_reviews');
         }
 
-        $form = $this->createForm(new CommentProductionDisallowForm(), $itemCommentProduct );
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $itemCommentProduct = $form->getData();
-
-            $itemCommentProduct->setStatus($commentsProductRepository::STATUS_REJECTED);
-            $itemCommentProduct->setProcessingAt( new \DateTime('now') );
-
-            $em->persist($itemCommentProduct);
-            $em->flush();
-
+        if ( $commentProductionDisallowHandler->process($request) ) {
             return $this->redirectToRoute('application_admin_reviews');
         }
 
         return array(
-            'form' => $form->createView(),
+            'form' => $commentProductionDisallowHandler->getFormView(),
         );
     }
 

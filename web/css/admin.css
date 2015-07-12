@@ -12,7 +12,36 @@
     padding: 2px 8px;
 }
 
+.admin-content table tr.separator {
+    border-bottom: solid 1px #EFEFEF;
+}
 
+.admin-content table tr td .statuses {
+    float: left;
+    margin-right: 10px;
+}
+
+.admin-content table.review tr td {
+    padding: 3px 0;
+}
+
+.admin-content table.review tr td.button {
+    width: 230px;
+}
+
+.admin-content table.review tr td.status {
+    width: 40px;
+    font-size: 12px;
+}
+
+.admin-content table.review tr td.status-text {
+    width: 180px;
+    font-size: 12px;
+}
+
+.admin-content table.review tr td.date {
+    width: 80px;
+}
 
 .admin-content table tr td .item-content {
     margin: 8px 0;
@@ -105,8 +134,6 @@
     line-height: 24px;
     text-align: -webkit-match-parent;
 }
-
-
 
 .content .admin-content form input {
     font-size: 15px;

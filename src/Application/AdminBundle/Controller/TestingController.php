@@ -150,4 +150,96 @@ class TestingController extends Controller
         );
     }
 
+    /**
+     * @Template()
+     *
+     * @param int $commentId
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function reportInfoMoreAction($commentId)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var  $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
+        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
+        $commentProduct = $commentsProductRepository->find($commentId);
+
+        if (!$commentProduct) {
+            return $this->redirectToRoute('application_admin_testing');
+        }
+
+        return array(
+            'itemCommentProduct' => $commentProduct,
+        );
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param int $commentId
+     * @return array
+     */
+    public function approvedReportTestAction(Request $request, $commentId)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var $commentsProductRepository \Application\UsersBundle\Repository\CommentsProduction */
+        $commentsProductRepository = $em->getRepository('ApplicationUsersBundle:CommentsProduction');
+        /** @var $itemCommentProduct \Application\UsersBundle\Entity\CommentsProduction */
+        $itemCommentProduct = $commentsProductRepository->findOneBy(array(
+            'id' => $commentId,
+            'status' => $commentsProductRepository::STATUS_NEW
+        ));
+
+        if ($itemCommentProduct) {
+            $itemCommentProduct->setStatus($commentsProductRepository::STATUS_CONFIRMED);
+            $itemCommentProduct->setProcessingAt( new \DateTime('now') );
+
+            $em->persist($itemCommentProduct);
+            $em->flush();
+
+            // add Balls for User
+            /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+            $serviceScoresAction = $this->get('scores_action.service');
+            $serviceScoresAction->additionUserScore( $itemCommentProduct->getScore(), $itemCommentProduct->getUser() );
+
+            // not work for virtual host
+            if ( $itemCommentProduct->getShopProductsI18nId() && $request->getHost() != 'virtual.club-hg-product' ) {
+                /** @var $emHgProd \Doctrine\ORM\EntityManager */
+                $emHgProd = $this->getDoctrine()->getManager('hg_prod_ru');
+                /** @var \HgProductBundle\Repository\Comments $commentRepository */
+                $commentRepository= $emHgProd->getRepository('HgProductBundle:Comments');
+                $commentRepository->addComment($request, $itemCommentProduct);
+            }
+        }
+
+        return $this->redirectToRoute('application_admin_testing');
+    }
+
+    /**
+     * @Template()
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param int $commentId
+     * @return array
+     */
+    public function disallowReportTestAction(Request $request, $commentId)
+    {
+        /** @var \Application\AdminBundle\Form\Handler\CommentProductionDisallow $commentProductionDisallowHandler */
+        $commentProductionDisallowHandler = $this->get('form.handler.comment_production_disallow');
+        if ( !$commentProductionDisallowHandler->findCommentProduct($commentId) ) {
+            return $this->redirectToRoute('application_admin_testing');
+        }
+
+        if ( $commentProductionDisallowHandler->process($request) ) {
+            return $this->redirectToRoute('application_admin_testing');
+        }
+
+        return array(
+            'form' => $commentProductionDisallowHandler->getFormView(),
+        );
+    }
+
 }
