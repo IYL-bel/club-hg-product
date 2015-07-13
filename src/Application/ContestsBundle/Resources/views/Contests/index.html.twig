@@ -9,54 +9,56 @@
 
 {% block content %}
 
-<div class="content_header">
+    <div class="content_header">
 
-    <ul class="content_header__breadcrumbs">
-        <li><a href="http://hg-product.ru/">Главная</a></li>
-        <li><a href="{{ path('_home') }}">Клуб</a></li>
-        <li><span>Конкурсы</span></li>
-        {#<li><a href="#">Конкурсы</a></li>#}
-        {#<li><span>Весенний субботник</span></li>#}
-    </ul><!--.content_header__breadcrumbs-->
-    {#
-    <ul class="content_header__show">
-        <li><span>Показать:</span></li>
-        <li><a href="#">Все конкурсы</a></li>
-        <li><a href="#">Текущие конкурсы</a></li>
-        <li><a href="#">Архив конкурсов</a></li>
-        <li><a href="#">Победители</a></li>
-    </ul>#}
+        <ul class="content_header__breadcrumbs">
+            <li><a href="http://hg-product.ru/">Главная</a></li>
+            <li><a href="{{ path('_home') }}">Клуб</a></li>
+            <li><span>Конкурсы</span></li>
+            {#<li><a href="#">Конкурсы</a></li>#}
+            {#<li><span>Весенний субботник</span></li>#}
+        </ul><!--.content_header__breadcrumbs-->
+        {#
+        <ul class="content_header__show">
+            <li><span>Показать:</span></li>
+            <li><a href="#">Все конкурсы</a></li>
+            <li><a href="#">Текущие конкурсы</a></li>
+            <li><a href="#">Архив конкурсов</a></li>
+            <li><a href="#">Победители</a></li>
+        </ul>#}
 
-</div><!--.content_header-->
+    </div><!--.content_header-->
 
-<div class="content_main">
-    <div class="content_main__articles">
+    <div class="content_main">
+        <div class="content_main__articles">
 
-        {% for contest in contests %}
+            {% for contest in contests %}
 
-            <div class="content_main__articles-tile {% if contest.isFinishedContest() %}disalow{% else %}contest{% endif %} {% if (loop.index - 1) % 4 == 0 %} first{% endif %}">
-                <div class="content_main__articles-tile_img img_c">
-                    <img src="{{ asset(contest.getFilePathWeb()) }}" alt="+{{ contest.scoresParticipation.points }} баллов / {{ contest.title }}"/>
-                </div>
-                <div class="content_main__articles-tile_header">
-                    <div class="content_main__articles-tile_header_scores">+{{ contest.scoresParticipation.points }} баллов</div>
-                    <h5 class="content_main__articles-tile_header_title"><a href="{{ path('application_contest_item', {'idContest': contest.id}) }}">{{ contest.title }}</a></h5>
-                </div>
-                <div class="content_main__articles-tile_footer">
-                    <div class="content_main__articles-tile_footer_link">
-                        {% if contest.isFinishedContest() %}
-                            <a href="">Победитель</a>
-                        {% else %}
-                            <span>{{ contest.getCountContestsMembersConfirmed() }} участников</span><i>/</i>
-                            <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contest.id}) }}">Участвовать</a>
-                        {% endif %}
+                <div class="content_main__articles-tile {% if contest.isFinishedContest() %}disalow{% else %}contest{% endif %} {% if (loop.index - 1) % 4 == 0 %} first{% endif %}">
+                    <div class="content_main__articles-tile_img img_c">
+                        <img src="{{ asset(contest.getFilePathWeb()) }}" alt="+{{ contest.scoresParticipation.points }} баллов / {{ contest.title }}"/>
+                    </div>
+                    <div class="content_main__articles-tile_header">
+                        <div class="content_main__articles-tile_header_scores">+{{ contest.scoresParticipation.points }} баллов</div>
+                        <h5 class="content_main__articles-tile_header_title"><a href="{{ path('application_contest_item', {'idContest': contest.id}) }}">{{ contest.title }}</a></h5>
+                    </div>
+                    <div class="content_main__articles-tile_footer">
+                        <div class="content_main__articles-tile_footer_link">
+                            {% if contest.isFinishedContest() %}
+                                {% if contest.memberWinner %}
+                                    <a href="{{ path('application_contest_member', {'idMember': contest.memberWinner.id}) }}">Победитель</a>
+                                {% endif %}
+                            {% else %}
+                                <span>{{ contest.getCountContestsMembersConfirmed() }} участников</span><i>/</i>
+                                <a class="js_PopupShow" href="{{ path('application_contests_response_member', {'idContest': contest.id}) }}">Участвовать</a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        {% endfor %}
+            {% endfor %}
 
+        </div>
     </div>
-</div>
 
 {% endblock content %}

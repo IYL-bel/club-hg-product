@@ -169,7 +169,7 @@ class Prizes
      * @param string $preName
      * @return string
      */
-    public function getTypeString($preName = 'admin.form.edit_prize.types_label.')
+    public function getTypeString($preName = null)
     {
         $data = PrizesRepository::getNamesType($preName);
 

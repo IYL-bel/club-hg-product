@@ -11,7 +11,6 @@
                 {% for key, member in contestsMembers %}
 
                     <div class="reviews_list-item">
-                        <div class="reviews_list-item_num">{{ key + 1 }}.</div>
                         <div class="reviews_list-item_img img_c">
                             <img src="{{ asset( member.contest.getFilePathWeb() ) }}" alt="name"/>
                         </div>
@@ -20,11 +19,6 @@
                         </div>
                         <div class="reviews_list-item_title">
                             <a href="{{ path('application_contest_member', {'idMember': member.id}) }}">Посмотреть ваш отклик</a>
-                            {% if member.isStatusNew() %}
-                                <div class="remove">
-                                    <i class="fa fa-times"></i> <a href="{{ path('application_users_profile_remove_contest', {'id': member.id}) }}">удалить</a>
-                                </div>
-                            {% endif %}
                         </div>
                         <div class="reviews_list-item_status">
 
@@ -43,6 +37,11 @@
                                 <span>{{ member.commentAdmin }}</span>
                             {% endif %}
 
+                        </div>
+                        <div class="reviews_list-item_num cross-close_container">
+                            {% if member.isStatusNew() %}
+                                <a href="{{ path('application_users_profile_remove_contest', {'id': member.id}) }}" class="cross-close" title="Удалить"><i class="fa fa-times"></i></a>
+                            {% endif %}
                         </div>
                     </div>
 

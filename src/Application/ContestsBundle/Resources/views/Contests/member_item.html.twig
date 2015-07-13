@@ -2,7 +2,13 @@
 
     <div class="content_main__articles-item__title">
         <h3 class="title">{{ member.contest.title }}</h3>
-        <span> / <i>{{ member.contest.scoresParticipation.points }}</i> баллов</span>
+
+        {% if member.contestWinner %}
+            <span> / <i>{{ member.contest.scoresWinner.points }}</i> баллов / победа</span>
+        {% else %}
+            <span> / <i>{{ member.contest.scoresParticipation.points }}</i> баллов</span>
+        {% endif %}
+
         <div class="content_main__articles-item__title-avatar">
             <span>
                 <img src="{{ member.user.photoLink }}" alt="{{ member.user.firstName }} {{ member.user.lastName }}"/>

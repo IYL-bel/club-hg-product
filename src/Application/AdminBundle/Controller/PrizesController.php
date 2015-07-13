@@ -86,7 +86,7 @@ class PrizesController extends Controller
             if ( $prize->getFile() ) {
                 /** @var $file \Symfony\Component\HttpFoundation\File\UploadedFile */
                 $file = $prize->getFile();
-                $prize->setFileName( $file->getClientOriginalName() );
+                $prize->setFilePath( uniqid() . '.' . $file->guessExtension() );
             }
 
             $prize->setStatus($prizesRepository::STATUS_ACTIVE);

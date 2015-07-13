@@ -15,10 +15,14 @@
     </div>
 
     {% if contest.isFinishedContest() %}
-        <h4 style="margin-bottom: 12px;">Конкурс завершён. {% if contest.memberWinner is null %}<span class="caution-message">Выберите победителя!</span>{% endif %}</h4>
+        <h4 style="margin-bottom: 12px;">Конкурс завершён.
+            {% if contest.memberWinner is null %}
+                <span class="caution-message">Выберите победителя!</span>
+            {% else %}
+                <span>Победитель: {{ contest.memberWinner.user.firstName }} {{ contest.memberWinner.user.lastName }}</span>
+            {% endif %}
+        </h4>
     {% endif %}
-
-
 
     <form action="" method="POST">
 

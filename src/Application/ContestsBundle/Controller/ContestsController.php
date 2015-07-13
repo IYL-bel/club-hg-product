@@ -222,10 +222,11 @@ class ContestsController extends Controller
      * @Template()
      * @Security("has_role('ROLE_USER')")
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param int $idContest
      * @return array
      */
-    public function itemAction($idContest)
+    public function itemAction(Request $request, $idContest)
     {
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
@@ -237,12 +238,25 @@ class ContestsController extends Controller
 
         /** @var $contestsMembersRepository \Application\ContestsBundle\Repository\ContestsMembers */
         $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
-        $contestMembers = $contestsMembersRepository->getConfirmedMembersForSelectContest( $contest->getId() );
+
+        $itemInPage = 10;
+        $countAllContests = $contestsMembersRepository->getCountConfirmedMembersForSelectContest($contest);
+        $countPages = ceil($countAllContests / $itemInPage);
+        $page = $request->query->get('page');
+        if ($page && $page > $countPages) {
+            return $this->redirectToRoute('application_contest_item', array('idContest' => $idContest));
+        }
+        $page = $page ? $page : 1;
+        $offset = ($page - 1)*$itemInPage;
+        $contestMembers = $contestsMembersRepository->getConfirmedMembersForSelectContest($contest, $itemInPage, $offset);
 
         return array(
             'contest' => $contest,
             'idContest' => $idContest,
+            'memberWinner' => $contest->getMemberWinner(),
             'contestMembers' => $contestMembers,
+            'countPages' => $countPages,
+            'page' => $page,
         );
     }
 

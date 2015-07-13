@@ -179,7 +179,12 @@ class ContestsController extends Controller
                 $em->persist($contest);
                 $em->flush();
 
-                return $this->redirectToRoute( 'application_admin_contests_members', array('id', $id) );
+                // add Balls for User
+                /** @var $serviceScoresAction \Application\ScoresBundle\Service\ScoresActionService */
+                $serviceScoresAction = $this->get('scores_action.service');
+                $serviceScoresAction->additionUserScore( $contest->getScoresWinner(), $contestsMemberWinner->getUser() );
+
+               return $this->redirectToRoute( 'application_admin_contests_members', array('id' => $id) );
 
             } else {
                 $errorForm = true;

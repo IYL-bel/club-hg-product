@@ -25,10 +25,37 @@ class ContestsMembers extends EntityRepository
 
 
     /**
-     * @param int $contestId
+     * @param \Application\ContestsBundle\Entity\Contests $contest
      * @return array
      */
-    public function getConfirmedMembersForSelectContest($contestId)
+    public function getCountConfirmedMembersForSelectContest($contest)
+    {
+        $qb = $this->createQueryBuilder('cm');
+        $qb
+            ->select( $qb->expr()->count('cm.id') )
+            ->join('cm.contest', 'c')
+            ->where('c.id = :contest_id')
+            ->andWhere('cm.status = :status')
+            ->setParameters(array(
+                'contest_id' => $contest->getId(),
+                'status' => self::STATUS_CONFIRMED,
+            ))
+        ;
+
+        if ( $contest->getMemberWinner() ) {
+            $qb->andWhere( $qb->expr()->notIn('cm.id', array( $contest->getMemberWinner()->getId() )) );
+        }
+
+        return (int)$qb->getQuery()->getSingleScalarResult();
+    }
+
+    /**
+     * @param \Application\ContestsBundle\Entity\Contests $contest
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
+    public function getConfirmedMembersForSelectContest($contest, $limit, $offset)
     {
         $qb = $this->createQueryBuilder('cm');
         $qb
@@ -36,15 +63,23 @@ class ContestsMembers extends EntityRepository
             ->where('c.id = :contest_id')
             ->andWhere('cm.status = :status')
             ->orderBy('c.updatedAt', 'DESC')
-            //->setMaxResults(10)
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
             ->setParameters(array(
-                'contest_id' => $contestId,
+                'contest_id' => $contest->getId(),
                 'status' => self::STATUS_CONFIRMED,
             ))
         ;
 
+        if ( $contest->getMemberWinner() ) {
+            $qb->andWhere( $qb->expr()->notIn('cm.id', array( $contest->getMemberWinner()->getId() )) );
+        }
+
         return $qb->getQuery()->getResult();
     }
+
+
+
 
     public function getMembersSortMaxVoting($id)
     {
