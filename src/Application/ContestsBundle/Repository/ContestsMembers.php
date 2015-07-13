@@ -46,4 +46,19 @@ class ContestsMembers extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getMembersSortMaxVoting($id)
+    {
+        $qb = $this->createQueryBuilder('cm');
+        $qb
+            ->select(array('cm', 'COUNT(cm.id) as cnt')   )
+            ->where('cm.contest = :id_contest')
+            ->orderBy('cm.updatedAt', 'DESC')
+            ->setParameters(array(
+                'id_contest' => $id,
+            ))
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

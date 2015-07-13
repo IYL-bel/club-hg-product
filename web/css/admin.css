@@ -9,7 +9,7 @@
 }
 
 .admin-content table tr td {
-    padding: 2px 8px;
+    padding: 2px 4px;
 }
 
 .admin-content table tr.separator {
@@ -25,21 +25,21 @@
     padding: 3px 0;
 }
 
-.admin-content table.review tr td.button {
+.admin-content table tr td.button {
     width: 230px;
 }
 
-.admin-content table.review tr td.status {
+.admin-content table tr td.status {
     width: 40px;
     font-size: 12px;
 }
 
-.admin-content table.review tr td.status-text {
+.admin-content table tr td.status-text {
     width: 180px;
     font-size: 12px;
 }
 
-.admin-content table.review tr td.date {
+.admin-content table tr td.date {
     width: 80px;
 }
 

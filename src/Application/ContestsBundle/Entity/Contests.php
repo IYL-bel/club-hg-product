@@ -152,6 +152,14 @@ class Contests
      */
     protected $contestsMembers;
 
+    /**
+     * @var \Application\ContestsBundle\Entity\ContestsMembers
+     *
+     * @ORM\OneToOne(targetEntity="ContestsMembers", inversedBy="contestWinner", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="member_winner__id", referencedColumnName="id", nullable=true)
+     */
+    protected $memberWinner;
+
 
     /**
      * constructor
@@ -538,6 +546,39 @@ class Contests
         }
 
         return $count;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFinishedContest()
+    {
+        $today = new \DateTime('now');
+        $today->setTime(0, 0, 0);
+
+        if ( $today > $this->getFinishedAt() ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param \Application\ContestsBundle\Entity\ContestsMembers $memberWinner
+     * @return \Application\ContestsBundle\Entity\Contests
+     */
+    public function setMemberWinner(ContestsMembers $memberWinner)
+    {
+        $this->memberWinner = $memberWinner;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ContestsBundle\Entity\ContestsMembers
+     */
+    public function getMemberWinner()
+    {
+        return $this->memberWinner;
     }
 
 }

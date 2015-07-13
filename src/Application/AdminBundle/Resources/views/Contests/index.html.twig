@@ -17,28 +17,32 @@
                 <td>
                     <div class="photo-logo-56">
                         {% if contest.filePath %}
-                            <a href="{{ asset(contest.getFilePathWeb()) }}" class="photo" target="_blank">
-                                <img src="{{ asset(contest.getFilePathWeb()) }}" class="photo-img" alt="name"/>
-                            </a>
+                            <img src="{{ asset(contest.getFilePathWeb()) }}" class="photo-img" alt="{{ contest.title }}"/>
                         {% else %}
                             <img src="{{ asset('images/not-file.jpg') }}" class="photo-img" title="Файл не загружен" alt="name"/>
                         {% endif %}
                     </div>
-
                 </td>
                 <td>
                     <span>{{ contest.title }}</span>
                 </td>
                 <td>
+                    <a href="{{ path('application_admin_contests_edit', {'id': contest.id}) }}">Изменить</a>
+                </td>
+                <td>
+                    c {{ contest.startedAt.format('d.m.y') }} по {{ contest.finishedAt.format('d.m.y') }}<br />
+                </td>
+                <td>
                     <a href="{{ path('application_admin_contests_members', {'id': contest.id}) }}">Участники</a> <strong>({{ contest.contestsMembers |length }})</strong>
                 </td>
                 <td>
-                    c {{ contest.startedAt.format('d.m.Y') }} по {{ contest.finishedAt.format('d.m.Y') }}
+                    {% if contest.isFinishedContest() %}
+                        Завершён<br />
+                        {% if contest.memberWinner is null %}<span class="caution-message">Победитель не выбран!</span>{% endif %}
+                    {% else %}
+                        Активный
+                    {% endif %}
                 </td>
-                <td>
-                    <a href="{{ path('application_admin_contests_edit', {'id': contest.id}) }}">Изменить</a>
-                </td>
-
             </tr>
 
         {% else %}

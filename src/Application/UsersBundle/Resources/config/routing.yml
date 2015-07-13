@@ -46,6 +46,10 @@ application_users_profile_testing:
     path:     my-profile/testing/
     defaults: { _controller: ApplicationUsersBundle:Profile:testing }
 
+application_users_profile_testing_remove:
+    path:     my-profile/testing-remove/{id}/
+    defaults: { _controller: ApplicationUsersBundle:Profile:testingRemove }
+
 application_users_profile_invite:
     path:     my-profile/invite/
     defaults: { _controller: ApplicationUsersBundle:Profile:invite }

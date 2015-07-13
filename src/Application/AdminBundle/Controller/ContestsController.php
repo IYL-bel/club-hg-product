@@ -43,7 +43,7 @@ class ContestsController extends Controller
         $em = $this->getDoctrine()->getManager();
         /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
         $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
-        $contests = $contestsRepository->findAll();
+        $contests = $contestsRepository->findBy(array(), array('createdAt' => 'DESC'));
 
         return array(
             'contests' => $contests,
@@ -144,16 +144,19 @@ class ContestsController extends Controller
     /**
      * @Template()
      *
+     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param int $id
      * @return array
      */
-    public function membersAction($id)
+    public function membersAction(Request $request, $id)
     {
+        $errorForm = false;
         /** @var $em \Doctrine\ORM\EntityManager */
         $em = $this->getDoctrine()->getManager();
 
         /** @var $contestsRepository \Application\ContestsBundle\Repository\Contests */
         $contestsRepository = $em->getRepository('ApplicationContestsBundle:Contests');
+        /** @var \Application\ContestsBundle\Entity\Contests $contest */
         $contest = $contestsRepository->find($id);
 
         if (!$contest) {
@@ -163,10 +166,30 @@ class ContestsController extends Controller
         /** @var $contestsMembersRepository \Application\ContestsBundle\Repository\ContestsMembers */
         $contestsMembersRepository = $em->getRepository('ApplicationContestsBundle:ContestsMembers');
         $contestsMembers = $contestsMembersRepository->findBy(array('contest' => $id));
+        //$contestsMembers = $contestsMembersRepository->getMembersSortMaxVoting($id);
+
+        $formSend = $request->request->get('form_send');
+        if ($formSend) {
+            $memberId = $request->request->get('member-id');
+            if ($memberId) {
+                /** @var \Application\ContestsBundle\Entity\ContestsMembers $contestsMemberWinner */
+                $contestsMemberWinner = $contestsMembersRepository->find($memberId);
+                $contest->setMemberWinner($contestsMemberWinner);
+
+                $em->persist($contest);
+                $em->flush();
+
+                return $this->redirectToRoute( 'application_admin_contests_members', array('id', $id) );
+
+            } else {
+                $errorForm = true;
+            }
+        }
 
         return array(
             'contest' => $contest,
             'contestsMembers' => $contestsMembers,
+            'errorForm' => $errorForm,
         );
     }
 

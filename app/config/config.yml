@@ -29,7 +29,8 @@ framework:
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
-        cookie_lifetime: 324000
+        cookie_lifetime: 31536000
+        gc_maxlifetime: 31536000
     fragments:       ~
     http_method_override: true
 

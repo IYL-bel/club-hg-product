@@ -555,6 +555,31 @@ class ProfileController extends Controller
     }
 
     /**
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function testingRemoveAction($id)
+    {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
+        /** @var $testsProductionRepository \Application\TestProductionBundle\Repository\TestsProduction */
+        $testsProductionRepository = $em->getRepository('ApplicationTestProductionBundle:TestsProduction');
+        /** @var $itemTestsProduction \Application\TestProductionBundle\Entity\TestsProduction */
+        $testProduction = $testsProductionRepository->findOneBy(array(
+            'id' => $id,
+            'status' => $testsProductionRepository::STATUS_NEW,
+            'user' => $this->getUser(),
+        ));
+
+        if ($testProduction) {
+            $em->remove($testProduction);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('application_users_profile_testing');
+    }
+
+    /**
      * @Template()
      *
      * @return array

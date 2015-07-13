@@ -13,6 +13,7 @@ namespace Application\ContestsBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Application\ContestsBundle\Repository\ContestsVoting
  */

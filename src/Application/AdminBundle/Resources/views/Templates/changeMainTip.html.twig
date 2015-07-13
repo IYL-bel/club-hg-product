@@ -4,39 +4,36 @@
 
 {% block content %}
 
+    <h3>Выберите совет из блога Хельги</h3>
 
-<h3>Выберите совет из блога Хельги</h3>
+    <p style="margin-bottom: 12px;">Совет № {{ id }}</p>
 
-<p style="margin-bottom: 12px;">Совет № {{ id }}</p>
+    <form action="{{ path('application_admin_templates_change_main_tip', {'id': id}) }}" method="POST">
+        <input type="submit" class="blue_btn" value="Выбрать"> <a class="link-cancel" href="{{ path('application_admin_templates') }}">Отмена</a>
 
-<form action="{{ path('application_admin_templates_change_main_tip', {'id': id}) }}" method="POST">
-    <input type="submit" class="blue_btn" value="Выбрать"> <a class="link-cancel" href="{{ path('application_admin_templates') }}">Отмена</a>
+        <div style="margin: 16px 0;">
 
-    <div style="margin: 16px 0;">
+            {% if error %}
+                <div><span class="error_message">{{ 'property.option' |trans({}, 'validators') }}</span></div>
+            {% endif%}
 
-        {% if error %}
-            <div><span class="error_message">{{ 'property.option' |trans({}, 'validators') }}</span></div>
-        {% endif%}
+            <table>
 
-        <table>
+                {% for item in block_helgi %}
 
-            {% for item in block_helgi %}
+                    <tr >
+                        <td>
+                            <input type="radio" name="news-id" value="{{ item.id }}">
+                        </td>
+                        <td>
+                            <a href="http://hg-product.ru/blog-helgi/{{ item.url }}" target="_blank">{{ item.title }}</a
+                        </td>
+                    </tr>
 
-                <tr >
-                    <td>
-                        <input type="radio" name="news-id" value="{{ item.id }}">
-                    </td>
-                    <td>
-                        <a href="http://hg-product.ru/blog-helgi/{{ item.url }}" target="_blank">{{ item.title }}</a
-                    </td>
-                </tr>
+                {% endfor %}
 
-            {% endfor %}
-
-        </table>
-    </div>
-
-</form>
-
+            </table>
+        </div>
+    </form>
 
 {% endblock content %}

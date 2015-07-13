@@ -51,6 +51,11 @@
                                     <span>{{ test.commentAdmin }}</span>
                                 {% endif %}
                             </div>
+                            <div class="reviews_list-item_num cross-close_container">
+                                {% if test.isStatusNew() %}
+                                    <a href="{{ path('application_users_profile_testing_remove', {'id': test.id}) }}" class="cross-close" title="Удалить"><i class="fa fa-times"></i></a>
+                                {% endif %}
+                            </div>
 
                             <div class="reviews_list-item_status">
                                 {% if test.isStatusConfirmed() %}
@@ -62,7 +67,7 @@
 
                                         {% if test.commentProduction.isStatusConfirmed() %}
                                             <b class="status_approved"><i class="fa fa-check"></i></b>
-                                            <span>+{{ test.score.points }} очков</span>
+                                            <span>+{{ test.commentProduction.score.points }} очков</span>
                                         {% endif %}
 
                                         {% if test.commentProduction.isStatusRejected() %}

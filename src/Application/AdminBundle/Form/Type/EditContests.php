@@ -59,6 +59,7 @@ class EditContests extends AbstractType
             ->add('startedAt', 'date', array(
                 'required' => false,
                 'label' => 'Начало конкурса',
+                'years' => range(date('Y'), date('Y') + 5),
             ))
 
             ->add('finishedAt', 'date', array(

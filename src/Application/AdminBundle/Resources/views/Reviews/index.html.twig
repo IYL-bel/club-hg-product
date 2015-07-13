@@ -3,87 +3,101 @@
 
 {% block content %}
 
-<div class="cabinet_content__item-content">
+    <div class="cabinet_content__item-content">
 
-    <table width="100%" class="tab-admin">
+        <table width="100%" class="tab-admin">
 
-        {% for key, comment in commentsProduct %}
+            {% for key, comment in commentsProduct %}
 
-            <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
-                <td>
-                    <div class="photo-logo-56">
-                        {% if comment.smallImage %}
-                            <a href="{{ comment.shopProductUrl }}" class="photo" target="_blank">
-                                <img src="{{ comment.smallImage }}" class="photo-img" alt="{{ comment.nameProduct }}"/>
-                            </a>
-                        {% endif %}
-                    </div>
-                </td>
-                <td>
-                    <a href="{{ path('application_admin_reviews_more', {'id': comment.id}) }}" class="grey-link"><span>{{ comment.nameProduct }}</span></a>
-                </td>
-                <td>
-                    <span>{{ comment.createdAt.format('d.m.y') }}</span>
-                </td>
-                <td>
-                    <div class="item-content">
+                <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
+                    <td>
+                        <div class="photo-logo-56">
+                            {% if comment.smallImage %}
+                                <a href="{{ comment.shopProductUrl }}" class="photo" target="_blank">
+                                    <img src="{{ comment.smallImage }}" class="photo-img" alt="{{ comment.nameProduct }}"/>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <a href="{{ path('application_admin_reviews_more', {'id': comment.id}) }}" class="grey-link"><span>{{ comment.nameProduct }}</span></a>
+                    </td>
+                    <td class="date">
+                        <span>{{ comment.createdAt.format('d.m.y') }}</span>
+                    </td>
+                    <td class="status">
+                        <div class="item-content">
 
-                        {% if comment.isStatusNew() %}
-                            <b class="status_assay"></b>
-                            <span>Отзыв не проверен</span>
-                        {% endif %}
+                            {% if comment.isStatusNew() %}
+                                <b class="status_assay"></b>
+                            {% endif %}
 
-                        {% if comment.isStatusConfirmed() %}
-                            <b class="status_approved"><i class="fa fa-check"></i></b>
-                            <span>+{{ comment.score.points }} очков</span>
-                        {% endif %}
+                            {% if comment.isStatusConfirmed() %}
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                            {% endif %}
 
-                        {% if comment.isStatusRejected() %}
-                            <b class="status_disallow"><i class="fa fa-times"></i></b>
-                            <span>{{ comment.commentAdmin }}</span>
-                        {% endif %}
+                            {% if comment.isStatusRejected() %}
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                            {% endif %}
 
-                    </div>
-                </td>
-                <td width="230">
-                    <div class="item-content">
+                        </div>
+                    </td>
+                    <td class="status-text">
+                        <div class="item-content">
 
-                        {% if comment.isStatusNew() %}
-                            <a href="{{ path('application_admin_reviews_approved', {'id': comment.id}) }}" class="but-blue-approved button">
-                                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
-                            </a>
-                            <a href="{{ path('application_admin_reviews_disallow', {'id': comment.id}) }}" class="but-red-disallow button">
-                                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
-                            </a>
-                        {% endif %}
+                            {% if comment.isStatusNew() %}
+                                <span>Отзыв не проверен</span>
+                            {% endif %}
 
-                        {% if comment.isStatusConfirmed() %}
-                            Подтверждён {{ comment.processingAt.format('d.m.y') }}
-                        {% endif %}
+                            {% if comment.isStatusConfirmed() %}
+                                <span>+{{ comment.score.points }} очков</span>
+                            {% endif %}
 
-                        {% if comment.isStatusRejected() %}
-                            Отклонён {{ comment.processingAt.format('d.m.y') }}
-                        {% endif %}
+                            {% if comment.isStatusRejected() %}
+                                <span>{{ comment.commentAdmin }}</span>
+                            {% endif %}
 
-                    </div>
-                </td>
+                        </div>
+                    </td>
+                    <td class="button">
+                        <div class="item-content">
 
-            </tr>
+                            {% if comment.isStatusNew() %}
+                                <a href="{{ path('application_admin_reviews_approved', {'id': comment.id}) }}" class="but-blue-approved button">
+                                    <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                </a>
+                                <a href="{{ path('application_admin_reviews_disallow', {'id': comment.id}) }}" class="but-red-disallow button">
+                                    <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                </a>
+                            {% endif %}
 
-        {% else %}
+                            {% if comment.isStatusConfirmed() %}
+                                Подтверждён {{ comment.processingAt.format('d.m.y') }}
+                            {% endif %}
 
-            <tr>
-                <td colspan="3">
-                    <div style="text-align: center;">
-                        Список отзывов пуст
-                    </div>
-                </td>
-            </tr>
+                            {% if comment.isStatusRejected() %}
+                                Отклонён {{ comment.processingAt.format('d.m.y') }}
+                            {% endif %}
 
-        {% endfor %}
+                        </div>
+                    </td>
 
-    </table>
+                </tr>
 
-</div>
+            {% else %}
+
+                <tr>
+                    <td colspan="3">
+                        <div style="text-align: center;">
+                            Список отзывов пуст
+                        </div>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
 
 {% endblock content %}

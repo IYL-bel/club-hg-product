@@ -18,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Application\ContestsBundle\Entity\Contests;
 use Application\UsersBundle\Entity\Users;
 use Application\ContestsBundle\Repository\ContestsMembers as ContestsMembersRepository;
+use Application\ContestsBundle\Repository\ContestsVoting as ContestsVotingRepository;
 
 
 /**
@@ -107,6 +108,13 @@ class ContestsMembers
      * @ORM\JoinColumn(name="id", referencedColumnName="contests_member_id")
      */
     protected $contestsVoting;
+
+    /**
+     * @var \Application\ContestsBundle\Entity\Contests
+     *
+     * @ORM\OneToOne(targetEntity="Contests", mappedBy="memberWinner")
+     */
+    protected $contestWinner;
 
 
     /**
@@ -322,6 +330,78 @@ class ContestsMembers
     public function getContestsVoting()
     {
         return $this->contestsVoting;
+    }
+
+    /**
+     * @return array
+     */
+    public function getContestsVotingFb()
+    {
+        $contestsVoting = array();
+        if ($this->contestsVoting) {
+            /** @var \Application\ContestsBundle\Entity\ContestsVoting $voting */
+            foreach ($this->contestsVoting as $voting) {
+                if ($voting->getType() == ContestsVotingRepository::TYPE_FB) {
+                    $contestsVoting[] = $voting;
+                }
+            }
+        }
+
+        return $contestsVoting;
+    }
+
+    /**
+     * @return array
+     */
+    public function getContestsVotingVk()
+    {
+        $contestsVoting = array();
+        if ($this->contestsVoting) {
+            /** @var \Application\ContestsBundle\Entity\ContestsVoting $voting */
+            foreach ($this->contestsVoting as $voting) {
+                if ($voting->getType() == ContestsVotingRepository::TYPE_VK) {
+                    $contestsVoting[] = $voting;
+                }
+            }
+        }
+
+        return $contestsVoting;
+    }
+
+    /**
+     * @return array
+     */
+    public function getContestsVotingOk()
+    {
+        $contestsVoting = array();
+        if ($this->contestsVoting) {
+            /** @var \Application\ContestsBundle\Entity\ContestsVoting $voting */
+            foreach ($this->contestsVoting as $voting) {
+                if ($voting->getType() == ContestsVotingRepository::TYPE_OK) {
+                    $contestsVoting[] = $voting;
+                }
+            }
+        }
+
+        return $contestsVoting;
+    }
+
+    /**
+     * @param \Application\ContestsBundle\Entity\Contests $contestWinner
+     * @return \Application\ContestsBundle\Entity\ContestsMembers
+     */
+    public function setContestWinner(Contests $contestWinner)
+    {
+        $this->contestWinner = $contestWinner;
+        return $this;
+    }
+
+    /**
+     * @return \Application\ContestsBundle\Entity\Contests
+     */
+    public function getContestWinner()
+    {
+        return $this->contestWinner;
     }
 
 }

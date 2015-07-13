@@ -1158,6 +1158,8 @@ header {
         /* line 1441, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .disalow .content_main__articles-tile_header_title {
           color: #6d6e71; }
+        .disalow .content_main__articles-tile_header_title a {
+          color: #6d6e71; }
         /* line 1445, U:/www/dev.liil.by/hg_club/css/mainStyles.scss */
         .trophy .content_main__articles-tile_header_title {
           display: block;

@@ -14,69 +14,112 @@
         <p>{{ contest.description }}</p>
     </div>
 
-    <table width="100%">
+    {% if contest.isFinishedContest() %}
+        <h4 style="margin-bottom: 12px;">Конкурс завершён. {% if contest.memberWinner is null %}<span class="caution-message">Выберите победителя!</span>{% endif %}</h4>
+    {% endif %}
 
-        {% for key, member in contestsMembers %}
 
-            <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
 
-                <td>
-                    <span>{{ member.createdAt.format('d.m.Y') }}</span>
-                </td>
-                <td>
-                    {{ member.user.firstName }} {{ member.user.lastName }}
-                </td>
-                <td>
-                    <a href="{{ path('application_admin_contests_member_more', {'id': member.id}) }}">Подробнее</a>
-                </td>
-                <td>
-                    <div class="item-content">
+    <form action="" method="POST">
 
-                        {% if member.isStatusNew() %}
-                            <b class="status_assay"></b>
-                            <span>Чек не проверен</span>
-                        {% endif %}
+        <input type="hidden" name="form_send" value="1">
 
-                        {% if member.isStatusConfirmed() %}
-                            <b class="status_approved"><i class="fa fa-check"></i></b>
-                            <span>+{{ member.contest.scoresParticipation.points }} очков</span>
-                        {% endif %}
+        {% if contest.isFinishedContest() and contest.memberWinner is null %}
+            <div style="margin-bottom: 12px;">
+                <input type="submit" class="blue_btn" value="Выбрать победителя">
+            </div>
+        {% endif %}
 
-                        {% if member.isStatusRejected() %}
-                            <b class="status_disallow"><i class="fa fa-times"></i></b>
-                            <span>{{ member.commentAdmin }}</span>
-                        {% endif %}
+        {% if errorForm %}
+            <div><span class="error_message">{{ 'property.option' |trans({}, 'validators') }}</span></div>
+        {% endif%}
 
-                    </div>
-                </td>
-                <td>
-                    <div class="item-content">
-                        {% if member.isStatusNew() %}
-                            <a href="{{ path('application_admin_contests_member_approved', {'id': member.id}) }}" class="but-blue-approved button">
-                                <b class="status_approved"><i class="fa fa-check"></i></b>Принять
-                            </a>
-                            <a href="{{ path('application_admin_contests_member_disallow', {'id': member.id}) }}" class="but-red-disallow button">
-                                <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
-                            </a>
-                        {% endif %}
-                    </div>
-                </td>
+        <table width="100%">
 
-            </tr>
+            {% for key, member in contestsMembers %}
 
-        {% else %}
+                <tr{% if loop.index % 2 != 0 %} class="odd"{% endif %}>
 
-            <tr>
-                <td colspan="3">
-                    <div style="text-align: center;">
-                        Список конкурсов пуст
-                    </div>
-                </td>
-            </tr>
+                    {% if contest.isFinishedContest() and contest.memberWinner is null  %}
+                        <td>
+                            {% if member.isStatusConfirmed() %}
+                                <input type="radio" name="member-id" value="{{ member.id }}">
+                            {% endif %}
+                        </td>
+                    {% endif %}
 
-        {% endfor %}
+                    <td>
+                        {#<span>{{ member.createdAt.format('d.m.y') }}</span>#}
+                    </td>
+                    <td>
+                        <a href="{{ path('application_admin_contests_member_more', {'id': member.id}) }}" class="grey-link">{{ member.user.firstName }} {{ member.user.lastName }}</a>
+                    </td>
+                    <td>
+                        голосов: {{ member.contestsVoting |length }}
+                    </td>
+                    <td class="status">
+                        <div class="item-content">
 
-    </table>
+                            {% if member.isStatusNew() %}
+                                <b class="status_assay"></b>
+                            {% endif %}
+
+                            {% if member.isStatusConfirmed() %}
+                                <b class="status_approved"><i class="fa fa-check"></i></b>
+                            {% endif %}
+
+                            {% if member.isStatusRejected() %}
+                                <b class="status_disallow"><i class="fa fa-times"></i></b>
+                            {% endif %}
+
+                        </div>
+                    </td>
+                    <td class="status-text">
+                        <div class="item-content">
+
+                            {% if member.isStatusNew() %}
+                                <span>Заявка не проверена</span>
+                            {% endif %}
+
+                            {% if member.isStatusConfirmed() %}
+                                <span>+{{ member.contest.scoresParticipation.points }} очков</span>
+                            {% endif %}
+
+                            {% if member.isStatusRejected() %}
+                                <span>{{ member.commentAdmin }}</span>
+                            {% endif %}
+
+                        </div>
+                    </td>
+                    <td class="button">
+                        <div class="item-content">
+                            {% if member.isStatusNew() %}
+                                <a href="{{ path('application_admin_contests_member_approved', {'id': member.id}) }}" class="but-blue-approved button">
+                                    <b class="status_approved"><i class="fa fa-check"></i></b>Принять
+                                </a>
+                                <a href="{{ path('application_admin_contests_member_disallow', {'id': member.id}) }}" class="but-red-disallow button">
+                                    <b class="status_disallow"><i class="fa fa-times"></i></b>Отклонить
+                                </a>
+                            {% endif %}
+                        </div>
+                    </td>
+
+                </tr>
+
+            {% else %}
+
+                <tr>
+                    <td colspan="3">
+                        <div style="text-align: center;">
+                            Список конкурсов пуст
+                        </div>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    </form>
 
 </div>
 
