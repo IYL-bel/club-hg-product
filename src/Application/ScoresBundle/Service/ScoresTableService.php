@@ -55,7 +55,7 @@ class ScoresTableService
             'share',
             'contests_participation_base',
             'contests_winner_base',
-            //'load_check_base',
+            'checks_base',
             'filled_profile',
             'test_drive_request_base',
             'test_drive_report_base',

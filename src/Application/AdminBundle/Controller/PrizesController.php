@@ -111,4 +111,9 @@ class PrizesController extends Controller
         );
     }
 
+    public function membersAction()
+    {
+
+    }
+
 }

@@ -26,6 +26,7 @@ class Scores extends EntityRepository
     const TYPE__REGISTRATION                 = 11; // Регистрация в клубе
     const TYPE__PRIZES                       = 20;
     const TYPE__CHECKS                       = 22;
+    const TYPE__CHECKS_BASE                  = 23; // Загрузка чека в личный кабинет (по умолчанию)
     const TYPE__FILLED_PROFILE               = 33; // Заполнение профиля "о себе"
     const TYPE__FILLING_QUESTIONNAIRE        = 34; // Заполнение расширенной анкеты
     const TYPE__TEST_DRIVE_REQUEST_BASE      = 41; // Заявка на тест-драйв
@@ -52,7 +53,8 @@ class Scores extends EntityRepository
             'share_ok'                     => self::TYPE__SHARE_OK,
             'contests_participation_base'  => self::TYPE__CONTESTS_PARTICIPATION_BASE,
             'contests_winner_base'         => self::TYPE__CONTESTS_WINNER_BASE,
-            'load_check'                   => self::TYPE__CHECKS,
+            'checks'                       => self::TYPE__CHECKS,
+            'checks_base'                  => self::TYPE__CHECKS_BASE,
             'filled_profile'               => self::TYPE__FILLED_PROFILE,
             'test_drive_request_base'      => self::TYPE__TEST_DRIVE_REQUEST_BASE,
             'test_drive_report_base'       => self::TYPE__TEST_DRIVE_REPORT_BASE,

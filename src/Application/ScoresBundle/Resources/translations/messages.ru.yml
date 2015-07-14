@@ -8,7 +8,7 @@ scores:
     share: Поделиться ссылкой с друзьями в Facebook, Вконтакте, Одноклассники и других соц. сетях
     contests_participation_base: Участие в конкурсе
     contests_winner_base: Победа в конкурсе
-    load_check: Загрузка чека в личный кабинет
+    checks_base: Загрузка чека в личный кабинет
     filled_profile: Заполнение профиля "о себе"
     test_drive_request_base: Заявка на тест-драйв
     test_drive_report_base: Отчет о тест-драйве

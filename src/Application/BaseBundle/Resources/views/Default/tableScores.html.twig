@@ -12,10 +12,10 @@
                 <div style="padding: 0 120px;">
                     <table width="100%" class="tab-scores">
                         {% for key, score in tableScores %}
-                        <tr {% if loop.index % 2 == 0 %} class="odd"{% endif %}>
-                            <td>{{ score.description |trans }}</td>
-                            <td width="80" align="center"><span class="points">{{ score.points }}</span></td>
-                        </tr>
+                            <tr {% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+                                <td>{{ score.description |trans }}</td>
+                                <td width="100" align="center"><span class="points">{{ score.points }} {% if key == 'checks_base' %}балл. за 10 руб.{% endif %}</span></td>
+                            </tr>
                         {% endfor %}
                     </table>
                 </div>

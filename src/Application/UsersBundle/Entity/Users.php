@@ -199,6 +199,14 @@ class Users extends BaseUser
      */
     protected $commentsProduction;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Application\PrizesBundle\Entity\PrizesLotteryMembers", mappedBy="user", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $prizesLotteryMembers;
+
 
     /**
      * constructor
@@ -212,6 +220,7 @@ class Users extends BaseUser
         $this->scoresUsers = new ArrayCollection();
         $this->testsProduction = new ArrayCollection();
         $this->commentsProduction = new ArrayCollection();
+        $this->prizesLotteryMembers = new ArrayCollection();
     }
 
     /**
@@ -616,6 +625,24 @@ class Users extends BaseUser
     public function getCommentsProduction()
     {
         return $this->commentsProduction;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $prizesLotteryMembers
+     * @return \Application\UsersBundle\Entity\Users
+     */
+    public function setPrizesLotteryMembers($prizesLotteryMembers)
+    {
+        $this->prizesLotteryMembers = $prizesLotteryMembers;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPrizesLotteryMembers()
+    {
+        return $this->prizesLotteryMembers;
     }
 
 }

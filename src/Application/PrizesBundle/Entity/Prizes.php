@@ -10,6 +10,7 @@
  */
 namespace Application\PrizesBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -120,6 +121,22 @@ class Prizes
      */
     protected $pointsBuy;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="PrizesLottery", mappedBy="prize", cascade={"persist","remove","merge"})
+     * @ORM\JoinColumn(name="id", referencedColumnName="prize_id")
+     */
+    protected $prizesLottery;
+
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        $this->prizesLottery = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -419,6 +436,24 @@ class Prizes
     public function getScoresBuy()
     {
         return $this->scoresBuy;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\ArrayCollection $prizesLottery
+     * @return \Application\PrizesBundle\Entity\Prizes
+     */
+    public function setPrizesLottery($prizesLottery)
+    {
+        $this->prizesLottery = $prizesLottery;
+        return $this;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getPrizesLottery()
+    {
+        return $this->prizesLottery;
     }
 
 }

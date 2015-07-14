@@ -3,58 +3,59 @@
 
 {% block content %}
 
-<div class="cabinet_content__item-content">
+    <div class="cabinet_content__item-content">
 
-    <div style="margin-bottom: 30px;">
-        <a href="{{ path('application_admin_prizes_edit') }}" class="blue_btn">Добавить приз</a>
+        <div style="margin-bottom: 30px;">
+            <a href="{{ path('application_admin_prizes_edit') }}" class="blue_btn">Добавить приз</a>
+        </div>
+
+        <div class="reviews_list">
+
+            <table width="100%">
+
+                {% for key, prize in prizes %}
+
+                    <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+                        <td>
+                            <div class="photo-logo-56">
+                                {% if prize.filePath %}
+                                    <a href="{{ asset(prize.getFilePathWeb()) }}" class="photo" target="_blank">
+                                        <img src="{{ asset(prize.getFilePathWeb()) }}" class="photo-img" alt="name"/>
+                                    </a>
+                                {% else %}
+                                    <img src="{{ asset('images/not-file.jpg') }}" class="photo-img" title="Файл не загружен" alt="name"/>
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <span>{{ prize.title }}</span>
+                        </td>
+                        <td>
+                            <a href="{{ path('application_admin_prizes_edit', {'id': prize.id}) }}">Изменить</a>
+                        </td>
+                        <td>
+                            <span>{{ prize.getTypeString('admin.form.edit_prize.types_label.') |trans }}</span>
+                        </td>
+                        <td>
+                            <a href="">Участники</a>
+                        </td>
+                    </tr>
+
+                {% else %}
+
+                    <tr>
+                        <td colspan="3">
+                            <div style="text-align: center;">
+                                Список призов пуст
+                            </div>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
     </div>
-
-    <div class="reviews_list">
-
-        <table width="100%">
-
-            {% for key, prize in prizes %}
-
-                <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
-                    <td>
-                        <div class="photo-logo-56">
-                            {% if prize.filePath %}
-                                <a href="{{ asset(prize.getFilePathWeb()) }}" class="photo" target="_blank">
-                                    <img src="{{ asset(prize.getFilePathWeb()) }}" class="photo-img" alt="name"/>
-                                </a>
-                            {% else %}
-                                <img src="{{ asset('images/not-file.jpg') }}" class="photo-img" title="Файл не загружен" alt="name"/>
-                            {% endif %}
-                        </div>
-
-                    </td>
-                    <td>
-                        <span>{{ prize.title }}</span>
-                    </td>
-                    <td>
-                        <span>{{ prize.getTypeString('admin.form.edit_prize.types_label.') |trans }}</span>
-                    </td>
-
-                    <td>
-                        <a href="{{ path('application_admin_prizes_edit', {'id': prize.id}) }}">Изменить</a>
-                    </td>
-                </tr>
-
-            {% else %}
-
-                <tr>
-                    <td colspan="3">
-                        <div style="text-align: center;">
-                            Список призов пуст
-                        </div>
-                    </td>
-                </tr>
-
-            {% endfor %}
-
-        </table>
-
-    </div>
-</div>
 
 {% endblock content %}
