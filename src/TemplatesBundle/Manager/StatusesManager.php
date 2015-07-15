@@ -92,4 +92,22 @@ class StatusesManager
         return $nameStatus;
     }
 
+    /**
+     * @param \Application\UsersBundle\Entity\Users $user
+     * @return int|string
+     */
+    public function getUserStatuses($user)
+    {
+        $nameStatus = array();
+        $actualStatuses = $this->getActualStatuses();
+
+        foreach ($actualStatuses as $key => $status) {
+            if ($user->getScorePoints() >= $status['scores']) {
+                $nameStatus[] = $key;
+            }
+        }
+
+        return $nameStatus;
+    }
+
 }

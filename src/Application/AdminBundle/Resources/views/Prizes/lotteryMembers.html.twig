@@ -1,0 +1,38 @@
+{% extends 'ApplicationAdminBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+    <div class="cabinet_content__item-content">
+
+        <div style="margin-bottom: 30px;">
+            <a href="{{ path('application_admin_prizes_edit') }}" class="blue_btn">Добавить приз</a>
+        </div>
+
+        <div class="reviews_list">
+
+            <table width="100%">
+
+                {% for key, member in members %}
+                    <tr{% if loop.index % 2 == 0 %} class="odd"{% endif %}>
+                        <td>
+                            <span>{{ member.user.firstName }} {{ member.user.lastName }}</span>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">
+                            <div style="text-align: center;">
+                                Нету участников
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+{% endblock content %}

@@ -16,9 +16,25 @@
             {% if errorMessage == 'notShippingAddress' %}
                 Вы не укзали индекс и адрес доставки. Заполните ваш профиль.
             {% endif %}
+            {% if errorMessage == 'notBallsForPrize' %}
+                Не указаны баллы за приз
+            {% endif %}
+            {% if errorMessage == 'userIsMemberLottery' %}
+                Вы уже учавствуете в лотереи с данным призом
+            {% endif %}
         </span>
     </div>
 {% else %}
-    <p><span class="confirm-message">Приз будет отправлен на ваш адрес</span></p>
+    <p style="margin-bottom: 12px;">
+        <span class="confirm-message">
+            {% if message == 'bidParticipationLottery' %}
+                Ваша заявка на участие в розыгрыше приза получена
+            {% endif %}
+            {% if message == 'prizeSendEmail' %}
+                Приз будет отправлен на ваш адрес
+            {% endif %}
+        </span>
+    </p>
+    <a href="" class="blue_btn"  style="width: 70px; text-align: center;">Ok</a>
 {% endif %}
 

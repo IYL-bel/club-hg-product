@@ -15,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Application\PrizesBundle\Repository\PrizesLottery as PrizesLotteryRepository;
+
 
 /**
  * Application\PrizesBundle\Entity\PrizesLottery
@@ -54,14 +56,14 @@ class PrizesLottery
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="started_at", type="datetime")
+     * @ORM\Column(name="started_at", type="datetime", nullable=true)
      */
     protected $startedAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="finished_at", type="datetime")
+     * @ORM\Column(name="finished_at", type="datetime", nullable=true)
      */
     protected $finishedAt;
 
@@ -193,6 +195,18 @@ class PrizesLottery
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatusActive()
+    {
+        if ($this->status == PrizesLotteryRepository::STATUS_ACTIVE ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

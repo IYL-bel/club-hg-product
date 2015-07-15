@@ -150,6 +150,4 @@ jQuery(document).ready(function($){
         }
     }
 
-
-
 });

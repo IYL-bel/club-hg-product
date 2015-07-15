@@ -37,7 +37,7 @@
                             <span>{{ prize.getTypeString('admin.form.edit_prize.types_label.') |trans }}</span>
                         </td>
                         <td>
-                            <a href="">Участники</a>
+                            <a href="{{ path('application_admin_prizes_lottery_members', {'idPrize': prize.id}) }}">Участники</a>
                         </td>
                     </tr>
 

@@ -58,6 +58,10 @@ application_admin_prizes_edit:
     path:     /prizes/edit/{id}
     defaults: { _controller: ApplicationAdminBundle:Prizes:editPrize, id: null }
 
+application_admin_prizes_lottery_members:
+    path:     /prizes/lottery-members/{idPrize}/
+    defaults: { _controller: ApplicationAdminBundle:Prizes:lotteryMembers }
+
 application_admin_statuses:
     path:     /statuses/
     defaults: { _controller: ApplicationAdminBundle:Statuses:index }

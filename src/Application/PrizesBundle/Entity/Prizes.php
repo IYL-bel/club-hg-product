@@ -456,4 +456,23 @@ class Prizes
         return $this->prizesLottery;
     }
 
+    /**
+     * @return \Application\PrizesBundle\Entity\PrizesLottery
+     */
+    public function getPrizesLotteryActive()
+    {
+        $prizeLottery = null;
+        if ( $this->getPrizesLottery() ) {
+            /** @var \Application\PrizesBundle\Entity\PrizesLottery $lottery */
+            foreach ($this->getPrizesLottery() as $lottery) {
+                if ( $lottery->isStatusActive() ) {
+                    $prizeLottery = $lottery;
+                    break;
+                }
+            }
+        }
+
+        return $prizeLottery;
+    }
+
 }

@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- *  Application\PrizesBundle\Repository\PrizesLottery
+ * Application\PrizesBundle\Repository\PrizesLottery
  */
 class PrizesLottery extends EntityRepository
 {

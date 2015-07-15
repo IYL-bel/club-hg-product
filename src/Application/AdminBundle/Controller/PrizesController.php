@@ -111,9 +111,24 @@ class PrizesController extends Controller
         );
     }
 
-    public function membersAction()
+    /**
+     * @Template()
+     *
+     * @param int $idPrize
+     * @return array
+     */
+    public function lotteryMembersAction($idPrize)
     {
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getDoctrine()->getManager();
 
+        /** @var \Application\PrizesBundle\Repository\PrizesLotteryMembers $prizeLotteryMembersRepository */
+        $prizeLotteryMembersRepository = $em->getRepository('ApplicationPrizesBundle:PrizesLotteryMembers');
+        $prizeLotteryMembers = $prizeLotteryMembersRepository->getMembersForCurrentPrize($idPrize);
+
+        return array(
+            'members' => $prizeLotteryMembers,
+        );
     }
 
 }
